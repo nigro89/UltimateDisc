@@ -17,8 +17,6 @@ public interface MovingObject {
 	 */
 	public static final int right = 3;
 	
-	//commento Antonio
-		
 		/**
 		 */
 		public abstract int getX();
