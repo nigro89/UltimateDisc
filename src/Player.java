@@ -3,6 +3,7 @@
 public abstract class Player implements MovingObject {
 
 	// commento commit marco
+	//commento io ora :-)
 	
 	@Override
 	public int getX() {
