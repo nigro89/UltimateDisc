@@ -2,6 +2,8 @@
 
 public abstract class Player implements MovingObject {
 
+	// commento commit marco
+	
 	@Override
 	public int getX() {
 		// TODO Auto-generated method stub
