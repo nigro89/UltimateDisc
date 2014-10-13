@@ -1,5 +1,7 @@
 public abstract class Player implements MovingObject {
 
+	//prova
+	
 	@Override
 	public int getX() {
 		// TODO Auto-generated method stub
