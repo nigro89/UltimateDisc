@@ -16,6 +16,8 @@ public interface MovingObject {
 	 * @uml.property  name="RIGHT" readOnly="true"
 	 */
 	public static final int right = 3;
+	
+	//commento Antonio
 		
 		/**
 		 */
