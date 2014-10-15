@@ -6,4 +6,10 @@ public class ComPlayer extends Player {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
+	public void setDirection(int x, int y) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

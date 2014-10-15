@@ -12,8 +12,10 @@ Marco
 
 Antonio
 
-3. classe Disc...velocità fissa...setdirection stabilisce angolo tiro...update sarà aggiornare la posizione corrente tramite una run...
+3. classe Disc...velocità fissa...setdirection stabilisce angolo tiro...update sarà per aggiornare la posizione corrente tramite una run... COMPLETATO
+
 4. classe myplayer..update carica le immagini della posizione corrente del player e sposta il player...setEnergyshot è il set di un array che si incrementa a ogni tiro...setSupershot imposta una variabile boolean che stabilisce se si ha un super tiro o no...shot imposta i parametri di tiro del disco, tramite gameManager...
+
 5. classe wallPoint...funzioni di set e get della grandezza (in unità) del muro da difendere e in più i punti da attribuire a quella zona di muro toccata.
 
 data 13/10/2014
