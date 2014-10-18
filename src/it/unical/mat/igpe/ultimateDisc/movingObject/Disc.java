@@ -1,3 +1,4 @@
+package it.unical.mat.igpe.ultimateDisc.movingObject;
 import java.util.Random;
 
 
@@ -18,9 +19,9 @@ public class Disc extends Thread implements MovingObject  {
 //	x y è la posizione iniziale da cui deve partire il disco all'avvio, viene settata dalla grafica in quanto non si conosce a priori la dimensione dello schermo, xk 
 //	si presuppone k il disco viene lanciato in basso al centro dello schermo da un ipotetico arbitro.
 
-	public Disc(int x,int y,int widthComponent, int heightComponent) {
+	public Disc(int x,int y,int widthComponent, int heightComponent, int wall) {
 		this.widthComponent=widthComponent;
-		this.heightComponent=heightComponent;
+		this.heightComponent=heightComponent-wall;
 		this.x=x;
 		this.y=y;
 		this.posizioneInizialeX=x;
@@ -39,7 +40,6 @@ public class Disc extends Thread implements MovingObject  {
 	}
 
 	
-	@Override
 	public void setDirection(int x, int y) {
 		this.deltaX=x;
 		this.deltaY=y;
