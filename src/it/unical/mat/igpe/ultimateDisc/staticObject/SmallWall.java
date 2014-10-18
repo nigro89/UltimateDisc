@@ -1,10 +1,10 @@
 package it.unical.mat.igpe.ultimateDisc.staticObject;
 
-public class Wall implements StaticObject {
+public class SmallWall implements StaticObject {
 	
 	private int height;
 	
-	public Wall(int height){
+	public SmallWall(int height){
 		this.height=height;
 	}
 
@@ -19,12 +19,12 @@ public class Wall implements StaticObject {
 	}
 
 	@Override
-	public String getValuePoint() {
-		return null;
+	public int getValuePoint() {
+		return 0;
 	}
 
 	@Override
-	public void setValuePoint(String valuePoint) {
+	public void setValuePoint(int valuePoint) {
 	}
 
 }

@@ -7,8 +7,8 @@ public interface StaticObject {
 
 	public void setSize(int size);
 
-	public String getValuePoint();
+	public int getValuePoint();
 
-	public void setValuePoint(String valuePoint);
+	public void setValuePoint(int valuePoint);
 
 }
