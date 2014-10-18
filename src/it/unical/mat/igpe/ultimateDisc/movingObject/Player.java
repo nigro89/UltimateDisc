@@ -16,6 +16,8 @@ public abstract class Player implements MovingObject {
 	private int heightComponent;
 	private int wallNorth;
 	private int wallSouth;
+	static final int dimensionEnergyShot = 7;
+	private int energyShot;
 	
 	public Player(int x, int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth){
 		this.x=x;
@@ -27,6 +29,7 @@ public abstract class Player implements MovingObject {
 		this.heightComponent=heightComponent;
 		this.wallNorth=wallNorth;
 		this.wallSouth=wallSouth;
+		this.energyShot = 0;
 	}
 	
 	
@@ -129,5 +132,19 @@ public abstract class Player implements MovingObject {
 		this.y = y;
 	}
 
+
+	public boolean availableEnergyShot() {
+		if(this.energyShot == dimensionEnergyShot){
+			return true;
+		}
+		return false;
+	}
+
+
+	public void setEnergyShot() {
+		this.energyShot++;
+	}
+
+	
 
 }
