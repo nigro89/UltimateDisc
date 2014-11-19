@@ -6,11 +6,6 @@ import it.unical.mat.igpe.ultimateDisc.movingObject.MyPlayer;
 import it.unical.mat.igpe.ultimateDisc.world.World;
 import it.unical.mat.igpe.ultimateDisc.world.WorldManager;
 
-
-/**
- * @uml.dependency   supplier="MyPlayer"
- * @uml.dependency   supplier="Player"
- */
 public class GameManager {
 
 	private MyPlayer myPlayer=null;
