@@ -27,4 +27,14 @@ P.S. -> in questa classe vedremo in futuro se metteremo una variabile che stabil
 
 data 13/10/2014
 
+NUOVE OPERAZIONI
+
+data 19/11/2014
+
+1. disegnare campo da gioco
+2. inserire nel campo il disco e farlo girare
+3. iniziare a inserire nel campo i punteggi
+4. aggiungere al campo il player e tutte le sue funzioni
+5. affiungere il comPlayer
+
  
