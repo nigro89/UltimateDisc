@@ -36,5 +36,3 @@ data 19/11/2014
 3. iniziare a inserire nel campo i punteggi
 4. aggiungere al campo il player e tutte le sue funzioni
 5. affiungere il comPlayer
-
- 
