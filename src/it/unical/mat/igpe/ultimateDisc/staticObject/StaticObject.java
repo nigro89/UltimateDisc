@@ -7,7 +7,7 @@ public interface StaticObject {
 
 	public void setSize(int size);
 
-	public int getValuePoint();
+	public int getValuePoint(double y);
 
 	public void setValuePoint(int valuePoint);
 
