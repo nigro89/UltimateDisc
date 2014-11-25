@@ -41,7 +41,7 @@ public class GameManager {
 
 	public void start()
 	{
-		// stabilire i parametri da inizializzare a disc, myplayer e complayer. (tramite la grafica ci regoliamo)
+//		stabilire i parametri da inizializzare a disc, myplayer e complayer. (tramite la grafica ci regoliamo)
 //		this.myPlayer = new MyPlayer(x, y, widthComponent, heightComponent, wallNorth, wallSouth);
 //		this.comPlayer = new ComPlayer(x, y, widthComponent, heightComponent, wallNorth, wallSouth);
 //		this.disc = new Disc(x, y, widthComponent, heightComponent, wall);

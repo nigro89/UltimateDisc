@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -16,10 +17,13 @@ public class CenterGamePanel extends JPanel {
 
 	final Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/legno.jpg");
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double width = screenSize.getWidth();
+    double height = screenSize.getHeight()*0.75;
     
 	public CenterGamePanel()
 	{
-		this.setPreferredSize(new Dimension(getWidth(),200));
+		this.setPreferredSize(new Dimension((int)width,(int)height));
 	}
 	
 	@Override
