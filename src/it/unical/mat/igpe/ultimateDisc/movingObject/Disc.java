@@ -21,7 +21,7 @@ public class Disc extends Thread implements MovingObject  {
 
 	public Disc(int x,int y,int widthComponent, int heightComponent, int wall) {
 		this.widthComponent=widthComponent;
-		this.heightComponent=heightComponent-wall; // ?wall
+		this.heightComponent=heightComponent-wall; 
 		this.x=x;
 		this.y=y;
 		this.posizioneInizialeX=x;

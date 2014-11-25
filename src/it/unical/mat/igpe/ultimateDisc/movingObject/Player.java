@@ -68,7 +68,7 @@ public abstract class Player implements MovingObject {
                 break;
                 
             case DOWN:
-                if (y < this.heightComponent - 1 && (y+1<this.heightComponent-wallSouth)) //??
+                if (y < this.heightComponent - 1 && (y+1<this.heightComponent-wallSouth)) 
                 {
                     setY(y + 1);
                 }
@@ -88,7 +88,7 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case RIGHT:
-                if (x < widthComponent - 1 && (x+1<widthComponent-1)) //??
+                if (x < widthComponent - 1 && (x+1<widthComponent-1)) 
                 {
                     setX(x + 1);
                 }
