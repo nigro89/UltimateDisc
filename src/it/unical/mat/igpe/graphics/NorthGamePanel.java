@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -17,11 +18,14 @@ public class NorthGamePanel extends JPanel {
 
 	final Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/nord.jpg");
+    
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight()*0.20;
 	
 	public NorthGamePanel()
 	{
-		this.setBorder(new EmptyBorder(0, 0, 0, 0));
-		this.setPreferredSize(new Dimension(1000,200));
+		this.setPreferredSize(new Dimension((int)width,(int)height));
 	}
 	
 	@Override
