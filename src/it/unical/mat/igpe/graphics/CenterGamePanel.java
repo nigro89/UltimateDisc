@@ -6,6 +6,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -17,6 +19,8 @@ public class CenterGamePanel extends JPanel {
 
 	final Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/legno.jpg");
+    final Image imgf = tk.getImage("img/frisbee.gif");
+    
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight()*0.75;
@@ -31,5 +35,6 @@ public class CenterGamePanel extends JPanel {
 
 		super.paintComponent(g);
 		g.drawImage(img,0,0,getWidth(),getHeight(),this);
+		g.drawImage(imgf,this.getWidth()/6,this.getHeight()/2,80,80,this);  
 	}
 }
