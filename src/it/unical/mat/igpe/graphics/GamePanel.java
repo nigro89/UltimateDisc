@@ -1,6 +1,10 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimateDisc.GameManager;
+
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
@@ -15,10 +19,12 @@ public class GamePanel extends JPanel {
 	SouthGamePanel southGamePanel = new SouthGamePanel();
 	WestGamePanel westGamePanel = new WestGamePanel();
 	EastGamePanel eastGamePanel = new EastGamePanel();
-	CenterGamePanel centerGamePanel = new CenterGamePanel();
+	CenterGamePanel centerGamePanel;
 	
-	public GamePanel()
+	public GamePanel(GameManager  gameManager)
 	{
+		this.setName("GamePanel");
+		this.centerGamePanel = new CenterGamePanel(gameManager);
 		this.setLayout(new BorderLayout());
 		
 		this.add(northGamePanel,"North");
@@ -26,6 +32,15 @@ public class GamePanel extends JPanel {
 		this.add(eastGamePanel,"East");
 		this.add(westGamePanel,"West");
 		this.add(centerGamePanel,"Center");
+		
 	}
 
+	@Override
+	public void requestFocus() {
+
+		super.requestFocus();
+		centerGamePanel.requestFocus();
+	}
+	
+	
 }

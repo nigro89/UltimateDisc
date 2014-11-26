@@ -1,11 +1,16 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimateDisc.GameManager;
+
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class MainFrame extends JFrame {
 
@@ -19,7 +24,8 @@ public class MainFrame extends JFrame {
 	 */
 	public static void main(String[] args) {
 
-		final MainFrame mainFrame = new MainFrame();
+		final GameManager gameManager = new GameManager();
+		final MainFrame mainFrame = new MainFrame(gameManager);
 		//System.out.println(mainFrame.width+"x"+mainFrame.height);
 	}
 
@@ -28,36 +34,50 @@ public class MainFrame extends JFrame {
 	double height = screenSize.getHeight();
 	
 	GamePanel gamePanel;
+	MenuPanel menuPanel;
+	JPanel contentPanel;
 	
-	public MainFrame()
+	GameManager gameManager;
+	
+	public MainFrame(GameManager gameManager)
 	{
-		gamePanel = new GamePanel();
-		this.setContentPane(gamePanel);
+		this.contentPanel = new JPanel(new BorderLayout());
+		this.gameManager = gameManager;
+		
+		menuPanel = new MenuPanel(this);
+		
+		contentPanel.setSize(new Dimension((int)width,(int)height));
+		contentPanel.add(menuPanel,"Center");
+		this.setContentPane(contentPanel);
+		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		this.setUndecorated(true);
 		this.setVisible(true);
 		
-		this.addKeyListener(new KeyListener() {
-			
-			@Override
-			public void keyTyped(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
-					System.exit(0);
-			}
-		});
 	}
+	
+	public void startGame()
+	{
+		gamePanel = new GamePanel(this.gameManager);
+		this.switchTo(gamePanel);
+		gameManager.start();
+		gamePanel.centerGamePanel.repainterThread.start();
+	}
+	
+    void switchTo(final JPanel panel)
+    {
+        SwingUtilities.invokeLater(new Runnable()
+            {
+                @Override
+                public void run()
+                {
+                    contentPanel.removeAll();
+                    contentPanel.add(panel);
+                    contentPanel.updateUI();
+                    panel.requestFocus();
+                }
+            });
+    }
 	
 }

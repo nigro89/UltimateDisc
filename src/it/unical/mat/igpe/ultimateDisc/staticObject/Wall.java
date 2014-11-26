@@ -10,6 +10,7 @@ public class Wall implements StaticObject {
 	
 	public Wall(int size){
 		this.size=size;
+		this.arrayBlock = new Vector<SmallWall>(size);
 	}
 
 	public void addSmallWall(SmallWall block)

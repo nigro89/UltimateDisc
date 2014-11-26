@@ -29,6 +29,12 @@ public class Disc extends Thread implements MovingObject  {
 		intervalloAggiornamento = 10 + new Random().nextInt(30);
 	}
 
+	public Disc() {
+		intervalloAggiornamento = 10 + new Random().nextInt(30);
+		posizioneInizialeX=0;
+		posizioneInizialeY=0;
+	}
+
 	@Override
 	public int getX() {
 		return x;
@@ -68,6 +74,7 @@ public class Disc extends Thread implements MovingObject  {
 		this.y=this.posizioneInizialeY;
 	}
 	
+	//////////////////////////////////////////////////////////// lasciare???
 	public void run(){
 		
 		try {

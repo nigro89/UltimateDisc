@@ -20,11 +20,11 @@ public class WorldManager {
 		// ricorda assegnare la y ad ogni smallWall ( da grafica )
 		
 		
-		String nameFile = "img/"+Integer.toString(type)+".txt";
+		String nameFile = Integer.toString(type)+".txt";
 		BufferedReader b;
 		String s;
 		try {
-			b = new BufferedReader(new FileReader(nameFile));
+			b = new BufferedReader(new FileReader("txt/"+nameFile));
 			s=b.readLine();
 			b.close();
 			

@@ -1,5 +1,8 @@
 package it.unical.mat.igpe.ultimateDisc;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.MyPlayer;
@@ -17,7 +20,9 @@ public class GameManager {
 	long startTime = 0;
 	long currentTime = 0;
 	
-	
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
 		
 	public MyPlayer getMyPlayer() {
 		return myPlayer;
@@ -42,13 +47,15 @@ public class GameManager {
 	public void start()
 	{
 //		stabilire i parametri da inizializzare a disc, myplayer e complayer. (tramite la grafica ci regoliamo)
-//		this.myPlayer = new MyPlayer(x, y, widthComponent, heightComponent, wallNorth, wallSouth);
-//		this.comPlayer = new ComPlayer(x, y, widthComponent, heightComponent, wallNorth, wallSouth);
-//		this.disc = new Disc(x, y, widthComponent, heightComponent, wall);
+//		condidioni iniziali: disco in mano al myplayer
+		this.myPlayer = new MyPlayer(0, 0, 0, 0, 0, 0);
+		this.comPlayer = new ComPlayer(0, 0, 0, 0, 0, 0);
+		
+		this.disc = new Disc((int)width/15,(int)height/3,(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
 		
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);
-		 this.startTime = (System.currentTimeMillis())/1000;
+		this.startTime = (System.currentTimeMillis())/1000;
 	}
 
 	public boolean timeUp()
@@ -69,19 +76,19 @@ public class GameManager {
 
 	public void update()
 	{
-		if(timeUp())
-		{
-			disc.reset();
-			myPlayer.reset();
-			comPlayer.reset();
-			this.startTime=0;
-		}
-		else
-		{
+//		if(timeUp())
+//		{
+//			disc.reset();
+//			myPlayer.reset();
+//			comPlayer.reset();
+//			this.startTime=0;
+//		}
+//		else
+//		{
 			disc.update();
 			myPlayer.update();
 			comPlayer.update(); // da fare (ia comPlayer)
-		}
+//		}
 		world.update();
 	}
 
