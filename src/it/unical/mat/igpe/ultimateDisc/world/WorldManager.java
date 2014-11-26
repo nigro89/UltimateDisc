@@ -1,10 +1,13 @@
 package it.unical.mat.igpe.ultimateDisc.world;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.MovingObject;
 import it.unical.mat.igpe.ultimateDisc.staticObject.SmallWall;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
@@ -12,7 +15,7 @@ import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 public class WorldManager {
 
 	
-	public World loadWorld(MovingObject disc,Integer type)
+	public World loadWorld(Disc disc,Integer type)
 	{
 		World currentWorld=null;
 		
@@ -35,10 +38,13 @@ public class WorldManager {
 			Wall wallPlayer = new Wall(size);
 			Wall wallCom = new Wall(size);
 			
+			Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+			double height = (screenSize.getHeight()*0.75)/5;
+			
 			for (int i = 1; i < n.length; i++) {
 				Integer value = Integer.parseInt(n[i]);
 				SmallWall smallWall = new SmallWall(value);
-				//smallWall.setY_position(y_position);
+				smallWall.setY_position(height*(i-1));
 				wallPlayer.addSmallWall(smallWall);
 				wallCom.addSmallWall(smallWall);
 			}

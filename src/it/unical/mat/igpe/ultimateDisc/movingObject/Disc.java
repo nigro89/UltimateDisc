@@ -14,7 +14,8 @@ public class Disc extends Thread implements MovingObject  {
 	private final int posizioneInizialeY;
 	private int widthComponent;
 	private int heightComponent;
-	
+	boolean myplayer;
+	boolean complayer;
 //  get set construttore
 //	x y è la posizione iniziale da cui deve partire il disco all'avvio, viene settata dalla grafica in quanto non si conosce a priori la dimensione dello schermo, xk 
 //	si presuppone k il disco viene lanciato in basso al centro dello schermo da un ipotetico arbitro.
@@ -27,6 +28,7 @@ public class Disc extends Thread implements MovingObject  {
 		this.posizioneInizialeX=x;
 		this.posizioneInizialeY=y;
 		intervalloAggiornamento = 10 + new Random().nextInt(30);
+		myplayer=complayer=false;
 	}
 
 	public Disc() {
@@ -56,6 +58,11 @@ public class Disc extends Thread implements MovingObject  {
 		
 		if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
         {
+			if (deltaX>0)
+				myplayer=true;
+			else
+				complayer=true;
+			
             deltaX = -deltaX;
         }
 		if (getY() <= 0 && deltaY < 0 || getY() >= this.heightComponent && deltaY > 0)
@@ -66,6 +73,24 @@ public class Disc extends Thread implements MovingObject  {
         this.x=this.x+deltaX;
         this.y=this.y+deltaY;
 		
+	}
+
+	
+	
+	public boolean isMyplayer() {
+		return myplayer;
+	}
+
+	public void setMyplayer(boolean myplayer) {
+		this.myplayer = myplayer;
+	}
+
+	public boolean isComplayer() {
+		return complayer;
+	}
+
+	public void setComplayer(boolean complayer) {
+		this.complayer = complayer;
 	}
 
 	@Override

@@ -1,11 +1,15 @@
 package it.unical.mat.igpe.ultimateDisc.world;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.MovingObject;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 
 public class WorldImpl implements World {
 
-	private MovingObject disc; 
+	private Disc disc; 
 	private Wall wallMyPlayer;
 	private Wall wallCom;
 	private double x_limit_myPlayer;
@@ -14,7 +18,13 @@ public class WorldImpl implements World {
 	int myPlayerScore;
 	int comScore;
 	
-	public WorldImpl(MovingObject d,Wall wmp, Wall  wc)
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
+	int dimensionOfDisc = (int)width/17;
+	int radius = dimensionOfDisc/2;
+	
+	public WorldImpl(Disc d,Wall wmp, Wall  wc)
 	{
 		this.disc=d;
 		this.wallMyPlayer=wmp;
@@ -85,18 +95,22 @@ public class WorldImpl implements World {
 	public void update() {
 		
 		int x = disc.getX();
-		int y = disc.getY();
+		int y = disc.getY()+radius;
 		int point=0;
 		
-		if (x >= this.x_limit_com)
+		if (disc.isComplayer()==true)
 		{
 			point = this.wallCom.getValuePoint(y);
 			this.comScore+=point;
+			disc.setComplayer(false);
+			System.out.println(point+" punto al com "+comScore);
 		}
-		else if (x <= this.x_limit_myPlayer)
+		else if (disc.isMyplayer()==true)
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
 			this.myPlayerScore+=point;
+			disc.setMyplayer(false);
+			System.out.println(point+" punto al my "+myPlayerScore);
 		}
 		
 	}

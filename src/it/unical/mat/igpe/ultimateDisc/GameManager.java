@@ -23,6 +23,8 @@ public class GameManager {
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	double width = screenSize.getWidth();
 	double height = screenSize.getHeight();
+	int dimensionOfDisc = (int)width/17;
+	int radius = dimensionOfDisc/2;
 		
 	public MyPlayer getMyPlayer() {
 		return myPlayer;
@@ -51,8 +53,8 @@ public class GameManager {
 		this.myPlayer = new MyPlayer(0, 0, 0, 0, 0, 0);
 		this.comPlayer = new ComPlayer(0, 0, 0, 0, 0, 0);
 		
-		this.disc = new Disc((int)width/15,(int)height/3,(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
-		
+		this.disc = new Disc(((int)width/15+radius),((int)(height*0.75)/2-radius),(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
+
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);
 		this.startTime = (System.currentTimeMillis())/1000;

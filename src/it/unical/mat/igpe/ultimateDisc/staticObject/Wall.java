@@ -34,10 +34,14 @@ public class Wall implements StaticObject {
 	public int getValuePoint(double y) {
 		
 		if (arrayBlock.size()==size)
-		{
-			for (int i = (size-1); i <= 0; i--) {
-				if(arrayBlock.get(i).getY_position() >= y)
+		{	
+			if (y<0){	y=0;	}
+			for (int i = (size-1); i >= 0; i--) {
+//				System.out.println(arrayBlock.get(i).getY_position()+" >= "+y);
+				if(arrayBlock.get(i).getY_position() <= y)
+				{	
 					return arrayBlock.get(i).getValuePoint(y);
+				}
 			}
 			return -1;
 		}		
