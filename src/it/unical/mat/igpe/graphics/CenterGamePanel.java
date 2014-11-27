@@ -33,6 +33,7 @@ public class CenterGamePanel extends JPanel {
 	        {
 	        	while(true)
 	        	{
+	        		
 	        		gameManager.update();
 	        		repaint();
 	        		try
@@ -53,8 +54,8 @@ public class CenterGamePanel extends JPanel {
 
 	final static Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/legno.jpg");
-    final Image imgf = tk.getImage("img/frisbee.gif");
-    static Image imgpf = tk.getImage("img/front.png");
+    final static Image imgf = tk.getImage("img/frisbee.gif");
+    static Image imgpf = tk.getImage("img/frontc.gif");
     
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
@@ -86,7 +87,7 @@ public class CenterGamePanel extends JPanel {
 											break;
 						case KeyEvent.VK_LEFT:
 											gameManager.getMyPlayer().setDirection(-1);
-											CenterGamePanel.imgpf = tk.getImage("img/front.png");
+											CenterGamePanel.imgpf = tk.getImage("img/frontc.gif");
 											break;
 						case KeyEvent.VK_RIGHT:
 											gameManager.getMyPlayer().setDirection(-1);
@@ -108,7 +109,7 @@ public class CenterGamePanel extends JPanel {
 										break;
 					case KeyEvent.VK_LEFT:
 										gameManager.getMyPlayer().setDirection(2);
-										CenterGamePanel.imgpf = tk.getImage("img/retro.png");
+										CenterGamePanel.imgpf = tk.getImage("img/retroc.gif");
 										break;
 					case KeyEvent.VK_RIGHT:
 										gameManager.getMyPlayer().setDirection(3);
