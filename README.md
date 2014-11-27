@@ -29,13 +29,18 @@ data 13/10/2014
 
 NUOVE OPERAZIONI
 
-data 19/11/2014
+data 19/11/2014 aggiornamento 27/11/2014
 
-1. disegnare campo da gioco
-2. inserire nel campo il disco e farlo girare
-3. iniziare a inserire nel campo i punteggi
+1. disegnare campo da gioco								 -ok
+2. inserire nel campo il disco e farlo girare 			 -ok
+3. iniziare a inserire nel campo i punteggi 			 -ok
 4. aggiungere al campo il player e tutte le sue funzioni
+	4.1 interazione player disco
+	4.2 lancio del disco ( direzione e velocità )
+	4.3 cambiamento immagini movimenti
 5. affiungere il comPlayer
+6. classe screen per gli attributi del monitor
+7. classe per la gestione delle immagini
 
 
 

@@ -59,8 +59,8 @@ public abstract class Player implements MovingObject {
         switch (direction)
         {
             case UP:
-                if (y > 0 && (y-1>wallNorth)){
-                    setY(y-1);
+                if (y > 0 && (y-5>wallNorth)){
+                    setY(y-5);
                 }
                 else{
                     setDirection(STOP);
@@ -68,9 +68,9 @@ public abstract class Player implements MovingObject {
                 break;
                 
             case DOWN:
-                if (y < this.heightComponent - 1 && (y+1<this.heightComponent-wallSouth)) 
+                if (y < this.heightComponent - 1 && (y+5<this.heightComponent-wallSouth)) 
                 {
-                    setY(y + 1);
+                    setY(y + 5);
                 }
                 else
                 {
@@ -78,9 +78,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case LEFT:
-                if (x > 0 && (x-1>0))
+                if (x > 0 && (x-5>0))
                 {
-                    setX(x - 1);
+                    setX(x - 5);
                 }
                 else
                 {
@@ -88,9 +88,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case RIGHT:
-                if (x < widthComponent - 1 && (x+1<widthComponent-1)) 
+                if (x < widthComponent - 1 && (x+5<widthComponent-1)) 
                 {
-                    setX(x + 1);
+                    setX(x + 5);
                 }
                 else
                 {

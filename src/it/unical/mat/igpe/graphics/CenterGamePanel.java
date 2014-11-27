@@ -51,9 +51,10 @@ public class CenterGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	final Toolkit tk = Toolkit.getDefaultToolkit();
+	final static Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/legno.jpg");
     final Image imgf = tk.getImage("img/frisbee.gif");
+    static Image imgpf = tk.getImage("img/front.png");
     
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
@@ -72,9 +73,49 @@ public class CenterGamePanel extends JPanel {
 		
 		this.addKeyListener(new KeyAdapter()
         {
+			 @Override
+	         public void keyReleased (final KeyEvent e)
+			 {
+				 switch (e.getKeyCode())
+	            	{
+						case KeyEvent.VK_UP:
+											gameManager.getMyPlayer().setDirection(-1);
+											break;
+						case KeyEvent.VK_DOWN:
+											gameManager.getMyPlayer().setDirection(-1);
+											break;
+						case KeyEvent.VK_LEFT:
+											gameManager.getMyPlayer().setDirection(-1);
+											CenterGamePanel.imgpf = tk.getImage("img/front.png");
+											break;
+						case KeyEvent.VK_RIGHT:
+											gameManager.getMyPlayer().setDirection(-1);
+											break;
+						default:	
+							break;
+					}
+			 }
             @Override
             public void keyPressed(final KeyEvent e)
             {
+            	switch (e.getKeyCode())
+            	{
+					case KeyEvent.VK_UP:
+										gameManager.getMyPlayer().setDirection(0);
+										break;
+					case KeyEvent.VK_DOWN:
+										gameManager.getMyPlayer().setDirection(1);
+										break;
+					case KeyEvent.VK_LEFT:
+										gameManager.getMyPlayer().setDirection(2);
+										CenterGamePanel.imgpf = tk.getImage("img/retro.png");
+										break;
+					case KeyEvent.VK_RIGHT:
+										gameManager.getMyPlayer().setDirection(3);
+										break;
+					default:	
+						break;
+				}
             	
             	if (e.getKeyCode()==KeyEvent.VK_S)
             	{
@@ -94,5 +135,7 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(img,0,0,getWidth(),getHeight(),this);
 		// disc
 		g.drawImage(imgf,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this);  
+		// player
+		g.drawImage(imgpf,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 	}
 }
