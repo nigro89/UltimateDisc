@@ -8,6 +8,10 @@ public abstract class Player implements MovingObject {
 	public static final int DOWN = 1;
 	public static final int LEFT = 2;
 	public static final int RIGHT = 3;
+	public static final int UPRIGHT = 4;
+	public static final int UPLEFT = 5;
+	public static final int DOWNRIGHT = 6;
+	public static final int DOWNLEFT = 7;
 	public static final int STOP=-1;
 	private int x;
 	private int y;
@@ -23,6 +27,7 @@ public abstract class Player implements MovingObject {
 	private int energyShot;
 	public final static int withImage=146;
 	public final static int heightImage=160;
+	private final static int speedPlayer = 17;
 	
 	public Player(int x, int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth){
 		this.x=x;
@@ -63,9 +68,49 @@ public abstract class Player implements MovingObject {
         final int x = getX();
         switch (direction)
         {
+        	case UPRIGHT:
+        		if (y > 0 && (y-speedPlayer>wallNorth) && (x < widthComponent - 1 && (x+speedPlayer<widthComponent-1))){
+        			setY(y-speedPlayer);
+        			setX(x + speedPlayer);
+        		}
+        		else
+                {
+                    setDirection(STOP);
+                }
+                break;
+        	case UPLEFT:
+        		if (y > 0 && (y-speedPlayer>wallNorth) && (x > 0 && (x-speedPlayer>0))){
+        			setY(y-speedPlayer);
+        			setX(x - speedPlayer);
+        		}
+        		else
+                {
+                    setDirection(STOP);
+                }
+                break;
+        	case DOWNRIGHT:
+        		if (y < this.heightComponent - 1 && (y+speedPlayer<this.heightComponent-wallSouth) && (x < widthComponent - 1 && (x+speedPlayer<widthComponent-1)) ){
+        			setY(y + speedPlayer);
+        			 setX(x + speedPlayer);
+        		}
+        		else
+                {
+                    setDirection(STOP);
+                }
+                break;
+        	case DOWNLEFT:
+        		if (y < this.heightComponent - 1 && (y+speedPlayer<this.heightComponent-wallSouth) && (x > 0 && (x-speedPlayer>0)) ){
+        			setY(y + speedPlayer);
+        			setX(x - speedPlayer);
+        		}
+        		else
+                {
+                    setDirection(STOP);
+                }
+                break;
             case UP:
-                if (y > 0 && (y-10>wallNorth)){
-                    setY(y-10);
+                if (y > 0 && (y-speedPlayer>wallNorth)){
+                    setY(y-speedPlayer);
                 }
                 else{
                     setDirection(STOP);
@@ -73,9 +118,9 @@ public abstract class Player implements MovingObject {
                 break;
                 
             case DOWN:
-                if (y < this.heightComponent - 1 && (y+10<this.heightComponent-wallSouth)) 
+                if (y < this.heightComponent - 1 && (y+speedPlayer<this.heightComponent-wallSouth)) 
                 {
-                    setY(y + 10);
+                    setY(y + speedPlayer);
                 }
                 else
                 {
@@ -83,9 +128,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case LEFT:
-                if (x > 0 && (x-10>0))
+                if (x > 0 && (x-speedPlayer>0))
                 {
-                    setX(x - 10);
+                    setX(x - speedPlayer);
                 }
                 else
                 {
@@ -93,9 +138,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case RIGHT:
-                if (x < widthComponent - 1 && (x+10<widthComponent-1)) 
+                if (x < widthComponent - 1 && (x+speedPlayer<widthComponent-1)) 
                 {
-                    setX(x + 10);
+                    setX(x + speedPlayer);
                 }
                 else
                 {

@@ -53,7 +53,7 @@ public class GameManager {
 		this.myPlayer = new MyPlayer(0, 0, (int)(((int)width-(int)(width*0.115))*0.4),(int)(height*0.75),0,(int)(height*0.18));
 		this.comPlayer = new ComPlayer(0, 0, 0, 0, 0, 0);
 		
-		this.disc = new Disc(((int)width/15+radius),((int)(height*0.75)/2-radius),(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
+		this.disc = new Disc(((int)(width*0.4)+radius),((int)(height*0.7)-radius),(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
 
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);

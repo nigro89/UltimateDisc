@@ -51,11 +51,13 @@ public class CenterGamePanel extends JPanel {
     final Image img = tk.getImage("img/legno.jpg");
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
+    private static int xShoot=0;
+    private static int yShoot=0;
     
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double width = screenSize.getWidth();
     double height = screenSize.getHeight()*0.75;
-    int dimensionOfDisc = (int)width/17;
+	int dimensionOfDisc = (int)width/17;
     
     private final GameManager gameManager;
     
@@ -66,13 +68,15 @@ public class CenterGamePanel extends JPanel {
 	{
 		this.gameManager=gameManager;
 		this.setPreferredSize(new Dimension((int)width,(int)height));
-
+		
+		final KeyProcessor keyProcessor = new KeyProcessor(100,null,gameManager);
+		
 		this.addKeyListener(new KeyAdapter()
         {
-			 @Override
+			@Override
 	         public void keyReleased (final KeyEvent e)
 			 {
-				 if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
+				 keyProcessor.setKeystate(e.getKeyCode(),false);
 					 switch (e.getKeyCode())
 					 {
 					 case KeyEvent.VK_UP:
@@ -91,48 +95,36 @@ public class CenterGamePanel extends JPanel {
 					 default:	
 						 break;
 					 }
-				 }
+					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
+						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
+						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
+						 gameManager.getDisc().setDirection(getxShoot(), getyShoot());
+					 }
 			 }
             @Override
             public void keyPressed(final KeyEvent e)
             {
-            	if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
-            		
-            		
-            		switch (e.getKeyCode())
-            		{
-            		case (KeyEvent.VK_UP):
-            			gameManager.getMyPlayer().setDirection(0);
-            			break;
-            		case KeyEvent.VK_DOWN:
-            			gameManager.getMyPlayer().setDirection(1);
-            			break;
-            		case KeyEvent.VK_LEFT:
-            			gameManager.getMyPlayer().setDirection(2);
-            			CenterGamePanel.imgpf = tk.getImage("img/retroc.gif");
-            			break;
-            		case KeyEvent.VK_RIGHT:
-            			gameManager.getMyPlayer().setDirection(3);
-            			break;
-            		default:	
-            			break;
-            		}
-            	}
-            	
-            	if (e.getKeyCode()==KeyEvent.VK_S)
-            	{
-            		gameManager.getDisc().setDirection(20, 14);
-            		if(gameManager.getDisc().isAvailableForTheMyPlayer()){
-            			gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
-            			gameManager.getDisc().setAvailableForTheMyPlayer(false);
-            			gameManager.getDisc().setDirection(20, 14);
-            		}
-            	}
+            	keyProcessor.setKeystate(e.getKeyCode(),true);
             }
         });
-		
 		repainterThread = new RepainterThread(gameManager);
+		keyProcessor.start();
 	}
+	
+	  public static int getxShoot() {
+			return xShoot;
+		}
+
+		public static void setxShoot(int xShoot) {
+			CenterGamePanel.xShoot += xShoot;
+		}
+		public static int getyShoot() {
+			return yShoot;
+		}
+
+		public static void setyShoot(int yShoot) {
+			CenterGamePanel.yShoot += yShoot;
+		}
 	
 	@Override
 	protected void paintComponent(Graphics g) {

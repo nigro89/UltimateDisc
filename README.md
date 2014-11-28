@@ -36,10 +36,10 @@ data 19/11/2014 aggiornamento 27/11/2014
 3. iniziare a inserire nel campo i punteggi 			 -ok
 4. aggiungere al campo il player e tutte le sue funzioni
 	4.1 interazione player disco				-ok
-	4.2 movimento in diagonale del Player
-	4.3 lancio del disco ( direzione e velocità )
+	4.2 movimento in diagonale del Player			-ok
+	4.3 lancio del disco ( direzione e velocità )		-ok
 	4.4 cambiamento immagini movimenti
-5. affiungere il comPlayer
+5. aggiungere il comPlayer
 6. classe screen per gli attributi del monitor
 7. classe per la gestione delle immagini
 
