@@ -1,4 +1,7 @@
 package it.unical.mat.igpe.ultimateDisc.movingObject;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.util.Random;
 
 
@@ -10,12 +13,18 @@ public class Disc extends Thread implements MovingObject  {
 	private final long intervalloAggiornamento;
 	private int deltaX;
 	private int deltaY;
-	private final int posizioneInizialeX;
-	private final int posizioneInizialeY;
+	private int posizioneInizialeX;
+	private int posizioneInizialeY;
 	private int widthComponent;
 	private int heightComponent;
 	boolean myplayer;
 	boolean complayer;
+	private boolean availableForTheMyPlayer = false;
+	
+	
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double width = screenSize.getWidth();
+    int dimensionOfDisc = (int)width/17;
 //  get set construttore
 //	x y è la posizione iniziale da cui deve partire il disco all'avvio, viene settata dalla grafica in quanto non si conosce a priori la dimensione dello schermo, xk 
 //	si presuppone k il disco viene lanciato in basso al centro dello schermo da un ipotetico arbitro.
@@ -47,6 +56,14 @@ public class Disc extends Thread implements MovingObject  {
 		return y;
 	}
 
+
+	public void setPosition (int x, int y){
+		this.x=x;
+		this.y=y;
+		this.posizioneInizialeX=x;
+		this.posizioneInizialeY=y;
+		this.setAvailableForTheMyPlayer(true);
+	}
 	
 	public void setDirection(int x, int y) {
 		this.deltaX=x;
@@ -56,22 +73,19 @@ public class Disc extends Thread implements MovingObject  {
 	@Override
 	public void update() {
 		
-		if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
-        {
-			if (deltaX>0)
-				myplayer=true;
-			else
-				complayer=true;
+		if(isAvailableForTheMyPlayer() == false){
+			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
+	        {
+	            deltaX = -deltaX;
+	        }
+			if (getY() <= 0 && deltaY < 0 || getY() >= this.heightComponent && deltaY > 0)
+	        {
+	            deltaY = -deltaY;
+	        }
 			
-            deltaX = -deltaX;
-        }
-		if (getY() <= 0 && deltaY < 0 || getY() >= this.heightComponent && deltaY > 0)
-        {
-            deltaY = -deltaY;
-        }
-		
-        this.x=this.x+deltaX;
-        this.y=this.y+deltaY;
+	        this.x=this.x+deltaX;
+	        this.y=this.y+deltaY;
+		}
 		
 	}
 
@@ -99,6 +113,10 @@ public class Disc extends Thread implements MovingObject  {
 		this.y=this.posizioneInizialeY;
 	}
 	
+	public Rectangle getBounds(){
+		return new Rectangle(this.x,this.y,(int)(dimensionOfDisc*0.6),(int)(dimensionOfDisc*0.6));
+	}
+	
 	//////////////////////////////////////////////////////////// lasciare???
 	public void run(){
 		
@@ -112,5 +130,13 @@ public class Disc extends Thread implements MovingObject  {
 			// TODO: handle exception
 		}
 		
+	}
+
+	public boolean isAvailableForTheMyPlayer() {
+		return availableForTheMyPlayer;
+	}
+
+	public void setAvailableForTheMyPlayer(boolean availableForTheMyPlayer) {
+		this.availableForTheMyPlayer = availableForTheMyPlayer;
 	}
 }

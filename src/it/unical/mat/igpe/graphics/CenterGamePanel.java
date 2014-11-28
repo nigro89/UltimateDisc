@@ -1,19 +1,14 @@
 package it.unical.mat.igpe.graphics;
 
 import it.unical.mat.igpe.ultimateDisc.GameManager;
-import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.RenderingHints.Key;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -66,61 +61,72 @@ public class CenterGamePanel extends JPanel {
     
     final RepainterThread repainterThread;
     
+    
 	public CenterGamePanel(final GameManager gameManager)
 	{
 		this.gameManager=gameManager;
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 
-		
 		this.addKeyListener(new KeyAdapter()
         {
 			 @Override
 	         public void keyReleased (final KeyEvent e)
 			 {
-				 switch (e.getKeyCode())
-	            	{
-						case KeyEvent.VK_UP:
-											gameManager.getMyPlayer().setDirection(-1);
-											break;
-						case KeyEvent.VK_DOWN:
-											gameManager.getMyPlayer().setDirection(-1);
-											break;
-						case KeyEvent.VK_LEFT:
-											gameManager.getMyPlayer().setDirection(-1);
-											CenterGamePanel.imgpf = tk.getImage("img/frontc.gif");
-											break;
-						case KeyEvent.VK_RIGHT:
-											gameManager.getMyPlayer().setDirection(-1);
-											break;
-						default:	
-							break;
-					}
+				 if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
+					 switch (e.getKeyCode())
+					 {
+					 case KeyEvent.VK_UP:
+						 gameManager.getMyPlayer().setDirection(-1);
+						 break;
+					 case KeyEvent.VK_DOWN:
+						 gameManager.getMyPlayer().setDirection(-1);
+						 break;
+					 case KeyEvent.VK_LEFT:
+						 gameManager.getMyPlayer().setDirection(-1);
+						 CenterGamePanel.imgpf = tk.getImage("img/frontc.gif");
+						 break;
+					 case KeyEvent.VK_RIGHT:
+						 gameManager.getMyPlayer().setDirection(-1);
+						 break;
+					 default:	
+						 break;
+					 }
+				 }
 			 }
             @Override
             public void keyPressed(final KeyEvent e)
             {
-            	switch (e.getKeyCode())
-            	{
-					case KeyEvent.VK_UP:
-										gameManager.getMyPlayer().setDirection(0);
-										break;
-					case KeyEvent.VK_DOWN:
-										gameManager.getMyPlayer().setDirection(1);
-										break;
-					case KeyEvent.VK_LEFT:
-										gameManager.getMyPlayer().setDirection(2);
-										CenterGamePanel.imgpf = tk.getImage("img/retroc.gif");
-										break;
-					case KeyEvent.VK_RIGHT:
-										gameManager.getMyPlayer().setDirection(3);
-										break;
-					default:	
-						break;
-				}
+            	if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
+            		
+            		
+            		switch (e.getKeyCode())
+            		{
+            		case (KeyEvent.VK_UP):
+            			gameManager.getMyPlayer().setDirection(0);
+            			break;
+            		case KeyEvent.VK_DOWN:
+            			gameManager.getMyPlayer().setDirection(1);
+            			break;
+            		case KeyEvent.VK_LEFT:
+            			gameManager.getMyPlayer().setDirection(2);
+            			CenterGamePanel.imgpf = tk.getImage("img/retroc.gif");
+            			break;
+            		case KeyEvent.VK_RIGHT:
+            			gameManager.getMyPlayer().setDirection(3);
+            			break;
+            		default:	
+            			break;
+            		}
+            	}
             	
             	if (e.getKeyCode()==KeyEvent.VK_S)
             	{
-            		gameManager.getDisc().setDirection(8, 6);
+            		gameManager.getDisc().setDirection(20, 14);
+            		if(gameManager.getDisc().isAvailableForTheMyPlayer()){
+            			gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
+            			gameManager.getDisc().setAvailableForTheMyPlayer(false);
+            			gameManager.getDisc().setDirection(20, 14);
+            		}
             	}
             }
         });
@@ -134,9 +140,9 @@ public class CenterGamePanel extends JPanel {
 		super.paintComponent(g);
 		// playground
 		g.drawImage(img,0,0,getWidth(),getHeight(),this);
-		// disc
-		g.drawImage(imgf,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this);  
 		// player
 		g.drawImage(imgpf,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
+		// disc
+		g.drawImage(imgf,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 	}
 }

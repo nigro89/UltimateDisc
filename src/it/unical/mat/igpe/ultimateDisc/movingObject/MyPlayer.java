@@ -6,3 +6,4 @@ public class MyPlayer extends Player {
 		super(x,y,widthComponent, heightComponent, wallNorth,wallSouth);
 	}
 }
+

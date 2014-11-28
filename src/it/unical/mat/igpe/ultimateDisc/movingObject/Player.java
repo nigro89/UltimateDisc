@@ -1,4 +1,7 @@
 package it.unical.mat.igpe.ultimateDisc.movingObject;
+
+import java.awt.Rectangle;
+
 public abstract class Player implements MovingObject {
 
 	public static final int UP = 0;
@@ -18,6 +21,8 @@ public abstract class Player implements MovingObject {
 	private int wallSouth;
 	static final int dimensionEnergyShot = 7;
 	private int energyShot;
+	public final static int withImage=146;
+	public final static int heightImage=160;
 	
 	public Player(int x, int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth){
 		this.x=x;
@@ -59,8 +64,8 @@ public abstract class Player implements MovingObject {
         switch (direction)
         {
             case UP:
-                if (y > 0 && (y-5>wallNorth)){
-                    setY(y-5);
+                if (y > 0 && (y-10>wallNorth)){
+                    setY(y-10);
                 }
                 else{
                     setDirection(STOP);
@@ -68,9 +73,9 @@ public abstract class Player implements MovingObject {
                 break;
                 
             case DOWN:
-                if (y < this.heightComponent - 1 && (y+5<this.heightComponent-wallSouth)) 
+                if (y < this.heightComponent - 1 && (y+10<this.heightComponent-wallSouth)) 
                 {
-                    setY(y + 5);
+                    setY(y + 10);
                 }
                 else
                 {
@@ -78,9 +83,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case LEFT:
-                if (x > 0 && (x-5>0))
+                if (x > 0 && (x-10>0))
                 {
-                    setX(x - 5);
+                    setX(x - 10);
                 }
                 else
                 {
@@ -88,9 +93,9 @@ public abstract class Player implements MovingObject {
                 }
                 break;
             case RIGHT:
-                if (x < widthComponent - 1 && (x+5<widthComponent-1)) 
+                if (x < widthComponent - 1 && (x+10<widthComponent-1)) 
                 {
-                    setX(x + 5);
+                    setX(x + 10);
                 }
                 else
                 {
@@ -145,6 +150,9 @@ public abstract class Player implements MovingObject {
 		this.energyShot++;
 	}
 
+	public Rectangle getBounds(){
+		return new Rectangle(this.x,this.y,(int)(this.withImage*0.5),(int)(this.heightImage*0.5));
+	}
 	
 
 }

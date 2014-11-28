@@ -90,8 +90,16 @@ public class GameManager {
 			disc.update();
 			myPlayer.update();
 			comPlayer.update(); // da fare (ia comPlayer)
+			checkCollision();
 //		}
 		world.update();
+	}
+
+
+	private void checkCollision() {
+		if(disc.getBounds().intersects(myPlayer.getBounds())){
+			disc.setPosition(myPlayer.getX(), myPlayer.getY());
+		}
 	}
 
 
