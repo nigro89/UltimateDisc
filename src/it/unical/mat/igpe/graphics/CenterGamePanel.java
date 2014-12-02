@@ -69,7 +69,7 @@ public class CenterGamePanel extends JPanel {
 		this.gameManager=gameManager;
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		
-		final KeyProcessor keyProcessor = new KeyProcessor(3,null,gameManager);
+		final KeyProcessor keyProcessor = new KeyProcessor(30,null,gameManager);
 		
 		this.addKeyListener(new KeyAdapter()
         {
