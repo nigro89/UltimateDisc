@@ -28,7 +28,7 @@ public class CenterGamePanel extends JPanel {
 	        public void run()
 	        {
 	        	while(true)
-	        	{
+	        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
 	        		gameManager.update();
 	        		repaint();
 	        		try
@@ -51,7 +51,7 @@ public class CenterGamePanel extends JPanel {
     final Image img = tk.getImage("img/legno.jpg");
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
-    private static int xShoot=0;
+    private static int xShoot=1;
     private static int yShoot=0;
     
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -69,7 +69,7 @@ public class CenterGamePanel extends JPanel {
 		this.gameManager=gameManager;
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		
-		final KeyProcessor keyProcessor = new KeyProcessor(100,null,gameManager);
+		final KeyProcessor keyProcessor = new KeyProcessor(3,null,gameManager);
 		
 		this.addKeyListener(new KeyAdapter()
         {
@@ -98,7 +98,7 @@ public class CenterGamePanel extends JPanel {
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
-						 gameManager.getDisc().setDirection(getxShoot(), getyShoot());
+						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
 						 CenterGamePanel.xShoot=1;
 						 CenterGamePanel.yShoot=0; 
 					 }
