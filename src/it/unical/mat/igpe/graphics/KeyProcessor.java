@@ -70,19 +70,21 @@ class KeyProcessor extends javax.swing.Timer {
             	}
             	
             	else if(gameManager.getDisc().isAvailableForTheMyPlayer()==true){
-            		CenterGamePanel.setxShoot(1);
-            		CenterGamePanel.setyShoot(0);
+            		
+            		gameManager.getDisc().setDirection(1, 0);
             		
             		if (keystate.get(KEY_UP)){
-            			CenterGamePanel.setyShoot(-7);
+            			CenterGamePanel.setyShoot(-5);
 	            	}
 	                    
 	                else if (keystate.get(KEY_DOWN)){
-	                	CenterGamePanel.setyShoot(7);
+	                	CenterGamePanel.setyShoot(5);
 	                }
+	             
             		if(keystate.get(KEY_SPACE))
             		{
-            			CenterGamePanel.setxShoot(3);
+            			CenterGamePanel.setxShoot(12);
+ //            			CenterGamePanel.setxShoot(3);
             		}
             	}
             	

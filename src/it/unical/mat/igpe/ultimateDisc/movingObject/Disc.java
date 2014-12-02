@@ -6,11 +6,10 @@ import java.util.Random;
 
 
 
-public class Disc extends Thread implements MovingObject  {
+public class Disc implements MovingObject  {
 	
 	private int x;
 	private int y;
-	private final long intervalloAggiornamento;
 	private int deltaX;
 	private int deltaY;
 	private int posizioneInizialeX;
@@ -36,12 +35,10 @@ public class Disc extends Thread implements MovingObject  {
 		this.y=y;
 		this.posizioneInizialeX=x;
 		this.posizioneInizialeY=y;
-		intervalloAggiornamento = 10 + new Random().nextInt(30);
 		myplayer=complayer=false;
 	}
 
 	public Disc() {
-		intervalloAggiornamento = 10 + new Random().nextInt(30);
 		posizioneInizialeX=0;
 		posizioneInizialeY=0;
 	}
@@ -60,8 +57,8 @@ public class Disc extends Thread implements MovingObject  {
 	public void setPosition (int x, int y){
 		this.x=x;
 		this.y=y;
-		this.posizioneInizialeX=x;
-		this.posizioneInizialeY=y;
+//		this.posizioneInizialeX=x;
+//		this.posizioneInizialeY=y;
 		this.setAvailableForTheMyPlayer(true);
 	}
 	
@@ -72,7 +69,7 @@ public class Disc extends Thread implements MovingObject  {
 
 	@Override
 	public void update() {
-		
+		System.out.println("Dx: "+deltaX+" Dy: "+deltaY);
 		if(isAvailableForTheMyPlayer() == false){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
@@ -117,20 +114,6 @@ public class Disc extends Thread implements MovingObject  {
 		return new Rectangle(this.x,this.y,(int)(dimensionOfDisc*0.6),(int)(dimensionOfDisc*0.6));
 	}
 	
-	//////////////////////////////////////////////////////////// lasciare???
-	public void run(){
-		
-		try {
-			while(true){
-				sleep(intervalloAggiornamento);
-				
-				update();
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-	}
 
 	public boolean isAvailableForTheMyPlayer() {
 		return availableForTheMyPlayer;

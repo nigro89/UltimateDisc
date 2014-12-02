@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -28,12 +29,11 @@ public class CenterGamePanel extends JPanel {
 	        {
 	        	while(true)
 	        	{
-	        		
 	        		gameManager.update();
 	        		repaint();
 	        		try
 	        		{
-	        			Thread.sleep(50);
+	        			Thread.sleep(10 + new Random().nextInt(30));
 	        		}
 	        		catch (final InterruptedException e)
 	        		{
@@ -99,6 +99,8 @@ public class CenterGamePanel extends JPanel {
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot(), getyShoot());
+						 CenterGamePanel.xShoot=1;
+						 CenterGamePanel.yShoot=0; 
 					 }
 			 }
             @Override
