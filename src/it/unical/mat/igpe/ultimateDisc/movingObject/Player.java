@@ -25,8 +25,8 @@ public abstract class Player implements MovingObject {
 	private int wallSouth;
 	static final int dimensionEnergyShot = 7;
 	private int energyShot;
-	public final static int withImage=146;
-	public final static int heightImage=160;
+	private final static int withImage=146;
+	private final static int heightImage=160;
 	private final static int speedPlayer = 17;
 	
 	public Player(int x, int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth){
@@ -196,7 +196,17 @@ public abstract class Player implements MovingObject {
 	}
 
 	public Rectangle getBounds(){
-		return new Rectangle(this.x,this.y,(int)(this.withImage*0.5),(int)(this.heightImage*0.5));
+		return new Rectangle(this.x,this.y,(int)(Player.getWithimage()*0.5),(int)(Player.getHeightimage()*0.5));
+	}
+
+
+	public static int getHeightimage() {
+		return heightImage;
+	}
+
+
+	public static int getWithimage() {
+		return withImage;
 	}
 	
 

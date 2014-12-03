@@ -3,6 +3,8 @@ package it.unical.mat.igpe.graphics;
 
 
 import it.unical.mat.igpe.ultimateDisc.GameManager;
+import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
+
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,171 +35,86 @@ class KeyProcessor extends javax.swing.Timer {
     public KeyProcessor(int delay, ActionListener listener,GameManager gm) {
 
         super(delay, null);
-
         this.gameManager=gm;
-
         keystate.put (KEY_UP,false);
-
         keystate.put(KEY_DOWN,false);
-
         keystate.put (KEY_RIGHT,false);
-
         keystate.put(KEY_LEFT,false);
-
         keystate.put(KEY_S, false);
-
         keystate.put(KEY_SPACE, false);
 
-        
-
         addActionListener(new ActionListener() {
-
             public void actionPerformed(ActionEvent evt) {
 
-            	
-
             	if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
-
-	                if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){
-
+	              
+            		if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){
 	                	gameManager.getMyPlayer().setDirection(4);
-
 	                }
-
-	                
 
 	                else if (keystate.get(KEY_UP)&&keystate.get(KEY_LEFT)){
-
 	                	gameManager.getMyPlayer().setDirection(5);
-
 	                }
-
-	                	
 
 	                else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_LEFT)){
-
 	                	gameManager.getMyPlayer().setDirection(7);
-
 	                }
-
 	                	
-
 	            	else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_RIGHT)){
-
 	            		gameManager.getMyPlayer().setDirection(6);
-
 	            	}
-
-	            	
 
 	            	else if (keystate.get(KEY_UP)){
-
 	            		gameManager.getMyPlayer().setDirection(0);
-
 	            	}
-
-	                    
 
 	                else if (keystate.get(KEY_DOWN)){
-
 	                	gameManager.getMyPlayer().setDirection(1);
-
 	                }
-
-	                	
 
 	                else if (keystate.get(KEY_LEFT)){
-
 	                	gameManager.getMyPlayer().setDirection(2);
-
-	        			CenterGamePanel.imgpf = tk.getImage("img/retroc.gif");
-
+	        			CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.LEFT);
 	                }
 
-	                	
-
 	            	else if (keystate.get(KEY_RIGHT)){
-
 	            		gameManager.getMyPlayer().setDirection(3);
-
 	            	}
-
             	}
-
-            	
-
             	else if(gameManager.getDisc().isAvailableForTheMyPlayer()==true){
-
-            		
 
             		gameManager.getDisc().setDirection(1, 0);
 
-            		
-
             		if (keystate.get(KEY_UP)){
-
             			if(CenterGamePanel.getyShoot()>-30)
-
             				CenterGamePanel.setyShoot(-3);
-
 	            	}
 
-	                    
-
 	                else if (keystate.get(KEY_DOWN)){
-
 	                	if(CenterGamePanel.getyShoot()<30)
-
 	                		CenterGamePanel.setyShoot(3);
-
 	                }
 	                else if (keystate.get(KEY_RIGHT)){
-
 	                	CenterGamePanel.setyShoot(0);
-
 	                }
+            		
             		if(keystate.get(KEY_SPACE))
-
             		{
             			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40)
             				CenterGamePanel.setxShoot(5);
-
-            			if(CenterGamePanel.getxShoot()>=1 && CenterGamePanel.getxShoot()<=40)
-
-            				CenterGamePanel.setxShoot(10);
-
-            			if(CenterGamePanel.getxShoot()>=1 && CenterGamePanel.getxShoot()<=40)
-            				CenterGamePanel.setxShoot(10);
             		}
-
             	}
-
-            	
 
             	if (keystate.get(KEY_S))
-
             	{
-
             		gameManager.getDisc().setDirection(-18, 14);
-
-            		
-
             	}
-
             }
-
         });
-
     }
-
-    
 
     public void setKeystate(int keycode, boolean pressed){
-
         keystate.put(keycode, pressed);
-
     }
-
-    
 
 }

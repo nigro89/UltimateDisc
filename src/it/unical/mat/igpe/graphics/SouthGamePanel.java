@@ -3,7 +3,6 @@ package it.unical.mat.igpe.graphics;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 
 import javax.swing.JPanel;
 
@@ -14,11 +13,12 @@ public class SouthGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	final Toolkit tk = Toolkit.getDefaultToolkit();
-    final Image img = tk.getImage("img/sud.jpg");
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	double width = screenSize.getWidth();
-	double height = screenSize.getHeight()*0.05;
+    ImageProvider imageProvider = new ImageProvider();
+    Image woodFieldSouth = imageProvider.getWoodFieldSouth();
+    
+    Screen screen = Screen.getInstance();
+	double width = screen.getWidth();
+	double height = screen.getHeight()*0.05;
     
 	public SouthGamePanel()
 	{
@@ -29,6 +29,6 @@ public class SouthGamePanel extends JPanel {
 	protected void paintComponent(Graphics g) {
 
 		super.paintComponent(g);
-		g.drawImage(img,0,0,getWidth(),getHeight(),this);
+		g.drawImage(woodFieldSouth,0,0,getWidth(),getHeight(),this);
 	}
 }
