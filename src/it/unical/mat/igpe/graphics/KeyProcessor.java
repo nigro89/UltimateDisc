@@ -11,7 +11,12 @@ import java.util.Map;
 
 class KeyProcessor extends javax.swing.Timer {
     
-    final static int KEY_UP = KeyEvent.VK_UP;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	final static int KEY_UP = KeyEvent.VK_UP;
     final static int KEY_DOWN = KeyEvent.VK_DOWN;
     final static int KEY_RIGHT = KeyEvent.VK_RIGHT;
     final static int KEY_LEFT = KeyEvent.VK_LEFT;
@@ -82,14 +87,15 @@ class KeyProcessor extends javax.swing.Timer {
 	                	if(CenterGamePanel.getyShoot()<30)
 	                		CenterGamePanel.setyShoot(3);
 	                }
+            		
 	                else if (keystate.get(KEY_RIGHT)){
 	                	CenterGamePanel.setyShoot(0);
 	                }
-	             
+            		
             		if(keystate.get(KEY_SPACE))
             		{
-            			if(CenterGamePanel.getxShoot()>=1 && CenterGamePanel.getxShoot()<=40)
-            				CenterGamePanel.setxShoot(10);
+            			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40)
+            				CenterGamePanel.setxShoot(5);
             		}
             	}
             	

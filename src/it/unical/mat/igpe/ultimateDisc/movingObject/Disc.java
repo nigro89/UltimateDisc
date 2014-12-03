@@ -1,8 +1,7 @@
 package it.unical.mat.igpe.ultimateDisc.movingObject;
-import java.awt.Dimension;
+import it.unical.mat.igpe.graphics.Screen;
+
 import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.util.Random;
 
 
 
@@ -21,9 +20,10 @@ public class Disc implements MovingObject  {
 	private boolean availableForTheMyPlayer = false;
 	
 	
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    double width = screenSize.getWidth();
+    Screen screen = Screen.getInstance();
+    double width = screen.getWidth();
     int dimensionOfDisc = (int)width/17;
+    
 //  get set construttore
 //	x y è la posizione iniziale da cui deve partire il disco all'avvio, viene settata dalla grafica in quanto non si conosce a priori la dimensione dello schermo, xk 
 //	si presuppone k il disco viene lanciato in basso al centro dello schermo da un ipotetico arbitro.

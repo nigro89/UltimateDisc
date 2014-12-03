@@ -1,6 +1,7 @@
 package it.unical.mat.igpe.graphics;
 
 import it.unical.mat.igpe.ultimateDisc.GameManager;
+import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -54,9 +55,9 @@ public class CenterGamePanel extends JPanel {
     private static int xShoot=1;
     private static int yShoot=0;
     
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    double width = screenSize.getWidth();
-    double height = screenSize.getHeight()*0.75;
+	Screen screen = Screen.getInstance();
+    double width = screen.getWidth();
+    double height = screen.getHeight()*0.75;
 	int dimensionOfDisc = (int)width/17;
     
     private final GameManager gameManager;
@@ -69,7 +70,7 @@ public class CenterGamePanel extends JPanel {
 		this.gameManager=gameManager;
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		
-		final KeyProcessor keyProcessor = new KeyProcessor(30,null,gameManager);
+		final KeyProcessor keyProcessor = new KeyProcessor(50,null,gameManager);
 		
 		this.addKeyListener(new KeyAdapter()
         {
@@ -96,10 +97,11 @@ public class CenterGamePanel extends JPanel {
 						 break;
 					 }
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
-						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(gameManager.getMyPlayer().withImage*0.5), gameManager.getMyPlayer().getY());
+						 gameManager.getMyPlayer();
+						gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(Player.getWithimage()*0.5), gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
-						 CenterGamePanel.xShoot=1;
+						 CenterGamePanel.xShoot=5;
 						 CenterGamePanel.yShoot=0; 
 					 }
 			 }
