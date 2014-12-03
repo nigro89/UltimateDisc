@@ -48,10 +48,16 @@ public class CenterGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	ImageProvider imageProvider = new ImageProvider();
+	Image woodField = imageProvider.getWoodField();
+	Image frisbee = imageProvider.getFrisbee();
+	Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
+	
 	final static Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/legno.jpg");
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
+    
     private static int xShoot=1;
     private static int yShoot=0;
     
@@ -135,10 +141,10 @@ public class CenterGamePanel extends JPanel {
 
 		super.paintComponent(g);
 		// playground
-		g.drawImage(img,0,0,getWidth(),getHeight(),this);
+		g.drawImage(woodField,0,0,getWidth(),getHeight(),this);
 		// player
-		g.drawImage(imgpf,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
+		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// disc
-		g.drawImage(imgf,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
+		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 	}
 }
