@@ -10,20 +10,17 @@ import javax.swing.ImageIcon;
 public class ImageProvider {
 
 	private final Image myPlayerFront;
-
     private final Image myPlayerBack;
-
     private final ImageIcon one_point;
-
     private final ImageIcon two_point;
-
     private final Image frisbee;
-
     private final Image woodField;
-
     private final Image woodFieldNorth;
-
     private final Image woodFieldSouth;
+    private final Image introBackground;
+    private final Image playGame;
+    private final Image settings;
+    private final Image exit;
 
     public ImageProvider()
     {
@@ -36,6 +33,10 @@ public class ImageProvider {
     	  woodField = tk.getImage("img/legno.jpg");
     	  woodFieldNorth = tk.getImage("img/nord.jpg");
     	  woodFieldSouth = tk.getImage("img/sud.jpg");
+    	  introBackground = tk.getImage("img/introImage.png");
+    	  playGame = tk.getImage("img/IntroPlay.png");
+    	  settings = tk.getImage("img/IntroSettings.png");
+    	  exit = tk.getImage("img/IntroExit.png");
     }
 
     public Image getMyPlayerDirection(final int direction)
@@ -81,6 +82,20 @@ public class ImageProvider {
 	public Image getWoodFieldSouth() {
 		return woodFieldSouth;
 	}
-    
-    
+
+	public Image getIntroBackground() {
+		return introBackground;
+	}
+
+	public Image getPlayGame() {
+		return playGame;
+	}
+
+	public Image getSettings() {
+		return settings;
+	}
+
+	public Image getExit() {
+		return exit;
+	}
 }
