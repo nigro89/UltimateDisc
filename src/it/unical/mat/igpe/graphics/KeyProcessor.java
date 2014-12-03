@@ -3,53 +3,30 @@ package it.unical.mat.igpe.graphics;
 
 
 import it.unical.mat.igpe.ultimateDisc.GameManager;
-
-
-
 import java.awt.Toolkit;
-
 import java.awt.event.ActionEvent;
-
 import java.awt.event.ActionListener;
-
 import java.awt.event.KeyEvent;
-
 import java.util.Hashtable;
-
 import java.util.Map;
-
 
 
 class KeyProcessor extends javax.swing.Timer {
 
-    
-<<<<<<< HEAD
     /**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	final static int KEY_UP = KeyEvent.VK_UP;
-=======
-
-    final static int KEY_UP = KeyEvent.VK_UP;
-
->>>>>>> origin/master
     final static int KEY_DOWN = KeyEvent.VK_DOWN;
-
     final static int KEY_RIGHT = KeyEvent.VK_RIGHT;
-
     final static int KEY_LEFT = KeyEvent.VK_LEFT;
-
     final static int KEY_S = KeyEvent.VK_S;
-
     final static int KEY_SPACE = KeyEvent.VK_SPACE;
-
     private final GameManager gameManager;
 
     final static Toolkit tk = Toolkit.getDefaultToolkit();
-
-    
 
     Map<Integer,Boolean> keystate = new Hashtable<Integer,Boolean>();
 
@@ -174,36 +151,23 @@ class KeyProcessor extends javax.swing.Timer {
 	                		CenterGamePanel.setyShoot(3);
 
 	                }
-<<<<<<< HEAD
-            		
-=======
-
->>>>>>> origin/master
 	                else if (keystate.get(KEY_RIGHT)){
 
 	                	CenterGamePanel.setyShoot(0);
 
 	                }
-<<<<<<< HEAD
-            		
-=======
-
-	             
-
->>>>>>> origin/master
             		if(keystate.get(KEY_SPACE))
 
             		{
-<<<<<<< HEAD
             			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40)
             				CenterGamePanel.setxShoot(5);
-=======
 
             			if(CenterGamePanel.getxShoot()>=1 && CenterGamePanel.getxShoot()<=40)
 
             				CenterGamePanel.setxShoot(10);
 
->>>>>>> origin/master
+            			if(CenterGamePanel.getxShoot()>=1 && CenterGamePanel.getxShoot()<=40)
+            				CenterGamePanel.setxShoot(10);
             		}
 
             	}

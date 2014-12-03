@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="ultimatedisc.diagramuml" size="932,619" id="" metadata="uml2-1.0" initialized="true" scrolledY="52" tag="1000" key="32303037303533312D3130303020556C74696D617465446973632F6372337368">
   <children xsi:type="editmodel:ClassEditModel" name="GameManager" location="495,390" size="136,121" id="/GameManager" runTimeClassModel="getTime(),isGameOver(),start(),update()">
     <children xsi:type="editmodel:CompartmentEditModel" size="0,0"/>
     <children xsi:type="editmodel:CompartmentEditModel" size="90,72">

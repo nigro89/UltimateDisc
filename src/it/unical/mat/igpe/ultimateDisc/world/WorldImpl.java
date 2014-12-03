@@ -1,8 +1,10 @@
 package it.unical.mat.igpe.ultimateDisc.world;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
-import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
+import it.unical.mat.igpe.ultimateDisc.movingObject.MovingObject;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 
 public class WorldImpl implements World {
@@ -16,9 +18,9 @@ public class WorldImpl implements World {
 	int myPlayerScore;
 	int comScore;
 	
-	Screen screen = Screen.getInstance();
-	double width = screen.getWidth();
-	double height = screen.getHeight();
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
 	
@@ -92,6 +94,7 @@ public class WorldImpl implements World {
 	@Override
 	public void update() {
 		
+		int x = disc.getX();
 		int y = disc.getY()+radius;
 		int point=0;
 		

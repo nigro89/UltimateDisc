@@ -16,10 +16,9 @@ public class SouthGamePanel extends JPanel {
 
 	final Toolkit tk = Toolkit.getDefaultToolkit();
     final Image img = tk.getImage("img/sud.jpg");
-
-    Screen screen = Screen.getInstance();
-	double width = screen.getWidth();
-	double height = screen.getHeight()*0.05;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight()*0.05;
     
 	public SouthGamePanel()
 	{

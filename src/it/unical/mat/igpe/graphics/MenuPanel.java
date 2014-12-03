@@ -9,11 +9,6 @@ import javax.swing.JPanel;
 
 public class MenuPanel extends JPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	public MenuPanel(final MainFrame mainFrame)
 	{
 		  final JButton buttonStart = new JButton("Start Game");

@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
+import it.unical.mat.igpe.ultimateDisc.movingObject.MovingObject;
 import it.unical.mat.igpe.ultimateDisc.staticObject.SmallWall;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 

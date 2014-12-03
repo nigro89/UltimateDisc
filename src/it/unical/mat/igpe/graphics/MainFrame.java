@@ -5,6 +5,9 @@ import it.unical.mat.igpe.ultimateDisc.GameManager;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -26,9 +29,9 @@ public class MainFrame extends JFrame {
 		//System.out.println(mainFrame.width+"x"+mainFrame.height);
 	}
 
-	Screen screen = Screen.getInstance();
-	double width = screen.getWidth();
-	double height = screen.getHeight();
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
 	
 	GamePanel gamePanel;
 	MenuPanel menuPanel;

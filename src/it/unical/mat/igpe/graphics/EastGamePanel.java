@@ -1,7 +1,9 @@
 package it.unical.mat.igpe.graphics;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,9 +20,9 @@ public class EastGamePanel extends JPanel {
     JLabel l2 = new JLabel();
     JLabel l3 = new JLabel();
     JLabel l4 = new JLabel();
-    Screen screen = Screen.getInstance();
-	double width = screen.getWidth()*0.03;
-	double height = screen.getHeight()*0.75;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth()*0.03;
+	double height = screenSize.getHeight()*0.75;
 	    
 	    
 	  public EastGamePanel()

@@ -1,6 +1,8 @@
 package it.unical.mat.igpe.ultimateDisc;
 
-import it.unical.mat.igpe.graphics.Screen;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.MyPlayer;
@@ -18,10 +20,9 @@ public class GameManager {
 	long startTime = 0;
 	long currentTime = 0;
 	
-	Screen screen = Screen.getInstance();
-	double width = screen.getWidth();
-	double height = screen.getHeight();
-	
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	double width = screenSize.getWidth();
+	double height = screenSize.getHeight();
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
 		
