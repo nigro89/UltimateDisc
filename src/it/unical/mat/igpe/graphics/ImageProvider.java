@@ -19,8 +19,11 @@ public class ImageProvider {
     private final Image woodFieldSouth;
     private final Image introBackground;
     private final Image playGame;
+    private final Image playGameWhite;
     private final Image settings;
+    private final Image settingsWhite;
     private final Image exit;
+    private final Image exitWhite;
 
     public ImageProvider()
     {
@@ -35,8 +38,11 @@ public class ImageProvider {
     	  woodFieldSouth = tk.getImage("img/sud.jpg");
     	  introBackground = tk.getImage("img/introImage.png");
     	  playGame = tk.getImage("img/IntroPlay.png");
-    	  settings = tk.getImage("img/IntroSettings.png");
+    	  playGameWhite = tk.getImage("img/IntroPlayWhite.png");
+    	  settings = tk.getImage("img/IntroSettings2.png");
+    	  settingsWhite = tk.getImage("img/IntroSettings1.png");
     	  exit = tk.getImage("img/IntroExit.png");
+    	  exitWhite = tk.getImage("img/IntroExitWhite.png");
     }
 
     public Image getMyPlayerDirection(final int direction)
@@ -97,5 +103,17 @@ public class ImageProvider {
 
 	public Image getExit() {
 		return exit;
+	}
+
+	public Image getSettingsWhite() {
+		return settingsWhite;
+	}
+
+	public Image getPlayGameWhite() {
+		return playGameWhite;
+	}
+
+	public Image getExitWhite() {
+		return exitWhite;
 	}
 }
