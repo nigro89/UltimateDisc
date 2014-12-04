@@ -82,7 +82,7 @@ class KeyProcessor extends javax.swing.Timer {
 	            	}
             	}
             	else if(gameManager.getDisc().isAvailableForTheMyPlayer()==true){
-
+            		CenterGamePanel.energyShoot.setVisible(true);
             		gameManager.getDisc().setDirection(1, 0);
 
             		if (keystate.get(KEY_UP)){
@@ -100,8 +100,10 @@ class KeyProcessor extends javax.swing.Timer {
             		
             		if(keystate.get(KEY_SPACE))
             		{
-            			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40)
+            			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40){
             				CenterGamePanel.setxShoot(5);
+            				CenterGamePanel.energyShoot.increment(5);
+            			}
             		}
             	}
 

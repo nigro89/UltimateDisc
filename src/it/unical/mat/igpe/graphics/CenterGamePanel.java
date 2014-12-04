@@ -5,17 +5,10 @@ import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-
 import java.awt.Toolkit;
-
 import java.awt.event.KeyAdapter;
-
 import java.awt.event.KeyEvent;
-
 import java.util.Random;
-
-
-
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -65,7 +58,7 @@ public class CenterGamePanel extends JPanel {
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
 
-    private static int xShoot=1;
+    private static int xShoot=5;
     private static int yShoot=0;
 
 	Screen screen = Screen.getInstance();
@@ -76,10 +69,17 @@ public class CenterGamePanel extends JPanel {
     private final GameManager gameManager;
     
     final RepainterThread repainterThread;
+    
+    static ProgressBar energyShoot;
 
 	public CenterGamePanel(final GameManager gameManager)
 	{
 		this.gameManager=gameManager;
+		
+		CenterGamePanel.energyShoot=new ProgressBar();
+		this.add(CenterGamePanel.energyShoot);
+		CenterGamePanel.energyShoot.setVisible(false);
+		
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 
 		final KeyProcessor keyProcessor = new KeyProcessor(50,null,gameManager);
@@ -118,7 +118,9 @@ public class CenterGamePanel extends JPanel {
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
 						 CenterGamePanel.xShoot=5;
-						 CenterGamePanel.yShoot=0; 
+						 CenterGamePanel.yShoot=0;
+						 CenterGamePanel.energyShoot.reset();
+						 CenterGamePanel.energyShoot.setVisible(false);
 					 }
 			 }
 
@@ -127,13 +129,11 @@ public class CenterGamePanel extends JPanel {
             {
             	keyProcessor.setKeystate(e.getKeyCode(),true);
             }
-
         });
 		
 		repainterThread = new RepainterThread(gameManager);
 		keyProcessor.start();
 	}
-
 	  public static int getxShoot() {
 			return xShoot;
 		}
@@ -149,17 +149,19 @@ public class CenterGamePanel extends JPanel {
 		public static void setyShoot(int yShoot) {
 			CenterGamePanel.yShoot += yShoot;
 		}
-
+		
 	@Override
 	protected void paintComponent(Graphics g) {
-
 		super.paintComponent(g);
 		// playground
 		g.drawImage(woodField,0,0,getWidth(),getHeight(),this);
+		//energyBar
+		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX()-15, gameManager.getMyPlayer().getY());
 		// player
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
+		
 	}
 
 }

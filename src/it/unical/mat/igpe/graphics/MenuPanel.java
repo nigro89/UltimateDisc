@@ -37,7 +37,7 @@ public class MenuPanel extends JPanel {
 			     }
 			     //settings
 			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
-			    	 System.out.println("Settings");
+			    	 //panel Settings
 			     }
 			     //exit
 			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95)){
@@ -49,7 +49,7 @@ public class MenuPanel extends JPanel {
 //				 repaint();
 			}
 			@Override
-		    public void mousePressed (final MouseEvent e){
+		    public void mousePressed (final MouseEvent e){//mouseEntered
 				 final int x = e.getX();
 			     final int y = e.getY();
 			     
@@ -65,7 +65,6 @@ public class MenuPanel extends JPanel {
 			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95)){
 			    	 exitImg = image.getExitWhite();
 			     }
-			     repaint();
 			}
 		});
 	}

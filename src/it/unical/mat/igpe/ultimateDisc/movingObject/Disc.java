@@ -66,7 +66,6 @@ public class Disc implements MovingObject  {
 	@Override
 	public void update() {
 
-		System.out.println("Dx: "+deltaX+" Dy: "+deltaY);
 		if(isAvailableForTheMyPlayer() == false){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
