@@ -39,7 +39,7 @@ public class ImageProvider {
     private final Image three;
     private final Image two;
     private final Image one;
-    private final Image timeUp;
+    private final Image zero;
     
     private final Image gameOver;
 
@@ -74,7 +74,7 @@ public class ImageProvider {
     	  three = tk.getImage("img/time/three.png");
     	  two = tk.getImage("img/time/two.png");
     	  one = tk.getImage("img/time/one.png");
-    	  timeUp = tk.getImage("img/time/timeUp.png");
+    	  zero = tk.getImage("img/time/zero.png");
     	  
     	  gameOver = tk.getImage("img/gameOver.png");
     	  
@@ -169,10 +169,7 @@ public class ImageProvider {
 	public Image getGameOver() {
 		return gameOver;
 	}
-	
-	public Image getTimeUp() {
-		return timeUp;
-	}
+
 	
 	public Image getTime(int time) 
 	{
@@ -198,6 +195,8 @@ public class ImageProvider {
 				return two;
 			case 1:
 				return one;
+			case 0:
+				return zero;
 			}
 			return null;
 	}

@@ -27,7 +27,7 @@ public class NorthGamePanel extends JPanel {
 	        	while(true)
 	        	{	
 	        			if (gameManager.timeUp())
-	        				time = imageProvider.getTimeUp();
+	        				time = imageProvider.getTime(0);
 	        			else
 	        				time = imageProvider.getTime(10-gameManager.getTime());
 	        				

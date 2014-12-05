@@ -42,13 +42,14 @@ data 19/11/2014 aggiornamento 27/11/2014
 5. aggiungere il comPlayer ( IA le varie difficoltà )
 6. classe screen per gli attributi del monitor					-ok
 7. classe per la gestione delle immagini						-ok
-8. pannelli menu
-9. gestione timer
+8. pannelli menu												-ok
+9. gestione timer												-ok
 ----ritorna al punto 5 
 10. immagini dei vari campi, dei vari muri , frisbee,vari player
 11. editor
-12. 3d?
-13. rete?
+12. 2player?
+13. 3d?
+14. rete?
 
 
 

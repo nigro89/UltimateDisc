@@ -27,7 +27,8 @@ public class CenterGamePanel extends JPanel {
 	        @Override
 	        public void run()
 	        {
-	        	while(gameManager.timeUp()==false)
+//	        	while(gameManager.timeUp()==false)
+	        	while(true)
 	        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
 	        		gameManager.update();
 	        		repaint();
@@ -40,8 +41,8 @@ public class CenterGamePanel extends JPanel {
 	        			System.out.println("errore run RepainterThread");
 	        		}
 	        	}
-	        	event = imageProvider.getGameOver();
-	        	repaint();
+//	        	event = imageProvider.getGameOver();
+//	        	repaint();
 	        }
 	    }
 
