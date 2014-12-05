@@ -6,7 +6,7 @@ import java.awt.RenderingHints;
 
 import javax.swing.Painter;
 
-public class ProgressPainter implements Painter {
+public class ProgressPainter implements Painter<Object> {
 
         private Color light, dark;
         private GradientPaint gradPaint;

@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
+import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Dimension;
@@ -26,7 +27,7 @@ public class CenterGamePanel extends JPanel {
 	        @Override
 	        public void run()
 	        {
-	        	while(true)
+	        	while(gameManager.timeUp()==false)
 	        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
 	        		gameManager.update();
 	        		repaint();
@@ -39,6 +40,8 @@ public class CenterGamePanel extends JPanel {
 	        			System.out.println("errore run RepainterThread");
 	        		}
 	        	}
+	        	event = imageProvider.getGameOver();
+	        	repaint();
 	        }
 	    }
 
@@ -57,6 +60,8 @@ public class CenterGamePanel extends JPanel {
     final Image img = tk.getImage("img/legno.jpg");
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
+    
+    static Image event = null;
 
     private static int xShoot=5;
     private static int yShoot=0;
@@ -106,6 +111,7 @@ public class CenterGamePanel extends JPanel {
 						 					break;
 
 					 case KeyEvent.VK_RIGHT:
+						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
 
@@ -114,6 +120,7 @@ public class CenterGamePanel extends JPanel {
 					 }
 
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
+						 CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(Player.getWithimage()*0.5), gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
@@ -161,6 +168,8 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
+		//event
+		g.drawImage(event,(getWidth()/2)-130,(getHeight()/2)-130,260,260,this); 
 		
 	}
 

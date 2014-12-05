@@ -20,8 +20,6 @@ public class MenuPanel extends JPanel {
 	private static Image exitImg = image.getExit();
 	private Screen screen = Screen.getInstance();
 
-	private Graphics g;
-	
 	public MenuPanel(final MainFrame mainFrame)
 	{
 		addMouseListener(new MouseAdapter() {

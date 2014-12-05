@@ -61,7 +61,7 @@ public class GameManager {
 	public boolean timeUp()
 	{
 		currentTime = (System.currentTimeMillis())/1000;
-		if ((currentTime-startTime)>=100)
+		if ((currentTime-startTime)>=10)
 			return true;
 		return false;
 	}
