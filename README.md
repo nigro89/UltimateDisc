@@ -47,9 +47,11 @@ data 19/11/2014 aggiornamento 27/11/2014
 ----ritorna al punto 5 
 10. immagini dei vari campi, dei vari muri , frisbee,vari player
 11. editor
-12. 2player?
-13. 3d?
-14. rete?
+12. round , punteggio
+13. selezione campo e player
+ 2player?
+ 3d?
+ rete?
 
 
 
