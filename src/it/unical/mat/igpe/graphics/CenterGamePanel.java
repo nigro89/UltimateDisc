@@ -3,6 +3,7 @@ import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -10,6 +11,7 @@ import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
+
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -55,6 +57,7 @@ public class CenterGamePanel extends JPanel {
 	static Image woodField = imageProvider.getWoodField();
 	static Image frisbee = imageProvider.getFrisbee();
 	static Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
+	static Image comPlayer = imageProvider.getMyPlayerDirection(Player.LEFT);
 
 
 	final static Toolkit tk = Toolkit.getDefaultToolkit();
@@ -71,7 +74,7 @@ public class CenterGamePanel extends JPanel {
     double width = screen.getWidth();
     double height = screen.getHeight()*0.75;
 	int dimensionOfDisc = (int)width/17;
-
+	
     private final GameManager gameManager;
     
     final RepainterThread repainterThread;
@@ -129,6 +132,8 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.yShoot=0;
 						 CenterGamePanel.energyShoot.reset();
 						 CenterGamePanel.energyShoot.setVisible(false);
+						 gameManager.getComPlayer().setDirection(7);
+//						 classeIA(getxShoot()+Math.abs(getyShoot()), getyShoot());
 					 }
 			 }
 
@@ -165,13 +170,22 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(woodField,0,0,getWidth(),getHeight(),this);
 		//energyBar
 		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX()-15, gameManager.getMyPlayer().getY());
-		// player
+		// My player
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
+		// COM player
+		g.drawImage(comPlayer,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event
 		g.drawImage(event,(getWidth()/2)-130,(getHeight()/2)-130,260,260,this); 
 		
+		g.drawLine(getWidth()/2, 0, getWidth()/2, getHeight());
+		
+		g.setColor(Color.RED);
+		g.drawLine((int)(width*0.25), 0, (int)width/4, getHeight());
+		
+		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
+
 	}
 
 }

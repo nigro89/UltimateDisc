@@ -17,17 +17,17 @@ public abstract class Player implements MovingObject {
 	private int y;
 	private final int startPositionX;
 	private final int startPositionY;
-	private int direction;
+	protected int direction;
 	private int points;
-	private int widthComponent;
-	private int heightComponent;
-	private int wallNorth;
-	private int wallSouth;
+	protected int widthComponent;
+	protected int heightComponent;
+	protected int wallNorth;
+	protected int wallSouth;
 	static final int dimensionEnergyShot = 7;
 	private int energyShot;
 	private final static int withImage=146;
 	private final static int heightImage=160;
-	private final static int speedPlayer = 17;
+	protected final static int speedPlayer = 17;
 	
 	public Player(int x, int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth){
 		this.x=x;
@@ -40,6 +40,7 @@ public abstract class Player implements MovingObject {
 		this.wallNorth=wallNorth;
 		this.wallSouth=wallSouth;
 		this.energyShot = 0;
+		this.direction= -1;
 	}
 	
 	
@@ -111,6 +112,7 @@ public abstract class Player implements MovingObject {
             case UP:
                 if (y > 0 && (y-speedPlayer>wallNorth)){
                     setY(y-speedPlayer);
+                    System.out.println("ENTRO");
                 }
                 else{
                     setDirection(STOP);
