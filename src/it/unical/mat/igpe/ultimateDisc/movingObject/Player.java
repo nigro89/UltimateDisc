@@ -13,8 +13,8 @@ public abstract class Player implements MovingObject {
 	public static final int DOWNRIGHT = 6;
 	public static final int DOWNLEFT = 7;
 	public static final int STOP=-1;
-	private int x;
-	private int y;
+	protected int x;
+	protected int y;
 	private final int startPositionX;
 	private final int startPositionY;
 	protected int direction;
@@ -112,7 +112,6 @@ public abstract class Player implements MovingObject {
             case UP:
                 if (y > 0 && (y-speedPlayer>wallNorth)){
                     setY(y-speedPlayer);
-                    System.out.println("ENTRO");
                 }
                 else{
                     setDirection(STOP);

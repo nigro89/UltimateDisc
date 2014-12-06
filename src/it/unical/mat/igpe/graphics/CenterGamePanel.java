@@ -1,5 +1,7 @@
 package it.unical.mat.igpe.graphics;
+import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
+import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
@@ -57,7 +59,7 @@ public class CenterGamePanel extends JPanel {
 	static Image woodField = imageProvider.getWoodField();
 	static Image frisbee = imageProvider.getFrisbee();
 	static Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
-	static Image comPlayer = imageProvider.getMyPlayerDirection(Player.LEFT);
+	static Image comPlayerImg = imageProvider.getMyPlayerDirection(Player.LEFT);
 
 
 	final static Toolkit tk = Toolkit.getDefaultToolkit();
@@ -65,7 +67,7 @@ public class CenterGamePanel extends JPanel {
     final static Image imgf = tk.getImage("img/frisbee.gif");
     static Image imgpf = tk.getImage("img/frontc.gif");
     
-    static Image event = null;
+	static Image event = null;
 
     private static int xShoot=5;
     private static int yShoot=0;
@@ -132,7 +134,7 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.yShoot=0;
 						 CenterGamePanel.energyShoot.reset();
 						 CenterGamePanel.energyShoot.setVisible(false);
-//						 classeIA(getxShoot()+Math.abs(getyShoot()), getyShoot());
+						 gameManager.setComPlayerAbility(true);
 					 }
 			 }
 
@@ -172,7 +174,7 @@ public class CenterGamePanel extends JPanel {
 		// My player
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
-		g.drawImage(comPlayer,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
+		g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event

@@ -20,6 +20,7 @@ public class Disc implements MovingObject  {
     Screen screen = Screen.getInstance();
     double width = screen.getWidth();
     int dimensionOfDisc = (int)width/17;
+	private boolean isAvailableForComPlayer = false;
     
 //  get set construttore
 //	x y è la posizione iniziale da cui deve partire il disco all'avvio, viene settata dalla grafica in quanto non si conosce a priori la dimensione dello schermo, xk 
@@ -57,6 +58,12 @@ public class Disc implements MovingObject  {
 		this.y=y;
 		this.setAvailableForTheMyPlayer(true);
 	}
+	
+	public void setPositionCom(int x, int y) {
+		this.x=x;
+		this.y=y;
+		this.setAvailableForComPlayer(true);
+	}
 
 	public void setDirection(int x, int y) {
 		this.deltaX=x;
@@ -66,7 +73,7 @@ public class Disc implements MovingObject  {
 	@Override
 	public void update() {
 
-		if(isAvailableForTheMyPlayer() == false){
+		if(isAvailableForTheMyPlayer() == false && isAvailableForComPlayer()==false ){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
 	            deltaX = -deltaX;
@@ -78,6 +85,10 @@ public class Disc implements MovingObject  {
 	        this.x=this.x+deltaX;
 	        this.y=this.y+deltaY;
 		}
+	}
+
+	private boolean isAvailableForComPlayer() {
+		return isAvailableForComPlayer ;
 	}
 
 	public boolean isMyplayer() {
@@ -113,4 +124,9 @@ public class Disc implements MovingObject  {
 	public void setAvailableForTheMyPlayer(boolean availableForTheMyPlayer) {
 		this.availableForTheMyPlayer = availableForTheMyPlayer;
 	}
+
+	public void setAvailableForComPlayer(boolean isAvailableForComPlayer) {
+		this.isAvailableForComPlayer = isAvailableForComPlayer;
+	}
+
 }

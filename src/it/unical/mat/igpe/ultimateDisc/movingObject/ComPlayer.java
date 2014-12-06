@@ -1,5 +1,7 @@
 package it.unical.mat.igpe.ultimateDisc.movingObject;
 
+import java.awt.Rectangle;
+
 import it.unical.mat.igpe.graphics.Screen;
 
 
@@ -8,9 +10,15 @@ public class ComPlayer extends Player {
 	Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
 	double height = screen.getHeight();
+	double sizeOfTheComPlayer = 2.5;
 
 	public ComPlayer(int x,int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth) {
 		super(x,y,widthComponent, heightComponent, wallNorth,wallSouth);
+	}
+	
+	@Override
+	public Rectangle getBounds(){
+		return new Rectangle(this.x,this.y,(int)(Player.getWithimage()*sizeOfTheComPlayer),(int)(Player.getHeightimage()*sizeOfTheComPlayer));
 	}
 	
 	@Override
