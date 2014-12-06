@@ -132,7 +132,6 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.yShoot=0;
 						 CenterGamePanel.energyShoot.reset();
 						 CenterGamePanel.energyShoot.setVisible(false);
-						 gameManager.getComPlayer().setDirection(7);
 //						 classeIA(getxShoot()+Math.abs(getyShoot()), getyShoot());
 					 }
 			 }
