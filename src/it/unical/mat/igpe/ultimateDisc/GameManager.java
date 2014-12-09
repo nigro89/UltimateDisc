@@ -1,6 +1,5 @@
 package it.unical.mat.igpe.ultimateDisc;
 
-import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
@@ -105,12 +104,6 @@ public class GameManager {
 		else if(disc.getBounds().intersects(comPlayer.getBounds())){
 			this.comPlayerAbility = false;
 			disc.setPositionCom(comPlayer.getX(), comPlayer.getY());
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			IaComPlayer.shoot();
 		}
 	}

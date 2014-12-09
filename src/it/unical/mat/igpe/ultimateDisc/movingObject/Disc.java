@@ -77,7 +77,11 @@ public class Disc implements MovingObject  {
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
 	            deltaX = -deltaX;
-	        }
+	            if (deltaX > 0)
+	            	this.complayer=true; 
+	            else
+	            	this.myplayer=true;
+	         }
 			if (getY() <= 0 && deltaY < 0 || getY() >= this.heightComponent && deltaY > 0)
 	        {
 	            deltaY = -deltaY;

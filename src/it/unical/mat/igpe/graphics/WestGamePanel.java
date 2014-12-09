@@ -1,7 +1,10 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimateDisc.GameManager;
+
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -9,6 +12,29 @@ import javax.swing.JPanel;
 
 public class WestGamePanel extends JPanel {
 
+	 final class RepainterThread extends Thread
+	    {
+	        private final GameManager gameManager;
+
+	        private RepainterThread(final GameManager gameManager)
+	        {
+	            super("Repainter");
+	            this.gameManager = gameManager;
+	        }
+
+			@Override
+	        public void run()
+	        {
+//	        	while(true)
+//	        	{	
+//	        			if (gameManager.getDisc().isMyplayer()==true){
+//	        				l.setIcon(two_point);
+//	        			}
+//	        			repaint();
+//	        	}
+	        }
+	    }
+	 
 	private static final long serialVersionUID = 1L;
 	
 	ImageProvider imageProvider = new ImageProvider();
@@ -25,9 +51,15 @@ public class WestGamePanel extends JPanel {
 	double width = screen.getWidth()*0.03;
 	double height = screen.getHeight()*0.75;
 	double heightLabel = height*0.2;
-
-	public WestGamePanel()
+	
+	GameManager gameManager;
+	static RepainterThread repainterThread;
+	
+	public WestGamePanel(GameManager gameManager)
 	{
+		this.gameManager = gameManager;
+		repainterThread = new RepainterThread(gameManager);
+		
 		 this.setPreferredSize(new Dimension((int)width,(int)height));
 		  this.setLayout(new GridLayout(5,1));
 		  l.setIcon(one_point);

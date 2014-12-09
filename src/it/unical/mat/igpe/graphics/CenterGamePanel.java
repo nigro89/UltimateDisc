@@ -1,8 +1,5 @@
 package it.unical.mat.igpe.graphics;
-import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
-import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
-import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Color;
@@ -134,7 +131,7 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.yShoot=0;
 						 CenterGamePanel.energyShoot.reset();
 						 CenterGamePanel.energyShoot.setVisible(false);
-						 gameManager.setComPlayerAbility(true);
+//						 gameManager.setComPlayerAbility(true);
 					 }
 			 }
 

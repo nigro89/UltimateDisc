@@ -28,5 +28,9 @@ public interface World {
 
 	public abstract void setX_limit_com(double x_limit_com);
 	
+	public int getStrickenWALL();
+	
+	public void setStrickenWall(int strickenWall);
+	
 	 public abstract void update();
 }

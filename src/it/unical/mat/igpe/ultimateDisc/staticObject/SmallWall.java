@@ -39,4 +39,5 @@ public class SmallWall implements StaticObject {
 		this.value=valuePoint;
 	}
 
+
 }

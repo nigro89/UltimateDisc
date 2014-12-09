@@ -48,6 +48,23 @@ public class Wall implements StaticObject {
 		return -1;
 	}
 
+	public int getStrickenWall(double y) {
+		
+		if (arrayBlock.size()==size)
+		{	
+			if (y<0){	y=0;	}
+			for (int i = (size-1); i >= 0; i--) {
+//				System.out.println(arrayBlock.get(i).getY_position()+" >= "+y);
+				if(arrayBlock.get(i).getY_position() <= y)
+				{	
+					return i;
+				}
+			}
+			return -1;
+		}		
+		return -1;
+	}
+	
 	@Override
 	public void setValuePoint(int value) {
 
