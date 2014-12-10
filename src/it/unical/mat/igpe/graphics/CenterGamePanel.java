@@ -131,7 +131,7 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.yShoot=0;
 						 CenterGamePanel.energyShoot.reset();
 						 CenterGamePanel.energyShoot.setVisible(false);
-//						 gameManager.setComPlayerAbility(true);
+						 gameManager.setComPlayerAbility(true);
 					 }
 			 }
 
@@ -161,6 +161,12 @@ public class CenterGamePanel extends JPanel {
 			CenterGamePanel.yShoot += yShoot;
 		}
 		
+	public static ProgressBar getEnergyShoot() {
+			return energyShoot;
+		}
+		public static void setEnergyShoot(ProgressBar energyShoot) {
+			CenterGamePanel.energyShoot = energyShoot;
+		}
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -183,6 +189,9 @@ public class CenterGamePanel extends JPanel {
 		g.drawLine((int)(width*0.25), 0, (int)width/4, getHeight());
 		
 		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
+		
+//		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()*2.5), (int)(Player.getHeightimage()*2.5));
+//		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() , (int)(Player.getWithimage()*2.5), (int)(Player.getHeightimage()*2.5));
 
 	}
 

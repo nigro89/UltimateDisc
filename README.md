@@ -54,6 +54,8 @@ data 19/11/2014 aggiornamento 27/11/2014
  rete?
 
 
+Da chiedere 
 
+Tiro comPlayer simulazione caricamento
 
 

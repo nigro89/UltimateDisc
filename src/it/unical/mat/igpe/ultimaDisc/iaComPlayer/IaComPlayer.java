@@ -1,5 +1,8 @@
 package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 
+import java.util.Random;
+
+import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
 
@@ -29,6 +32,7 @@ public class IaComPlayer {
 	}
 
 	public static void shoot() {
+		
 		gameManager.getDisc().setPositionCom(gameManager.getComPlayer().getX()-(int)(ComPlayer.getWithimage()*0.5), gameManager.getComPlayer().getY());
 		gameManager.getDisc().setDirection(-10, 5);
 		gameManager.getDisc().setAvailableForComPlayer(false);

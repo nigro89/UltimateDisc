@@ -91,7 +91,7 @@ public class Disc implements MovingObject  {
 		}
 	}
 
-	private boolean isAvailableForComPlayer() {
+	public boolean isAvailableForComPlayer() {
 		return isAvailableForComPlayer ;
 	}
 

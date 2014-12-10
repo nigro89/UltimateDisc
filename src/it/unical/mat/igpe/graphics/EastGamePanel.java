@@ -79,11 +79,11 @@ public class EastGamePanel extends JPanel {
 	ImageIcon one_point = imageProvider.getOne_point(); 
 	ImageIcon two_point = imageProvider.getTwo_point();
 	
-    JLabel l = new JLabel();
-    JLabel l1 = new JLabel();
-    JLabel l2 = new JLabel();
-    JLabel l3 = new JLabel();
-    JLabel l4 = new JLabel();
+	JLabel l = new JLabel();
+	JLabel l1 = new JLabel();
+	JLabel l2 = new JLabel();
+	JLabel l3 = new JLabel();
+	JLabel l4 = new JLabel();
 
     Screen screen = Screen.getInstance();
 	double width = screen.getWidth()*0.03;
@@ -92,11 +92,9 @@ public class EastGamePanel extends JPanel {
 	GameManager gameManager;
 	static RepainterThread repainterThread;
 	
-	static int strickenWall;
 	    
 	  public EastGamePanel(GameManager gameManager)
 	 {
-		  strickenWall = 0;
 		  this.gameManager = gameManager;
 		  repainterThread = new RepainterThread(gameManager);
 		  
@@ -114,15 +112,8 @@ public class EastGamePanel extends JPanel {
 		  this.add(l4);
 	 }
 
-	public static int getStrickenWall() {
-		return strickenWall;
-	}
-
-	public static void setStrickenWall(int strickenWall) {
-		EastGamePanel.strickenWall = strickenWall;
-	}
-
 	public static RepainterThread getRepainterThread() {
 		return repainterThread;
 	}
+	
 }

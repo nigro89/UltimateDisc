@@ -11,6 +11,7 @@ public class ComPlayer extends Player {
 	double width = screen.getWidth();
 	double height = screen.getHeight();
 	double sizeOfTheComPlayer = 2.5;
+	final static int speedPlayer = 5;
 
 	public ComPlayer(int x,int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth) {
 		super(x,y,widthComponent, heightComponent, wallNorth,wallSouth);
