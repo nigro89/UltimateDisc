@@ -16,6 +16,8 @@ public class Disc implements MovingObject  {
 	boolean myplayer;
 	boolean complayer;
 	private boolean availableForTheMyPlayer = false;
+	private final static int withImage=80;
+	private final static int heightImage=80;
 	
     Screen screen = Screen.getInstance();
     double width = screen.getWidth();
@@ -133,4 +135,13 @@ public class Disc implements MovingObject  {
 		this.isAvailableForComPlayer = isAvailableForComPlayer;
 	}
 
+	public static int getWithimage() {
+		return withImage;
+	}
+
+	public static int getHeightimage() {
+		return heightImage;
+	}
+
+	
 }

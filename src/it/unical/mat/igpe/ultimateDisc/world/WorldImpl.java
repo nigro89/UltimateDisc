@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import it.unical.mat.igpe.graphics.EastGamePanel;
+import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 
@@ -118,6 +119,7 @@ public class WorldImpl implements World {
 			this.strickenWallMyPlayer = this.wallMyPlayer.getStrickenWall(y);
 			EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
 			System.out.println("SW: "+strickenWallMyPlayer);
+			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);
 //			System.out.println(point+" punto al my "+myPlayerScore);

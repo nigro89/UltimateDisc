@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
+import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Color;
@@ -124,7 +125,7 @@ public class CenterGamePanel extends JPanel {
 
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
 						 CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
-						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+(int)(Player.getWithimage()*0.5), gameManager.getMyPlayer().getY());
+						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()*0.75))+1, gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
 						 CenterGamePanel.xShoot=5;
@@ -190,9 +191,11 @@ public class CenterGamePanel extends JPanel {
 		
 		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
 		
-//		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()*2.5), (int)(Player.getHeightimage()*2.5));
-//		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() , (int)(Player.getWithimage()*2.5), (int)(Player.getHeightimage()*2.5));
+		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()), (int)(Player.getHeightimage()));
+		
+		g.drawRect(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()*0.25)),gameManager.getMyPlayer().getY()+((int)(Player.getHeightimage()*0.25)) , (int)(Player.getWithimage()*0.5), (int)(Player.getHeightimage()*0.5));
 
+		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
 	}
 
 }

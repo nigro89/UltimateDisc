@@ -16,7 +16,7 @@ public class GameManager {
 	private World world=null;
 	private WorldManager worldManager = new WorldManager();
 	private IaComPlayer iaComPlayer;
-	private boolean comPlayerAbility = false;
+	private static boolean comPlayerAbility = false;
 	
 	long startTime = 0;
 	long currentTime = 0;
@@ -102,7 +102,7 @@ public class GameManager {
 			disc.setPosition(myPlayer.getX(), myPlayer.getY());
 		}
 		else if(disc.getBounds().intersects(comPlayer.getBounds())){
-			this.comPlayerAbility = false;
+			comPlayerAbility = false;
 			disc.setPositionCom(comPlayer.getX(), comPlayer.getY());
 			IaComPlayer.shoot();
 		}
@@ -116,12 +116,12 @@ public class GameManager {
 	}
 
 
-	public boolean isComPlayerAbility() {
+	public static boolean isComPlayerAbility() {
 		return comPlayerAbility;
 	}
 
 
-	public void setComPlayerAbility(boolean comPlayerAbility) {
-		this.comPlayerAbility = comPlayerAbility;
+	public static void setComPlayerAbility(boolean comPlayerAbilityNew) {
+		comPlayerAbility = comPlayerAbilityNew;
 	}
 }

@@ -197,7 +197,7 @@ public abstract class Player implements MovingObject {
 	}
 
 	public Rectangle getBounds(){
-		return new Rectangle(this.x,this.y,(int)(Player.getWithimage()*0.5),(int)(Player.getHeightimage()*0.5));
+		return new Rectangle(this.x+((int)(Player.getWithimage()*0.25)),this.y+((int)(Player.getHeightimage()*0.25)),(int)(Player.getWithimage()*0.5),(int)(Player.getHeightimage()*0.5));
 	}
 
 
