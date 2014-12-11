@@ -117,8 +117,11 @@ public class WorldImpl implements World {
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
 			this.strickenWallMyPlayer = this.wallMyPlayer.getStrickenWall(y);
+		
+			System.out.println("WorldImpl sw: "+strickenWallMyPlayer);
+			
 			EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
-			System.out.println("SW: "+strickenWallMyPlayer);
+			
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);

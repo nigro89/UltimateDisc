@@ -46,7 +46,7 @@ class KeyProcessor extends javax.swing.Timer {
         addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 
-            	if(gameManager.getDisc().isAvailableForTheMyPlayer()==false){
+            	if(gameManager.getDisc().isAvailableForMyPlayer()==false){
 	              
             		if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){
 	                	gameManager.getMyPlayer().setDirection(4);
@@ -81,7 +81,7 @@ class KeyProcessor extends javax.swing.Timer {
 	            		gameManager.getMyPlayer().setDirection(3);
 	            	}
             	}
-            	else if(gameManager.getDisc().isAvailableForTheMyPlayer()==true){
+            	else if(gameManager.getDisc().isAvailableForMyPlayer()==true){
             		CenterGamePanel.energyShoot.setVisible(true);
             		gameManager.getDisc().setDirection(1, 0);
 

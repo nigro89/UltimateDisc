@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 import java.awt.BorderLayout;
@@ -73,6 +74,7 @@ public class MainFrame extends JFrame {
 		NorthGamePanel.repainterThread.start();
 		WestGamePanel.repainterThread.start();
 		EastGamePanel.repainterThread.start();
+		IaComPlayer.loadShotComPlayerThread.start();
 	}
 	
     void switchTo(final JPanel panel)

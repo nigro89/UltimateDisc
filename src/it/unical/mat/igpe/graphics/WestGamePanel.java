@@ -4,7 +4,6 @@ import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;

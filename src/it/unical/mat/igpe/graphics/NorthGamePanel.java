@@ -34,7 +34,7 @@ public class NorthGamePanel extends JPanel {
 	        			repaint();
 	        		try
 	        		{
-	        			Thread.sleep(10 + new Random().nextInt(30));
+	        			sleep(10 + new Random().nextInt(30));
 	        		}
 	        		catch (final InterruptedException e)
 	        		{

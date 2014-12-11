@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class EastGamePanel extends JPanel {
 
-	 public final class RepainterThread extends Thread
+	 public  class RepainterThread extends Thread
 	    {
 	        private final GameManager gameManager;
 	        int sw;
@@ -22,7 +22,7 @@ public class EastGamePanel extends JPanel {
 	            this.gameManager = gameManager;
 	            sw=0;
 	        }
-	        
+	      
 	        public void setSW(int s)
 	        {
 	        	this.sw=s;
@@ -35,7 +35,6 @@ public class EastGamePanel extends JPanel {
 	        	{	
 	        		if (gameManager.getDisc().isMyplayer()==true){
 	        		
-	        			System.out.println("sw: "+sw);
 	        			
 	        			switch (sw) {
 							case 0:	l.setIcon(two_point);
@@ -51,17 +50,19 @@ public class EastGamePanel extends JPanel {
 							default:
 								break;
 							}
+//	        			System.out.println("Thread sw: "+sw);
 		        			repaint();
 		        			
 		        			try
 			        		{
-			        			Thread.sleep(100);
+			        			sleep(100);
 			        		}
 			        		catch (final InterruptedException e)
 			        		{
 			        			System.out.println("errore run RepainterThread");
 			        		}
 	        			}
+	        		
 	        			if (gameManager.getDisc().isMyplayer()==false){
 	        				  l.setIcon(one_point);
 	        				  l1.setIcon(one_point);

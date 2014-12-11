@@ -36,7 +36,7 @@ public class CenterGamePanel extends JPanel {
 	        		repaint();
 	        		try
 	        		{
-	        			Thread.sleep(10 + new Random().nextInt(30));
+	        			sleep(10 + new Random().nextInt(30));
 	        		}
 	        		catch (final InterruptedException e)
 	        		{
@@ -123,11 +123,11 @@ public class CenterGamePanel extends JPanel {
 						 	break;
 					 }
 
-					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForTheMyPlayer()==true){
+					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForMyPlayer()==true){
 						 CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
 //						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()*0.75))+1, gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()))+1, gameManager.getMyPlayer().getY());
-						 gameManager.getDisc().setAvailableForTheMyPlayer(false);
+						 gameManager.getDisc().setAvailableForMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
 						 CenterGamePanel.xShoot=5;
 						 CenterGamePanel.yShoot=0;
@@ -179,7 +179,7 @@ public class CenterGamePanel extends JPanel {
 		// My player
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
-		g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
+		//g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event

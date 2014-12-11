@@ -58,7 +58,7 @@ public class Disc implements MovingObject  {
 
 		this.x=x;
 		this.y=y;
-		this.setAvailableForTheMyPlayer(true);
+		this.setAvailableForMyPlayer(true);
 	}
 	
 	public void setPositionCom(int x, int y) {
@@ -75,7 +75,7 @@ public class Disc implements MovingObject  {
 	@Override
 	public void update() {
 
-		if(isAvailableForTheMyPlayer() == false && isAvailableForComPlayer()==false ){
+		if(isAvailableForMyPlayer() == false && isAvailableForComPlayer()==false ){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
 	            deltaX = -deltaX;
@@ -123,11 +123,11 @@ public class Disc implements MovingObject  {
 		return new Rectangle(this.x,this.y,(int)(dimensionOfDisc*0.6),(int)(dimensionOfDisc*0.6));
 	}
 
-	public boolean isAvailableForTheMyPlayer() {
+	public boolean isAvailableForMyPlayer() {
 		return availableForTheMyPlayer;
 	}
 
-	public void setAvailableForTheMyPlayer(boolean availableForTheMyPlayer) {
+	public void setAvailableForMyPlayer(boolean availableForTheMyPlayer) {
 		this.availableForTheMyPlayer = availableForTheMyPlayer;
 	}
 
