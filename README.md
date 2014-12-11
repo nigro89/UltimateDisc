@@ -31,21 +31,21 @@ NUOVE OPERAZIONI
 
 data 19/11/2014 aggiornamento 27/11/2014
 
-1. disegnare campo da gioco					 					-ok
-2. inserire nel campo il disco e farlo girare 					-ok
-3. iniziare a inserire nel campo i punteggi 			 		-ok
+1. disegnare campo da gioco					 						-ok
+2. inserire nel campo il disco e farlo girare 						-ok
+3. iniziare a inserire nel campo i punteggi 			 			-ok
 4. aggiungere al campo il player e tutte le sue funzioni
-	4.1 interazione player disco								-ok
-	4.2 movimento in diagonale del Player						-ok
-	4.3 lancio del disco ( direzione e velocità )				-ok
+	4.1 interazione player disco									-ok
+	4.2 movimento in diagonale del Player							-ok
+	4.3 lancio del disco ( direzione e velocità )					-ok
 	4.4 cambiamento immagini movimenti
 5. aggiungere il comPlayer ( IA le varie difficoltà )
-6. classe screen per gli attributi del monitor					-ok
-7. classe per la gestione delle immagini						-ok
-8. pannelli menu												-ok
-9. gestione timer												-ok
-----ritorna al punto 5 
-10. immagini dei vari campi, dei vari muri , frisbee,vari player
+6. classe screen per gli attributi del monitor						-ok
+7. classe per la gestione delle immagini							-ok
+8. pannelli menu													-ok
+9. gestione timer													-ok
+----ritorna al punto 5 												-ok
+10. immagini dei vari campi, dei vari muri , frisbee,vari player	
 11. editor
 12. round , punteggio
 13. selezione campo e player
