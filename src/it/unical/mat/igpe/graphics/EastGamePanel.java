@@ -20,7 +20,7 @@ public class EastGamePanel extends JPanel {
 	        {
 	            super("Repainter");
 	            this.gameManager = gameManager;
-	            sw=0;
+	            sw=-1;
 	        }
 	      
 	        public void setSW(int s)
@@ -28,14 +28,33 @@ public class EastGamePanel extends JPanel {
 	        	this.sw=s;
 	        }
 
+	        public void setIcon(int sw)
+	        {
+	        	switch (sw) {
+				case 0:	l.setIcon(two_point);
+						break;
+				case 1:	l1.setIcon(two_point);
+						break;
+				case 2:	l2.setIcon(one_point);
+						break;
+				case 3:	l3.setIcon(two_point);
+						break;
+				case 4:	l4.setIcon(two_point);
+						break;
+				default:
+					break;
+				}
+	        }
+	        
 			@Override
 	        public void run()
 	        {
 	        	while(true)
-	        	{	
-	        		if (gameManager.getDisc().isMyplayer()==true){
+	        	{	System.out.println("Thread sw: "+sw);
+//	        		if (gameManager.getDisc().isMyplayer()==true){
 	        		
-	        			
+	        			if (sw!=-1){
+
 	        			switch (sw) {
 							case 0:	l.setIcon(two_point);
 									break;
@@ -50,7 +69,7 @@ public class EastGamePanel extends JPanel {
 							default:
 								break;
 							}
-//	        			System.out.println("Thread sw: "+sw);
+	        			
 		        			repaint();
 		        			
 		        			try
@@ -62,6 +81,7 @@ public class EastGamePanel extends JPanel {
 			        			System.out.println("errore run RepainterThread");
 			        		}
 	        			}
+	        			sw=-1;
 	        		
 	        			if (gameManager.getDisc().isMyplayer()==false){
 	        				  l.setIcon(one_point);

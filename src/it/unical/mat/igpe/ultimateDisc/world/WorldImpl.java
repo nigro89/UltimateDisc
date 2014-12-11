@@ -121,6 +121,7 @@ public class WorldImpl implements World {
 			System.out.println("WorldImpl sw: "+strickenWallMyPlayer);
 			
 			EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
+//			EastGamePanel.getRepainterThread().setIcon(strickenWallMyPlayer);
 			
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
