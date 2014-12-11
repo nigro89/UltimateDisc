@@ -27,6 +27,8 @@ public class ImageProvider {
     private final Image exit;
     private final Image exitWhite;
     
+    private final Image gif;
+    
     private final Image start;
     private final Image startGame;
     private final Image ten;
@@ -46,6 +48,7 @@ public class ImageProvider {
     public ImageProvider()
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
+    	  gif= tk.getImage("img/italiav1.gif");
     	  myPlayerFront = tk.getImage("img/frontc.gif");
     	  myPlayerBack = tk.getImage("img/retroc.gif");
     	  one_point = new ImageIcon("img/1point.jpg");
@@ -82,7 +85,7 @@ public class ImageProvider {
     	  myPlayerShot2 = tk.getImage("img/cat2.png");
     }
 
-    public Image getMyPlayerDirection(final int direction)
+	public Image getMyPlayerDirection(final int direction)
     {
         switch (direction)
         {
@@ -112,6 +115,9 @@ public class ImageProvider {
 
 	public ImageIcon getTwo_point() {
 		return two_point;
+	}
+	public Image getGif() {
+		return gif;
 	}
 
 	public Image getFrisbee() {

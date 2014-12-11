@@ -53,9 +53,6 @@ data 19/11/2014 aggiornamento 27/11/2014
  3d?
  rete?
 
-
-Da chiedere 
-
-Tiro comPlayer simulazione caricamento
+tocca il muro si stoppa tutto si vede la gif senza disco. wait di due secondi con popup del risultato. reinizia il round.
 
 

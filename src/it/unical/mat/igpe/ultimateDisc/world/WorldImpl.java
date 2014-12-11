@@ -2,13 +2,12 @@ package it.unical.mat.igpe.ultimateDisc.world;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-
-import it.unical.mat.igpe.graphics.EastGamePanel;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 
 public class WorldImpl implements World {
+	
 
 	private Disc disc; 
 	private Wall wallMyPlayer;
@@ -19,6 +18,7 @@ public class WorldImpl implements World {
 	int myPlayerScore;
 	int comScore;
 	int strickenWallMyPlayer = 0;
+	int strickenWallComPlayer = 0;
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	double width = screenSize.getWidth();
@@ -109,24 +109,22 @@ public class WorldImpl implements World {
 		if (disc.isComplayer()==true)
 		{
 			point = this.wallCom.getValuePoint(y);
+			this.strickenWallComPlayer = this.wallCom.getStrickenWall(y);
+			
+//			WestGamePanel.getRepainterThread().setSW(strickenWallComPlayer);
 			this.comScore+=point;
 			disc.setComplayer(false);
-//			System.out.println(point+" punto al com "+comScore);
 		}
 		else if (disc.isMyplayer()==true)
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
 			this.strickenWallMyPlayer = this.wallMyPlayer.getStrickenWall(y);
-		
-			System.out.println("WorldImpl sw: "+strickenWallMyPlayer);
 			
-			EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
-//			EastGamePanel.getRepainterThread().setIcon(strickenWallMyPlayer);
+			//EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
 			
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);
-//			System.out.println(point+" punto al my "+myPlayerScore);
 		}
 		
 	}

@@ -11,12 +11,12 @@ import javax.swing.JPanel;
 
 public class EastGamePanel extends JPanel {
 
-	 public  class RepainterThread extends Thread
+	 public  class RepainterThreadEastPanel extends Thread
 	    {
 	        private final GameManager gameManager;
 	        int sw;
 
-	        private RepainterThread(final GameManager gameManager)
+	        private RepainterThreadEastPanel(final GameManager gameManager)
 	        {
 	            super("Repainter");
 	            this.gameManager = gameManager;
@@ -28,60 +28,41 @@ public class EastGamePanel extends JPanel {
 	        	this.sw=s;
 	        }
 
-	        public void setIcon(int sw)
-	        {
-	        	switch (sw) {
-				case 0:	l.setIcon(two_point);
-						break;
-				case 1:	l1.setIcon(two_point);
-						break;
-				case 2:	l2.setIcon(one_point);
-						break;
-				case 3:	l3.setIcon(two_point);
-						break;
-				case 4:	l4.setIcon(two_point);
-						break;
-				default:
-					break;
-				}
-	        }
-	        
 			@Override
 	        public void run()
 	        {
 	        	while(true)
-	        	{	System.out.println("Thread sw: "+sw);
-//	        		if (gameManager.getDisc().isMyplayer()==true){
-	        		
+	        	{	
 	        			if (sw!=-1){
-
-	        			switch (sw) {
-							case 0:	l.setIcon(two_point);
+		        			switch (sw) {
+								case 0:	l.setIcon(two_point);
+										break;
+								case 1:	l1.setIcon(two_point);
+										break;
+								case 2:	l2.setIcon(one_point);
+										break;
+								case 3:	l3.setIcon(two_point);
+										break;
+								case 4:	l4.setIcon(two_point);
+										break;
+								default:
 									break;
-							case 1:	l1.setIcon(two_point);
-									break;
-							case 2:	l2.setIcon(one_point);
-									break;
-							case 3:	l3.setIcon(two_point);
-									break;
-							case 4:	l4.setIcon(two_point);
-									break;
-							default:
-								break;
-							}
-	        			
-		        			repaint();
+								}
 		        			
-		        			try
-			        		{
-			        			sleep(100);
-			        		}
-			        		catch (final InterruptedException e)
-			        		{
-			        			System.out.println("errore run RepainterThread");
-			        		}
+			        			repaint();
+			        			
+			        			try
+				        		{
+				        			sleep(100);
+				        		}
+				        		catch (final InterruptedException e)
+				        		{
+				        			System.out.println("errore run RepainterThread");
+				        		}
 	        			}
-	        			sw=-1;
+	        			if(sw!=-1){
+	        				sw=-1;
+	        			}
 	        		
 	        			if (gameManager.getDisc().isMyplayer()==false){
 	        				  l.setIcon(one_point);
@@ -111,13 +92,13 @@ public class EastGamePanel extends JPanel {
 	double height = screen.getHeight()*0.75;
 	    
 	GameManager gameManager;
-	static RepainterThread repainterThread;
+	static RepainterThreadEastPanel repainterThread;
 	
 	    
 	  public EastGamePanel(GameManager gameManager)
 	 {
 		  this.gameManager = gameManager;
-		  repainterThread = new RepainterThread(gameManager);
+		  repainterThread = new RepainterThreadEastPanel(gameManager);
 		  
 		  this.setPreferredSize(new Dimension((int)width,(int)height));
 		  this.setLayout(new GridLayout(5,1));
@@ -133,7 +114,7 @@ public class EastGamePanel extends JPanel {
 		  this.add(l4);
 	 }
 
-	public static RepainterThread getRepainterThread() {
+	public static RepainterThreadEastPanel getRepainterThread() {
 		return repainterThread;
 	}
 	

@@ -4,14 +4,26 @@ import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.PaintContext;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.ImageObserver;
+import java.text.AttributedCharacterIterator;
 import java.util.Random;
 
+import javax.security.auth.Refreshable;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -46,6 +58,7 @@ public class CenterGamePanel extends JPanel {
 //	        	event = imageProvider.getGameOver();
 //	        	repaint();
 	        }
+
 	    }
 
 	/**
@@ -56,6 +69,9 @@ public class CenterGamePanel extends JPanel {
 	static ImageProvider imageProvider = new ImageProvider();
 	static Image woodField = imageProvider.getWoodField();
 	static Image frisbee = imageProvider.getFrisbee();
+	
+	static Image gif = null;// imageProvider.getGif();
+	
 	static Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
 	static Image comPlayerImg = imageProvider.getMyPlayerDirection(Player.LEFT);
 
@@ -84,7 +100,6 @@ public class CenterGamePanel extends JPanel {
 	public CenterGamePanel(final GameManager gameManager)
 	{
 		this.gameManager=gameManager;
-		
 		CenterGamePanel.energyShoot=new ProgressBar();
 		this.add(CenterGamePanel.energyShoot);
 		CenterGamePanel.energyShoot.setVisible(false);
@@ -150,7 +165,7 @@ public class CenterGamePanel extends JPanel {
 	  public static int getxShoot() {
 			return xShoot;
 		}
-
+	  
 		public static void setxShoot(int xShoot) {
 			CenterGamePanel.xShoot += xShoot;
 		}
@@ -170,7 +185,7 @@ public class CenterGamePanel extends JPanel {
 			CenterGamePanel.energyShoot = energyShoot;
 		}
 	@Override
-	protected void paintComponent(Graphics g) {
+	protected  void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		// playground
 		g.drawImage(woodField,0,0,getWidth(),getHeight(),this);
@@ -179,7 +194,7 @@ public class CenterGamePanel extends JPanel {
 		// My player
 		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
-		//g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
+		g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
 		// disc
 		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event
@@ -197,6 +212,8 @@ public class CenterGamePanel extends JPanel {
 		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() ,Player.getWithimage(),Player.getHeightimage());
 
 		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
+		
+		//gif goal
+		g.drawImage(gif, gameManager.getDisc().getX(), gameManager.getDisc().getY(),this);
 	}
-
 }

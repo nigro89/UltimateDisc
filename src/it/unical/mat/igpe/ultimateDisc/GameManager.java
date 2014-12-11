@@ -89,23 +89,23 @@ public class GameManager {
 //		{
 			disc.update();
 			myPlayer.update();
-//			if(comPlayerAbility)
-//				iaComPlayer.moveComPlayer(); 
+			if(comPlayerAbility)
+				iaComPlayer.moveComPlayer(); 
 			checkCollision();
 //		}
 		world.update();
 	}
-
+	
 
 	private void checkCollision() {
 		if(disc.getBounds().intersects(myPlayer.getBounds())){
 			disc.setPosition(myPlayer.getX(), myPlayer.getY());
 		}
-//		else if(disc.getBounds().intersects(comPlayer.getBounds())){
-//			comPlayerAbility = false;
-//			disc.setPositionCom(comPlayer.getX(), comPlayer.getY());
-//			IaComPlayer.shoot();
-//		}
+		else if(disc.getBounds().intersects(comPlayer.getBounds())){
+			comPlayerAbility = false;
+			disc.setPositionCom(comPlayer.getX(), comPlayer.getY());
+			IaComPlayer.shoot();
+		}
 	}
 
 
