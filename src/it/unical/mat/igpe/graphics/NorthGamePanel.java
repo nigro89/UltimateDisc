@@ -14,7 +14,7 @@ public class NorthGamePanel extends JPanel {
 	 final class RepainterThread extends Thread
 	    {
 	        private final GameManager gameManager;
-
+	        
 	        private RepainterThread(final GameManager gameManager)
 	        {
 	            super("Repainter");

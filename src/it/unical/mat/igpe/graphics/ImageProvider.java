@@ -28,6 +28,7 @@ public class ImageProvider {
     private final Image exitWhite;
     
     private final Image gif;
+    private final Image score;
     
     private final Image start;
     private final Image startGame;
@@ -48,7 +49,10 @@ public class ImageProvider {
     public ImageProvider()
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
+    	  
     	  gif= tk.getImage("img/italiav1.gif");
+    	  score = tk.getImage("img/score.jpg");
+    	  
     	  myPlayerFront = tk.getImage("img/frontc.gif");
     	  myPlayerBack = tk.getImage("img/retroc.gif");
     	  one_point = new ImageIcon("img/1point.jpg");
@@ -122,6 +126,10 @@ public class ImageProvider {
 
 	public Image getFrisbee() {
 		return frisbee;
+	}
+	
+	public Image getScore() {
+		return score;
 	}
 
 	public Image getWoodField() {

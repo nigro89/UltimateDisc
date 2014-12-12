@@ -26,6 +26,8 @@ public class GameManager {
 	double height = screen.getHeight();
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
+	
+	static boolean stop=false;
 		
 	public MyPlayer getMyPlayer() {
 		return myPlayer;
@@ -87,11 +89,13 @@ public class GameManager {
 //		}
 //		else
 //		{
+		if(!stop){
 			disc.update();
 			myPlayer.update();
 			if(comPlayerAbility)
 				iaComPlayer.moveComPlayer(); 
 			checkCollision();
+		}
 //		}
 		world.update();
 	}
@@ -123,5 +127,15 @@ public class GameManager {
 
 	public static void setComPlayerAbility(boolean comPlayerAbilityNew) {
 		comPlayerAbility = comPlayerAbilityNew;
+	}
+
+
+	public static boolean isStop() {
+		return stop;
+	}
+
+
+	public static void setStop(boolean stopNew) {
+		stop = stopNew;
 	}
 }

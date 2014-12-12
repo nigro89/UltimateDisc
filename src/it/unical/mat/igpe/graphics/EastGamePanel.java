@@ -27,51 +27,79 @@ public class EastGamePanel extends JPanel {
 	        {
 	        	this.sw=s;
 	        }
+	        
+	        public void setIcon(int s)
+	        {
+	        	switch (s) {
+	        	
+					case 0: l.setIcon(two_point);
+							break;
+					case 1:	l1.setIcon(two_point);
+							break;
+					case 2:	l2.setIcon(one_point);
+							break;
+					case 3:	l3.setIcon(two_point);
+							break;
+					case 4:	l4.setIcon(two_point);
+							break;
+					default:
+						break;
+				}
+			
+    			repaint();
+    	
+			  l.setIcon(one_point);
+			  l1.setIcon(one_point);
+			  l2.setIcon(two_point);
+			  l3.setIcon(one_point);
+			  l4.setIcon(one_point);
+		    }
 
 			@Override
 	        public void run()
 	        {
-	        	while(true)
-	        	{	
-	        			if (sw!=-1){
-		        			switch (sw) {
-								case 0:	l.setIcon(two_point);
-										break;
-								case 1:	l1.setIcon(two_point);
-										break;
-								case 2:	l2.setIcon(one_point);
-										break;
-								case 3:	l3.setIcon(two_point);
-										break;
-								case 4:	l4.setIcon(two_point);
-										break;
-								default:
-									break;
-								}
-		        			
-			        			repaint();
-			        			
-			        			try
-				        		{
-				        			sleep(100);
-				        		}
-				        		catch (final InterruptedException e)
-				        		{
-				        			System.out.println("errore run RepainterThread");
-				        		}
-	        			}
-	        			if(sw!=-1){
-	        				sw=-1;
-	        			}
-	        		
-	        			if (gameManager.getDisc().isMyplayer()==false){
-	        				  l.setIcon(one_point);
-	        				  l1.setIcon(one_point);
-	        				  l2.setIcon(two_point);
-	        				  l3.setIcon(one_point);
-	        				  l4.setIcon(one_point);
-	        			}
-	        	}
+//	        	while(true)
+//	        	{	
+//	        			if (sw!=-1){
+//	        				System.out.println("eeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+//		        			switch (sw) {
+//								case 0:	l.setIcon(two_point);
+//										break;
+//								case 1:	l1.setIcon(two_point);
+//										break;
+//								case 2:	l2.setIcon(one_point);
+//										break;
+//								case 3:	l3.setIcon(two_point);
+//										break;
+//								case 4:	l4.setIcon(two_point);
+//										break;
+//								default:
+//									break;
+//								}
+//		        			
+//			        			repaint();
+//			        			
+//			        			try
+//				        		{
+//				        			sleep(100);
+//				        		}
+//				        		catch (final InterruptedException e)
+//				        		{
+//				        			System.out.println("errore run RepainterThread");
+//				        		}
+//	        			}
+//	        			if(sw!=-1){
+//	        				sw=-1;
+//	        			}
+//	        		
+//	        			if (gameManager.getDisc().isMyplayer()==false){
+//	        				  l.setIcon(one_point);
+//	        				  l1.setIcon(one_point);
+//	        				  l2.setIcon(two_point);
+//	        				  l3.setIcon(one_point);
+//	        				  l4.setIcon(one_point);
+//	        			}
+//	        	}
 	        }
 	    }
 	 

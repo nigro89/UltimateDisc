@@ -53,6 +53,10 @@ data 19/11/2014 aggiornamento 27/11/2014
  3d?
  rete?
 
-tocca il muro si stoppa tutto si vede la gif senza disco. wait di due secondi con popup del risultato. reinizia il round.
-
+tocca il muro si stoppa tutto 									-ok
+stoppare anche il tempo 
+si vede la gif senza disco    									-ok
+wait di due secondi con popup del risultato						-ok
+reinizia il round dando il frisbee al player che ha segnato
+far ripartire il tempo da dove era rimasto!
 
