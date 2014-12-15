@@ -65,8 +65,9 @@ public class GameManager {
 	public boolean timeUp()
 	{
 		currentTime = (System.currentTimeMillis())/1000;
-		if ((currentTime-startTime)>=10)
+		if ((currentTime-startTime)>=10){
 			return true;
+		}
 		return false;
 	}
 	
@@ -80,15 +81,15 @@ public class GameManager {
 
 	public void update()
 	{
-//		if(timeUp())
-//		{
-//			disc.reset();
-//			myPlayer.reset();
-//			comPlayer.reset();
-//			this.startTime=0;
-//		}
-//		else
-//		{
+		if(timeUp()) 
+		{
+			disc.reset();
+			myPlayer.reset();
+			comPlayer.reset();
+			this.startTime=0;
+		}
+		else
+		{
 		if(!stop){
 			disc.update();
 			myPlayer.update();
@@ -96,7 +97,7 @@ public class GameManager {
 				iaComPlayer.moveComPlayer(); 
 			checkCollision();
 		}
-//		}
+		}
 		world.update();
 	}
 	
@@ -137,5 +138,10 @@ public class GameManager {
 
 	public static void setStop(boolean stopNew) {
 		stop = stopNew;
+	}
+
+
+	public void restartRound() {
+		this.startTime = (System.currentTimeMillis())/1000;
 	}
 }

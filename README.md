@@ -58,7 +58,7 @@ stoppare anche il tempo
 si vede la gif senza disco    									-ok
 wait di due secondi con popup del risultato						-ok
 reinizia il round dando il frisbee al player che ha segnato				-ok
-creazio e gestione round 3
+creazione e gestione round 3
 selezione giocatori e campo
 
 

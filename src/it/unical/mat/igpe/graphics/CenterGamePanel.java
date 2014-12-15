@@ -21,6 +21,7 @@ public class CenterGamePanel extends JPanel {
 	        private final GameManager gameManager;
 	        public boolean myPlayerGoal=false;
 	        public boolean comPlayerGoal=false;
+			private boolean endRound=false;
 
 			private RepainterThread(final GameManager gameManager)
 	        {
@@ -31,53 +32,83 @@ public class CenterGamePanel extends JPanel {
 			@Override
 	        public void run()
 	        {
-//	        	while(gameManager.timeUp()==false)
 	        	while(true)
-	        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
-	        		gameManager.update();
-	        		repaint();
-	        		if(GameManager.isStop())
-	        		{
-	        			frisbee=null;
-	        			gif = imageProvider.getGif();
-	        			score = imageProvider.getScore();
-	        			try
+	        	{
+		        	while(gameManager.timeUp()==false)
+		        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
+		        		endRound=false;
+		        		gameManager.update();
+		        		repaint();
+		        		if(GameManager.isStop())
 		        		{
-		        			sleep(2000);
+		        			frisbee=null;
+		        			gif = imageProvider.getGif();
+		        			score = imageProvider.getScore();
+		        			try
+			        		{
+			        			sleep(2000);
+			        		}
+			        		catch (final InterruptedException e)
+			        		{
+			        			System.out.println("errore run RepainterThread GameManager Stopped");
+			        		}
+		        			gameManager.getDisc().setResetPosition(900, 700);
+		        			
+		        			if(myPlayerGoal==true){
+		        				gameManager.setComPlayerAbility(true);
+		        				gameManager.getDisc().setDirection(15, 8);
+		        				myPlayerGoal=false;
+		        			}
+		        			else if(comPlayerGoal==true){
+		        				gameManager.getDisc().setDirection(-18, 14);
+		        				comPlayerGoal=false;
+		        			}
+			        	}
+		        		try
+		        		{
+		        			sleep(10 + new Random().nextInt(30));
 		        		}
 		        		catch (final InterruptedException e)
 		        		{
-		        			System.out.println("errore run RepainterThread GameManager Stopped");
+		        			System.out.println("errore run RepainterThread");
 		        		}
-	        			gameManager.getDisc().setResetPosition(900, 700);
-	        			
-	        			if(myPlayerGoal==true){
-	        				gameManager.setComPlayerAbility(true);
-	        				gameManager.getDisc().setDirection(15, 8);
-	        				myPlayerGoal=false;
-	        			}
-	        			else if(comPlayerGoal==true){
-	        				gameManager.getDisc().setDirection(-18, 14);
-	        				comPlayerGoal=false;
-	        			}
+		        		
+		        		score = null;
+	        			gif = null;
+	        			frisbee=imageProvider.getFrisbee();
+	        			GameManager.setStop(false);
 		        	}
-	        		try
-	        		{
-	        			sleep(10 + new Random().nextInt(30));
-	        		}
-	        		catch (final InterruptedException e)
-	        		{
-	        			System.out.println("errore run RepainterThread");
-	        		}
-	        		
-	        		score = null;
-        			gif = null;
-        			frisbee=imageProvider.getFrisbee();
-        			GameManager.setStop(false);
-        			
+		        	if(gameManager.timeUp()==true && endRound==false){
+		        		gameManager.update();
+		        		pass = imageProvider.getPass();
+		        		repaint();
+		        		try
+		        		{
+		        			sleep(1500);
+		        		}
+		        		catch (final InterruptedException e)
+		        		{
+		        			System.out.println("errore run RepainterThread");
+		        		}
+		        		pass=null;
+		        		round = imageProvider.getRound();
+		        		repaint();
+		        		try
+		        		{
+		        			sleep(1500);
+		        		}
+		        		catch (final InterruptedException e)
+		        		{
+		        			System.out.println("errore run RepainterThread");
+		        		}
+		        		round=null;
+		        		repaint();
+		        		endRound=true;
+		        	}
+	//	        	event = imageProvider.getGameOver();
+	//	        	repaint();
+		        	gameManager.restartRound();
 	        	}
-//	        	event = imageProvider.getGameOver();
-//	        	repaint();
 	        }
 			
 			public void setMyPlayerGoal(boolean myPlayerGoal) {
@@ -99,8 +130,8 @@ public class CenterGamePanel extends JPanel {
 	static Image woodField = imageProvider.getWoodField();
 	static Image frisbee = imageProvider.getFrisbee();
 	
-	static Image gif = null;// imageProvider.getGif();
-	static Image score = null;// imageProvider.getScore();
+	static Image gif = null;		// imageProvider.getGif();
+	static Image score = null;		// imageProvider.getScore();
 	
 	static Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
 	static Image comPlayerImg = imageProvider.getMyPlayerDirection(Player.LEFT);
@@ -112,6 +143,8 @@ public class CenterGamePanel extends JPanel {
     static Image imgpf = tk.getImage("img/frontc.gif");
     
 	static Image event = null;
+	private Image round = null;
+	private Image pass = null;
 
     private static int xShoot=5;
     private static int yShoot=0;
@@ -127,6 +160,7 @@ public class CenterGamePanel extends JPanel {
     static RepainterThread repainterThread;
     
     static ProgressBar energyShoot;
+    
 
 	public CenterGamePanel(final GameManager gameManager)
 	{
@@ -248,6 +282,11 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(gif, gameManager.getDisc().getX(), gameManager.getDisc().getY(),this);
 		//score
 		g.drawImage(score, (int)(width*0.25), 0,this);
+		
+		//fine round
+		g.drawImage(round, (int)(width*0.25), 0,this);
+		//fine pass
+		g.drawImage(pass, (int)(width*0.25), 0,this);
 	}
 	
 	public static RepainterThread getRepainterThread() {
