@@ -19,8 +19,10 @@ public class CenterGamePanel extends JPanel {
 	 public final class RepainterThread extends Thread
 	    {
 	        private final GameManager gameManager;
+	        public boolean myPlayerGoal=false;
+	        public boolean comPlayerGoal=false;
 
-	        private RepainterThread(final GameManager gameManager)
+			private RepainterThread(final GameManager gameManager)
 	        {
 	            super("Repainter");
 	            this.gameManager = gameManager;
@@ -47,6 +49,17 @@ public class CenterGamePanel extends JPanel {
 		        		{
 		        			System.out.println("errore run RepainterThread GameManager Stopped");
 		        		}
+	        			gameManager.getDisc().setResetPosition(900, 700);
+	        			
+	        			if(myPlayerGoal==true){
+	        				gameManager.setComPlayerAbility(true);
+	        				gameManager.getDisc().setDirection(15, 8);
+	        				myPlayerGoal=false;
+	        			}
+	        			else if(comPlayerGoal==true){
+	        				gameManager.getDisc().setDirection(-18, 14);
+	        				comPlayerGoal=false;
+	        			}
 		        	}
 	        		try
 	        		{
@@ -61,11 +74,19 @@ public class CenterGamePanel extends JPanel {
         			gif = null;
         			frisbee=imageProvider.getFrisbee();
         			GameManager.setStop(false);
-
+        			
 	        	}
 //	        	event = imageProvider.getGameOver();
 //	        	repaint();
 	        }
+			
+			public void setMyPlayerGoal(boolean myPlayerGoal) {
+				this.myPlayerGoal = myPlayerGoal;
+			}
+
+			public void setComPlayerGoal(boolean comPlayerGoal) {
+				this.comPlayerGoal = comPlayerGoal;
+			}
 
 	    }
 

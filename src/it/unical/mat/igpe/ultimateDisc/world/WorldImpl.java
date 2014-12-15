@@ -3,6 +3,7 @@ package it.unical.mat.igpe.ultimateDisc.world;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
@@ -111,26 +112,19 @@ public class WorldImpl implements World {
 		{
 			point = this.wallCom.getValuePoint(y);
 			this.strickenWallComPlayer = this.wallCom.getStrickenWall(y);
-			
-//			WestGamePanel.getRepainterThread().setSW(strickenWallComPlayer);
-			
 			this.comScore+=point;
 			disc.setComplayer(false);
-			
+			CenterGamePanel.getRepainterThread().setComPlayerGoal(true);
 			GameManager.setStop(true);
 		}
 		else if (disc.isMyplayer()==true)
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
 			this.strickenWallMyPlayer = this.wallMyPlayer.getStrickenWall(y);
-
-//			EastGamePanel.getRepainterThread().setSW(strickenWallMyPlayer);
-//			EastGamePanel.getRepainterThread().setIcon(strickenWallMyPlayer);
-			
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);
-			
+			CenterGamePanel.getRepainterThread().setMyPlayerGoal(true);
 			GameManager.setStop(true);
 		}
 		

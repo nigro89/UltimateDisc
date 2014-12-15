@@ -57,6 +57,20 @@ tocca il muro si stoppa tutto 									-ok
 stoppare anche il tempo 
 si vede la gif senza disco    									-ok
 wait di due secondi con popup del risultato						-ok
-reinizia il round dando il frisbee al player che ha segnato
-far ripartire il tempo da dove era rimasto!
+reinizia il round dando il frisbee al player che ha segnato				-ok
+creazio e gestione round 3
+selezione giocatori e campo
+
+
+
+
+
+
+
+
+
+
+
+
+
 
