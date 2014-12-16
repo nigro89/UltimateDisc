@@ -54,14 +54,20 @@ data 19/11/2014 aggiornamento 27/11/2014
  rete?
 
 tocca il muro si stoppa tutto 									-ok
-stoppare anche il tempo 
 si vede la gif senza disco    									-ok
 wait di due secondi con popup del risultato						-ok
-reinizia il round dando il frisbee al player che ha segnato				-ok
-creazione e gestione round 3
-selezione giocatori e campo
-
-
+reinizia il round dando il frisbee al player che ha segnato		-ok
+creazione e gestione round 3									-ok
+pausa durante gioco con opzioni:
+	esci dal gioco
+	torna al menu principale
+	continua(annulla)
+menu selezione giocatori e campo:
+	ordine sequenza: (possibilità di tornare alla selezione precedente)
+		seleziona player ( tasto seleziona player random )
+		seleziona campo ( tasto seleziona campo random )
+		schermata myplayer vs comPlayer(com selezionato in modo random) 
+		si avvia la partita! 
 
 
 

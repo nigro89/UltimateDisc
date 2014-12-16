@@ -79,7 +79,6 @@ public class Disc implements MovingObject  {
 
 	@Override
 	public void update() {
-
 		if(isAvailableForMyPlayer() == false && isAvailableForComPlayer()==false ){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
 	        {
@@ -95,6 +94,7 @@ public class Disc implements MovingObject  {
 	        }
 	        this.x=this.x+deltaX;
 	        this.y=this.y+deltaY;
+	        
 		}
 	}
 

@@ -41,7 +41,9 @@ public class ImageProvider {
     private final Image two;
     private final Image one;
     private final Image zero;
-    private final Image round;
+    private final Image round1;
+    private final Image round2;
+    private final Image finalRound;
     private final Image pass;
     
     private final Image gameOver;
@@ -52,7 +54,10 @@ public class ImageProvider {
     	  
     	  gif= tk.getImage("img/italiav1.gif");
     	  score = tk.getImage("img/score.jpg");
-    	  round = tk.getImage("img/round.jpg");
+    	  round1 = tk.getImage("img/round1.png");
+    	  round2 = tk.getImage("img/round2.png");
+    	  finalRound = tk.getImage("img/finalRound.png");
+    	  
     	  pass = tk.getImage("img/fail-pass.jpg");
     	  myPlayerFront = tk.getImage("img/frontc.gif");
     	  myPlayerBack = tk.getImage("img/retroc.gif");
@@ -91,12 +96,26 @@ public class ImageProvider {
     }
 
 	public Image getRound() {
-		return round;
+		return round1;
 	}
 
 	public Image getPass() {
 		return pass;
 	}
+	
+	public Image getRound(int round)
+    {
+        switch (round)
+        {
+            case 0:
+                return round1;
+            case 1:
+                return round2;
+            case 2:
+                return finalRound;
+        }
+        return round1;
+    }
 
 	public Image getMyPlayerDirection(final int direction)
     {
@@ -222,5 +241,13 @@ public class ImageProvider {
 				return zero;
 			}
 			return null;
+	}
+
+	public Image getRound2() {
+		return round2;
+	}
+
+	public Image getFinalRound() {
+		return finalRound;
 	}
 }

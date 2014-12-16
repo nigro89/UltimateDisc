@@ -19,8 +19,8 @@ public class WorldImpl implements World {
 	
 	int myPlayerScore;
 	int comScore;
-	int strickenWallMyPlayer = 0;
-	int strickenWallComPlayer = 0;
+	int roundMyPlayer;
+	int roundComPlayer;
 	
 	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	double width = screenSize.getWidth();
@@ -39,13 +39,32 @@ public class WorldImpl implements World {
 		// stabilire le x di default del muro (da grafica)
 		this.myPlayerScore=0;
 		this.comScore=0;
+		this.roundMyPlayer=0;
+		this.roundComPlayer=0;
 	}
 	
+
+	
+	
+	public int getRoundMyPlayer() {
+		return roundMyPlayer;
+	}
+
+	public void setRoundMyPlayer(int roundMyPlayer) {
+		this.roundMyPlayer += roundMyPlayer;
+	}
+
+	public int getRoundComPlayer() {
+		return roundComPlayer;
+	}
+
+	public void setRoundComPlayer(int roundComPlayer) {
+		this.roundComPlayer += roundComPlayer;
+	}
 
 	public int getMyPlayerScore() {
 		return myPlayerScore;
 	}
-
 
 	public void setMyPlayerScore(int myPlayerScore) {
 		this.myPlayerScore = myPlayerScore;
@@ -94,13 +113,6 @@ public class WorldImpl implements World {
 		this.x_limit_com = x_limit_com;
 	}
 
-	public int getStrickenWALL() {
-		return strickenWallMyPlayer;
-	}
-
-	public void setStrickenWall(int strickenWall) {
-		this.strickenWallMyPlayer = strickenWall;
-	}
 
 
 	@Override
@@ -111,7 +123,6 @@ public class WorldImpl implements World {
 		if (disc.isComplayer()==true)
 		{
 			point = this.wallCom.getValuePoint(y);
-			this.strickenWallComPlayer = this.wallCom.getStrickenWall(y);
 			this.comScore+=point;
 			disc.setComplayer(false);
 			CenterGamePanel.getRepainterThread().setComPlayerGoal(true);
@@ -120,7 +131,6 @@ public class WorldImpl implements World {
 		else if (disc.isMyplayer()==true)
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
-			this.strickenWallMyPlayer = this.wallMyPlayer.getStrickenWall(y);
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);

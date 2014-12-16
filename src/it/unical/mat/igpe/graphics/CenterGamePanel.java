@@ -22,6 +22,10 @@ public class CenterGamePanel extends JPanel {
 	        public boolean myPlayerGoal=false;
 	        public boolean comPlayerGoal=false;
 			private boolean endRound=false;
+			private boolean finish=false;
+			private boolean startGame=true;
+			private boolean roundC=true;
+			private int contRound=0;
 
 			private RepainterThread(final GameManager gameManager)
 	        {
@@ -34,13 +38,41 @@ public class CenterGamePanel extends JPanel {
 	        {
 	        	while(true)
 	        	{
-		        	while(gameManager.timeUp()==false)
-		        	{	//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
+		        	while(gameManager.timeUp()==false && finish==false)
+		        	{	
+		        		if(roundC)
+		        		{
+		        			CenterGamePanel.setEnable(false);
+		        			round = imageProvider.getRound(contRound);
+		        			try
+		        			{
+		        				sleep(1500);
+		        			}
+		        			catch (final InterruptedException e)
+		        			{
+		        				System.out.println("errore run RepainterThread");
+		        			}
+		        			roundC=false;
+		        			round=null;
+		        			CenterGamePanel.setEnable(true);
+		        		}
+		        		
+		        		if(startGame)
+		        		{
+		        			System.out.println("start");
+		        			gameManager.getDisc().setDirection(-18, 14);
+		        			gameManager.update();
+		        			startGame=false;
+		        		}
+		        		
+		        		//System.out.println("x_shot: "+CenterGamePanel.xShoot+" y_shot: "+CenterGamePanel.yShoot);
 		        		endRound=false;
 		        		gameManager.update();
 		        		repaint();
+		        		
 		        		if(GameManager.isStop())
 		        		{
+		        			CenterGamePanel.setEnable(false);
 		        			frisbee=null;
 		        			gif = imageProvider.getGif();
 		        			score = imageProvider.getScore();
@@ -52,17 +84,22 @@ public class CenterGamePanel extends JPanel {
 			        		{
 			        			System.out.println("errore run RepainterThread GameManager Stopped");
 			        		}
-		        			gameManager.getDisc().setResetPosition(900, 700);
+		        			gameManager.getDisc().reset();
 		        			
 		        			if(myPlayerGoal==true){
-		        				gameManager.setComPlayerAbility(true);
-		        				gameManager.getDisc().setDirection(15, 8);
+		        				GameManager.setComPlayerAbility(true);
+		        				gameManager.getDisc().setDirection(10, 5);
 		        				myPlayerGoal=false;
 		        			}
 		        			else if(comPlayerGoal==true){
 		        				gameManager.getDisc().setDirection(-18, 14);
 		        				comPlayerGoal=false;
 		        			}
+		        			score = null;
+		        			gif = null;
+		        			frisbee=imageProvider.getFrisbee();
+		        			GameManager.setStop(false);
+		        			CenterGamePanel.setEnable(true);
 			        	}
 		        		try
 		        		{
@@ -73,12 +110,10 @@ public class CenterGamePanel extends JPanel {
 		        			System.out.println("errore run RepainterThread");
 		        		}
 		        		
-		        		score = null;
-	        			gif = null;
-	        			frisbee=imageProvider.getFrisbee();
-	        			GameManager.setStop(false);
 		        	}
+		        	
 		        	if(gameManager.timeUp()==true && endRound==false){
+		        		CenterGamePanel.setEnable(false);
 		        		gameManager.update();
 		        		pass = imageProvider.getPass();
 		        		repaint();
@@ -91,23 +126,44 @@ public class CenterGamePanel extends JPanel {
 		        			System.out.println("errore run RepainterThread");
 		        		}
 		        		pass=null;
-		        		round = imageProvider.getRound();
-		        		repaint();
-		        		try
-		        		{
-		        			sleep(1500);
-		        		}
-		        		catch (final InterruptedException e)
-		        		{
-		        			System.out.println("errore run RepainterThread");
-		        		}
-		        		round=null;
 		        		repaint();
 		        		endRound=true;
+		        		roundC=true;
+		        		startGame=true;
+		        		contRound++;
+		        		
+		        		if(gameManager.getWorld().getMyPlayerScore()>=gameManager.getWorld().getComScore())
+		        		{
+		        			gameManager.getWorld().setRoundMyPlayer(1);
+		        		}
+		        		else
+		        		{
+		        			gameManager.getWorld().setRoundComPlayer(1);
+		        		}
+		        		
+		        		System.out.println("Round "+contRound+" MYplayer: "+gameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+gameManager.getWorld().getComScore());
+		        		System.out.println("Round "+contRound+" MYplayerR: "+gameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+gameManager.getWorld().getRoundComPlayer());
+		        		gameManager.getWorld().setMyPlayerScore(0);
+		        		gameManager.getWorld().setComScore(0);
+		        		CenterGamePanel.setEnable(true);
 		        	}
-	//	        	event = imageProvider.getGameOver();
-	//	        	repaint();
-		        	gameManager.restartRound();
+		        	
+		        	if(gameManager.getWorld().getRoundMyPlayer()==2 || gameManager.getWorld().getRoundComPlayer()==2 
+	        				|| (gameManager.getWorld().getRoundMyPlayer()+gameManager.getWorld().getRoundComPlayer())==3)
+	        		{
+		        		CenterGamePanel.setEnable(false);
+	        			finish=true;
+	        			contRound=0;
+	        			event = imageProvider.getGameOver();
+	        			repaint();
+	        			CenterGamePanel.setEnable(true);
+	        		}
+		        	else
+		        	{
+		        		gameManager.getDisc().setAvailableForMyPlayer(false);
+		        		gameManager.getDisc().setAvailableForComPlayer(false);
+		        		gameManager.restartRound();
+		        	}
 	        	}
 	        }
 			
@@ -117,6 +173,18 @@ public class CenterGamePanel extends JPanel {
 
 			public void setComPlayerGoal(boolean comPlayerGoal) {
 				this.comPlayerGoal = comPlayerGoal;
+			}
+
+			public boolean isFinish() {
+				return finish;
+			}
+
+			public void setFinish(boolean finish) {
+				this.finish = finish;
+			}
+
+			public void setStartGame(boolean startGame) {
+				this.startGame = startGame;
 			}
 
 	    }
@@ -161,9 +229,11 @@ public class CenterGamePanel extends JPanel {
     
     static ProgressBar energyShoot;
     
+    static boolean enable;
 
 	public CenterGamePanel(final GameManager gameManager)
 	{
+		enable=true;
 		this.gameManager=gameManager;
 		CenterGamePanel.energyShoot=new ProgressBar();
 		this.add(CenterGamePanel.energyShoot);
@@ -178,6 +248,8 @@ public class CenterGamePanel extends JPanel {
 			@Override
 	        public void keyReleased (final KeyEvent e)
 			 {
+				if(enable)
+				{
 					keyProcessor.setKeystate(e.getKeyCode(),false);
 					switch (e.getKeyCode())
 					{
@@ -215,12 +287,18 @@ public class CenterGamePanel extends JPanel {
 						 CenterGamePanel.energyShoot.setVisible(false);
 						 GameManager.setComPlayerAbility(true);
 					 }
+				}
+					
 			 }
 
             @Override
             public void keyPressed(final KeyEvent e)
             {
-            	keyProcessor.setKeystate(e.getKeyCode(),true);
+            	
+            	if(enable)
+            	{
+            		keyProcessor.setKeystate(e.getKeyCode(),true);
+            	}
             }
         });
 		
@@ -246,6 +324,12 @@ public class CenterGamePanel extends JPanel {
 	public static ProgressBar getEnergyShoot() {
 			return energyShoot;
 		}
+		public static boolean isEnable() {
+		return enable;
+	}
+	public static void setEnable(boolean enable) {
+		CenterGamePanel.enable = enable;
+	}
 		public static void setEnergyShoot(ProgressBar energyShoot) {
 			CenterGamePanel.energyShoot = energyShoot;
 		}

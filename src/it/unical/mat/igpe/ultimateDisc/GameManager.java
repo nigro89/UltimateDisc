@@ -59,7 +59,7 @@ public class GameManager {
 		iaComPlayer = new IaComPlayer(this);
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);
-		this.startTime = (System.currentTimeMillis())/1000;
+		this.startTime = (System.currentTimeMillis())/1000 + 2;
 	}
 
 	public boolean timeUp()
@@ -142,6 +142,6 @@ public class GameManager {
 
 
 	public void restartRound() {
-		this.startTime = (System.currentTimeMillis())/1000;
+		this.startTime = (System.currentTimeMillis())/1000 + 2;
 	}
 }

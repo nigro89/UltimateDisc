@@ -28,9 +28,13 @@ public interface World {
 
 	public abstract void setX_limit_com(double x_limit_com);
 	
-	public int getStrickenWALL();
+	public int getRoundMyPlayer();
 	
-	public void setStrickenWall(int strickenWall);
+	public void setRoundMyPlayer(int roundMyPlayer);
+	
+	public int getRoundComPlayer();
+	
+	public void setRoundComPlayer(int roundComPlayer);
 	
 	 public abstract void update();
 }

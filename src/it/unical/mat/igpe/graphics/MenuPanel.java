@@ -32,6 +32,8 @@ public class MenuPanel extends JPanel {
 			     //play now
 			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60)){
 			    	 mainFrame.startGame();
+			    	 CenterGamePanel.getRepainterThread().setFinish(false);
+			    	 CenterGamePanel.getRepainterThread().setStartGame(true);
 			     }
 			     //settings
 			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){

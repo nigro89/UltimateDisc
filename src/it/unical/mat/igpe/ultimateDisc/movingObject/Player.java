@@ -64,7 +64,7 @@ public abstract class Player implements MovingObject {
 
 	@Override
 	public void update() {
-		
+
 		final int y = getY();
         final int x = getX();
         switch (direction)
