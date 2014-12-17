@@ -45,7 +45,7 @@ class KeyProcessor extends javax.swing.Timer {
 
         addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-
+            	
             	if(gameManager.getDisc().isAvailableForMyPlayer()==false){
 	              
             		if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){

@@ -26,19 +26,21 @@ public class NorthGamePanel extends JPanel {
 	        {
 	        	while(true)
 	        	{	
+	        		if(GameManager.isPause()==false){
 	        			if (gameManager.timeUp())
 	        				time = imageProvider.getTime(0);
 	        			else
-	        				time = imageProvider.getTime(10-gameManager.getTime());
-	        				
+	        				time = imageProvider.getTime(GameManager.getEndTime()-gameManager.getTime());
+	        			
 	        			repaint();
-	        		try
-	        		{
-	        			sleep(10 + new Random().nextInt(30));
-	        		}
-	        		catch (final InterruptedException e)
-	        		{
-	        			System.out.println("errore run RepainterThread");
+	        			try
+	        			{
+	        				sleep(10 + new Random().nextInt(30));
+	        			}
+	        			catch (final InterruptedException e)
+	        			{
+	        				System.out.println("errore run RepainterThread");
+	        			}
 	        		}
 	        	}
 	        }

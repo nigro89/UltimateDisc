@@ -213,9 +213,9 @@ public class ImageProvider {
 	}
 
 	
-	public Image getTime(int time) 
+	public Image getTime(long l) 
 	{
-			switch (time)
+			switch ((int)l)
 			{
 			case 10:
 				return ten;

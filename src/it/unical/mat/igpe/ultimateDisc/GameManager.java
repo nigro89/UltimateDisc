@@ -18,19 +18,33 @@ public class GameManager {
 	private IaComPlayer iaComPlayer;
 	private static boolean comPlayerAbility = false;
 	
-	long startTime = 0;
-	long currentTime = 0;
+	static long startTime = 0;
+	static long currentTime = 0;
+	static long stoppedTime=0;
+	static long endTime = 10;
 	
 	Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
 	double height = screen.getHeight();
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
+	static boolean pause=false;
 	
 	static boolean stop=false;
 		
 	public MyPlayer getMyPlayer() {
 		return myPlayer;
+	}
+	
+	public static synchronized void setPause(boolean pause) {
+		if(pause==true){
+			GameManager.pause = pause;
+			GameManager.stopTime();
+		}
+		else{
+			GameManager.pause = pause;
+			GameManager.restartTime();
+		}
 	}
 
 
@@ -59,14 +73,17 @@ public class GameManager {
 		iaComPlayer = new IaComPlayer(this);
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);
-		this.startTime = (System.currentTimeMillis())/1000 + 2;
+		this.startTime = (System.currentTimeMillis())/1000;
 	}
 
 	public boolean timeUp()
 	{
-		currentTime = (System.currentTimeMillis())/1000;
-		if ((currentTime-startTime)>=10){
-			return true;
+		if(GameManager.isPause()==false){
+			currentTime = (System.currentTimeMillis())/1000;
+			if ((currentTime-startTime)>=endTime){
+				return true;
+			}
+			return false;
 		}
 		return false;
 	}
@@ -81,26 +98,32 @@ public class GameManager {
 
 	public void update()
 	{
-		if(timeUp()) 
-		{
-			disc.reset();
-			myPlayer.reset();
-			comPlayer.reset();
-			this.startTime=0;
+		if(pause==false){
+			if(timeUp()) 
+			{
+				disc.reset();
+				myPlayer.reset();
+				comPlayer.reset();
+				this.startTime=0;
+			}
+			else
+			{
+				if(!stop){
+					disc.update();
+					myPlayer.update();
+					if(comPlayerAbility)
+						iaComPlayer.moveComPlayer(); 
+					checkCollision();
+				}
+			}
+			world.update();
 		}
-		else
-		{
-		if(!stop){
-			disc.update();
-			myPlayer.update();
-			if(comPlayerAbility)
-				iaComPlayer.moveComPlayer(); 
-			checkCollision();
-		}
-		}
-		world.update();
 	}
 	
+
+	public static synchronized boolean isPause() {
+		return pause;
+	}
 
 	private void checkCollision() {
 		if(disc.getBounds().intersects(myPlayer.getBounds())){
@@ -112,14 +135,27 @@ public class GameManager {
 			IaComPlayer.shoot();
 		}
 	}
+	
+	public static void stopTime(){
+		stoppedTime=getTime();
+	}
+	
+	public static void restartTime(){
+		startTime = (System.currentTimeMillis())/1000;
+		endTime -= stoppedTime;
+	}
 
 
-	public int getTime()
+	public static int getTime()
 	{
 		currentTime = (System.currentTimeMillis())/1000;
 		return (int) (currentTime-startTime);
 	}
 
+
+	public static long getEndTime() {
+		return endTime;
+	}
 
 	public static boolean isComPlayerAbility() {
 		return comPlayerAbility;
@@ -142,6 +178,7 @@ public class GameManager {
 
 
 	public void restartRound() {
-		this.startTime = (System.currentTimeMillis())/1000 + 2;
+		this.startTime = (System.currentTimeMillis())/1000;
+		endTime=10;
 	}
 }

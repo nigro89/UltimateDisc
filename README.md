@@ -64,7 +64,7 @@ pausa durante gioco con opzioni:
 	continua(annulla)
 menu selezione giocatori e campo:
 	ordine sequenza: (possibilità di tornare alla selezione precedente)
-		seleziona player ( tasto seleziona player random )
+		seleziona player
 		seleziona campo ( tasto seleziona campo random )
 		schermata myplayer vs comPlayer(com selezionato in modo random) 
 		si avvia la partita! 
