@@ -12,6 +12,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -245,8 +246,11 @@ public class CenterGamePanel extends JPanel {
 					
 					if(e.getKeyCode() == KeyEvent.VK_ENTER){
 	            		if(GameManager.isPause()==false)
+	            		{
 	            			GameManager.setPause(true);
-	            		else if(GameManager.isPause()==true){
+	            		}
+	            		else if(GameManager.isPause()==true)
+	            		{
 	            			GameManager.setPause(false);
 	            		}
 	            	}
