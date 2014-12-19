@@ -35,8 +35,8 @@ public class MainFrame extends JFrame {
 	Color colorBar = new Color(26, 109, 222);
 	
 	GamePanel gamePanel;
-	MenuPanel menuPanel;
-	JPanel contentPanel;
+	static MenuPanel menuPanel;
+	static JPanel contentPanel;
 	
 	GameManager gameManager;
 	
@@ -75,7 +75,7 @@ public class MainFrame extends JFrame {
 		IaComPlayer.loadShotComPlayerThread.start();
 	}
 	
-    void switchTo(final JPanel panel)
+    public void switchTo(final JPanel panel)
     {
         SwingUtilities.invokeLater(new Runnable()
             {

@@ -108,10 +108,10 @@ class KeyProcessor extends javax.swing.Timer {
             		}
             	}
 
-            	if (keystate.get(KEY_S))
-            	{
-            		gameManager.getDisc().setDirection(-18, 14);
-            	}
+//            	if (keystate.get(KEY_S))
+//            	{
+//            		gameManager.getDisc().setDirection(-18, 14);
+//            	}
             }
         });
     }

@@ -1,5 +1,9 @@
 package it.unical.mat.igpe.ultimateDisc;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;

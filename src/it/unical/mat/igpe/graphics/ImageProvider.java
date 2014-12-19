@@ -45,6 +45,7 @@ public class ImageProvider {
     private final Image round2;
     private final Image finalRound;
     private final Image pass;
+    private final Image menuPause;
     
     private final Image gameOver;
 
@@ -52,6 +53,7 @@ public class ImageProvider {
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
     	  
+    	  menuPause = tk.getImage("img/imageMenu.png");
     	  gif= tk.getImage("img/italiav1.gif");
     	  score = tk.getImage("img/score.jpg");
     	  round1 = tk.getImage("img/round1.png");
@@ -241,6 +243,10 @@ public class ImageProvider {
 				return zero;
 			}
 			return null;
+	}
+
+	public Image getMenuPause() {
+		return menuPause;
 	}
 
 	public Image getRound2() {

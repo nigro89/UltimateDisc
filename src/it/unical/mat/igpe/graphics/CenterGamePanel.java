@@ -10,6 +10,9 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
 import java.util.Random;
 
 import javax.swing.JOptionPane;
@@ -226,6 +229,8 @@ public class CenterGamePanel extends JPanel {
     
     static ProgressBar energyShoot;
     
+    static Image imageMenu=null;
+    
 	public CenterGamePanel(final GameManager gameManager)
 	{
 		this.gameManager=gameManager;
@@ -236,6 +241,29 @@ public class CenterGamePanel extends JPanel {
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 
 		final KeyProcessor keyProcessor = new KeyProcessor(50,null,gameManager);
+		
+		this.addMouseListener(new MouseAdapter() {
+				@Override
+			    public void mouseReleased(final MouseEvent e){
+					
+					if(GameManager.isPause()==true){
+						 final int x = e.getX();
+					     final int y = e.getY();
+					     
+					     //resume
+					     if((x>screen.getWidth()*0.37) && (x<screen.getWidth()*0.60) && (y>screen.getHeight()*0.15) && (y<screen.getHeight()*0.23)){
+					    	 setImageMenu();
+					     }
+//					     else if(){
+//					    	 funzione di distruzione del gioco e ritorno al menu con switchTo
+//					     }
+					     //exit
+					     else if((x>screen.getWidth()*0.37) && (x<screen.getWidth()*0.60) && (y>screen.getHeight()*0.25) && (y<screen.getHeight()*0.35)){
+					    	 System.exit(0);
+					     }
+					}
+				}
+		});
 
 		this.addKeyListener(new KeyAdapter()
         {
@@ -247,11 +275,11 @@ public class CenterGamePanel extends JPanel {
 					if(e.getKeyCode() == KeyEvent.VK_ENTER){
 	            		if(GameManager.isPause()==false)
 	            		{
-	            			GameManager.setPause(true);
+	            			setImageMenu();
 	            		}
 	            		else if(GameManager.isPause()==true)
 	            		{
-	            			GameManager.setPause(false);
+	            			setImageMenu();
 	            		}
 	            	}
 					
@@ -322,6 +350,20 @@ public class CenterGamePanel extends JPanel {
 		public static ProgressBar getEnergyShoot() {
 			return energyShoot;
 		}
+		public void setImageMenu() {
+			
+			if(GameManager.isPause()==false)
+    		{
+				imageMenu = imageProvider.getMenuPause();
+				GameManager.setPause(true);
+    		}
+    		else if(GameManager.isPause()==true)
+    		{
+    			imageMenu = null;
+    			GameManager.setPause(false);
+    		}
+			repaint();
+		}
 		public static void setEnergyShoot(ProgressBar energyShoot) {
 			CenterGamePanel.energyShoot = energyShoot;
 		}
@@ -363,6 +405,8 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(round, (int)(width*0.25), 0,this);
 		//fine pass
 		g.drawImage(pass, (int)(width*0.25), 0,this);
+		
+		g.drawImage(imageMenu, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
 	}
 	
 	public static RepainterThread getRepainterThread() {
