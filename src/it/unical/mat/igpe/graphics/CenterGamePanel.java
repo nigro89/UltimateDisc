@@ -286,20 +286,26 @@ public class CenterGamePanel extends JPanel {
 					switch (e.getKeyCode())
 					{
 					 case KeyEvent.VK_UP:
+						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					ImageProvider.numberOfSequence=0;
 					 						gameManager.getMyPlayer().setDirection(-1);
 					 						break;
 
 					 case KeyEvent.VK_DOWN:
+						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					ImageProvider.numberOfSequence=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
 
 					 case KeyEvent.VK_LEFT:
 						 					gameManager.getMyPlayer().setDirection(-1);
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
+						 					ImageProvider.numberOfSequence=0;
+						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
 						 					break;
 
 					 case KeyEvent.VK_RIGHT:
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
+						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					ImageProvider.numberOfSequence=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
 
@@ -309,7 +315,6 @@ public class CenterGamePanel extends JPanel {
 
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForMyPlayer()==true){
 						 CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
-//						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()*0.75))+1, gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()))+1, gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
@@ -405,7 +410,7 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(round, (int)(width*0.25), 0,this);
 		//fine pass
 		g.drawImage(pass, (int)(width*0.25), 0,this);
-		
+		//pause
 		g.drawImage(imageMenu, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
 	}
 	

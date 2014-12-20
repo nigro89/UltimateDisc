@@ -50,26 +50,32 @@ class KeyProcessor extends javax.swing.Timer {
 	              
             		if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){
 	                	gameManager.getMyPlayer().setDirection(4);
+	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPRIGHT);
 	                }
 
 	                else if (keystate.get(KEY_UP)&&keystate.get(KEY_LEFT)){
 	                	gameManager.getMyPlayer().setDirection(5);
+	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPLEFT);
 	                }
 
 	                else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_LEFT)){
 	                	gameManager.getMyPlayer().setDirection(7);
+	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNLEFT);
 	                }
 	                	
 	            	else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_RIGHT)){
 	            		gameManager.getMyPlayer().setDirection(6);
+	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNRIGHT);
 	            	}
 
 	            	else if (keystate.get(KEY_UP)){
 	            		gameManager.getMyPlayer().setDirection(0);
+	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UP);
 	            	}
 
 	                else if (keystate.get(KEY_DOWN)){
 	                	gameManager.getMyPlayer().setDirection(1);
+	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWN);
 	                }
 
 	                else if (keystate.get(KEY_LEFT)){
@@ -79,6 +85,7 @@ class KeyProcessor extends javax.swing.Timer {
 
 	            	else if (keystate.get(KEY_RIGHT)){
 	            		gameManager.getMyPlayer().setDirection(3);
+	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
 	            	}
             	}
             	else if(gameManager.getDisc().isAvailableForMyPlayer()==true){
