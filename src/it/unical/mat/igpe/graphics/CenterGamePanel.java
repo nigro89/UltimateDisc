@@ -355,6 +355,7 @@ public class CenterGamePanel extends JPanel {
 		public static ProgressBar getEnergyShoot() {
 			return energyShoot;
 		}
+		
 		public void setImageMenu() {
 			
 			if(GameManager.isPause()==false)

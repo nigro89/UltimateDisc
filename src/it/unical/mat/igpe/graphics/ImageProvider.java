@@ -63,7 +63,7 @@ public class ImageProvider {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
     	  
     	  menuPause = tk.getImage("img/imageMenu.png");
-    	  gif= tk.getImage("img/italiav1.gif");
+    	  gif= tk.getImage("img/3points.gif");
     	  score = tk.getImage("img/score.jpg");
     	  round1 = tk.getImage("img/round1.png");
     	  round2 = tk.getImage("img/round2.png");
@@ -175,21 +175,21 @@ public class ImageProvider {
     	  myPlayerDownLeft[14] = tk.getImage("img/characterMotion/downLeft/downLeft_15.png");
     	  
     	//upRight image
-//    	  myPlayerUpRight[0] = tk.getImage("img/characterMotion/upRight/upRight.png");
-//    	  myPlayerUpRight[1] = tk.getImage("img/characterMotion/upRight/upRight_02.png");
-//    	  myPlayerUpRight[2] = tk.getImage("img/characterMotion/upRight/upRight_03.png");
-//    	  myPlayerUpRight[3] = tk.getImage("img/characterMotion/upRight/upRight_04.png");
-//    	  myPlayerUpRight[4] = tk.getImage("img/characterMotion/upRight/upRight_05.png");
-//    	  myPlayerUpRight[5] = tk.getImage("img/characterMotion/upRight/upRight_06.png");
-//    	  myPlayerUpRight[6] = tk.getImage("img/characterMotion/upRight/upRight_07.png");
-//    	  myPlayerUpRight[7] = tk.getImage("img/characterMotion/upRight/upRight_08.png");
-//    	  myPlayerUpRight[8] = tk.getImage("img/characterMotion/upRight/upRight_09.png");
-//    	  myPlayerUpRight[9] = tk.getImage("img/characterMotion/upRight/upRight_10.png");
-//    	  myPlayerUpRight[10] = tk.getImage("img/characterMotion/upRight/upRight_11.png");
-//    	  myPlayerUpRight[11] = tk.getImage("img/characterMotion/upRight/upRight_12.png");
-//    	  myPlayerUpRight[12] = tk.getImage("img/characterMotion/upRight/upRight_13.png");
-//    	  myPlayerUpRight[13] = tk.getImage("img/characterMotion/upRight/upRight_14.png");
-//    	  myPlayerUpRight[14] = tk.getImage("img/characterMotion/upRight/upRight_15.png");
+    	  myPlayerUpRight[0] = tk.getImage("img/characterMotion/upRight/upRight.png");
+    	  myPlayerUpRight[1] = tk.getImage("img/characterMotion/upRight/upRight_02.png");
+    	  myPlayerUpRight[2] = tk.getImage("img/characterMotion/upRight/upRight_03.png");
+    	  myPlayerUpRight[3] = tk.getImage("img/characterMotion/upRight/upRight_04.png");
+    	  myPlayerUpRight[4] = tk.getImage("img/characterMotion/upRight/upRight_05.png");
+    	  myPlayerUpRight[5] = tk.getImage("img/characterMotion/upRight/upRight_06.png");
+    	  myPlayerUpRight[6] = tk.getImage("img/characterMotion/upRight/upRight_07.png");
+    	  myPlayerUpRight[7] = tk.getImage("img/characterMotion/upRight/upRight_08.png");
+    	  myPlayerUpRight[8] = tk.getImage("img/characterMotion/upRight/upRight_09.png");
+    	  myPlayerUpRight[9] = tk.getImage("img/characterMotion/upRight/upRight_10.png");
+    	  myPlayerUpRight[10] = tk.getImage("img/characterMotion/upRight/upRight_11.png");
+    	  myPlayerUpRight[11] = tk.getImage("img/characterMotion/upRight/upRight_12.png");
+    	  myPlayerUpRight[12] = tk.getImage("img/characterMotion/upRight/upRight_13.png");
+    	  myPlayerUpRight[13] = tk.getImage("img/characterMotion/upRight/upRight_14.png");
+    	  myPlayerUpRight[14] = tk.getImage("img/characterMotion/upRight/upRight_15.png");
     	  
     	//upLeft image
     	  myPlayerUpLeft[0] = tk.getImage("img/characterMotion/upLeft/upLeft.png");
