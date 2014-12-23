@@ -28,6 +28,8 @@ public class WorldImpl implements World {
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
 	
+	int currentPoints;
+	
 	public WorldImpl(Disc d,Wall wmp, Wall  wc)
 	{
 		this.disc=d;
@@ -41,6 +43,8 @@ public class WorldImpl implements World {
 		this.comScore=0;
 		this.roundMyPlayer=0;
 		this.roundComPlayer=0;
+		
+		this.currentPoints=0;
 	}
 	
 
@@ -113,6 +117,13 @@ public class WorldImpl implements World {
 		this.x_limit_com = x_limit_com;
 	}
 
+	public int getCurrentPoints() {
+		return currentPoints;
+	}
+
+	public void setCurrentPoints(int currentPoints) {
+		this.currentPoints = currentPoints;
+	}
 
 
 	@Override
@@ -123,6 +134,7 @@ public class WorldImpl implements World {
 		if (disc.isComplayer()==true)
 		{
 			point = this.wallCom.getValuePoint(y);
+			this.currentPoints=point;
 			this.comScore+=point;
 			disc.setComplayer(false);
 			CenterGamePanel.getRepainterThread().setComPlayerGoal(true);
@@ -131,6 +143,7 @@ public class WorldImpl implements World {
 		else if (disc.isMyplayer()==true)
 		{
 			point = this.wallMyPlayer.getValuePoint(y);
+			this.currentPoints=point;
 			GameManager.setComPlayerAbility(false);
 			this.myPlayerScore+=point;
 			disc.setMyplayer(false);

@@ -50,42 +50,42 @@ class KeyProcessor extends javax.swing.Timer {
 	              
             		if (keystate.get(KEY_UP)&&keystate.get(KEY_RIGHT)){
 	                	gameManager.getMyPlayer().setDirection(4);
-	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPRIGHT);
+	                	CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPRIGHT);
 	                }
 
 	                else if (keystate.get(KEY_UP)&&keystate.get(KEY_LEFT)){
 	                	gameManager.getMyPlayer().setDirection(5);
-	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPLEFT);
+	                	CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UPLEFT);
 	                }
 
 	                else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_LEFT)){
 	                	gameManager.getMyPlayer().setDirection(7);
-	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNLEFT);
+	                	CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNLEFT);
 	                }
 	                	
 	            	else if (keystate.get(KEY_DOWN)&&keystate.get(KEY_RIGHT)){
 	            		gameManager.getMyPlayer().setDirection(6);
-	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNRIGHT);
+	            		CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWNRIGHT);
 	            	}
 
 	            	else if (keystate.get(KEY_UP)){
 	            		gameManager.getMyPlayer().setDirection(0);
-	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UP);
+	            		CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.UP);
 	            	}
 
 	                else if (keystate.get(KEY_DOWN)){
 	                	gameManager.getMyPlayer().setDirection(1);
-	                	CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWN);
+	                	CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.DOWN);
 	                }
 
 	                else if (keystate.get(KEY_LEFT)){
 	                	gameManager.getMyPlayer().setDirection(2);
-	        			CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.LEFT);
+	        			CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.LEFT);
 	                }
 
 	            	else if (keystate.get(KEY_RIGHT)){
 	            		gameManager.getMyPlayer().setDirection(3);
-	            		CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
+	            		CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(Player.RIGHT);
 	            	}
             	}
             	else if(gameManager.getDisc().isAvailableForMyPlayer()==true){
@@ -107,7 +107,7 @@ class KeyProcessor extends javax.swing.Timer {
             		
             		if(keystate.get(KEY_SPACE))
             		{
-            			CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(10);
+            			CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(10);
             			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40){
             				CenterGamePanel.setxShoot(5);
             				CenterGamePanel.energyShoot.increment(5);

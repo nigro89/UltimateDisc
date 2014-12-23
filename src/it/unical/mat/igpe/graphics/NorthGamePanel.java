@@ -30,7 +30,7 @@ public class NorthGamePanel extends JPanel {
 	        			if (gameManager.timeUp())
 	        				time = imageProvider.getTime(0);
 	        			else
-	        				time = imageProvider.getTime(GameManager.getEndTime()-gameManager.getTime());
+	        				time = imageProvider.getTime(GameManager.getEndTime()-GameManager.getTime());
 	        			
 	        			repaint();
 	        			try

@@ -9,8 +9,10 @@ import javax.swing.ImageIcon;
 
 public class ImageProvider {
 
+	// number of sequence to move player
 	static int numberOfSequence=0;
 
+	// array Image of Player's moviments 
 	private final Image[] myPlayerRight = new Image[15];
     private final Image[] myPlayerLeft = new Image[15];
     private final Image[] myPlayerUp = new Image[15];
@@ -19,15 +21,23 @@ public class ImageProvider {
 	private final Image[] myPlayerUpLeft = new Image[15];
 	private final Image[] myPlayerDownRight = new Image[15];
 	private final Image[] myPlayerDownLeft = new Image[15];
-    private final Image myPlayerMotionLess;
-    private final Image myPlayerShot1;
-    private final Image myPlayerShot2;
+	
+	// player
+	private final Image myPlayerMotionLess;
+	private final Image myPlayerShot1;
+	private final Image myPlayerShot2;
+	
+	// world
     private final ImageIcon one_point;
     private final ImageIcon two_point;
     private final Image frisbee;
     private final Image woodField;
     private final Image woodFieldNorth;
     private final Image woodFieldSouth;
+    private final Image threePoints;
+    private final Image fivePoints;
+
+    // menu panel
     private final Image introBackground;
     private final Image playGame;
     private final Image playGameWhite;
@@ -35,10 +45,28 @@ public class ImageProvider {
     private final Image settingsWhite;
     private final Image exit;
     private final Image exitWhite;
-    private final Image gif;
-    private final Image score;
-    private final Image start;
-    private final Image startGame;
+    
+    // time score Image
+    private final Image thirty;
+    private final Image twentyNine;
+    private final Image twentyEight;
+    private final Image twentySeven;
+    private final Image twentySix;
+    private final Image twentyFive;
+    private final Image twentyFour;
+	private final Image twentyThree;
+    private final Image twentyTwo;
+    private final Image twentyOne;
+    private final Image twenty;
+    private final Image nineteen;
+    private final Image eighteen;
+    private final Image seventeen;
+    private final Image sixteen;
+    private final Image fifteen;
+    private final Image fourteen;
+    private final Image thirteen;
+	private final Image twelve;
+    private final Image eleven;
     private final Image ten;
     private final Image nine;
     private final Image eight;
@@ -50,27 +78,52 @@ public class ImageProvider {
     private final Image two;
 	private final Image one;
     private final Image zero;
+    
+    // round
     private final Image round1;
     private final Image round2;
     private final Image finalRound;
-    private final Image pass;
+    private final Image roundResume;
+    private final Image score;
+    
+    //pause
     private final Image menuPause;
     
+    //game over
     private final Image gameOver;
+
+    // various
+    private final Image start;
+    private final Image startGame;
 
     public ImageProvider()
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
     	  
+    	  // pause
     	  menuPause = tk.getImage("img/imageMenu.png");
-    	  gif= tk.getImage("img/3points.gif");
+    	  
+    	  // world
+    	  threePoints= tk.getImage("img/points/3points.gif");
+    	  fivePoints= tk.getImage("img/points/5points.gif");
+    	  one_point = new ImageIcon("img/1point.jpg");
+    	  two_point = new ImageIcon("img/2points.jpg");
+    	  frisbee = tk.getImage("img/frisbee.gif");
+    	  woodField = tk.getImage("img/legno.jpg");
+    	  woodFieldNorth = tk.getImage("img/nord.jpg");
+    	  woodFieldSouth = tk.getImage("img/sud.jpg");
+    	  
+    	  // round
     	  score = tk.getImage("img/score.jpg");
     	  round1 = tk.getImage("img/round1.png");
     	  round2 = tk.getImage("img/round2.png");
     	  finalRound = tk.getImage("img/finalRound.png");
-    	  
-    	  pass = tk.getImage("img/fail-pass.jpg");
+    	  roundResume = tk.getImage("img/fail-pass.jpg");
+    	 
+    	  // player
     	  myPlayerMotionLess = tk.getImage("img/characterMotionLess/right.png");
+    	  myPlayerShot1 = tk.getImage("img/cat1.png");
+    	  myPlayerShot2 = tk.getImage("img/cat2.png");
     	  
     	  //right image
     	  myPlayerRight[0] = tk.getImage("img/characterMotion/right/right.png");
@@ -210,13 +263,7 @@ public class ImageProvider {
     	  
     	  
     	  
-    	  
-    	  one_point = new ImageIcon("img/1point.jpg");
-    	  two_point = new ImageIcon("img/2points.jpg");
-    	  frisbee = tk.getImage("img/frisbee.gif");
-    	  woodField = tk.getImage("img/legno.jpg");
-    	  woodFieldNorth = tk.getImage("img/nord.jpg");
-    	  woodFieldSouth = tk.getImage("img/sud.jpg");
+    	  // menu panel
     	  introBackground = tk.getImage("img/introImage.png");
     	  playGame = tk.getImage("img/IntroPlay.png");
     	  playGameWhite = tk.getImage("img/IntroPlayWhite.png");
@@ -225,24 +272,46 @@ public class ImageProvider {
     	  exit = tk.getImage("img/IntroExit.png");
     	  exitWhite = tk.getImage("img/IntroExitWhite.png");
     	  
+    	  // various
     	  start = tk.getImage("img/start.png");
     	  startGame = tk.getImage("img/start1.png");
-    	  ten = tk.getImage("img/time/ten.png");
-    	  nine = tk.getImage("img/time/nine.png");
-    	  eight = tk.getImage("img/time/eight.png");
-    	  seven = tk.getImage("img/time/seven.png");
-    	  six = tk.getImage("img/time/six.png");
-    	  five = tk.getImage("img/time/five.png");
-    	  four = tk.getImage("img/time/four.png");
-    	  three = tk.getImage("img/time/three.png");
-    	  two = tk.getImage("img/time/two.png");
-    	  one = tk.getImage("img/time/one.png");
-    	  zero = tk.getImage("img/time/zero.png");
     	  
+    	  // time score
+    	  thirty = tk.getImage("img/timeScore/30.png");
+    	  twentyNine = tk.getImage("img/timeScore/29.png");
+    	  twentyEight = tk.getImage("img/timeScore/28.png");
+    	  twentySeven = tk.getImage("img/timeScore/27.png");
+    	  twentySix = tk.getImage("img/timeScore/26.png");
+    	  twentyFive = tk.getImage("img/timeScore/25.png");
+    	  twentyFour = tk.getImage("img/timeScore/24.png");
+    	  twentyThree = tk.getImage("img/timeScore/23.png");
+    	  twentyTwo = tk.getImage("img/timeScore/22.png");
+    	  twentyOne = tk.getImage("img/timeScore/21.png");
+    	  twenty = tk.getImage("img/timeScore/20.png");
+    	  nineteen = tk.getImage("img/timeScore/19.png");
+    	  eighteen = tk.getImage("img/timeScore/18.png");
+    	  seventeen = tk.getImage("img/timeScore/17.png");
+    	  sixteen = tk.getImage("img/timeScore/16.png");
+    	  fifteen = tk.getImage("img/timeScore/15.png");
+    	  fourteen = tk.getImage("img/timeScore/14.png");
+    	  thirteen = tk.getImage("img/timeScore/13.png");
+    	  twelve = tk.getImage("img/timeScore/12.png");
+    	  eleven = tk.getImage("img/timeScore/11.png");
+     	  ten = tk.getImage("img/timeScore/10.png");
+    	  nine = tk.getImage("img/timeScore/9.png");
+    	  eight = tk.getImage("img/timeScore/8.png");
+    	  seven = tk.getImage("img/timeScore/7.png");
+    	  six = tk.getImage("img/timeScore/6.png");
+    	  five = tk.getImage("img/timeScore/5.png");
+    	  four = tk.getImage("img/timeScore/4.png");
+    	  three = tk.getImage("img/timeScore/3.png");
+    	  two = tk.getImage("img/timeScore/2.png");
+    	  one = tk.getImage("img/timeScore/1.png");
+    	  zero = tk.getImage("img/timeScore/0.png");
+    	  
+    	  // game over
     	  gameOver = tk.getImage("img/gameOver.png");
     	  
-    	  myPlayerShot1 = tk.getImage("img/cat1.png");
-    	  myPlayerShot2 = tk.getImage("img/cat2.png");
     }
 
 	public Image getRound() {
@@ -254,7 +323,7 @@ public class ImageProvider {
 	}
 	
 	public Image getPass() {
-		return pass;
+		return roundResume;
 	}
 	
 	public Image getRound(int round)
@@ -310,6 +379,16 @@ public class ImageProvider {
         }
         return myPlayerRight[0];
     }
+	
+	public Image getPoints(int points)
+	{
+		 switch (points)
+		 {
+		   case 3:	return threePoints;
+		   case 5:	return fivePoints;
+		 }
+		return null;
+	}
     
 	public ImageIcon getOne_point() {
 		return one_point;
@@ -319,13 +398,17 @@ public class ImageProvider {
 		return two_point;
 	}
 	public Image getGif() {
-		return gif;
+		return threePoints;
 	}
 
 	public Image getFrisbee() {
 		return frisbee;
 	}
 	
+	public Image getFivePoints() {
+		return fivePoints;
+	}
+
 	public Image getScore() {
 		return score;
 	}
@@ -387,6 +470,46 @@ public class ImageProvider {
 	{
 			switch ((int)l)
 			{
+			case 30:
+				return thirty;
+			case 29:
+				return twentyNine;
+			case 28:
+				return twentyEight;
+			case 27:
+				return twentySeven;
+			case 26:
+				return twentySix;
+			case 25:
+				return twentyFive;
+			case 24:
+				return twentyFour;
+			case 23:
+				return twentyThree;
+			case 22:
+				return twentyTwo;
+			case 21:
+				return twentyOne;
+			case 20:
+				return twenty;
+			case 19:
+				return nineteen;
+			case 18:
+				return eighteen;
+			case 17:
+				return seventeen;
+			case 16:
+				return sixteen;
+			case 15:
+				return fifteen;
+			case 14:
+				return fourteen;
+			case 13:
+				return thirteen;
+			case 12:
+				return twelve;
+			case 11:
+				return eleven;
 			case 10:
 				return ten;
 			case 9:

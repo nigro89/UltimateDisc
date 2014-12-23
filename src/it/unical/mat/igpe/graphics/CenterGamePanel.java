@@ -7,15 +7,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
 import java.util.Random;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CenterGamePanel extends JPanel {
@@ -26,10 +23,10 @@ public class CenterGamePanel extends JPanel {
 	        public boolean myPlayerGoal=false;
 	        public boolean comPlayerGoal=false;
 			private boolean endRound=false;
-			private boolean finish=false;
+			private boolean finishMatch=false;
 			private boolean startGame=true;
-			private boolean roundC=true;
-			private int contRound=0;
+			private boolean roundControllerStart=true;
+			private int counterOfRounds=0;
 
 			private RepainterThread(final GameManager gameManager)
 	        {
@@ -43,12 +40,12 @@ public class CenterGamePanel extends JPanel {
 	        	while(true)
 	        	{
 	        		if(GameManager.isPause()==false){
-	        			while(gameManager.timeUp()==false && finish==false)
+	        			while(gameManager.timeUp()==false && finishMatch==false)
 	        			{
 	        				if(GameManager.isPause()==false){
-	        					if(roundC)
+	        					if(roundControllerStart)
 	        					{
-	        						round = imageProvider.getRound(contRound);
+	        						roundImage = imageProvider.getRound(counterOfRounds);
 	        						try
 	        						{
 	        							sleep(1500);
@@ -57,8 +54,8 @@ public class CenterGamePanel extends JPanel {
 	        						{
 	        							System.out.println("errore run RepainterThread");
 	        						}
-	        						roundC=false;
-	        						round=null;
+	        						roundControllerStart=false;
+	        						roundImage=null;
 	        					}
 	        					
 	        					if(startGame)
@@ -76,9 +73,10 @@ public class CenterGamePanel extends JPanel {
 	        					
 	        					if(GameManager.isStop())
 	        					{
-	        						frisbee=null;
-	        						gif = imageProvider.getGif();
-	        						score = imageProvider.getScore();
+	        						frisbeeImage=null;
+//	        						System.out.println("punti: "+gameManager.getWorld().getCurrentPoints());
+	        						pointsImage = imageProvider.getPoints(gameManager.getWorld().getCurrentPoints());
+	        						scoreInfoImage = imageProvider.getScore();
 	        						try
 	        						{
 	        							sleep(2000);
@@ -98,9 +96,9 @@ public class CenterGamePanel extends JPanel {
 	        							gameManager.getDisc().setDirection(-18, 14);
 	        							comPlayerGoal=false;
 	        						}
-	        						score = null;
-	        						gif = null;
-	        						frisbee=imageProvider.getFrisbee();
+	        						scoreInfoImage = null;
+	        						pointsImage = null;
+	        						frisbeeImage=imageProvider.getFrisbee();
 	        						GameManager.setStop(false);
 	        					}
 	        					try
@@ -117,7 +115,7 @@ public class CenterGamePanel extends JPanel {
 	        			
 	        			if(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false){
 	        				gameManager.update();
-	        				pass = imageProvider.getPass();
+	        				roundResumeImage = imageProvider.getPass();
 	        				repaint();
 	        				try
 	        				{
@@ -127,12 +125,12 @@ public class CenterGamePanel extends JPanel {
 	        				{
 	        					System.out.println("errore run RepainterThread");
 	        				}
-	        				pass=null;
+	        				roundResumeImage=null;
 	        				repaint();
 	        				endRound=true;
-	        				roundC=true;
+	        				roundControllerStart=true;
 	        				startGame=true;
-	        				contRound++;
+	        				counterOfRounds++;
 	        				
 	        				if(gameManager.getWorld().getMyPlayerScore()>=gameManager.getWorld().getComScore())
 	        				{
@@ -143,8 +141,8 @@ public class CenterGamePanel extends JPanel {
 	        					gameManager.getWorld().setRoundComPlayer(1);
 	        				}
 	        				
-	        				System.out.println("Round "+contRound+" MYplayer: "+gameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+gameManager.getWorld().getComScore());
-	        				System.out.println("Round "+contRound+" MYplayerR: "+gameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+gameManager.getWorld().getRoundComPlayer());
+	        				System.out.println("Round "+counterOfRounds+" MYplayer: "+gameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+gameManager.getWorld().getComScore());
+	        				System.out.println("Round "+counterOfRounds+" MYplayerR: "+gameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+gameManager.getWorld().getRoundComPlayer());
 	        				gameManager.getWorld().setMyPlayerScore(0);
 	        				gameManager.getWorld().setComScore(0);
 	        			}
@@ -152,9 +150,9 @@ public class CenterGamePanel extends JPanel {
 	        			if((gameManager.getWorld().getRoundMyPlayer()==2 || gameManager.getWorld().getRoundComPlayer()==2 
 	        					|| (gameManager.getWorld().getRoundMyPlayer()+gameManager.getWorld().getRoundComPlayer())==3) && (GameManager.isPause()==false))
 	        			{
-	        				finish=true;
-	        				contRound=0;
-	        				event = imageProvider.getGameOver();
+	        				finishMatch=true;
+	        				counterOfRounds=0;
+	        				gameOverImage = imageProvider.getGameOver();
 	        				repaint();
 	        			}
 	        			else if(GameManager.isPause()==false)
@@ -176,11 +174,11 @@ public class CenterGamePanel extends JPanel {
 			}
 
 			public boolean isFinish() {
-				return finish;
+				return finishMatch;
 			}
 
 			public void setFinish(boolean finish) {
-				this.finish = finish;
+				this.finishMatch = finish;
 			}
 
 			public void setStartGame(boolean startGame) {
@@ -194,42 +192,36 @@ public class CenterGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
+/// IMAGE ///
 	static ImageProvider imageProvider = new ImageProvider();
-	static Image woodField = imageProvider.getWoodField();
-	static Image frisbee = imageProvider.getFrisbee();
-	
-	static Image gif = null;		// imageProvider.getGif();
-	static Image score = null;		// imageProvider.getScore();
-	
-	static Image myPlayer = imageProvider.getMyPlayerDirection(Player.RIGHT);
-	static Image comPlayerImg = imageProvider.getMyPlayerDirection(Player.LEFT);
+// world Image
+	static Image fieldImage = imageProvider.getWoodField();
+	static Image frisbeeImage = imageProvider.getFrisbee();
+	static Image pointsImage = null;	
+// player Image
+	static Image myPlayerImage = imageProvider.getMyPlayerDirection(Player.RIGHT);
+	static Image comPlayerImage = imageProvider.getMyPlayerDirection(Player.LEFT);
+// round Image
+	static Image gameOverImage = null;
+	private Image roundImage = null;
+	private Image roundResumeImage = null;
+	static Image scoreInfoImage = null;	
+// pause menu Image
+	static Image pauseMenuImage=null;
 
-
-	final static Toolkit tk = Toolkit.getDefaultToolkit();
-    final Image img = tk.getImage("img/legno.jpg");
-    final static Image imgf = tk.getImage("img/frisbee.gif");
-    static Image imgpf = tk.getImage("img/frontc.gif");
-    
-	static Image event = null;
-	private Image round = null;
-	private Image pass = null;
-
+// shoot 
     private static int xShoot=5;
     private static int yShoot=0;
-
+// screen info
 	Screen screen = Screen.getInstance();
     double width = screen.getWidth();
     double height = screen.getHeight()*0.75;
 	int dimensionOfDisc = (int)width/17;
 	int radius = dimensionOfDisc/2;
-	
+// utility object
     private final GameManager gameManager;
-    
     static RepainterThread repainterThread;
-    
     static ProgressBar energyShoot;
-    
-    static Image imageMenu=null;
     
 	public CenterGamePanel(final GameManager gameManager)
 	{
@@ -241,7 +233,8 @@ public class CenterGamePanel extends JPanel {
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 
 		final KeyProcessor keyProcessor = new KeyProcessor(50,null,gameManager);
-		
+
+		//Mouse Listener
 		this.addMouseListener(new MouseAdapter() {
 				@Override
 			    public void mouseReleased(final MouseEvent e){
@@ -286,13 +279,13 @@ public class CenterGamePanel extends JPanel {
 					switch (e.getKeyCode())
 					{
 					 case KeyEvent.VK_UP:
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
 						 					ImageProvider.numberOfSequence=0;
 					 						gameManager.getMyPlayer().setDirection(-1);
 					 						break;
 
 					 case KeyEvent.VK_DOWN:
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
 						 					ImageProvider.numberOfSequence=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
@@ -300,11 +293,11 @@ public class CenterGamePanel extends JPanel {
 					 case KeyEvent.VK_LEFT:
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					ImageProvider.numberOfSequence=0;
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
 						 					break;
 
 					 case KeyEvent.VK_RIGHT:
-						 					CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
 						 					ImageProvider.numberOfSequence=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
@@ -314,7 +307,7 @@ public class CenterGamePanel extends JPanel {
 					 }
 
 					 if(e.getKeyCode()==KeyEvent.VK_SPACE && gameManager.getDisc().isAvailableForMyPlayer()==true){
-						 CenterGamePanel.myPlayer = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
+						 CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(11);
 						 gameManager.getDisc().setPosition(gameManager.getMyPlayer().getX()+((int)(Player.getWithimage()))+1, gameManager.getMyPlayer().getY());
 						 gameManager.getDisc().setAvailableForMyPlayer(false);
 						 gameManager.getDisc().setDirection(getxShoot()+Math.abs(getyShoot()), getyShoot());
@@ -360,12 +353,12 @@ public class CenterGamePanel extends JPanel {
 			
 			if(GameManager.isPause()==false)
     		{
-				imageMenu = imageProvider.getMenuPause();
+				pauseMenuImage = imageProvider.getMenuPause();
 				GameManager.setPause(true);
     		}
     		else if(GameManager.isPause()==true)
     		{
-    			imageMenu = null;
+    			pauseMenuImage = null;
     			GameManager.setPause(false);
     		}
 			repaint();
@@ -377,17 +370,17 @@ public class CenterGamePanel extends JPanel {
 	protected  void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		// playground
-		g.drawImage(woodField,0,0,getWidth(),getHeight(),this);
+		g.drawImage(fieldImage,0,0,getWidth(),getHeight(),this);
 		//energyBar
 		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX()-15, gameManager.getMyPlayer().getY());
 		// My player
-		g.drawImage(myPlayer,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
+		g.drawImage(myPlayerImage,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
-		g.drawImage(comPlayerImg,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
+		g.drawImage(comPlayerImage,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
 		// disc
-		g.drawImage(frisbee,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
+		g.drawImage(frisbeeImage,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event
-		g.drawImage(event,(getWidth()/2)-130,(getHeight()/2)-130,260,260,this); 
+		g.drawImage(gameOverImage,(getWidth()/2)-130,(getHeight()/2)-130,260,260,this); 
 		
 		g.drawLine(getWidth()/2, 0, getWidth()/2, getHeight());
 		
@@ -403,16 +396,16 @@ public class CenterGamePanel extends JPanel {
 		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
 		
 		//gif goal
-		g.drawImage(gif, gameManager.getDisc().getX(), gameManager.getDisc().getY(),this);
+		g.drawImage(pointsImage, gameManager.getDisc().getX(), gameManager.getDisc().getY(),this);
 		//score
-		g.drawImage(score, (int)(width*0.25), 0,this);
+		g.drawImage(scoreInfoImage, (int)(width*0.25), 0,this);
 		
 		//fine round
-		g.drawImage(round, (int)(width*0.25), 0,this);
+		g.drawImage(roundImage, (int)(width*0.25), 0,this);
 		//fine pass
-		g.drawImage(pass, (int)(width*0.25), 0,this);
+		g.drawImage(roundResumeImage, (int)(width*0.25), 0,this);
 		//pause
-		g.drawImage(imageMenu, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
+		g.drawImage(pauseMenuImage, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
 	}
 	
 	public static RepainterThread getRepainterThread() {

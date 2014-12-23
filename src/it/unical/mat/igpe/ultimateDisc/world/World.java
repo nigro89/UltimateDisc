@@ -36,5 +36,9 @@ public interface World {
 	
 	public void setRoundComPlayer(int roundComPlayer);
 	
+	public int getCurrentPoints();
+
+	public void setCurrentPoints(int currentPoints);
+	
 	 public abstract void update();
 }

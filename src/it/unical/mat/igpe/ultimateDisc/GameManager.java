@@ -1,9 +1,5 @@
 package it.unical.mat.igpe.ultimateDisc;
 
-import javax.swing.JButton;
-import javax.swing.JPanel;
-
-import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
@@ -25,7 +21,7 @@ public class GameManager {
 	static long startTime = 0;
 	static long currentTime = 0;
 	static long stoppedTime=0;
-	static long endTime = 10;
+	static long endTime = 30;
 	
 	Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
@@ -77,7 +73,7 @@ public class GameManager {
 		iaComPlayer = new IaComPlayer(this);
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
 		world = this.worldManager.loadWorld(disc, 0);
-		this.startTime = (System.currentTimeMillis())/1000;
+		startTime = (System.currentTimeMillis())/1000;
 	}
 
 	public boolean timeUp()
@@ -108,7 +104,7 @@ public class GameManager {
 				disc.reset();
 				myPlayer.reset();
 				comPlayer.reset();
-				this.startTime=0;
+				startTime=0;
 			}
 			else
 			{
@@ -182,7 +178,7 @@ public class GameManager {
 
 
 	public void restartRound() {
-		this.startTime = (System.currentTimeMillis())/1000;
-		endTime=10;
+		startTime = (System.currentTimeMillis())/1000;
+		endTime=30;
 	}
 }
