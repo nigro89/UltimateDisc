@@ -49,8 +49,6 @@ data 19/11/2014 aggiornamento 27/11/2014
 11. editor
 12. round , punteggio
 13. selezione campo e player
- 2player?
- 3d?
  rete?
 
 tocca il muro si stoppa tutto 									-ok
@@ -59,15 +57,30 @@ wait di due secondi con popup del risultato						-ok
 reinizia il round dando il frisbee al player che ha segnato		-ok
 creazione e gestione round 3									-ok
 pausa durante gioco con opzioni:
-	esci dal gioco
-	torna al menu principale
-	continua(annulla)
+	esci dal gioco							-ok
+	torna al menu principale					DA FARE
+	continua(annulla)						-ok
+
 menu selezione giocatori e campo:
 	ordine sequenza: (possibilità di tornare alla selezione precedente)
 		seleziona player
 		seleziona campo ( tasto seleziona campo random )
 		schermata myplayer vs comPlayer(com selezionato in modo random) 
 		si avvia la partita! 
+
+
+DA FARE: 
+1) score corretto
+2) aggiornare risultato round (Al posto del pass)
+3) creare campi con texture di dimensione stabilita
+4) inserire punti round e punti parziali
+5) pannelli nord e sud appropriati alle texture
+6) torna la menu principale.
+7) audio gioco.
+8) immagine lancio disco e posizione frisbee in mano
+9) livello intelligenza artificiale ( facile, medio e difficile)
+10) editor
+
 
 
 
