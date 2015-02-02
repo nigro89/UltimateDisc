@@ -89,6 +89,10 @@ class KeyProcessor extends javax.swing.Timer {
 	            	}
             	}
             	else if(gameManager.getDisc().isAvailableForMyPlayer()==true){
+ 
+            		CenterGamePanel.frisbeeImage = null;
+            		CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerShot(14);
+            		
             		CenterGamePanel.energyShoot.setVisible(true);
             		gameManager.getDisc().setDirection(1, 0);
 
@@ -107,7 +111,7 @@ class KeyProcessor extends javax.swing.Timer {
             		
             		if(keystate.get(KEY_SPACE))
             		{
-            			CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerDirection(10);
+            			CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerShot(0);
             			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=40){
             				CenterGamePanel.setxShoot(5);
             				CenterGamePanel.energyShoot.increment(5);

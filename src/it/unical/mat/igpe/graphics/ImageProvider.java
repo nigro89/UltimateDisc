@@ -21,6 +21,7 @@ public class ImageProvider {
 	private final Image[] myPlayerUpLeft = new Image[15];
 	private final Image[] myPlayerDownRight = new Image[15];
 	private final Image[] myPlayerDownLeft = new Image[15];
+	private final Image[] myPlayerShot = new Image[15];
 	
 	// player
 	private final Image myPlayerMotionLess;
@@ -108,16 +109,16 @@ public class ImageProvider {
     	  fivePoints= tk.getImage("img/points/5points.gif");
     	  one_point = new ImageIcon("img/1point.jpg");
     	  two_point = new ImageIcon("img/2points.jpg");
-    	  frisbee = tk.getImage("img/frisbee.gif");
+    	  frisbee = tk.getImage("img/frisbee.png");
     	  woodField = tk.getImage("img/legno.jpg");
     	  woodFieldNorth = tk.getImage("img/nord.jpg");
     	  woodFieldSouth = tk.getImage("img/sud.jpg");
     	  
     	  // round
-    	  score = tk.getImage("img/score.jpg");
-    	  round1 = tk.getImage("img/round1.png");
-    	  round2 = tk.getImage("img/round2.png");
-    	  finalRound = tk.getImage("img/finalRound.png");
+    	  score = tk.getImage("img/score.png");
+    	  round1 = tk.getImage("img/round1.gif");
+    	  round2 = tk.getImage("img/round2.gif");
+    	  finalRound = tk.getImage("img/finalRound.gif");
     	  roundResume = tk.getImage("img/fail-pass.jpg");
     	 
     	  // player
@@ -261,7 +262,22 @@ public class ImageProvider {
     	  myPlayerUpLeft[13] = tk.getImage("img/characterMotion/upLeft/upLeft_14.png");
     	  myPlayerUpLeft[14] = tk.getImage("img/characterMotion/upLeft/upLeft_15.png");
     	  
-    	  
+      	//shot image
+    	  myPlayerShot[0] = tk.getImage("img/characterMotion/shot/P1lancio_0001.png");
+    	  myPlayerShot[1] = tk.getImage("img/characterMotion/shot/P1lancio_0003.png");
+    	  myPlayerShot[2] = tk.getImage("img/characterMotion/shot/P1lancio_0005.png");
+    	  myPlayerShot[3] = tk.getImage("img/characterMotion/shot/P1lancio_0007.png");
+    	  myPlayerShot[4] = tk.getImage("img/characterMotion/shot/P1lancio_0009.png");
+    	  myPlayerShot[5] = tk.getImage("img/characterMotion/shot/P1lancio_0011.png");
+    	  myPlayerShot[6] = tk.getImage("img/characterMotion/shot/P1lancio_0013.png");
+    	  myPlayerShot[7] = tk.getImage("img/characterMotion/shot/P1lancio_0015.png");
+    	  myPlayerShot[8] = tk.getImage("img/characterMotion/shot/P1lancio_0017.png");
+    	  myPlayerShot[9] = tk.getImage("img/characterMotion/shot/P1lancio_0019.png");
+    	  myPlayerShot[10] = tk.getImage("img/characterMotion/shot/P1lancio_0021.png");
+    	  myPlayerShot[11] = tk.getImage("img/characterMotion/shot/P1lancio_0023.png");
+    	  myPlayerShot[12] = tk.getImage("img/characterMotion/shot/P1lancio_0025.png");
+    	  myPlayerShot[13] = tk.getImage("img/characterMotion/shot/P1lancio_0027.png");
+    	  myPlayerShot[14] = tk.getImage("img/characterMotion/shot/P1lancio_0029.png");
     	  
     	  // menu panel
     	  introBackground = tk.getImage("img/introImage.png");
@@ -373,7 +389,7 @@ public class ImageProvider {
                 return myPlayerDownLeft[numberOfSequence];
                 
             case 10:
-                return myPlayerShot1;
+                return myPlayerShot[numberOfSequence];
             case 11:
                 return myPlayerShot2;
         }
@@ -546,5 +562,9 @@ public class ImageProvider {
 
 	public Image getFinalRound() {
 		return finalRound;
+	}
+
+	public Image getMyPlayerShot(int index) {
+		return myPlayerShot[index];
 	}
 }
