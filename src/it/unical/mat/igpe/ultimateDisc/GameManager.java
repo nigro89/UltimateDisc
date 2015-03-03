@@ -13,7 +13,7 @@ public class GameManager {
 	private MyPlayer myPlayer=null;
 	private ComPlayer comPlayer=null;
 	private Disc disc=null;
-	private World world=null;
+	static private World world=null;
 	private WorldManager worldManager = new WorldManager();
 	private IaComPlayer iaComPlayer;
 	private static boolean comPlayerAbility = false;
@@ -58,7 +58,7 @@ public class GameManager {
 	}
 
 
-	public World getWorld() {
+	public static World getWorld() {
 		return world;
 	}
 

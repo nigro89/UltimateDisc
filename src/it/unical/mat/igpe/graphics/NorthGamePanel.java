@@ -52,6 +52,9 @@ public class NorthGamePanel extends JPanel {
 
     ImageProvider imageProvider = new ImageProvider();
     Image woodFieldNorth = imageProvider.getWoodFieldNorth();
+    Image scoreTime = imageProvider.getScoreTime();
+    Image pointsScoreMyPlayer = null;
+    Image pointsScoreComPlayer = null;
     
     Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
@@ -73,6 +76,13 @@ public class NorthGamePanel extends JPanel {
 
 		super.paintComponent(g);
 		g.drawImage(woodFieldNorth,0,0,getWidth(),getHeight(),this);
+		g.drawImage(scoreTime,(int) ((width/2)-300),0,this);
 		g.drawImage(time,(getWidth()/2)-50,15,this);
+		
+		pointsScoreMyPlayer = imageProvider.getScore(GameManager.getWorld().getMyPlayerScore());
+		pointsScoreComPlayer = imageProvider.getScore(GameManager.getWorld().getComScore());
+		g.drawImage(pointsScoreMyPlayer,(getWidth()/2)-(getWidth()/5),10,this);
+		g.drawImage(pointsScoreComPlayer,(getWidth()/2)+(getWidth()/11),10,this);
+		
 	}
 }

@@ -35,8 +35,8 @@ public class ImageProvider {
     private final Image woodField;
     private final Image woodFieldNorth;
     private final Image woodFieldSouth;
-    private final Image threePoints;
-    private final Image fivePoints;
+    private final Image threeWallPoints;
+    private final Image fiveWallPoints;
 
     // menu panel
     private final Image introBackground;
@@ -80,6 +80,39 @@ public class ImageProvider {
 	private final Image one;
     private final Image zero;
     
+    // points score
+    private final Image thirtyPoints;
+    private final Image twentyNinePoints;
+    private final Image twentyEightPoints;
+    private final Image twentySevenPoints;
+    private final Image twentySixPoints;
+    private final Image twentyFivePoints;
+    private final Image twentyFourPoints;
+	private final Image twentyThreePoints;
+    private final Image twentyTwoPoints;
+    private final Image twentyOnePoints;
+    private final Image twentyPoints;
+    private final Image nineteenPoints;
+    private final Image eighteenPoints;
+    private final Image seventeenPoints;
+    private final Image sixteenPoints;
+    private final Image fifteenPoints;
+    private final Image fourteenPoints;
+    private final Image thirteenPoints;
+	private final Image twelvePoints;
+    private final Image elevenPoints;
+    private final Image tenPoints;
+    private final Image ninePoints;
+    private final Image eightPoints;
+    private final Image sevenPoints;
+    private final Image sixPoints;
+    private final Image fivePoints;
+    private final Image fourPoints;
+    private final Image threePoints;
+    private final Image twoPoints;
+	private final Image onePoint;
+    private final Image zeroPoints;
+    
     // round
     private final Image round1;
     private final Image round2;
@@ -96,6 +129,7 @@ public class ImageProvider {
     // various
     private final Image start;
     private final Image startGame;
+    private final Image scoreTime;
 
     public ImageProvider()
     {
@@ -105,8 +139,8 @@ public class ImageProvider {
     	  menuPause = tk.getImage("img/imageMenu.png");
     	  
     	  // world
-    	  threePoints= tk.getImage("img/points/3points.gif");
-    	  fivePoints= tk.getImage("img/points/5points.gif");
+    	  threeWallPoints= tk.getImage("img/points/3points.gif");
+    	  fiveWallPoints= tk.getImage("img/points/5points.gif");
     	  one_point = new ImageIcon("img/1point.jpg");
     	  two_point = new ImageIcon("img/2points.jpg");
     	  frisbee = tk.getImage("img/frisbee.png");
@@ -291,6 +325,7 @@ public class ImageProvider {
     	  // various
     	  start = tk.getImage("img/start.png");
     	  startGame = tk.getImage("img/start1.png");
+    	  scoreTime = tk.getImage("img/scoreTime.png");
     	  
     	  // time score
     	  thirty = tk.getImage("img/timeScore/30.png");
@@ -324,6 +359,39 @@ public class ImageProvider {
     	  two = tk.getImage("img/timeScore/2.png");
     	  one = tk.getImage("img/timeScore/1.png");
     	  zero = tk.getImage("img/timeScore/0.png");
+    	  
+    	  // points score
+    	  thirtyPoints = tk.getImage("img/pointsScore/30.png");
+    	  twentyNinePoints = tk.getImage("img/pointsScore/29.png");
+    	  twentyEightPoints = tk.getImage("img/pointsScore/28.png");
+    	  twentySevenPoints = tk.getImage("img/pointsScore/27.png");
+    	  twentySixPoints = tk.getImage("img/pointsScore/26.png");
+    	  twentyFivePoints = tk.getImage("img/pointsScore/25.png");
+    	  twentyFourPoints = tk.getImage("img/pointsScore/24.png");
+    	  twentyThreePoints = tk.getImage("img/pointsScore/23.png");
+    	  twentyTwoPoints = tk.getImage("img/pointsScore/22.png");
+    	  twentyOnePoints = tk.getImage("img/pointsScore/21.png");
+    	  twentyPoints = tk.getImage("img/pointsScore/20.png");
+    	  nineteenPoints = tk.getImage("img/pointsScore/19.png");
+    	  eighteenPoints = tk.getImage("img/pointsScore/18.png");
+    	  seventeenPoints = tk.getImage("img/pointsScore/17.png");
+    	  sixteenPoints = tk.getImage("img/pointsScore/16.png");
+    	  fifteenPoints = tk.getImage("img/pointsScore/15.png");
+    	  fourteenPoints = tk.getImage("img/pointsScore/14.png");
+    	  thirteenPoints = tk.getImage("img/pointsScore/13.png");
+    	  twelvePoints = tk.getImage("img/pointsScore/12.png");
+    	  elevenPoints = tk.getImage("img/pointsScore/11.png");
+     	  tenPoints = tk.getImage("img/pointsScore/10.png");
+    	  ninePoints = tk.getImage("img/pointsScore/9.png");
+    	  eightPoints = tk.getImage("img/pointsScore/8.png");
+    	  sevenPoints = tk.getImage("img/pointsScore/7.png");
+    	  sixPoints = tk.getImage("img/pointsScore/6.png");
+    	  fivePoints = tk.getImage("img/pointsScore/5.png");
+    	  fourPoints = tk.getImage("img/pointsScore/4.png");
+    	  threePoints = tk.getImage("img/pointsScore/3.png");
+    	  twoPoints = tk.getImage("img/pointsScore/2.png");
+    	  onePoint = tk.getImage("img/pointsScore/1.png");
+    	  zeroPoints = tk.getImage("img/pointsScore/0.png");
     	  
     	  // game over
     	  gameOver = tk.getImage("img/gameOver.png");
@@ -400,8 +468,8 @@ public class ImageProvider {
 	{
 		 switch (points)
 		 {
-		   case 3:	return threePoints;
-		   case 5:	return fivePoints;
+		   case 3:	return threeWallPoints;
+		   case 5:	return fiveWallPoints;
 		 }
 		return null;
 	}
@@ -414,15 +482,19 @@ public class ImageProvider {
 		return two_point;
 	}
 	public Image getGif() {
-		return threePoints;
+		return threeWallPoints;
 	}
 
 	public Image getFrisbee() {
 		return frisbee;
 	}
 	
+	public Image getScoreTime() {
+		return scoreTime;
+	}
+	
 	public Image getFivePoints() {
-		return fivePoints;
+		return fiveWallPoints;
 	}
 
 	public Image getScore() {
@@ -548,6 +620,76 @@ public class ImageProvider {
 				return one;
 			case 0:
 				return zero;
+			}
+			return null;
+	}
+	
+	public Image getScore(long l) 
+	{
+			switch ((int)l)
+			{
+			case 30:
+				return thirtyPoints;
+			case 29:
+				return twentyNinePoints;
+			case 28:
+				return twentyEightPoints;
+			case 27:
+				return twentySevenPoints;
+			case 26:
+				return twentySixPoints;
+			case 25:
+				return twentyFivePoints;
+			case 24:
+				return twentyFourPoints;
+			case 23:
+				return twentyThreePoints;
+			case 22:
+				return twentyTwoPoints;
+			case 21:
+				return twentyOnePoints;
+			case 20:
+				return twentyPoints;
+			case 19:
+				return nineteenPoints;
+			case 18:
+				return eighteenPoints;
+			case 17:
+				return seventeenPoints;
+			case 16:
+				return sixteenPoints;
+			case 15:
+				return fifteenPoints;
+			case 14:
+				return fourteenPoints;
+			case 13:
+				return thirteenPoints;
+			case 12:
+				return twelvePoints;
+			case 11:
+				return elevenPoints;
+			case 10:
+				return tenPoints;
+			case 9:
+				return ninePoints;
+			case 8:
+				return eightPoints;
+			case 7:
+				return sevenPoints;
+			case 6:
+				return sixPoints;
+			case 5:
+				return fivePoints;
+			case 4:
+				return fourPoints;
+			case 3:
+				return threePoints;
+			case 2:
+				return twoPoints;
+			case 1:
+				return onePoint;
+			case 0:
+				return zeroPoints;
 			}
 			return null;
 	}
