@@ -10,7 +10,7 @@ public class GamePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	
-	SouthGamePanel southGamePanel = new SouthGamePanel();
+	SouthGamePanel southGamePanel;
 	CenterGamePanel centerGamePanel;
 	NorthGamePanel northGamePanel;
 	WestGamePanel westGamePanel;
@@ -24,6 +24,7 @@ public class GamePanel extends JPanel {
 		this.northGamePanel = new NorthGamePanel(gameManager);
 		this.westGamePanel = new WestGamePanel(gameManager);
 		this.eastGamePanel = new EastGamePanel(gameManager);
+		this.southGamePanel = new SouthGamePanel(gameManager);
 		this.setLayout(new BorderLayout());
 		
 		this.add(northGamePanel,"North");

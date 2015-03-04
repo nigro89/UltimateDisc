@@ -130,6 +130,9 @@ public class ImageProvider {
     private final Image start;
     private final Image startGame;
     private final Image scoreTime;
+    private final Image roundTarget;
+    private final Image frisbeeRound;
+    private final Image frisbeeRound2;
 
     public ImageProvider()
     {
@@ -326,6 +329,9 @@ public class ImageProvider {
     	  start = tk.getImage("img/start.png");
     	  startGame = tk.getImage("img/start1.png");
     	  scoreTime = tk.getImage("img/scoreTime.png");
+    	  roundTarget = tk.getImage("img/targaRound.png");
+    	  frisbeeRound = tk.getImage("img/frisbeeRound.png");
+    	  frisbeeRound2 = tk.getImage("img/frisbeeRound2.png");
     	  
     	  // time score
     	  thirty = tk.getImage("img/timeScore/30.png");
@@ -708,5 +714,17 @@ public class ImageProvider {
 
 	public Image getMyPlayerShot(int index) {
 		return myPlayerShot[index];
+	}
+
+	public Image getRoundTarget() {
+		return roundTarget;
+	}
+
+	public Image getFrisbeeRound() {
+		return frisbeeRound;
+	}
+	
+	public Image getFrisbeeRound2() {
+		return frisbeeRound2;
 	}
 }

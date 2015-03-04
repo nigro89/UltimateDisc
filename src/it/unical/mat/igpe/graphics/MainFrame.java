@@ -75,6 +75,7 @@ public class MainFrame extends JFrame {
 		gameManager.start();
 		gamePanel.centerGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
+		SouthGamePanel.repainterThread.start();
 		IaComPlayer.loadShotComPlayerThread.start();
 	}
 	
