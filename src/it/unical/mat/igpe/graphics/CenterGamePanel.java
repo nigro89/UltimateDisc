@@ -424,7 +424,7 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(scoreInfoImage, (int)(width*0.3), (int)(height*0.3),this);
 		
 		//fine round
-		g.drawImage(roundImage, (int)(width*0.15), 0,this);
+		g.drawImage(roundImage, (int)((width/2)-(width/4)), 0,this);
 		//fine pass
 		g.drawImage(roundResumeImage, (int)(width*0.25), 0,this);
 		//pause
