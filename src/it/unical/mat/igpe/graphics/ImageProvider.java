@@ -1,5 +1,6 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Image;
@@ -119,6 +120,14 @@ public class ImageProvider {
     private final Image finalRound;
     private final Image roundResume;
     private final Image score;
+    private final Image scoreRound0;
+    private final Image scoreRound1;
+    private final Image scoreRound2;
+    private final Image scoreRound3;
+    private final Image scoreRound4;
+    private final Image scoreRound5;
+    private final Image scoreRound6;
+    private final Image scoreRound7;
     
     //pause
     private final Image menuPause;
@@ -156,7 +165,15 @@ public class ImageProvider {
     	  round1 = tk.getImage("img/round1.gif");
     	  round2 = tk.getImage("img/round2.gif");
     	  finalRound = tk.getImage("img/finalRound.gif");
-    	  roundResume = tk.getImage("img/fail-pass.jpg");
+    	  roundResume = tk.getImage("img/scoreRound.png");
+    	  scoreRound0 = tk.getImage("img/scoreRound/scoreRound0.png");
+    	  scoreRound1 = tk.getImage("img/scoreRound/scoreRound1.png");;
+    	  scoreRound2 = tk.getImage("img/scoreRound/scoreRound2.png");;
+    	  scoreRound3 = tk.getImage("img/scoreRound/scoreRound3.png");;
+    	  scoreRound4 = tk.getImage("img/scoreRound/scoreRound4.png");;
+    	  scoreRound5 = tk.getImage("img/scoreRound/scoreRound5.png");;
+    	  scoreRound6 = tk.getImage("img/scoreRound/scoreRound6.png");;
+    	  scoreRound7 = tk.getImage("img/scoreRound/scoreRound7.png");;
     	 
     	  // player
     	  myPlayerMotionLess = tk.getImage("img/characterMotionLess/right.png");
@@ -726,5 +743,30 @@ public class ImageProvider {
 	
 	public Image getFrisbeeRound2() {
 		return frisbeeRound2;
+	}
+
+	public Image getScoreRound(int scoreMyPlayer,int scoreComPlayer) {
+		
+		GameManager.getWorld().update();
+		scoreMyPlayer=GameManager.getWorld().getRoundMyPlayer();
+		scoreComPlayer=GameManager.getWorld().getRoundComPlayer();
+		
+		if(scoreMyPlayer==0 && scoreComPlayer==0)
+			return scoreRound0;
+		if(scoreMyPlayer==1 && scoreComPlayer==0)
+			return scoreRound1;
+		if(scoreMyPlayer==2 && scoreComPlayer==0)
+			return scoreRound2;
+		if(scoreMyPlayer==0 && scoreComPlayer==1)
+			return scoreRound3;
+		if(scoreMyPlayer==0 && scoreComPlayer==2)
+			return scoreRound4;
+		if(scoreMyPlayer==1 && scoreComPlayer==1	)
+			return scoreRound5;
+		if(scoreMyPlayer==2 && scoreComPlayer==1)
+			return scoreRound6;
+		if(scoreMyPlayer==1 && scoreComPlayer==2)
+			return scoreRound7;
+		return null;
 	}
 }

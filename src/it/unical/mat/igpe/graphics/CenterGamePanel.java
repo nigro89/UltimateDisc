@@ -116,8 +116,15 @@ public class CenterGamePanel extends JPanel {
 	        			}
 	        			
 	        			if(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false){
+	        				
 	        				gameManager.update();
-	        				roundResumeImage = imageProvider.getPass();
+	        				
+	        				if(GameManager.getWorld().getMyPlayerScore()>=GameManager.getWorld().getComScore())
+	        					GameManager.getWorld().setRoundMyPlayer(1);
+	        				else
+	        					GameManager.getWorld().setRoundComPlayer(1);
+	        				
+	        				roundResumeImage = imageProvider.getScoreRound(GameManager.getWorld().getRoundMyPlayer(), GameManager.getWorld().getRoundMyPlayer());
 	        				repaint();
 	        				try
 	        				{
@@ -133,15 +140,6 @@ public class CenterGamePanel extends JPanel {
 	        				roundControllerStart=true;
 	        				startGame=true;
 	        				counterOfRounds++;
-	        				
-	        				if(gameManager.getWorld().getMyPlayerScore()>=gameManager.getWorld().getComScore())
-	        				{
-	        					gameManager.getWorld().setRoundMyPlayer(1);
-	        				}
-	        				else
-	        				{
-	        					gameManager.getWorld().setRoundComPlayer(1);
-	        				}
 	        				
 	        				System.out.println("Round "+counterOfRounds+" MYplayer: "+gameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+gameManager.getWorld().getComScore());
 	        				System.out.println("Round "+counterOfRounds+" MYplayerR: "+gameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+gameManager.getWorld().getRoundComPlayer());
@@ -426,7 +424,7 @@ public class CenterGamePanel extends JPanel {
 		//fine round
 		g.drawImage(roundImage, (int)((width/2)-(width/4)), 0,this);
 		//fine pass
-		g.drawImage(roundResumeImage, (int)(width*0.25), 0,this);
+		g.drawImage(roundResumeImage, (int)((width/2)-(width/7)), 0,this);
 		//pause
 		g.drawImage(pauseMenuImage, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
 	}
