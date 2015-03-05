@@ -46,6 +46,8 @@ public class CenterGamePanel extends JPanel {
 	        				if(GameManager.isPause()==false){
 	        					if(roundControllerStart)
 	        					{
+	        						point3 = imageProvider.getPoints(3);
+	        						point5 = imageProvider.getPoints(5);
 	        						roundImage = imageProvider.getRound(counterOfRounds);
 	        						repaint();
 	        						try
@@ -58,6 +60,8 @@ public class CenterGamePanel extends JPanel {
 	        						}
 	        						roundControllerStart=false;
 	        						roundImage=null;
+	        						point3 = null;
+	        						point5 = null;
 	        					}
 	        					
 	        					if(startGame)
@@ -205,7 +209,9 @@ public class CenterGamePanel extends JPanel {
 // world Image
 	static Image fieldImage;
 	static Image frisbeeImage;
-	static Image pointsImage = null;	
+	static Image pointsImage = null;
+	static Image point3 = null;
+	static Image point5 = null;
 // player Image
 	static Image myPlayerImage;
 	static Image comPlayerImage;
@@ -418,6 +424,21 @@ public class CenterGamePanel extends JPanel {
 			g.drawImage(pointsImage, (int)(width*0.85), gameManager.getDisc().getY(),this);
 		else
 			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
+		
+		// point
+		int range = (int)((height*0.75)*0.2)/2;
+			//myplayer side
+		g.drawImage(point3, 1, range,this);
+		g.drawImage(point3, 1, range*3,this);
+		g.drawImage(point5, 1, range*6,this);
+		g.drawImage(point3, 1, range*9,this);
+		g.drawImage(point3, 1, range*11,this);
+			//complayer side
+		g.drawImage(point3, (int)(width*0.85), range,this);
+		g.drawImage(point3, (int)(width*0.85), range*3,this);
+		g.drawImage(point5, (int)(width*0.85), range*6,this);
+		g.drawImage(point3, (int)(width*0.85), range*9,this);
+		g.drawImage(point3, (int)(width*0.85), range*11,this);		
 		//score
 		g.drawImage(scoreInfoImage, (int)(width*0.3), (int)(height*0.3),this);
 		
