@@ -83,6 +83,8 @@ public class CenterGamePanel extends JPanel {
 //	        						System.out.println("punti: "+gameManager.getWorld().getCurrentPoints());
 	        						pointsImage = imageProvider.getPoints(gameManager.getWorld().getCurrentPoints());
 	        						scoreInfoImage = imageProvider.getScore();
+	        						myPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getMyPlayerScore());
+	        						comPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getComScore());
 	        						try
 	        						{
 	        							sleep(2000);
@@ -103,6 +105,8 @@ public class CenterGamePanel extends JPanel {
 	        							comPlayerGoal=false;
 	        						}
 	        						scoreInfoImage = null;
+	        						myPlayerNumberScore = null;
+	        						comPlayerNumberScore = null;
 	        						pointsImage = null;
 	        						frisbeeImage=imageProvider.getFrisbee();
 	        						GameManager.setStop(false);
@@ -212,6 +216,8 @@ public class CenterGamePanel extends JPanel {
 	static Image pointsImage = null;
 	static Image point3 = null;
 	static Image point5 = null;
+	static Image myPlayerNumberScore = null;
+	static Image comPlayerNumberScore = null;
 // player Image
 	static Image myPlayerImage;
 	static Image comPlayerImage;
@@ -440,8 +446,9 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(point3, (int)(width*0.85), range*9,this);
 		g.drawImage(point3, (int)(width*0.85), range*11,this);		
 		//score
-		g.drawImage(scoreInfoImage, (int)(width*0.3), (int)(height*0.3),this);
-		
+		g.drawImage(scoreInfoImage, (int)(width*0.29),(int)(height*0.3) ,this);
+		g.drawImage(myPlayerNumberScore, (int)(width*0.33),(int)(height*0.4) ,this);
+		g.drawImage(comPlayerNumberScore, (int)(width*0.49),(int)(height*0.4) ,this);
 		//fine round
 		g.drawImage(roundImage, (int)((width/2)-(width/4)), 0,this);
 		//fine pass

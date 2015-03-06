@@ -81,6 +81,39 @@ public class ImageProvider {
 	private final Image one;
     private final Image zero;
     
+    // number score Image
+    private final Image thirtyScore;
+    private final Image twentyNineScore;
+    private final Image twentyEightScore;
+    private final Image twentySevenScore;
+    private final Image twentySixScore;
+    private final Image twentyFiveScore;
+    private final Image twentyFourScore;
+	private final Image twentyThreeScore;
+    private final Image twentyTwoScore;
+    private final Image twentyOneScore;
+    private final Image twentyScore;
+    private final Image nineteenScore;
+    private final Image eighteenScore;
+    private final Image seventeenScore;
+    private final Image sixteenScore;
+    private final Image fifteenScore;
+    private final Image fourteenScore;
+    private final Image thirteenScore;
+	private final Image twelveScore;
+    private final Image elevenScore;
+    private final Image tenScore;
+    private final Image nineScore;
+    private final Image eightScore;
+    private final Image sevenScore;
+    private final Image sixScore;
+    private final Image fiveScore;
+    private final Image fourScore;
+    private final Image threeScore;
+    private final Image twoScore;
+	private final Image oneScore;
+    private final Image zeroScore;
+    
     // points score
     private final Image thirtyPoints;
     private final Image twentyNinePoints;
@@ -383,6 +416,39 @@ public class ImageProvider {
     	  one = tk.getImage("img/timeScore/1.png");
     	  zero = tk.getImage("img/timeScore/0.png");
     	  
+    	  // number score
+    	  thirtyScore = tk.getImage("img/numberScore/30.png");
+    	  twentyNineScore = tk.getImage("img/numberScore/29.png");
+    	  twentyEightScore = tk.getImage("img/numberScore/28.png");
+    	  twentySevenScore = tk.getImage("img/numberScore/27.png");
+    	  twentySixScore = tk.getImage("img/numberScore/26.png");
+    	  twentyFiveScore = tk.getImage("img/numberScore/25.png");
+    	  twentyFourScore = tk.getImage("img/numberScore/24.png");
+    	  twentyThreeScore = tk.getImage("img/numberScore/23.png");
+    	  twentyTwoScore = tk.getImage("img/numberScore/22.png");
+    	  twentyOneScore = tk.getImage("img/numberScore/21.png");
+    	  twentyScore = tk.getImage("img/numberScore/20.png");
+    	  nineteenScore = tk.getImage("img/numberScore/19.png");
+    	  eighteenScore = tk.getImage("img/numberScore/18.png");
+    	  seventeenScore = tk.getImage("img/numberScore/17.png");
+    	  sixteenScore = tk.getImage("img/numberScore/16.png");
+    	  fifteenScore = tk.getImage("img/numberScore/15.png");
+    	  fourteenScore = tk.getImage("img/numberScore/14.png");
+    	  thirteenScore = tk.getImage("img/numberScore/13.png");
+    	  twelveScore = tk.getImage("img/numberScore/12.png");
+    	  elevenScore = tk.getImage("img/numberScore/11.png");
+     	  tenScore = tk.getImage("img/numberScore/10.png");
+    	  nineScore = tk.getImage("img/numberScore/9.png");
+    	  eightScore = tk.getImage("img/numberScore/8.png");
+    	  sevenScore = tk.getImage("img/numberScore/7.png");
+    	  sixScore = tk.getImage("img/numberScore/6.png");
+    	  fiveScore = tk.getImage("img/numberScore/5.png");
+    	  fourScore = tk.getImage("img/numberScore/4.png");
+    	  threeScore = tk.getImage("img/numberScore/3.png");
+    	  twoScore = tk.getImage("img/numberScore/2.png");
+    	  oneScore = tk.getImage("img/numberScore/1.png");
+    	  zeroScore = tk.getImage("img/numberScore/0.png");
+    	  
     	  // points score
     	  thirtyPoints = tk.getImage("img/pointsScore/30.png");
     	  twentyNinePoints = tk.getImage("img/pointsScore/29.png");
@@ -645,6 +711,76 @@ public class ImageProvider {
 				return zero;
 			}
 			return null;
+	}
+	
+	public Image getNumberScore(int l) 
+	{
+			switch (l)
+			{
+			case 30:
+				return thirtyScore;
+			case 29:
+				return twentyNineScore;
+			case 28:
+				return twentyEightScore;
+			case 27:
+				return twentySevenScore;
+			case 26:
+				return twentySixScore;
+			case 25:
+				return twentyFiveScore;
+			case 24:
+				return twentyFourScore;
+			case 23:
+				return twentyThreeScore;
+			case 22:
+				return twentyTwoScore;
+			case 21:
+				return twentyOneScore;
+			case 20:
+				return twentyScore;
+			case 19:
+				return nineteenScore;
+			case 18:
+				return eighteenScore;
+			case 17:
+				return seventeenScore;
+			case 16:
+				return sixteenScore;
+			case 15:
+				return fifteenScore;
+			case 14:
+				return fourteenScore;
+			case 13:
+				return thirteenScore;
+			case 12:
+				return twelveScore;
+			case 11:
+				return elevenScore;
+			case 10:
+				return tenScore;
+			case 9:
+				return nineScore;
+			case 8:
+				return eightScore;
+			case 7:
+				return sevenScore;
+			case 6:
+				return sixScore;
+			case 5:
+				return fiveScore;
+			case 4:
+				return fourScore;
+			case 3:
+				return threeScore;
+			case 2:
+				return twoScore;
+			case 1:
+				return oneScore;
+			case 0:
+				return zeroScore;
+			}
+			return zeroScore;
 	}
 	
 	public Image getScore(long l) 
