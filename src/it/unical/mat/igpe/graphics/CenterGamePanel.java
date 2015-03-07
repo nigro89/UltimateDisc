@@ -427,9 +427,12 @@ public class CenterGamePanel extends JPanel {
 		
 		//gif goal
 		if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())
-			g.drawImage(pointsImage, (int)(width*0.85), gameManager.getDisc().getY(),this);
+			g.drawImage(pointsImage, (int)(width*0.80), gameManager.getDisc().getY(),this);
 		else
 			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
+		
+		Image prova = imageProvider.getPoints(5);
+		g.drawImage(prova, 100, 100,this);
 		
 		// point
 		int range = (int)((height*0.75)*0.2)/2;
@@ -440,11 +443,11 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(point3, 1, range*9,this);
 		g.drawImage(point3, 1, range*11,this);
 			//complayer side
-		g.drawImage(point3, (int)(width*0.85), range,this);
-		g.drawImage(point3, (int)(width*0.85), range*3,this);
-		g.drawImage(point5, (int)(width*0.85), range*6,this);
-		g.drawImage(point3, (int)(width*0.85), range*9,this);
-		g.drawImage(point3, (int)(width*0.85), range*11,this);		
+		g.drawImage(point3, (int)(width*0.80), range,this);
+		g.drawImage(point3, (int)(width*0.80), range*3,this);
+		g.drawImage(point5, (int)(width*0.80), range*6,this);
+		g.drawImage(point3, (int)(width*0.80), range*9,this);
+		g.drawImage(point3, (int)(width*0.80), range*11,this);		
 		//score
 		g.drawImage(scoreInfoImage, (int)(width*0.29),(int)(height*0.3) ,this);
 		g.drawImage(myPlayerNumberScore, (int)(width*0.33),(int)(height*0.4) ,this);
