@@ -3,7 +3,9 @@ package it.unical.mat.igpe.graphics;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -14,8 +16,9 @@ public class EastGamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	ImageProvider imageProvider = new ImageProvider();
-	ImageIcon one_point = imageProvider.getOne_point(); 
-	ImageIcon two_point = imageProvider.getTwo_point();
+	ImageIcon one_point = imageProvider.getOne_pointComPlayer(); 
+	ImageIcon two_point = imageProvider.getTwo_pointComPlayer();
+	Image woodBorder = imageProvider.getWoodBoardCom();
 	
 	JLabel l = new JLabel();
 	JLabel l1 = new JLabel();
@@ -47,4 +50,9 @@ public class EastGamePanel extends JPanel {
 		  this.add(l4);
 	 }
 
+		@Override
+		protected  void paintComponent(Graphics g) {
+			super.paintComponent(g);
+			g.drawImage(woodBorder,0,0,getWidth(),(int)(height),this);
+		}
 }

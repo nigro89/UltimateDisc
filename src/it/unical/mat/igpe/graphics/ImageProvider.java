@@ -30,14 +30,18 @@ public class ImageProvider {
 	private final Image myPlayerShot2;
 	
 	// world
-    private final ImageIcon one_point;
-    private final ImageIcon two_point;
+    private final ImageIcon one_pointMyPlayer;
+    private final ImageIcon two_pointMyPlayer;
+    private final ImageIcon one_pointComPlayer;
+    private final ImageIcon two_pointComPlayer;
     private final Image frisbee;
     private final Image woodField;
     private final Image woodFieldNorth;
     private final Image woodFieldSouth;
     private final Image threeWallPoints;
     private final Image fiveWallPoints;
+    private final Image woodBoard;
+    private final Image woodBoardCom;
 
     // menu panel
     private final Image introBackground;
@@ -186,12 +190,16 @@ public class ImageProvider {
     	  // world
     	  threeWallPoints= tk.getImage("img/points/3points.gif");
     	  fiveWallPoints= tk.getImage("img/points/5points.gif");
-    	  one_point = new ImageIcon("img/1point.jpg");
-    	  two_point = new ImageIcon("img/2points.jpg");
+    	  one_pointMyPlayer = new ImageIcon("img/1point.png");
+    	  two_pointMyPlayer = new ImageIcon("img/2points.png");
+    	  one_pointComPlayer = new ImageIcon("img/1pointCom.png");
+    	  two_pointComPlayer = new ImageIcon("img/2pointsCom.png");
     	  frisbee = tk.getImage("img/frisbee.png");
-    	  woodField = tk.getImage("img/legno.jpg");
+    	  woodField = tk.getImage("img/legno.png");
     	  woodFieldNorth = tk.getImage("img/nord.jpg");
     	  woodFieldSouth = tk.getImage("img/sud.jpg");
+    	  woodBoard = tk.getImage("img/bordoLegno.png");
+    	  woodBoardCom = tk.getImage("img/bordoLegnoCom.png");
     	  
     	  // round
     	  score = tk.getImage("img/score.png");
@@ -564,11 +572,11 @@ public class ImageProvider {
 	}
     
 	public ImageIcon getOne_point() {
-		return one_point;
+		return one_pointMyPlayer;
 	}
 
 	public ImageIcon getTwo_point() {
-		return two_point;
+		return two_pointMyPlayer;
 	}
 	public Image getGif() {
 		return threeWallPoints;
@@ -904,5 +912,21 @@ public class ImageProvider {
 		if(scoreMyPlayer==1 && scoreComPlayer==2)
 			return scoreRound7;
 		return null;
+	}
+
+	public Image getWoodBoard() {
+		return woodBoard;
+	}
+
+	public Image getWoodBoardCom() {
+		return woodBoardCom;
+	}
+
+	public ImageIcon getOne_pointComPlayer() {
+		return one_pointComPlayer;
+	}
+
+	public ImageIcon getTwo_pointComPlayer() {
+		return two_pointComPlayer;
 	}
 }
