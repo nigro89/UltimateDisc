@@ -431,9 +431,6 @@ public class CenterGamePanel extends JPanel {
 		else
 			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
 		
-		Image prova = imageProvider.getPoints(5);
-		g.drawImage(prova, 100, 100,this);
-		
 		// point
 		int range = (int)((height*0.75)*0.2)/2;
 			//myplayer side
