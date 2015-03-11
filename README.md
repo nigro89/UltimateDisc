@@ -70,18 +70,20 @@ menu selezione giocatori e campo:
 
 
 DA FARE: 
-1) score corretto
-2) aggiornare risultato round (Al posto del pass)
-3) creare campi con texture di dimensione stabilita
-4) inserire punti round e punti parziali
-5) pannelli nord e sud appropriati alle texture
+1) score corretto													-OK
+2) aggiornare risultato round (Al posto del pass)					-OK
+3) creare campi con texture di dimensione stabilita					(legno ok)
+4) inserire punti round e punti parziali							-OK
+5) pannelli nord e sud appropriati alle texture						(legno ok)
 6) torna la menu principale.
 7) audio gioco.
 8) immagine lancio disco e posizione frisbee in mano
 9) livello intelligenza artificiale ( facile, medio e difficile)
 10) editor
 
-
+- creare altri tipi di campi
+- migliorare movimento e tiro del giocatore
+- creare menu per la selezione campo/giocatori( implemetare logica per estrarre il campo da file e logica per la selezione dei giocatori )
 
 
 

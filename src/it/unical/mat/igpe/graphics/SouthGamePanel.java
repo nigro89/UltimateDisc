@@ -75,9 +75,9 @@ public class SouthGamePanel extends JPanel {
 		g.drawImage(woodFieldSouth,0,0,getWidth(),getHeight(),this);
 		g.drawImage(roundTarget,(int) ((width/2)-90),2,180,34,this);
 		
-		g.drawImage(frisbeeRound1,(int) ((width/2)-(width/10)),0,this);
-		g.drawImage(frisbeeRound2,(int) ((width/2)-(width/8)),0,this);
-		g.drawImage(frisbeeRound3,(int) ((width/2)+(width/14)),0,this);
-		g.drawImage(frisbeeRound4,(int) ((width/2)+(width/11)),0,this);
+		g.drawImage(frisbeeRound1,(int) ((width/2)-(width/10)),4,this);
+		g.drawImage(frisbeeRound2,(int) ((width/2)-(width/10))-40,4,this);
+		g.drawImage(frisbeeRound3,(int) ((width/2)+(width/14)),4,this);
+		g.drawImage(frisbeeRound4,(int) ((width/2)+(width/14))+40,4,this);
 	}
 }

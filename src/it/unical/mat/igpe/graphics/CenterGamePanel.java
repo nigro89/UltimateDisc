@@ -1,13 +1,10 @@
 package it.unical.mat.igpe.graphics;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
-import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -46,8 +43,18 @@ public class CenterGamePanel extends JPanel {
 	        				if(GameManager.isPause()==false){
 	        					if(roundControllerStart)
 	        					{
-	        						point3 = imageProvider.getPoints(3);
-	        						point5 = imageProvider.getPoints(5);
+	        						// side MyPlayer
+	        						pointMyPlayerPosition0 = imageProvider.getPoints(3);
+	        						pointMyPlayerPosition1 = imageProvider.getPoints(3);
+	        						pointMyPlayerPosition2 = imageProvider.getPoints(5);
+	        						pointMyPlayerPosition3 = imageProvider.getPoints(5);
+	        						pointMyPlayerPosition4 = imageProvider.getPoints(3);
+	        						// side ComPlayer
+	        						pointComPlayerPosition0 = imageProvider.getPoints(3);
+	        						pointComPlayerPosition1 = imageProvider.getPoints(3);
+	        						pointComPlayerPosition2 = imageProvider.getPoints(5);
+	        						pointComPlayerPosition3 = imageProvider.getPoints(5);
+	        						pointComPlayerPosition4 = imageProvider.getPoints(3);
 	        						roundImage = imageProvider.getRound(counterOfRounds);
 	        						repaint();
 	        						try
@@ -60,8 +67,18 @@ public class CenterGamePanel extends JPanel {
 	        						}
 	        						roundControllerStart=false;
 	        						roundImage=null;
-	        						point3 = null;
-	        						point5 = null;
+	        						// side MyPlayer
+	        						pointMyPlayerPosition0 = null;
+	        						pointMyPlayerPosition1 = null;
+	        						pointMyPlayerPosition2 = null;
+	        						pointMyPlayerPosition3 = null;
+	        						pointMyPlayerPosition4 = null;
+	        						// side ComPlayer
+	        						pointComPlayerPosition0 = null;
+	        						pointComPlayerPosition1 = null;
+	        						pointComPlayerPosition2 = null;
+	        						pointComPlayerPosition3 = null;
+	        						pointComPlayerPosition4 = null;
 	        					}
 	        					
 	        					if(startGame)
@@ -81,7 +98,8 @@ public class CenterGamePanel extends JPanel {
 	        					{
 	        						frisbeeImage=null;
 //	        						System.out.println("punti: "+gameManager.getWorld().getCurrentPoints());
-	        						pointsImage = imageProvider.getPoints(gameManager.getWorld().getCurrentPoints());
+//	        						pointsImage = imageProvider.getPoints(gameManager.getWorld().getCurrentPoints());
+	        						int numberOfImageToActivate = getNumberOfImageToActivate();
 	        						scoreInfoImage = imageProvider.getScore();
 	        						myPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getMyPlayerScore());
 	        						comPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getComScore());
@@ -107,6 +125,7 @@ public class CenterGamePanel extends JPanel {
 	        						scoreInfoImage = null;
 	        						myPlayerNumberScore = null;
 	        						comPlayerNumberScore = null;
+	        						deActivateImagePoints(numberOfImageToActivate);
 	        						pointsImage = null;
 	        						frisbeeImage=imageProvider.getFrisbee();
 	        						GameManager.setStop(false);
@@ -149,14 +168,14 @@ public class CenterGamePanel extends JPanel {
 	        				startGame=true;
 	        				counterOfRounds++;
 	        				
-	        				System.out.println("Round "+counterOfRounds+" MYplayer: "+gameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+gameManager.getWorld().getComScore());
-	        				System.out.println("Round "+counterOfRounds+" MYplayerR: "+gameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+gameManager.getWorld().getRoundComPlayer());
-	        				gameManager.getWorld().setMyPlayerScore(0);
-	        				gameManager.getWorld().setComScore(0);
+	        				System.out.println("Round "+counterOfRounds+" MYplayer: "+GameManager.getWorld().getMyPlayerScore()+" ComPlayer: "+GameManager.getWorld().getComScore());
+	        				System.out.println("Round "+counterOfRounds+" MYplayerR: "+GameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+GameManager.getWorld().getRoundComPlayer());
+	        				GameManager.getWorld().setMyPlayerScore(0);
+	        				GameManager.getWorld().setComScore(0);
 	        			}
 	        			
-	        			if((gameManager.getWorld().getRoundMyPlayer()==2 || gameManager.getWorld().getRoundComPlayer()==2 
-	        					|| (gameManager.getWorld().getRoundMyPlayer()+gameManager.getWorld().getRoundComPlayer())==3) && (GameManager.isPause()==false))
+	        			if((GameManager.getWorld().getRoundMyPlayer()==2 || GameManager.getWorld().getRoundComPlayer()==2 
+	        					|| (GameManager.getWorld().getRoundMyPlayer()+GameManager.getWorld().getRoundComPlayer())==3) && (GameManager.isPause()==false))
 	        			{
 	        				finishMatch=true;
 	        				counterOfRounds=0;
@@ -173,6 +192,70 @@ public class CenterGamePanel extends JPanel {
 	        	}
 	        }
 			
+			private void deActivateImagePoints(int numberOfImageToActivate) {
+				switch (numberOfImageToActivate) {
+				
+				case 0: pointComPlayerPosition0 = null;
+						pointMyPlayerPosition0 = null;
+						break;
+				case 1: pointComPlayerPosition1 = null;
+						pointMyPlayerPosition1 = null;
+						break;
+				case 2: pointComPlayerPosition2 = null;
+						pointMyPlayerPosition2 = null;
+						break;
+				case 3: pointComPlayerPosition3 = null;
+						pointMyPlayerPosition3 = null;
+						break;		
+				case 4: pointComPlayerPosition4 = null;
+						pointMyPlayerPosition4 = null;
+						break;
+				default:
+						break;
+				}
+			}
+
+			private int getNumberOfImageToActivate() {
+				if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())
+				{
+					int positionHit = GameManager.getWorld().getWallCom().getStrickenWall(gameManager.getDisc().getY());
+					switch (positionHit) {
+						
+						case 0: pointComPlayerPosition0 = imageProvider.getPoints(3);
+								return 0;
+						case 1: pointComPlayerPosition1 = imageProvider.getPoints(3);
+								return 1;
+						case 2: pointComPlayerPosition2 = imageProvider.getPoints(5);
+								return 2;
+						case 3: pointComPlayerPosition3 = imageProvider.getPoints(3);
+								return 3;		
+						case 4: pointComPlayerPosition4 = imageProvider.getPoints(3);
+								return 4;
+						default:
+								return 0;
+					}
+				}
+				else
+				{
+					int positionHit = GameManager.getWorld().getWallMyPlayer().getStrickenWall(gameManager.getDisc().getY());
+					switch (positionHit) {
+						
+						case 0: pointMyPlayerPosition0 = imageProvider.getPoints(3);
+								return 0;
+						case 1: pointMyPlayerPosition1 = imageProvider.getPoints(3);
+								return 1;
+						case 2: pointMyPlayerPosition2 = imageProvider.getPoints(5);
+								return 2;
+						case 3: pointMyPlayerPosition3 = imageProvider.getPoints(3);
+								return 3;		
+						case 4: pointMyPlayerPosition4 = imageProvider.getPoints(3);
+								return 4;
+						default:
+								return 0;
+					}
+				}
+			}
+
 			public void setMyPlayerGoal(boolean myPlayerGoal) {
 				this.myPlayerGoal = myPlayerGoal;
 			}
@@ -216,6 +299,16 @@ public class CenterGamePanel extends JPanel {
 	static Image pointsImage = null;
 	static Image point3 = null;
 	static Image point5 = null;
+	static Image pointMyPlayerPosition0 = null;
+	static Image pointMyPlayerPosition1 = null;
+	static Image pointMyPlayerPosition2 = null;
+	static Image pointMyPlayerPosition3 = null;
+	static Image pointMyPlayerPosition4 = null;
+	static Image pointComPlayerPosition0 = null;
+	static Image pointComPlayerPosition1 = null;
+	static Image pointComPlayerPosition2 = null;
+	static Image pointComPlayerPosition3 = null;
+	static Image pointComPlayerPosition4 = null;
 	static Image myPlayerNumberScore = null;
 	static Image comPlayerNumberScore = null;
 // player Image
@@ -426,25 +519,27 @@ public class CenterGamePanel extends JPanel {
 //		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
 		
 		//gif goal
-		if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())
-			g.drawImage(pointsImage, (int)(width*0.80), gameManager.getDisc().getY(),this);
-		else
-			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
+//		if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())
+//			g.drawImage(pointsImage, (int)(width*0.80), gameManager.getDisc().getY(),this);
+//		}
+//		else
+//			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
 		
 		// point
 		int range = (int)((height*0.75)*0.2)/2;
 			//myplayer side
-		g.drawImage(point3, 1, range,this);
-		g.drawImage(point3, 1, range*3,this);
-		g.drawImage(point5, 1, range*6,this);
-		g.drawImage(point3, 1, range*9,this);
-		g.drawImage(point3, 1, range*11,this);
+		g.drawImage(pointMyPlayerPosition0, 1, range,this);
+		g.drawImage(pointMyPlayerPosition1, 1, range*3,this);
+		g.drawImage(pointMyPlayerPosition2, 1, range*6,this);
+		g.drawImage(pointMyPlayerPosition3, 1, range*9,this);
+		g.drawImage(pointMyPlayerPosition4, 1, range*11,this);
 			//complayer side
-		g.drawImage(point3, (int)(width*0.80), range,this);
-		g.drawImage(point3, (int)(width*0.80), range*3,this);
-		g.drawImage(point5, (int)(width*0.80), range*6,this);
-		g.drawImage(point3, (int)(width*0.80), range*9,this);
-		g.drawImage(point3, (int)(width*0.80), range*11,this);		
+		g.drawImage(pointComPlayerPosition0, (int)(width*0.80), range,this);
+		g.drawImage(pointComPlayerPosition1, (int)(width*0.80), range*3,this);
+		g.drawImage(pointComPlayerPosition2, (int)(width*0.80), range*6,this);
+		g.drawImage(pointComPlayerPosition3, (int)(width*0.80), range*9,this);
+		g.drawImage(pointComPlayerPosition4, (int)(width*0.80), range*11,this);	
+
 		//score
 		g.drawImage(scoreInfoImage, (int)(width*0.29),(int)(height*0.3) ,this);
 		g.drawImage(myPlayerNumberScore, (int)(width*0.33),(int)(height*0.4) ,this);

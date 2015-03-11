@@ -26,7 +26,6 @@ public class ImageProvider {
 	
 	// player
 	private final Image myPlayerMotionLess;
-	private final Image myPlayerShot1;
 	private final Image myPlayerShot2;
 	
 	// world
@@ -218,7 +217,6 @@ public class ImageProvider {
     	 
     	  // player
     	  myPlayerMotionLess = tk.getImage("img/characterMotionLess/right.png");
-    	  myPlayerShot1 = tk.getImage("img/cat1.png");
     	  myPlayerShot2 = tk.getImage("img/cat2.png");
     	  
     	  //right image

@@ -27,7 +27,7 @@ public class MainFrame extends JFrame {
 
 		final ImageProvider imageProvider = new ImageProvider();
 		final GameManager gameManager = new GameManager();
-		final MainFrame mainFrame = new MainFrame(gameManager,imageProvider);
+		mainFrame = new MainFrame(gameManager,imageProvider);
 	}
 
 	Screen screen = Screen.getInstance();
@@ -41,11 +41,12 @@ public class MainFrame extends JFrame {
 	ImageProvider imageProvider;
 	
 	GameManager gameManager;
+	static MainFrame mainFrame;
 	
 	public MainFrame(GameManager gameManager,ImageProvider imageProvider)
 	{
 		this.imageProvider=imageProvider;
-		this.contentPanel = new JPanel(new BorderLayout());
+		MainFrame.contentPanel = new JPanel(new BorderLayout());
 		this.gameManager = gameManager;
 		
 		menuPanel = new MenuPanel(this);
@@ -73,7 +74,7 @@ public class MainFrame extends JFrame {
 		gamePanel = new GamePanel(this.gameManager,this.imageProvider);
 		this.switchTo(gamePanel);
 		gameManager.start();
-		gamePanel.centerGamePanel.repainterThread.start();
+		CenterGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();
 		IaComPlayer.loadShotComPlayerThread.start();
