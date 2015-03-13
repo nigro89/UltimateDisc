@@ -36,6 +36,7 @@ public class MainFrame extends JFrame {
 	Color colorBar = new Color(26, 109, 222);
 	
 	GamePanel gamePanel;
+	SelectPlayerPanel selectPlayerPanel;
 	static MenuPanel menuPanel;
 	static JPanel contentPanel;
 	ImageProvider imageProvider;
@@ -78,6 +79,17 @@ public class MainFrame extends JFrame {
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();
 		IaComPlayer.loadShotComPlayerThread.start();
+	}
+	
+	public void goToMenuPanel()
+	{
+		this.switchTo(menuPanel);
+	}
+	
+	public void goToSelectPlayerPanel()
+	{
+		selectPlayerPanel = new SelectPlayerPanel(this);
+		this.switchTo(selectPlayerPanel);
 	}
 	
     public void switchTo(final JPanel panel)

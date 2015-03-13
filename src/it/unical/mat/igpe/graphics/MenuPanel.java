@@ -31,9 +31,12 @@ public class MenuPanel extends JPanel {
 			     
 			     //play now
 			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60)){
-			    	 mainFrame.startGame();
-			    	 CenterGamePanel.getRepainterThread().setFinish(false);
-			    	 CenterGamePanel.getRepainterThread().setStartGame(true);
+			    	 play = image.getPlayGame();
+			    	 repaint();
+//			    	 mainFrame.startGame();
+//			    	 CenterGamePanel.getRepainterThread().setFinish(false);
+//			    	 CenterGamePanel.getRepainterThread().setStartGame(true);
+			    	 mainFrame.goToSelectPlayerPanel();
 			     }
 			     //settings
 			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
@@ -55,7 +58,10 @@ public class MenuPanel extends JPanel {
 			     
 			     //play now
 			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60)){
-			    	 play = image.getPlayGameWhite();
+			    	 {
+			    		 play = image.getPlayGameWhite();
+			    		 repaint();
+			    	 }
 			     }
 			     //settings
 			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
