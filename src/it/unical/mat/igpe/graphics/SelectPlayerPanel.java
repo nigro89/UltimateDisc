@@ -29,6 +29,7 @@ public class SelectPlayerPanel extends JPanel {
 	Image back = imageProvider.getBack();
 	Image selected = imageProvider.getSelectedMyPlayer();
 	int select = 0;
+	int myPlayer = 0;
 	
 	Screen screen = Screen.getInstance();
     double width = screen.getWidth();
@@ -43,10 +44,11 @@ public class SelectPlayerPanel extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-		    	 mainFrame.startGame();
-		    	 CenterGamePanel.getRepainterThread().setFinish(false);
-		    	 CenterGamePanel.getRepainterThread().setStartGame(true);
+
+//				imageProvider.setPlayer(myPlayer);
+				mainFrame.startGame();
+		    	CenterGamePanel.getRepainterThread().setFinish(false);
+		    	CenterGamePanel.getRepainterThread().setStartGame(true);
 			}
 		});
 		
@@ -93,7 +95,10 @@ public class SelectPlayerPanel extends JPanel {
 			    if ( (x>((int)(width/8))) && (x<((int)(width/8)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
 		    	{
 			    	if(select==0)
+			    	{
 			    		myPlayerSelected = imageProvider.getTom();
+			    		myPlayer=1;
+			    	}
 			    	else
 			    		comPlayerSelected = imageProvider.getTom1();
 		    		repaint();
@@ -102,7 +107,10 @@ public class SelectPlayerPanel extends JPanel {
 			    if ( (x>((int)(width*0.29))) && (x<((int)(width*0.29)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
 		    	{
 			    	if(select==0)
+			    	{
 			    		myPlayerSelected = imageProvider.getMario();
+			    		myPlayer=2;
+			    	}
 			    	else
 			    		comPlayerSelected = imageProvider.getMario1();
 		    		repaint();
@@ -111,7 +119,10 @@ public class SelectPlayerPanel extends JPanel {
 			    if ( (x>((int)(width*0.45))) && (x<((int)(width*0.45)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
 		    	{
 			    	if(select==0)
+			    	{
 			    		myPlayerSelected = imageProvider.getAlex();
+			    		myPlayer=3;
+			    	}
 			    	else
 			    		comPlayerSelected = imageProvider.getAlex1();
 		    		repaint();
@@ -120,7 +131,10 @@ public class SelectPlayerPanel extends JPanel {
 			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.61)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
 		    	{
 			    	if(select==0)
+			    	{
 			    		myPlayerSelected = imageProvider.getErik();
+			    		myPlayer=4;
+			    	}
 			    	else
 			    		comPlayerSelected = imageProvider.getErik1();
 		    		repaint();
@@ -129,7 +143,10 @@ public class SelectPlayerPanel extends JPanel {
 			    if ( (x>((int)(width*0.76))) && (x<((int)(width*0.76)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
 		    	{
 			    	if(select==0)
+			    	{
 			    		myPlayerSelected = imageProvider.getEmily();
+			    		myPlayer=5;
+			    	}
 			    	else
 			    		comPlayerSelected = imageProvider.getEmily1();
 		    		repaint();
@@ -147,7 +164,6 @@ public class SelectPlayerPanel extends JPanel {
 			 // comPlayer selected
 			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.61)+320)) && (y>(int)(height/5)) && (y<((int)((height/5))+320)) )
 		    	{
-			    	System.out.println("ok");
 			    	if (select == 0)
 			    	{
 			    		selected = imageProvider.getSelectedComPlayer();

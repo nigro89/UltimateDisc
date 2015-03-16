@@ -312,8 +312,8 @@ public class CenterGamePanel extends JPanel {
 	static Image myPlayerNumberScore = null;
 	static Image comPlayerNumberScore = null;
 // player Image
-	static Image myPlayerImage;
-	static Image comPlayerImage;
+	static Image myPlayerImage=null;
+	static Image comPlayerImage=null;
 // round Image
 	static Image gameOverImage = null;
 	private Image roundImage = null;
@@ -341,6 +341,7 @@ public class CenterGamePanel extends JPanel {
 		CenterGamePanel.imageProvider=imageProviderNew;
 		fieldImage = imageProvider.getWoodField();
 		frisbeeImage = imageProvider.getFrisbee();
+		
 		myPlayerImage = imageProvider.getMyPlayerDirection(Player.RIGHT);
 		comPlayerImage = imageProvider.getMyPlayerDirection(Player.LEFT);
 		
