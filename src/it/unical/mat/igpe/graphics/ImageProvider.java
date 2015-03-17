@@ -11,35 +11,59 @@ import javax.swing.ImageIcon;
 public class ImageProvider {
 	
 	// path players
-	String playerRightMotionLessPath = "img/players/P1/";
-	String playerLeftMotionLessPath = "img/players/P1/";
-	String playerRightPath = "img/players/P1/right/";
-	String playerLeftPath = "img/players/P1/left/";
-	String playerDownPath = "img/players/P1/down/";
-	String playerUpPath = "img/players/P1/up/";
-	String playerDownRightPath = "img/players/P1/downRight/";
-	String playerDownLeftPath = "img/players/P1/downLeft/";
-	String playerUpRightPath = "img/players/P1/upRight/";
-	String playerUpLeftPath = "img/players/P1/upLeft/";
-	String playerShotPath = "img/players/P1/shot/";
-
-	// number of sequence to move player
-	static int numberOfSequence=0;
+	String myPlayerRightMotionLessPath = null;
+	String myPlayerLeftMotionLessPath = null;
+	String myPlayerRightPath = null;
+	String myPlayerLeftPath = null;
+	String myPlayerDownPath = null;
+	String myPlayerUpPath = null;
+	String myPlayerDownRightPath = null;
+	String myPlayerDownLeftPath = null;
+	String myPlayerUpRightPath = null;
+	String myPlayerUpLeftPath = null;
+	String myPlayerShotPath = null;
+	
+	String comPlayerRightMotionLessPath = null;
+	String comPlayerLeftMotionLessPath = null;
+	String comPlayerRightPath = null;
+	String comPlayerLeftPath = null;
+	String comPlayerDownPath = null;
+	String comPlayerUpPath = null;
+	String comPlayerDownRightPath = null;
+	String comPlayerDownLeftPath = null;
+	String comPlayerUpRightPath = null;
+	String comPlayerUpLeftPath = null;
+	String comPlayerShotPath = null;
+	
+	// number of sequence to move myPlayer
+	static int numberOfSequenceMyPlayer=0;
+	static int numberOfSequenceComPlayer=0;
 	
 	// player
 	// array Image of Player's moviments 
-	private final Image[] playerRight = new Image[4];
-	private final Image[] playerLeft = new Image[4];
-	private final Image[] playerUp = new Image[4];
-    private final Image[] playerDown = new Image[4];
-	private final Image[] playerUpRight = new Image[4];
-	private final Image[] playerUpLeft = new Image[4];
-	private final Image[] playerDownRight = new Image[4];
-	private final Image[] playerDownLeft = new Image[4];
-	private final Image[] playerShot = new Image[4];
+	private final Image[] myPlayerRight = new Image[4];
+	private final Image[] myPlayerLeft = new Image[4];
+	private final Image[] myPlayerUp = new Image[4];
+    private final Image[] myPlayerDown = new Image[4];
+	private final Image[] myPlayerUpRight = new Image[4];
+	private final Image[] myPlayerUpLeft = new Image[4];
+	private final Image[] myPlayerDownRight = new Image[4];
+	private final Image[] myPlayerDownLeft = new Image[4];
+	private final Image[] myPlayerShot = new Image[4];
+	private  Image myPlayerRightMotionLess;
+	private  Image myPlayerLeftMotionLess;
 	
-	private final Image playerRightMotionLess;
-	private final Image playerLeftMotionLess;
+	private final Image[] comPlayerRight = new Image[4];
+	private final Image[] comPlayerLeft = new Image[4];
+	private final Image[] comPlayerUp = new Image[4];
+    private final Image[] comPlayerDown = new Image[4];
+	private final Image[] comPlayerUpRight = new Image[4];
+	private final Image[] comPlayerUpLeft = new Image[4];
+	private final Image[] comPlayerDownRight = new Image[4];
+	private final Image[] comPlayerDownLeft = new Image[4];
+	private final Image[] comPlayerShot = new Image[4];
+	private  Image comPlayerRightMotionLess;
+	private  Image comPlayerLeftMotionLess;
 	
 	// world
     private final ImageIcon one_pointMyPlayer;
@@ -191,7 +215,6 @@ public class ImageProvider {
     private final Image round1;
     private final Image round2;
     private final Image finalRound;
-    private final Image roundResume;
     private final Image score;
     private final Image scoreRound0;
     private final Image scoreRound1;
@@ -201,6 +224,11 @@ public class ImageProvider {
     private final Image scoreRound5;
     private final Image scoreRound6;
     private final Image scoreRound7;
+    private final Image roundTarget;
+    private final Image frisbeeRound;
+    private final Image frisbeeRound2;
+    
+    private final Image scoreTime;
     
     //pause
     private final Image menuPause;
@@ -208,13 +236,7 @@ public class ImageProvider {
     //game over
     private final Image gameOver;
 
-    // various
-    private final Image start;
-    private final Image startGame;
-    private final Image scoreTime;
-    private final Image roundTarget;
-    private final Image frisbeeRound;
-    private final Image frisbeeRound2;
+    
     
     public ImageProvider()
     {
@@ -226,98 +248,141 @@ public class ImageProvider {
     	  // world
     	  threeWallPoints= tk.getImage("img/points/3points.gif");
     	  fiveWallPoints= tk.getImage("img/points/5points.gif");
-    	  one_pointMyPlayer = new ImageIcon("img/1point.png");
-    	  two_pointMyPlayer = new ImageIcon("img/2points.png");
-    	  one_pointComPlayer = new ImageIcon("img/1pointCom.png");
-    	  two_pointComPlayer = new ImageIcon("img/2pointsCom.png");
     	  frisbee = tk.getImage("img/frisbee.png");
-    	  woodField = tk.getImage("img/legno.png");
-    	  woodFieldNorth = tk.getImage("img/nord.jpg");
-    	  woodFieldSouth = tk.getImage("img/sud.jpg");
-    	  woodBoard = tk.getImage("img/bordoLegno.png");
-    	  woodBoardCom = tk.getImage("img/bordoLegnoCom.png");
+    	  // playGround
+    	  one_pointMyPlayer = new ImageIcon("img/playGround/woodPlayGround/1point.png");
+    	  two_pointMyPlayer = new ImageIcon("img/playGround/woodPlayGround/2points.png");
+    	  one_pointComPlayer = new ImageIcon("img/playGround/woodPlayGround/1pointCom.png");
+    	  two_pointComPlayer = new ImageIcon("img/playGround/woodPlayGround/2pointsCom.png");
+    	  woodField = tk.getImage("img/playGround/woodPlayGround/legno.png");
+    	  woodFieldNorth = tk.getImage("img/playGround/woodPlayGround/nord.jpg");
+    	  woodFieldSouth = tk.getImage("img/playGround/woodPlayGround/sud.jpg");
+    	  woodBoard = tk.getImage("img/playGround/woodPlayGround/bordoLegno.png");
+    	  woodBoardCom = tk.getImage("img/playGround/woodPlayGround/bordoLegnoCom.png");
     	  
     	  // round
-    	  score = tk.getImage("img/score.png");
-    	  round1 = tk.getImage("img/round1.gif");
-    	  round2 = tk.getImage("img/round2.gif");
-    	  finalRound = tk.getImage("img/finalRound.gif");
-    	  roundResume = tk.getImage("img/scoreRound.png");
-    	  scoreRound0 = tk.getImage("img/scoreRound/scoreRound0.png");
-    	  scoreRound1 = tk.getImage("img/scoreRound/scoreRound1.png");;
-    	  scoreRound2 = tk.getImage("img/scoreRound/scoreRound2.png");;
-    	  scoreRound3 = tk.getImage("img/scoreRound/scoreRound3.png");;
-    	  scoreRound4 = tk.getImage("img/scoreRound/scoreRound4.png");;
-    	  scoreRound5 = tk.getImage("img/scoreRound/scoreRound5.png");;
-    	  scoreRound6 = tk.getImage("img/scoreRound/scoreRound6.png");;
-    	  scoreRound7 = tk.getImage("img/scoreRound/scoreRound7.png");;
+    	  score = tk.getImage("img/round/score.png");
+    	  round1 = tk.getImage("img/round/round1.gif");
+    	  round2 = tk.getImage("img/round/round2.gif");
+    	  finalRound = tk.getImage("img/round/finalRound.gif");
+    	  scoreRound0 = tk.getImage("img/round/scoreRound/scoreRound0.png");
+    	  scoreRound1 = tk.getImage("img/round/scoreRound/scoreRound1.png");
+    	  scoreRound2 = tk.getImage("img/round/scoreRound/scoreRound2.png");
+    	  scoreRound3 = tk.getImage("img/round/scoreRound/scoreRound3.png");
+    	  scoreRound4 = tk.getImage("img/round/scoreRound/scoreRound4.png");
+    	  scoreRound5 = tk.getImage("img/round/scoreRound/scoreRound5.png");
+    	  scoreRound6 = tk.getImage("img/round/scoreRound/scoreRound6.png");
+    	  scoreRound7 = tk.getImage("img/round/scoreRound/scoreRound7.png");
+    	  roundTarget = tk.getImage("img/round/targaRound.png");
+    	  frisbeeRound = tk.getImage("img/round/frisbeeRound.png");
+    	  frisbeeRound2 = tk.getImage("img/round/frisbeeRound2.png");
+    	  
+    	  scoreTime = tk.getImage("img/round/scoreTime.png");
     	 
     	  // player
-    	  playerRightMotionLess = tk.getImage(playerRightMotionLessPath+"right.png");
-    	  playerLeftMotionLess = tk.getImage(playerLeftMotionLessPath+"left.png");
+    	  myPlayerRightMotionLess = tk.getImage(myPlayerRightMotionLessPath+"right.png");
+    	  myPlayerLeftMotionLess = tk.getImage(myPlayerLeftMotionLessPath+"left.png");
+    	  comPlayerRightMotionLess = tk.getImage(comPlayerRightMotionLessPath+"right.png");
+    	  comPlayerLeftMotionLess = tk.getImage(comPlayerLeftMotionLessPath+"left.png");
     	  
     	  //right image
-    	  playerRight[0] = tk.getImage(playerRightPath+"right.png");
-    	  playerRight[1] = tk.getImage(playerRightPath+"right_05.png");
-    	  playerRight[2] = tk.getImage(playerRightPath+"right_09.png");
-    	  playerRight[3] = tk.getImage(playerRightPath+"right_13.png");
+    	  myPlayerRight[0] = tk.getImage(myPlayerRightPath+"right.png");
+    	  myPlayerRight[1] = tk.getImage(myPlayerRightPath+"right_05.png");
+    	  myPlayerRight[2] = tk.getImage(myPlayerRightPath+"right_09.png");
+    	  myPlayerRight[3] = tk.getImage(myPlayerRightPath+"right_13.png");
+    	  comPlayerRight[0] = tk.getImage(comPlayerRightPath+"right.png");
+    	  comPlayerRight[1] = tk.getImage(comPlayerRightPath+"right_05.png");
+    	  comPlayerRight[2] = tk.getImage(comPlayerRightPath+"right_09.png");
+    	  comPlayerRight[3] = tk.getImage(comPlayerRightPath+"right_13.png");
     	  
     	  //left image
-    	  playerLeft[0] = tk.getImage(playerLeftPath+"left.png");
-    	  playerLeft[1] = tk.getImage(playerLeftPath+"left_05.png");
-    	  playerLeft[2] = tk.getImage(playerLeftPath+"left_09.png");
-    	  playerLeft[3] = tk.getImage(playerLeftPath+"left_13.png");
+    	  myPlayerLeft[0] = tk.getImage(myPlayerLeftPath+"left.png");
+    	  myPlayerLeft[1] = tk.getImage(myPlayerLeftPath+"left_05.png");
+    	  myPlayerLeft[2] = tk.getImage(myPlayerLeftPath+"left_09.png");
+    	  myPlayerLeft[3] = tk.getImage(myPlayerLeftPath+"left_13.png");
+    	  comPlayerLeft[0] = tk.getImage(comPlayerLeftPath+"left.png");
+    	  comPlayerLeft[1] = tk.getImage(comPlayerLeftPath+"left_05.png");
+    	  comPlayerLeft[2] = tk.getImage(comPlayerLeftPath+"left_09.png");
+    	  comPlayerLeft[3] = tk.getImage(comPlayerLeftPath+"left_13.png");
     	  
     	//Down image
-    	  playerDown[0] = tk.getImage(playerDownPath+"down.png");
-    	  playerDown[1] = tk.getImage(playerDownPath+"down_05.png");
-    	  playerDown[2] = tk.getImage(playerDownPath+"down_09.png");
-    	  playerDown[3] = tk.getImage(playerDownPath+"down_13.png");
+    	  myPlayerDown[0] = tk.getImage(myPlayerDownPath+"down.png");
+    	  myPlayerDown[1] = tk.getImage(myPlayerDownPath+"down_05.png");
+    	  myPlayerDown[2] = tk.getImage(myPlayerDownPath+"down_09.png");
+    	  myPlayerDown[3] = tk.getImage(myPlayerDownPath+"down_13.png");
+    	  comPlayerDown[0] = tk.getImage(comPlayerDownPath+"down.png");
+    	  comPlayerDown[1] = tk.getImage(comPlayerDownPath+"down_05.png");
+    	  comPlayerDown[2] = tk.getImage(comPlayerDownPath+"down_09.png");
+    	  comPlayerDown[3] = tk.getImage(comPlayerDownPath+"down_13.png");
     	  
     	//up image
-    	  playerUp[0] = tk.getImage(playerUpPath+"up.png");
-    	  playerUp[1] = tk.getImage(playerUpPath+"up_05.png");
-    	  playerUp[2] = tk.getImage(playerUpPath+"up_09.png");
-    	  playerUp[3] = tk.getImage(playerUpPath+"up_13.png");
+    	  myPlayerUp[0] = tk.getImage(myPlayerUpPath+"up.png");
+    	  myPlayerUp[1] = tk.getImage(myPlayerUpPath+"up_05.png");
+    	  myPlayerUp[2] = tk.getImage(myPlayerUpPath+"up_09.png");
+    	  myPlayerUp[3] = tk.getImage(myPlayerUpPath+"up_13.png");
+    	  comPlayerUp[0] = tk.getImage(comPlayerUpPath+"up.png");
+    	  comPlayerUp[1] = tk.getImage(comPlayerUpPath+"up_05.png");
+    	  comPlayerUp[2] = tk.getImage(comPlayerUpPath+"up_09.png");
+    	  comPlayerUp[3] = tk.getImage(comPlayerUpPath+"up_13.png");
     	  
     	//downRight image
-    	  playerDownRight[0] = tk.getImage(playerDownRightPath+"downRight.png");
-    	  playerDownRight[1] = tk.getImage(playerDownRightPath+"downRight_05.png");
-    	  playerDownRight[2] = tk.getImage(playerDownRightPath+"downRight_09.png");
-    	  playerDownRight[3] = tk.getImage(playerDownRightPath+"downRight_13.png");
+    	  myPlayerDownRight[0] = tk.getImage(myPlayerDownRightPath+"downRight.png");
+    	  myPlayerDownRight[1] = tk.getImage(myPlayerDownRightPath+"downRight_05.png");
+    	  myPlayerDownRight[2] = tk.getImage(myPlayerDownRightPath+"downRight_09.png");
+    	  myPlayerDownRight[3] = tk.getImage(myPlayerDownRightPath+"downRight_13.png");
+    	  comPlayerDownRight[0] = tk.getImage(comPlayerDownRightPath+"downRight.png");
+    	  comPlayerDownRight[1] = tk.getImage(comPlayerDownRightPath+"downRight_05.png");
+    	  comPlayerDownRight[2] = tk.getImage(comPlayerDownRightPath+"downRight_09.png");
+    	  comPlayerDownRight[3] = tk.getImage(comPlayerDownRightPath+"downRight_13.png");
     	  
     	//downLeft image
-    	  playerDownLeft[0] = tk.getImage(playerDownLeftPath+"downLeft.png");
-    	  playerDownLeft[1] = tk.getImage(playerDownLeftPath+"downLeft_05.png");
-    	  playerDownLeft[2] = tk.getImage(playerDownLeftPath+"downLeft_09.png");
-    	  playerDownLeft[3] = tk.getImage(playerDownLeftPath+"downLeft_13.png");
+    	  myPlayerDownLeft[0] = tk.getImage(myPlayerDownLeftPath+"downLeft.png");
+    	  myPlayerDownLeft[1] = tk.getImage(myPlayerDownLeftPath+"downLeft_05.png");
+    	  myPlayerDownLeft[2] = tk.getImage(myPlayerDownLeftPath+"downLeft_09.png");
+    	  myPlayerDownLeft[3] = tk.getImage(myPlayerDownLeftPath+"downLeft_13.png");
+    	  comPlayerDownLeft[0] = tk.getImage(comPlayerDownLeftPath+"downLeft.png");
+    	  comPlayerDownLeft[1] = tk.getImage(comPlayerDownLeftPath+"downLeft_05.png");
+    	  comPlayerDownLeft[2] = tk.getImage(comPlayerDownLeftPath+"downLeft_09.png");
+    	  comPlayerDownLeft[3] = tk.getImage(comPlayerDownLeftPath+"downLeft_13.png");
     	  
     	//upRight image
-    	  playerUpRight[0] = tk.getImage(playerUpRightPath+"upRight.png");
-    	  playerUpRight[1] = tk.getImage(playerUpRightPath+"upRight_05.png");
-    	  playerUpRight[2] = tk.getImage(playerUpRightPath+"upRight_09.png");
-    	  playerUpRight[3] = tk.getImage(playerUpRightPath+"upRight_13.png");
+    	  myPlayerUpRight[0] = tk.getImage(myPlayerUpRightPath+"upRight.png");
+    	  myPlayerUpRight[1] = tk.getImage(myPlayerUpRightPath+"upRight_05.png");
+    	  myPlayerUpRight[2] = tk.getImage(myPlayerUpRightPath+"upRight_09.png");
+    	  myPlayerUpRight[3] = tk.getImage(myPlayerUpRightPath+"upRight_13.png");
+    	  comPlayerUpRight[0] = tk.getImage(comPlayerUpRightPath+"upRight.png");
+    	  comPlayerUpRight[1] = tk.getImage(comPlayerUpRightPath+"upRight_05.png");
+    	  comPlayerUpRight[2] = tk.getImage(comPlayerUpRightPath+"upRight_09.png");
+    	  comPlayerUpRight[3] = tk.getImage(comPlayerUpRightPath+"upRight_13.png");
     	  
     	//upLeft image
-    	  playerUpLeft[0] = tk.getImage(playerUpLeftPath+"upLeft.png");
-    	  playerUpLeft[1] = tk.getImage(playerUpLeftPath+"upLeft_05.png");
-    	  playerUpLeft[2] = tk.getImage(playerUpLeftPath+"upLeft_09.png");
-    	  playerUpLeft[3] = tk.getImage(playerUpLeftPath+"upLeft_13.png");
+    	  myPlayerUpLeft[0] = tk.getImage(myPlayerUpLeftPath+"upLeft.png");
+    	  myPlayerUpLeft[1] = tk.getImage(myPlayerUpLeftPath+"upLeft_05.png");
+    	  myPlayerUpLeft[2] = tk.getImage(myPlayerUpLeftPath+"upLeft_09.png");
+    	  myPlayerUpLeft[3] = tk.getImage(myPlayerUpLeftPath+"upLeft_13.png");
+    	  comPlayerUpLeft[0] = tk.getImage(comPlayerUpLeftPath+"upLeft.png");
+    	  comPlayerUpLeft[1] = tk.getImage(comPlayerUpLeftPath+"upLeft_05.png");
+    	  comPlayerUpLeft[2] = tk.getImage(comPlayerUpLeftPath+"upLeft_09.png");
+    	  comPlayerUpLeft[3] = tk.getImage(comPlayerUpLeftPath+"upLeft_13.png");
     	  
       	//shot image
-    	  playerShot[0] = tk.getImage(playerShotPath+"shot_0001.png");
-    	  playerShot[1] = tk.getImage(playerShotPath+"shot_0009.png");
-    	  playerShot[2] = tk.getImage(playerShotPath+"shot_0017.png");
-    	  playerShot[3] = tk.getImage(playerShotPath+"shot_0025.png");
+    	  myPlayerShot[0] = tk.getImage(myPlayerShotPath+"shot_0001.png");
+    	  myPlayerShot[1] = tk.getImage(myPlayerShotPath+"shot_0009.png");
+    	  myPlayerShot[2] = tk.getImage(myPlayerShotPath+"shot_0017.png");
+    	  myPlayerShot[3] = tk.getImage(myPlayerShotPath+"shot_0025.png");
+    	  comPlayerShot[0] = tk.getImage(comPlayerShotPath+"shot_0001.png");
+    	  comPlayerShot[1] = tk.getImage(comPlayerShotPath+"shot_0009.png");
+    	  comPlayerShot[2] = tk.getImage(comPlayerShotPath+"shot_0017.png");
+    	  comPlayerShot[3] = tk.getImage(comPlayerShotPath+"shot_0025.png");
     	  
     	  // menu panel
-    	  introBackground = tk.getImage("img/introImage.png");
-    	  playGame = tk.getImage("img/IntroPlay.png");
-    	  playGameWhite = tk.getImage("img/IntroPlayWhite.png");
-    	  settings = tk.getImage("img/IntroSettings2.png");
-    	  settingsWhite = tk.getImage("img/IntroSettings1.png");
-    	  exit = tk.getImage("img/IntroExit.png");
-    	  exitWhite = tk.getImage("img/IntroExitWhite.png");
+    	  introBackground = tk.getImage("img/menu/introImage.png");
+    	  playGame = tk.getImage("img/menu/IntroPlay.png");
+    	  playGameWhite = tk.getImage("img/menu/IntroPlayWhite.png");
+    	  settings = tk.getImage("img/menu/IntroSettings2.png");
+    	  settingsWhite = tk.getImage("img/menu/IntroSettings1.png");
+    	  exit = tk.getImage("img/menu/IntroExit.png");
+    	  exitWhite = tk.getImage("img/menu/IntroExitWhite.png");
     	  
     	  // selectPlayerPanel
     	  selectPlayerPanelBackground = tk.getImage("img/selectPlayer/background.png");
@@ -342,14 +407,6 @@ public class ImageProvider {
     	  playersBarName = tk.getImage("img/selectPlayer/playersBarNames.png");
     	  selectedMyPlayer = tk.getImage("img/selectPlayer/selectedMyPlayer.png");
     	  selectedComPlayer = tk.getImage("img/selectPlayer/selectedComPlayer.png");
-    	  
-    	  // various
-    	  start = tk.getImage("img/start.png");
-    	  startGame = tk.getImage("img/start1.png");
-    	  scoreTime = tk.getImage("img/scoreTime.png");
-    	  roundTarget = tk.getImage("img/targaRound.png");
-    	  frisbeeRound = tk.getImage("img/frisbeeRound.png");
-    	  frisbeeRound2 = tk.getImage("img/frisbeeRound2.png");
     	  
     	  // time score
     	  thirty = tk.getImage("img/timeScore/30.png");
@@ -459,14 +516,6 @@ public class ImageProvider {
 		return round1;
 	}
 	
-	public Image getMyPlayerMotionLess() {
-		return playerRightMotionLess;
-	}
-	
-	public Image getPass() {
-		return roundResume;
-	}
-	
 	public Image getRound(int round)
     {
         switch (round)
@@ -481,120 +530,338 @@ public class ImageProvider {
         return round1;
     }
 
-	public void setPlayer(int player)
+	public void setMyPlayer(int player)
 	{
 		switch(player)
 		{
-			case 1:	playerRightMotionLessPath = "img/players/P1/";
-	    			playerLeftMotionLessPath = "img/players/P1/";
-			    	playerRightPath = "img/players/P1/right/";
-			    	playerLeftPath = "img/players/P1/left/";
-			    	playerDownPath = "img/players/P1/down/";
-			    	playerUpPath = "img/players/P1/up/";
-			    	playerDownRightPath = "img/players/P1/downRight/";
-			    	playerDownLeftPath = "img/players/P1/downLeft/";
-			    	playerUpRightPath = "img/players/P1/upRight/";
-			    	playerUpLeftPath = "img/players/P1/upLeft/";
-			    	playerShotPath = "img/players/P1/shot/";
+			case 1:	myPlayerRightMotionLessPath = "img/players/P1/";
+	    			myPlayerLeftMotionLessPath = "img/players/P1/";
+			    	myPlayerRightPath = "img/players/P1/right/";
+			    	myPlayerLeftPath = "img/players/P1/left/";
+			    	myPlayerDownPath = "img/players/P1/down/";
+			    	myPlayerUpPath = "img/players/P1/up/";
+			    	myPlayerDownRightPath = "img/players/P1/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P1/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P1/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P1/upLeft/";
+			    	myPlayerShotPath = "img/players/P1/shot/";
 			    	break;
-			case 2:	playerRightMotionLessPath = "img/players/P2/";
-			    	playerLeftMotionLessPath = "img/players/P2/";
-			    	playerRightPath = "img/players/P2/right/";
-			    	playerLeftPath = "img/players/P2/left/";
-			    	playerDownPath = "img/players/P2/down/";
-			    	playerUpPath = "img/players/P2/up/";
-			    	playerDownRightPath = "img/players/P2/downRight/";
-			    	playerDownLeftPath = "img/players/P2/downLeft/";
-			    	playerUpRightPath = "img/players/P2/upRight/";
-			    	playerUpLeftPath = "img/players/P2/upLeft/";
-			    	playerShotPath = "img/players/P2/shot/";
+			case 2:	myPlayerRightMotionLessPath = "img/players/P2/";
+			    	myPlayerLeftMotionLessPath = "img/players/P2/";
+			    	myPlayerRightPath = "img/players/P2/right/";
+			    	myPlayerLeftPath = "img/players/P2/left/";
+			    	myPlayerDownPath = "img/players/P2/down/";
+			    	myPlayerUpPath = "img/players/P2/up/";
+			    	myPlayerDownRightPath = "img/players/P2/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P2/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P2/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P2/upLeft/";
+			    	myPlayerShotPath = "img/players/P2/shot/";
 			    	break;
-			case 3:	playerRightMotionLessPath = "img/players/P3/";
-			    	playerLeftMotionLessPath = "img/players/P3/";
-			    	playerRightPath = "img/players/P3/right/";
-			    	playerLeftPath = "img/players/P3/left/";
-			    	playerDownPath = "img/players/P3/down/";
-			    	playerUpPath = "img/players/P3/up/";
-			    	playerDownRightPath = "img/players/P3/downRight/";
-			    	playerDownLeftPath = "img/players/P3/downLeft/";
-			    	playerUpRightPath = "img/players/P3/upRight/";
-			    	playerUpLeftPath = "img/players/P3/upLeft/";
-			    	playerShotPath = "img/players/P3/shot/";
+			case 3:	myPlayerRightMotionLessPath = "img/players/P3/";
+			    	myPlayerLeftMotionLessPath = "img/players/P3/";
+			    	myPlayerRightPath = "img/players/P3/right/";
+			    	myPlayerLeftPath = "img/players/P3/left/";
+			    	myPlayerDownPath = "img/players/P3/down/";
+			    	myPlayerUpPath = "img/players/P3/up/";
+			    	myPlayerDownRightPath = "img/players/P3/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P3/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P3/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P3/upLeft/";
+			    	myPlayerShotPath = "img/players/P3/shot/";
 			    	break;
-			case 4:	playerRightMotionLessPath = "img/players/P4/";
-			    	playerLeftMotionLessPath = "img/players/P4/";
-			    	playerRightPath = "img/players/P4/right/";
-			    	playerLeftPath = "img/players/P4/left/";
-			    	playerDownPath = "img/players/P4/down/";
-			    	playerUpPath = "img/players/P4/up/";
-			    	playerDownRightPath = "img/players/P4/downRight/";
-			    	playerDownLeftPath = "img/players/P4/downLeft/";
-			    	playerUpRightPath = "img/players/P4/upRight/";
-			    	playerUpLeftPath = "img/players/P4/upLeft/";
-			    	playerShotPath = "img/players/P4/shot/";
+			case 4:	myPlayerRightMotionLessPath = "img/players/P4/";
+			    	myPlayerLeftMotionLessPath = "img/players/P4/";
+			    	myPlayerRightPath = "img/players/P4/right/";
+			    	myPlayerLeftPath = "img/players/P4/left/";
+			    	myPlayerDownPath = "img/players/P4/down/";
+			    	myPlayerUpPath = "img/players/P4/up/";
+			    	myPlayerDownRightPath = "img/players/P4/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P4/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P4/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P4/upLeft/";
+			    	myPlayerShotPath = "img/players/P4/shot/";
 			    	break;
-			case 5:	playerRightMotionLessPath = "img/players/P5/";
-			    	playerLeftMotionLessPath = "img/players/P5/";
-			    	playerRightPath = "img/players/P5/right/";
-			    	playerLeftPath = "img/players/P5/left/";
-			    	playerDownPath = "img/players/P5/down/";
-			    	playerUpPath = "img/players/P5/up/";
-			    	playerDownRightPath = "img/players/P5/downRight/";
-			    	playerDownLeftPath = "img/players/P5/downLeft/";
-			    	playerUpRightPath = "img/players/P5/upRight/";
-			    	playerUpLeftPath = "img/players/P5/upLeft/";
-			    	playerShotPath = "img/players/P5/shot/";
+			case 5:	myPlayerRightMotionLessPath = "img/players/P5/";
+			    	myPlayerLeftMotionLessPath = "img/players/P5/";
+			    	myPlayerRightPath = "img/players/P5/right/";
+			    	myPlayerLeftPath = "img/players/P5/left/";
+			    	myPlayerDownPath = "img/players/P5/down/";
+			    	myPlayerUpPath = "img/players/P5/up/";
+			    	myPlayerDownRightPath = "img/players/P5/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P5/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P5/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P5/upLeft/";
+			    	myPlayerShotPath = "img/players/P5/shot/";
 			    	break;
-		   default:	playerRightMotionLessPath = "img/players/P1/";
-					playerLeftMotionLessPath = "img/players/P1/";
-			    	playerRightPath = "img/players/P1/right/";
-			    	playerLeftPath = "img/players/P1/left/";
-			    	playerDownPath = "img/players/P1/down/";
-			    	playerUpPath = "img/players/P1/up/";
-			    	playerDownRightPath = "img/players/P1/downRight/";
-			    	playerDownLeftPath = "img/players/P1/downLeft/";
-			    	playerUpRightPath = "img/players/P1/upRight/";
-			    	playerUpLeftPath = "img/players/P1/upLeft/";
-			    	playerShotPath = "img/players/P1/shot/";
+		   default:	myPlayerRightMotionLessPath = "img/players/P1/";
+					myPlayerLeftMotionLessPath = "img/players/P1/";
+			    	myPlayerRightPath = "img/players/P1/right/";
+			    	myPlayerLeftPath = "img/players/P1/left/";
+			    	myPlayerDownPath = "img/players/P1/down/";
+			    	myPlayerUpPath = "img/players/P1/up/";
+			    	myPlayerDownRightPath = "img/players/P1/downRight/";
+			    	myPlayerDownLeftPath = "img/players/P1/downLeft/";
+			    	myPlayerUpRightPath = "img/players/P1/upRight/";
+			    	myPlayerUpLeftPath = "img/players/P1/upLeft/";
+			    	myPlayerShotPath = "img/players/P1/shot/";
 			    	break;
 		}
 	}
+	
+	public void setComPlayer(int player)
+	{
+		switch(player)
+		{
+			case 1:	comPlayerRightMotionLessPath = "img/players/P1/";
+					comPlayerLeftMotionLessPath = "img/players/P1/";
+					comPlayerRightPath = "img/players/P1/right/";
+					comPlayerLeftPath = "img/players/P1/left/";
+					comPlayerDownPath = "img/players/P1/down/";
+					comPlayerUpPath = "img/players/P1/up/";
+					comPlayerDownRightPath = "img/players/P1/downRight/";
+					comPlayerDownLeftPath = "img/players/P1/downLeft/";
+					comPlayerUpRightPath = "img/players/P1/upRight/";
+					comPlayerUpLeftPath = "img/players/P1/upLeft/";
+					comPlayerShotPath = "img/players/P1/shot/";
+			    	break;
+			case 2:	comPlayerRightMotionLessPath = "img/players/P2/";
+					comPlayerLeftMotionLessPath = "img/players/P2/";
+					comPlayerRightPath = "img/players/P2/right/";
+					comPlayerLeftPath = "img/players/P2/left/";
+					comPlayerDownPath = "img/players/P2/down/";
+					comPlayerUpPath = "img/players/P2/up/";
+					comPlayerDownRightPath = "img/players/P2/downRight/";
+					comPlayerDownLeftPath = "img/players/P2/downLeft/";
+					comPlayerUpRightPath = "img/players/P2/upRight/";
+					comPlayerUpLeftPath = "img/players/P2/upLeft/";
+					comPlayerShotPath = "img/players/P2/shot/";
+			    	break;
+			case 3:	comPlayerRightMotionLessPath = "img/players/P3/";
+					comPlayerLeftMotionLessPath = "img/players/P3/";
+					comPlayerRightPath = "img/players/P3/right/";
+					comPlayerLeftPath = "img/players/P3/left/";
+					comPlayerDownPath = "img/players/P3/down/";
+					comPlayerUpPath = "img/players/P3/up/";
+					comPlayerDownRightPath = "img/players/P3/downRight/";
+					comPlayerDownLeftPath = "img/players/P3/downLeft/";
+					comPlayerUpRightPath = "img/players/P3/upRight/";
+					comPlayerUpLeftPath = "img/players/P3/upLeft/";
+					comPlayerShotPath = "img/players/P3/shot/";
+			    	break;
+			case 4:	comPlayerRightMotionLessPath = "img/players/P4/";
+					comPlayerLeftMotionLessPath = "img/players/P4/";
+					comPlayerRightPath = "img/players/P4/right/";
+					comPlayerLeftPath = "img/players/P4/left/";
+					comPlayerDownPath = "img/players/P4/down/";
+					comPlayerUpPath = "img/players/P4/up/";
+					comPlayerDownRightPath = "img/players/P4/downRight/";
+					comPlayerDownLeftPath = "img/players/P4/downLeft/";
+					comPlayerUpRightPath = "img/players/P4/upRight/";
+					comPlayerUpLeftPath = "img/players/P4/upLeft/";
+					comPlayerShotPath = "img/players/P4/shot/";
+			    	break;
+			case 5:	comPlayerRightMotionLessPath = "img/players/P5/";
+					comPlayerLeftMotionLessPath = "img/players/P5/";
+					comPlayerRightPath = "img/players/P5/right/";
+					comPlayerLeftPath = "img/players/P5/left/";
+					comPlayerDownPath = "img/players/P5/down/";
+					comPlayerUpPath = "img/players/P5/up/";
+					comPlayerDownRightPath = "img/players/P5/downRight/";
+					comPlayerDownLeftPath = "img/players/P5/downLeft/";
+					comPlayerUpRightPath = "img/players/P5/upRight/";
+					comPlayerUpLeftPath = "img/players/P5/upLeft/";
+					comPlayerShotPath = "img/players/P5/shot/";
+			    	break;
+		   default:	comPlayerRightMotionLessPath = "img/players/P1/";
+					comPlayerLeftMotionLessPath = "img/players/P1/";
+					comPlayerRightPath = "img/players/P1/right/";
+					comPlayerLeftPath = "img/players/P1/left/";
+					comPlayerDownPath = "img/players/P1/down/";
+					comPlayerUpPath = "img/players/P1/up/";
+					comPlayerDownRightPath = "img/players/P1/downRight/";
+					comPlayerDownLeftPath = "img/players/P1/downLeft/";
+					comPlayerUpRightPath = "img/players/P1/upRight/";
+					comPlayerUpLeftPath = "img/players/P1/upLeft/";
+					comPlayerShotPath = "img/players/P1/shot/";
+			    	break;
+		}
+	}
+	
+	public void loadPlayers()
+	{
+		final Toolkit tk = Toolkit.getDefaultToolkit();
+		// player
+	  	  myPlayerRightMotionLess = tk.getImage(myPlayerRightMotionLessPath+"right.png");
+	  	  myPlayerLeftMotionLess = tk.getImage(myPlayerLeftMotionLessPath+"left.png");
+	  	  comPlayerRightMotionLess = tk.getImage(comPlayerRightMotionLessPath+"right.png");
+	  	  comPlayerLeftMotionLess = tk.getImage(comPlayerLeftMotionLessPath+"left.png");
+	  	  
+	  	  //right image
+	  	  myPlayerRight[0] = tk.getImage(myPlayerRightPath+"right.png");
+	  	  myPlayerRight[1] = tk.getImage(myPlayerRightPath+"right_05.png");
+	  	  myPlayerRight[2] = tk.getImage(myPlayerRightPath+"right_09.png");
+	  	  myPlayerRight[3] = tk.getImage(myPlayerRightPath+"right_13.png");
+	  	  comPlayerRight[0] = tk.getImage(comPlayerRightPath+"right.png");
+	  	  comPlayerRight[1] = tk.getImage(comPlayerRightPath+"right_05.png");
+	  	  comPlayerRight[2] = tk.getImage(comPlayerRightPath+"right_09.png");
+	  	  comPlayerRight[3] = tk.getImage(comPlayerRightPath+"right_13.png");
+	  	  
+	  	  //left image
+	  	  myPlayerLeft[0] = tk.getImage(myPlayerLeftPath+"left.png");
+	  	  myPlayerLeft[1] = tk.getImage(myPlayerLeftPath+"left_05.png");
+	  	  myPlayerLeft[2] = tk.getImage(myPlayerLeftPath+"left_09.png");
+	  	  myPlayerLeft[3] = tk.getImage(myPlayerLeftPath+"left_13.png");
+	  	  comPlayerLeft[0] = tk.getImage(comPlayerLeftPath+"left.png");
+	  	  comPlayerLeft[1] = tk.getImage(comPlayerLeftPath+"left_05.png");
+	  	  comPlayerLeft[2] = tk.getImage(comPlayerLeftPath+"left_09.png");
+	  	  comPlayerLeft[3] = tk.getImage(comPlayerLeftPath+"left_13.png");
+	  	  
+	  	//Down image
+	  	  myPlayerDown[0] = tk.getImage(myPlayerDownPath+"down.png");
+	  	  myPlayerDown[1] = tk.getImage(myPlayerDownPath+"down_05.png");
+	  	  myPlayerDown[2] = tk.getImage(myPlayerDownPath+"down_09.png");
+	  	  myPlayerDown[3] = tk.getImage(myPlayerDownPath+"down_13.png");
+	  	  comPlayerDown[0] = tk.getImage(comPlayerDownPath+"down.png");
+	  	  comPlayerDown[1] = tk.getImage(comPlayerDownPath+"down_05.png");
+	  	  comPlayerDown[2] = tk.getImage(comPlayerDownPath+"down_09.png");
+	  	  comPlayerDown[3] = tk.getImage(comPlayerDownPath+"down_13.png");
+	  	  
+	  	//up image
+	  	  myPlayerUp[0] = tk.getImage(myPlayerUpPath+"up.png");
+	  	  myPlayerUp[1] = tk.getImage(myPlayerUpPath+"up_05.png");
+	  	  myPlayerUp[2] = tk.getImage(myPlayerUpPath+"up_09.png");
+	  	  myPlayerUp[3] = tk.getImage(myPlayerUpPath+"up_13.png");
+	  	  comPlayerUp[0] = tk.getImage(comPlayerUpPath+"up.png");
+	  	  comPlayerUp[1] = tk.getImage(comPlayerUpPath+"up_05.png");
+	  	  comPlayerUp[2] = tk.getImage(comPlayerUpPath+"up_09.png");
+	  	  comPlayerUp[3] = tk.getImage(comPlayerUpPath+"up_13.png");
+	  	  
+	  	//downRight image
+	  	  myPlayerDownRight[0] = tk.getImage(myPlayerDownRightPath+"downRight.png");
+	  	  myPlayerDownRight[1] = tk.getImage(myPlayerDownRightPath+"downRight_05.png");
+	  	  myPlayerDownRight[2] = tk.getImage(myPlayerDownRightPath+"downRight_09.png");
+	  	  myPlayerDownRight[3] = tk.getImage(myPlayerDownRightPath+"downRight_13.png");
+	  	  comPlayerDownRight[0] = tk.getImage(comPlayerDownRightPath+"downRight.png");
+	  	  comPlayerDownRight[1] = tk.getImage(comPlayerDownRightPath+"downRight_05.png");
+	  	  comPlayerDownRight[2] = tk.getImage(comPlayerDownRightPath+"downRight_09.png");
+	  	  comPlayerDownRight[3] = tk.getImage(comPlayerDownRightPath+"downRight_13.png");
+	  	  
+	  	//downLeft image
+	  	  myPlayerDownLeft[0] = tk.getImage(myPlayerDownLeftPath+"downLeft.png");
+	  	  myPlayerDownLeft[1] = tk.getImage(myPlayerDownLeftPath+"downLeft_05.png");
+	  	  myPlayerDownLeft[2] = tk.getImage(myPlayerDownLeftPath+"downLeft_09.png");
+	  	  myPlayerDownLeft[3] = tk.getImage(myPlayerDownLeftPath+"downLeft_13.png");
+	  	  comPlayerDownLeft[0] = tk.getImage(comPlayerDownLeftPath+"downLeft.png");
+	  	  comPlayerDownLeft[1] = tk.getImage(comPlayerDownLeftPath+"downLeft_05.png");
+	  	  comPlayerDownLeft[2] = tk.getImage(comPlayerDownLeftPath+"downLeft_09.png");
+	  	  comPlayerDownLeft[3] = tk.getImage(comPlayerDownLeftPath+"downLeft_13.png");
+	  	  
+	  	//upRight image
+	  	  myPlayerUpRight[0] = tk.getImage(myPlayerUpRightPath+"upRight.png");
+	  	  myPlayerUpRight[1] = tk.getImage(myPlayerUpRightPath+"upRight_05.png");
+	  	  myPlayerUpRight[2] = tk.getImage(myPlayerUpRightPath+"upRight_09.png");
+	  	  myPlayerUpRight[3] = tk.getImage(myPlayerUpRightPath+"upRight_13.png");
+	  	  comPlayerUpRight[0] = tk.getImage(comPlayerUpRightPath+"upRight.png");
+	  	  comPlayerUpRight[1] = tk.getImage(comPlayerUpRightPath+"upRight_05.png");
+	  	  comPlayerUpRight[2] = tk.getImage(comPlayerUpRightPath+"upRight_09.png");
+	  	  comPlayerUpRight[3] = tk.getImage(comPlayerUpRightPath+"upRight_13.png");
+	  	  
+	  	//upLeft image
+	  	  myPlayerUpLeft[0] = tk.getImage(myPlayerUpLeftPath+"upLeft.png");
+	  	  myPlayerUpLeft[1] = tk.getImage(myPlayerUpLeftPath+"upLeft_05.png");
+	  	  myPlayerUpLeft[2] = tk.getImage(myPlayerUpLeftPath+"upLeft_09.png");
+	  	  myPlayerUpLeft[3] = tk.getImage(myPlayerUpLeftPath+"upLeft_13.png");
+	  	  comPlayerUpLeft[0] = tk.getImage(comPlayerUpLeftPath+"upLeft.png");
+	  	  comPlayerUpLeft[1] = tk.getImage(comPlayerUpLeftPath+"upLeft_05.png");
+	  	  comPlayerUpLeft[2] = tk.getImage(comPlayerUpLeftPath+"upLeft_09.png");
+	  	  comPlayerUpLeft[3] = tk.getImage(comPlayerUpLeftPath+"upLeft_13.png");
+	  	  
+	    	//shot image
+	  	  myPlayerShot[0] = tk.getImage(myPlayerShotPath+"shot_0001.png");
+	  	  myPlayerShot[1] = tk.getImage(myPlayerShotPath+"shot_0009.png");
+	  	  myPlayerShot[2] = tk.getImage(myPlayerShotPath+"shot_0017.png");
+	  	  myPlayerShot[3] = tk.getImage(myPlayerShotPath+"shot_0025.png");
+	  	  comPlayerShot[0] = tk.getImage(comPlayerShotPath+"shot_0001.png");
+	  	  comPlayerShot[1] = tk.getImage(comPlayerShotPath+"shot_0009.png");
+	  	  comPlayerShot[2] = tk.getImage(comPlayerShotPath+"shot_0017.png");
+	  	  comPlayerShot[3] = tk.getImage(comPlayerShotPath+"shot_0025.png");
+	}
+	
 	public Image getMyPlayerDirection(final int direction)
     {
-		numberOfSequence++;
-		if(numberOfSequence>=4)
-			numberOfSequence=0;
+		numberOfSequenceMyPlayer++;
+		if(numberOfSequenceMyPlayer>=4)
+			numberOfSequenceMyPlayer=0;
 		
-    switch (direction)
+	    switch (direction)
+	    {
+	        case Player.LEFT:
+	            return myPlayerLeft[numberOfSequenceMyPlayer];
+	            
+	        case Player.RIGHT:
+	            return myPlayerRight[numberOfSequenceMyPlayer];
+	            
+	        case Player.UP:
+	            return myPlayerUp[numberOfSequenceMyPlayer];
+	            
+	        case Player.DOWN:
+	            return myPlayerDown[numberOfSequenceMyPlayer];
+	            
+	        case Player.UPRIGHT:
+	            return myPlayerUpRight[numberOfSequenceMyPlayer];
+	            
+	        case Player.UPLEFT:
+	            return myPlayerUpLeft[numberOfSequenceMyPlayer];
+	            
+	        case Player.DOWNRIGHT:
+	            return myPlayerDownRight[numberOfSequenceMyPlayer];
+	            
+	        case Player.DOWNLEFT:
+	            return myPlayerDownLeft[numberOfSequenceMyPlayer];
+	            
+	        case 10:
+	            return myPlayerShot[numberOfSequenceMyPlayer];
+	    }
+	    return myPlayerRight[0];
+}
+	
+	public Image getComPlayerDirection(final int direction)
     {
-        case Player.LEFT:
-            return playerLeft[numberOfSequence];
-            
-        case Player.RIGHT:
-            return playerRight[numberOfSequence];
-            
-        case Player.UP:
-            return playerUp[numberOfSequence];
-            
-        case Player.DOWN:
-            return playerDown[numberOfSequence];
-            
-        case Player.UPRIGHT:
-            return playerUpRight[numberOfSequence];
-            
-        case Player.UPLEFT:
-            return playerUpLeft[numberOfSequence];
-            
-        case Player.DOWNRIGHT:
-            return playerDownRight[numberOfSequence];
-            
-        case Player.DOWNLEFT:
-            return playerDownLeft[numberOfSequence];
-            
-        case 10:
-            return playerShot[numberOfSequence];
-    }
-    return playerRight[0];
+		numberOfSequenceComPlayer++;
+		if(numberOfSequenceComPlayer>=4)
+			numberOfSequenceComPlayer=0;
+		
+	    switch (direction)
+	    {
+	        case Player.LEFT:
+	            return comPlayerLeft[numberOfSequenceComPlayer];
+	            
+	        case Player.RIGHT:
+	            return comPlayerRight[numberOfSequenceComPlayer];
+	            
+	        case Player.UP:
+	            return comPlayerUp[numberOfSequenceComPlayer];
+	            
+	        case Player.DOWN:
+	            return comPlayerDown[numberOfSequenceComPlayer];
+	            
+	        case Player.UPRIGHT:
+	            return comPlayerUpRight[numberOfSequenceComPlayer];
+	            
+	        case Player.UPLEFT:
+	            return comPlayerUpLeft[numberOfSequenceComPlayer];
+	            
+	        case Player.DOWNRIGHT:
+	            return comPlayerDownRight[numberOfSequenceComPlayer];
+	            
+	        case Player.DOWNLEFT:
+	            return comPlayerDownLeft[numberOfSequenceComPlayer];
+	            
+	        case 10:
+	            return comPlayerShot[numberOfSequenceComPlayer];
+	    }
+	    return comPlayerRight[0];
 }
 	
 	public Image getPoints(int points)
@@ -672,14 +939,6 @@ public class ImageProvider {
 
 	public Image getExitWhite() {
 		return exitWhite;
-	}
-	
-	public Image getStart() {
-		return start;
-	}
-	
-	public Image getStartGame() {
-		return startGame;
 	}
 	
 	public Image getGameOver() {
@@ -911,8 +1170,8 @@ public class ImageProvider {
 
 	public Image getMyPlayerShot(int index) {
 		if (index>3)
-			return playerShot[0];
-		return playerShot[index];
+			return myPlayerShot[0];
+		return myPlayerShot[index];
 	}
 
 	public Image getRoundTarget() {
@@ -966,10 +1225,6 @@ public class ImageProvider {
 
 	public ImageIcon getTwo_pointComPlayer() {
 		return two_pointComPlayer;
-	}
-
-	public Image getPlayerLeftMotionLess() {
-		return playerLeftMotionLess;
 	}
 
 	public Image getSelectPlayerPanelBackground() {
@@ -1050,5 +1305,21 @@ public class ImageProvider {
 
 	public Image getSelectedComPlayer() {
 		return selectedComPlayer;
+	}
+
+	public Image getMyPlayerRightMotionLess() {
+		return myPlayerRightMotionLess;
+	}
+	
+	public Image getMyPlayerLeftMotionLess() {
+		return myPlayerLeftMotionLess;
+	}
+
+	public Image getComPlayerRightMotionLess() {
+		return comPlayerRightMotionLess;
+	}
+
+	public Image getComPlayerLeftMotionLess() {
+		return comPlayerLeftMotionLess;
 	}
 }

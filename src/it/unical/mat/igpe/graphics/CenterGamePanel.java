@@ -36,7 +36,7 @@ public class CenterGamePanel extends JPanel {
 	        public void run()
 	        {
 	        	while(true)
-	        	{
+	        	{	
 	        		if(GameManager.isPause()==false){
 	        			while(gameManager.timeUp()==false && finishMatch==false)
 	        			{
@@ -336,14 +336,19 @@ public class CenterGamePanel extends JPanel {
     static RepainterThread repainterThread;
     static ProgressBar energyShoot;
     
-	public CenterGamePanel(final GameManager gameManager,ImageProvider imageProviderNew)
+	public CenterGamePanel(final GameManager gameManager,ImageProvider imageProviderNew,int myPlayer,int comPlayer)
 	{
 		CenterGamePanel.imageProvider=imageProviderNew;
+		
+		CenterGamePanel.imageProvider.setMyPlayer(myPlayer);
+		CenterGamePanel.imageProvider.setComPlayer(comPlayer);
+		CenterGamePanel.imageProvider.loadPlayers();
+		
 		fieldImage = imageProvider.getWoodField();
 		frisbeeImage = imageProvider.getFrisbee();
 		
-		myPlayerImage = imageProvider.getMyPlayerDirection(Player.RIGHT);
-		comPlayerImage = imageProvider.getMyPlayerDirection(Player.LEFT);
+		myPlayerImage = imageProvider.getMyPlayerRightMotionLess();
+		comPlayerImage = imageProvider.getComPlayerLeftMotionLess();
 		
 		this.gameManager=gameManager;
 		CenterGamePanel.energyShoot=new ProgressBar();
@@ -399,26 +404,26 @@ public class CenterGamePanel extends JPanel {
 					switch (e.getKeyCode())
 					{
 					 case KeyEvent.VK_UP:
-						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
-						 					ImageProvider.numberOfSequence=0;
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
+						 					ImageProvider.numberOfSequenceMyPlayer=0;
 					 						gameManager.getMyPlayer().setDirection(-1);
 					 						break;
 
 					 case KeyEvent.VK_DOWN:
-						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
-						 					ImageProvider.numberOfSequence=0;
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
+						 					ImageProvider.numberOfSequenceMyPlayer=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
 
 					 case KeyEvent.VK_LEFT:
 						 					gameManager.getMyPlayer().setDirection(-1);
-						 					ImageProvider.numberOfSequence=0;
-						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
+						 					ImageProvider.numberOfSequenceMyPlayer=0;
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
 						 					break;
 
 					 case KeyEvent.VK_RIGHT:
-						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerMotionLess();
-						 					ImageProvider.numberOfSequence=0;
+						 					CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
+						 					ImageProvider.numberOfSequenceMyPlayer=0;
 						 					gameManager.getMyPlayer().setDirection(-1);
 						 					break;
 
@@ -555,5 +560,11 @@ public class CenterGamePanel extends JPanel {
 	
 	public static RepainterThread getRepainterThread() {
 		return repainterThread;
+	}
+	public static void setComPlayerImage(Image comPlayerImage) {
+		CenterGamePanel.comPlayerImage = comPlayerImage;
+	}
+	public static ImageProvider getImageProvider() {
+		return imageProvider;
 	}
 }

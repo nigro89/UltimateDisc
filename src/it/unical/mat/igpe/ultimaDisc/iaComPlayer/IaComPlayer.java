@@ -77,15 +77,23 @@ public class IaComPlayer {
 	
 	public void moveComPlayer() {
 		
-		if(gameManager.getDisc().getY() != gameManager.getComPlayer().getY()){
-			if(gameManager.getDisc().getY()>gameManager.getComPlayer().getY()){
+		if(gameManager.getDisc().getY() != gameManager.getComPlayer().getY())
+		{
+			if(gameManager.getDisc().getY()>gameManager.getComPlayer().getY())
+			{
 				gameManager.getComPlayer().setDirection(1);//down
+//				CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWN));
 			}
-			else if(gameManager.getDisc().getY()<gameManager.getComPlayer().getY()){
-				gameManager.getComPlayer().setDirection(0);//up
-			}
-			else
-				gameManager.getComPlayer().setDirection(2);//left
+			else if(gameManager.getDisc().getY()<gameManager.getComPlayer().getY())
+				{
+					gameManager.getComPlayer().setDirection(0);//up
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
+				}
+				else
+				{
+					gameManager.getComPlayer().setDirection(2);//left
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.LEFT));
+				}
 		}
 		
 		gameManager.getComPlayer().update();

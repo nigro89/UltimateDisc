@@ -17,10 +17,10 @@ public class GamePanel extends JPanel {
 	EastGamePanel eastGamePanel;
 	
 	
-	public GamePanel(GameManager  gameManager,ImageProvider imageProvider)
+	public GamePanel(GameManager  gameManager,ImageProvider imageProvider,int myPlayer,int comPlayer)
 	{
 		this.setName("GamePanel");
-		this.centerGamePanel = new CenterGamePanel(gameManager,imageProvider);
+		this.centerGamePanel = new CenterGamePanel(gameManager,imageProvider,myPlayer,comPlayer);
 		this.northGamePanel = new NorthGamePanel(gameManager);
 		this.westGamePanel = new WestGamePanel(gameManager);
 		this.eastGamePanel = new EastGamePanel(gameManager);

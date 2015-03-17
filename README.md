@@ -77,7 +77,7 @@ DA FARE:
 5) pannelli nord e sud appropriati alle texture						(legno ok)
 6) torna la menu principale.
 7) audio gioco.
-8) immagine lancio disco e posizione frisbee in mano
+8) immagine lancio disco e posizione frisbee in mano				-OK
 9) livello intelligenza artificiale ( facile, medio e difficile)
 10) editor
 

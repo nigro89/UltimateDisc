@@ -7,10 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class SelectPlayerPanel extends JPanel {
@@ -30,6 +28,7 @@ public class SelectPlayerPanel extends JPanel {
 	Image selected = imageProvider.getSelectedMyPlayer();
 	int select = 0;
 	int myPlayer = 0;
+	int comPlayer = 0;
 	
 	Screen screen = Screen.getInstance();
     double width = screen.getWidth();
@@ -45,8 +44,7 @@ public class SelectPlayerPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-//				imageProvider.setPlayer(myPlayer);
-				mainFrame.startGame();
+				mainFrame.startGame(myPlayer,comPlayer);
 		    	CenterGamePanel.getRepainterThread().setFinish(false);
 		    	CenterGamePanel.getRepainterThread().setStartGame(true);
 			}
@@ -100,7 +98,10 @@ public class SelectPlayerPanel extends JPanel {
 			    		myPlayer=1;
 			    	}
 			    	else
+			    	{
 			    		comPlayerSelected = imageProvider.getTom1();
+			    		comPlayer=1;
+			    	}
 		    		repaint();
 		    	}
 			    // mario
@@ -112,7 +113,10 @@ public class SelectPlayerPanel extends JPanel {
 			    		myPlayer=2;
 			    	}
 			    	else
+			    	{
 			    		comPlayerSelected = imageProvider.getMario1();
+			    		comPlayer=2;
+			    	}
 		    		repaint();
 		    	}
 			    // alex
@@ -124,7 +128,10 @@ public class SelectPlayerPanel extends JPanel {
 			    		myPlayer=3;
 			    	}
 			    	else
+			    	{
 			    		comPlayerSelected = imageProvider.getAlex1();
+			    		comPlayer=3;
+			    	}
 		    		repaint();
 		    	}
 			    // erik
@@ -136,7 +143,10 @@ public class SelectPlayerPanel extends JPanel {
 			    		myPlayer=4;
 			    	}
 			    	else
+			    	{
 			    		comPlayerSelected = imageProvider.getErik1();
+			    		comPlayer=4;
+			    	}
 		    		repaint();
 		    	}
 			    // emily
@@ -148,7 +158,10 @@ public class SelectPlayerPanel extends JPanel {
 			    		myPlayer=5;
 			    	}
 			    	else
+			    	{
 			    		comPlayerSelected = imageProvider.getEmily1();
+			    		comPlayer=5;
+			    	}
 		    		repaint();
 		    	}
 			    // myPlayer selected
