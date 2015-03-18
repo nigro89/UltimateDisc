@@ -47,13 +47,13 @@ public class CenterGamePanel extends JPanel {
 	        						pointMyPlayerPosition0 = imageProvider.getPoints(3);
 	        						pointMyPlayerPosition1 = imageProvider.getPoints(3);
 	        						pointMyPlayerPosition2 = imageProvider.getPoints(5);
-	        						pointMyPlayerPosition3 = imageProvider.getPoints(5);
+	        						pointMyPlayerPosition3 = imageProvider.getPoints(3);
 	        						pointMyPlayerPosition4 = imageProvider.getPoints(3);
 	        						// side ComPlayer
 	        						pointComPlayerPosition0 = imageProvider.getPoints(3);
 	        						pointComPlayerPosition1 = imageProvider.getPoints(3);
 	        						pointComPlayerPosition2 = imageProvider.getPoints(5);
-	        						pointComPlayerPosition3 = imageProvider.getPoints(5);
+	        						pointComPlayerPosition3 = imageProvider.getPoints(3);
 	        						pointComPlayerPosition4 = imageProvider.getPoints(3);
 	        						roundImage = imageProvider.getRound(counterOfRounds);
 	        						repaint();

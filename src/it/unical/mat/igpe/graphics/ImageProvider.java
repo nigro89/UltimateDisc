@@ -112,6 +112,19 @@ public class ImageProvider {
     private final Image selectedMyPlayer;
     private final Image selectedComPlayer;
     
+    // select Arena
+    private final Image selectArenaPanelBackGround;
+    private final Image backArenaPanel;
+    private final Image backPushedArenaPanel;
+    private final Image playArenaPanel;
+    private final Image playPushedArenaPanel;
+    private final Image arena1;
+    private final Image arena2;
+    private final Image arena3;
+    private final Image selectedArena1;
+    private final Image selectedArena2;
+    private final Image selectedArena3;
+    
     // time score Image
     private final Image thirty;
     private final Image twentyNine;
@@ -408,6 +421,19 @@ public class ImageProvider {
     	  selectedMyPlayer = tk.getImage("img/selectPlayer/selectedMyPlayer.png");
     	  selectedComPlayer = tk.getImage("img/selectPlayer/selectedComPlayer.png");
     	  
+    	  // select Arena
+    	  selectArenaPanelBackGround = tk.getImage("img/selectArena/background.png");
+    	  backArenaPanel = tk.getImage("img/selectArena/back.png");
+    	  backPushedArenaPanel = tk.getImage("img/selectArena/backPushed.png");
+    	  playArenaPanel = tk.getImage("img/selectArena/play.png");
+    	  playPushedArenaPanel = tk.getImage("img/selectArena/playPushed.png");
+    	  arena1 = tk.getImage("img/selectArena/arena1.png");
+    	  arena2 = tk.getImage("img/selectArena/arena2.png");
+    	  arena3 = tk.getImage("img/selectArena/arena3.png");
+    	  selectedArena1 = tk.getImage("img/selectArena/arena1Selected.png");
+    	  selectedArena2 = tk.getImage("img/selectArena/arena2Selected.png");
+    	  selectedArena3 = tk.getImage("img/selectArena/arena3Selected.png");
+    	    
     	  // time score
     	  thirty = tk.getImage("img/timeScore/30.png");
     	  twentyNine = tk.getImage("img/timeScore/29.png");
@@ -1321,5 +1347,49 @@ public class ImageProvider {
 
 	public Image getComPlayerLeftMotionLess() {
 		return comPlayerLeftMotionLess;
+	}
+
+	public Image getSelectArenaPanelBackGround() {
+		return selectArenaPanelBackGround;
+	}
+
+	public Image getBackArenaPanel() {
+		return backArenaPanel;
+	}
+
+	public Image getBackPushedArenaPanel() {
+		return backPushedArenaPanel;
+	}
+
+	public Image getPlayArenaPanel() {
+		return playArenaPanel;
+	}
+
+	public Image getPlayPushedArenaPanel() {
+		return playPushedArenaPanel;
+	}
+
+	public Image getArena1() {
+		return arena1;
+	}
+
+	public Image getArena2() {
+		return arena2;
+	}
+
+	public Image getArena3() {
+		return arena3;
+	}
+
+	public Image getSelectedArena1() {
+		return selectedArena1;
+	}
+
+	public Image getSelectedArena2() {
+		return selectedArena2;
+	}
+
+	public Image getSelectedArena3() {
+		return selectedArena3;
 	}
 }

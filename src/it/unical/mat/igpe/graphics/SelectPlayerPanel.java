@@ -1,14 +1,10 @@
 package it.unical.mat.igpe.graphics;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class SelectPlayerPanel extends JPanel {
@@ -34,22 +30,8 @@ public class SelectPlayerPanel extends JPanel {
     double width = screen.getWidth();
     double height = screen.getHeight()*0.75;
 	
-	private JButton playButton = new JButton("PLAY");
-	
 	public SelectPlayerPanel(final MainFrame mainFrame)
 	{
-		this.add(playButton);
-		playButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				mainFrame.startGame(myPlayer,comPlayer);
-		    	CenterGamePanel.getRepainterThread().setFinish(false);
-		    	CenterGamePanel.getRepainterThread().setStartGame(true);
-			}
-		});
-		
 		this.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -68,6 +50,7 @@ public class SelectPlayerPanel extends JPanel {
 		    	{
 		    		done = imageProvider.getDone();
 		    		repaint();
+		    		mainFrame.goToSelectArenaPanel(myPlayer, comPlayer);
 		    	}
 			}
 			
@@ -216,15 +199,6 @@ public class SelectPlayerPanel extends JPanel {
 	    g.drawImage(done, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(back, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(selected, 0, 0, getWidth(),getHeight(),this);
-	    
-	    //g.drawImage(myPlayer, (int)((width*0.21)+(width*0.34)),(int)((height*0.24)),this);
-	    
-	    g.setColor(Color.red);
-	    
-	   // g.drawRect((int)((width*0.61)),(int)((height/5)),320,320);
-	    
-//	    g.drawRect((int)(width/13),(int)((height/2)+(height*0.37)),140,140);
-//	    g.drawRect(205,384,140,140);
 	}
 
 }
