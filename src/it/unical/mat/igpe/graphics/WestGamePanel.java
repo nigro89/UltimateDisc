@@ -17,9 +17,9 @@ public class WestGamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	ImageProvider imageProvider = new ImageProvider();
-	ImageIcon one_point = imageProvider.getOne_point(); 
-	ImageIcon two_point = imageProvider.getTwo_point();
-	Image woodBorder = imageProvider.getWoodBoard();
+	ImageIcon one_point; 
+	ImageIcon two_point;
+	Image woodBorder;
 	
     JLabel l = new JLabel();
     JLabel l1 = new JLabel();
@@ -34,8 +34,14 @@ public class WestGamePanel extends JPanel {
 	
 	GameManager gameManager;
 	
-	public WestGamePanel(GameManager gameManager)
+	public WestGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	{
+		this.imageProvider=newImageProvider;
+		
+		one_point = imageProvider.getOne_point(); 
+		two_point = imageProvider.getTwo_point();
+		woodBorder = imageProvider.getWoodBoard();
+		
 		this.gameManager = gameManager;
 		
 		 this.setPreferredSize(new Dimension((int)width,(int)height));

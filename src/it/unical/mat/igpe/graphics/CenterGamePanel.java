@@ -323,6 +323,8 @@ public class CenterGamePanel extends JPanel {
 	static Image scoreInfoImage = null;	
 // pause menu Image
 	static Image pauseMenuImage=null;
+	
+	static Image shadow=null;
 
 // shoot 
     private static int xShoot=5;
@@ -338,12 +340,15 @@ public class CenterGamePanel extends JPanel {
     static RepainterThread repainterThread;
     static ProgressBar energyShoot;
     
-	public CenterGamePanel(final GameManager gameManager,ImageProvider imageProviderNew,int myPlayer,int comPlayer)
+	public CenterGamePanel(final GameManager gameManager,ImageProvider imageProviderNew,int myPlayer,int comPlayer,int playGround)
 	{
 		CenterGamePanel.imageProvider=imageProviderNew;
 		
+		CenterGamePanel.imageProvider.setPlayGround(playGround);
 		CenterGamePanel.imageProvider.setMyPlayer(myPlayer);
 		CenterGamePanel.imageProvider.setComPlayer(comPlayer);
+		
+		CenterGamePanel.imageProvider.loadPlayGround();
 		CenterGamePanel.imageProvider.loadPlayers();
 		
 		fieldImage = imageProvider.getWoodField();
@@ -351,6 +356,8 @@ public class CenterGamePanel extends JPanel {
 		
 		myPlayerImage = imageProvider.getMyPlayerRightMotionLess();
 		comPlayerImage = imageProvider.getComPlayerLeftMotionLess();
+		
+		shadow = imageProvider.getShadow();
 		
 		this.gameManager=gameManager;
 		CenterGamePanel.energyShoot=new ProgressBar();
@@ -558,6 +565,8 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(roundResumeImage, (int)((width/2)-(width/7)), 0,this);
 		//pause
 		g.drawImage(pauseMenuImage, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
+		//shadow
+		//g.drawImage(shadow,gameManager.getMyPlayer().getX()+30,gameManager.getMyPlayer().getY()+135,this);
 	}
 	
 	public static RepainterThread getRepainterThread() {

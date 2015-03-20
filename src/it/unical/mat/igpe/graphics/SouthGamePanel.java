@@ -48,12 +48,12 @@ public class SouthGamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
     ImageProvider imageProvider = new ImageProvider();
-    Image woodFieldSouth = imageProvider.getWoodFieldSouth();
-    Image roundTarget = imageProvider.getRoundTarget();
-    Image frisbeeRound1 = imageProvider.getFrisbeeRound();
-    Image frisbeeRound2 = imageProvider.getFrisbeeRound();
-    Image frisbeeRound3 = imageProvider.getFrisbeeRound();
-    Image frisbeeRound4 = imageProvider.getFrisbeeRound();
+    Image woodFieldSouth;
+    Image roundTarget;
+    Image frisbeeRound1;
+    Image frisbeeRound2;
+    Image frisbeeRound3;
+    Image frisbeeRound4;
     
     Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
@@ -62,8 +62,17 @@ public class SouthGamePanel extends JPanel {
 	static RepainterThread repainterThread;
 	GameManager gameManager;
 	
-	public SouthGamePanel(GameManager gameManager)
+	public SouthGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	{
+		this.imageProvider=newImageProvider;
+		
+		woodFieldSouth = imageProvider.getWoodFieldSouth();
+	    roundTarget = imageProvider.getRoundTarget();
+	    frisbeeRound1 = imageProvider.getFrisbeeRound();
+	    frisbeeRound2 = imageProvider.getFrisbeeRound();
+	    frisbeeRound3 = imageProvider.getFrisbeeRound();
+	    frisbeeRound4 = imageProvider.getFrisbeeRound();
+		
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		repainterThread = new RepainterThread(gameManager);
 	}

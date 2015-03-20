@@ -71,9 +71,9 @@ public class MainFrame extends JFrame {
         }
 	}
 	
-	public void startGame(int myPlayer,int comPlayer)
+	public void startGame(int myPlayer,int comPlayer,int playGround)
 	{
-		gamePanel = new GamePanel(this.gameManager,this.imageProvider,myPlayer,comPlayer);
+		gamePanel = new GamePanel(this.gameManager,this.imageProvider,myPlayer,comPlayer,playGround);
 		this.switchTo(gamePanel);
 		gameManager.start();
 		CenterGamePanel.repainterThread.start();

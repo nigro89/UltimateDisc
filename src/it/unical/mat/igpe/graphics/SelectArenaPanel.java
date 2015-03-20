@@ -23,7 +23,7 @@ public class SelectArenaPanel extends JPanel {
 	Image play = imageProvider.getPlayArenaPanel();
 	Image back = imageProvider.getBackArenaPanel();
 	Image selected = imageProvider.getSelectedArena1();
-	int select = 0;
+	static int select = 0;
 	static int myPlayer=0;
 	static int comPlayer=0;
 	
@@ -55,7 +55,7 @@ public class SelectArenaPanel extends JPanel {
 			    		play = imageProvider.getPlayArenaPanel();
 			    		repaint();
 
-			    		mainFrame.startGame(SelectArenaPanel.myPlayer,SelectArenaPanel.comPlayer);
+			    		mainFrame.startGame(SelectArenaPanel.myPlayer,SelectArenaPanel.comPlayer,SelectArenaPanel.select);
 				    	CenterGamePanel.getRepainterThread().setFinish(false);
 				    	CenterGamePanel.getRepainterThread().setStartGame(true);
 			    	}

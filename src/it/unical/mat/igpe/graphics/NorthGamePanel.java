@@ -50,9 +50,9 @@ public class NorthGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-    ImageProvider imageProvider = new ImageProvider();
-    Image woodFieldNorth = imageProvider.getWoodFieldNorth();
-    Image scoreTime = imageProvider.getScoreTime();
+    ImageProvider imageProvider;
+    Image woodFieldNorth;
+    Image scoreTime;
     Image pointsScoreMyPlayer = null;
     Image pointsScoreComPlayer = null;
     
@@ -60,12 +60,17 @@ public class NorthGamePanel extends JPanel {
 	double width = screen.getWidth();
 	double height = screen.getHeight()*0.20;
 	
-	Image time = imageProvider.getTime(0);
+	Image time;
 	static RepainterThread repainterThread;
 	GameManager gameManager;
 	
-	public NorthGamePanel(GameManager gameManager)
+	public NorthGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	{
+		this.imageProvider=newImageProvider;
+		
+		time = imageProvider.getTime(0);
+		woodFieldNorth = imageProvider.getWoodFieldNorth();
+		scoreTime = imageProvider.getScoreTime();
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		this.gameManager = gameManager;
 		repainterThread = new RepainterThread(gameManager);

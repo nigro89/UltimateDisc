@@ -35,105 +35,110 @@ public class ImageProvider {
 	String comPlayerUpLeftPath = null;
 	String comPlayerShotPath = null;
 	
+	// path playGrounds
+	String playGroundPath = null;
+	
 	// number of sequence to move myPlayer
 	static int numberOfSequenceMyPlayer=0;
 	static int numberOfSequenceComPlayer=0;
 	
 	// player
 	// array Image of Player's moviments 
-	private final Image[] myPlayerRight = new Image[4];
-	private final Image[] myPlayerLeft = new Image[4];
-	private final Image[] myPlayerUp = new Image[4];
-    private final Image[] myPlayerDown = new Image[4];
-	private final Image[] myPlayerUpRight = new Image[4];
-	private final Image[] myPlayerUpLeft = new Image[4];
-	private final Image[] myPlayerDownRight = new Image[4];
-	private final Image[] myPlayerDownLeft = new Image[4];
-	private final Image[] myPlayerShot = new Image[4];
+	private  Image[] myPlayerRight = new Image[4];
+	private  Image[] myPlayerLeft = new Image[4];
+	private  Image[] myPlayerUp = new Image[4];
+    private  Image[] myPlayerDown = new Image[4];
+	private  Image[] myPlayerUpRight = new Image[4];
+	private  Image[] myPlayerUpLeft = new Image[4];
+	private  Image[] myPlayerDownRight = new Image[4];
+	private  Image[] myPlayerDownLeft = new Image[4];
+	private  Image[] myPlayerShot = new Image[4];
 	private  Image myPlayerRightMotionLess;
 	private  Image myPlayerLeftMotionLess;
 	
-	private final Image[] comPlayerRight = new Image[4];
-	private final Image[] comPlayerLeft = new Image[4];
-	private final Image[] comPlayerUp = new Image[4];
-    private final Image[] comPlayerDown = new Image[4];
-	private final Image[] comPlayerUpRight = new Image[4];
-	private final Image[] comPlayerUpLeft = new Image[4];
-	private final Image[] comPlayerDownRight = new Image[4];
-	private final Image[] comPlayerDownLeft = new Image[4];
-	private final Image[] comPlayerShot = new Image[4];
+	private  Image[] comPlayerRight = new Image[4];
+	private  Image[] comPlayerLeft = new Image[4];
+	private  Image[] comPlayerUp = new Image[4];
+    private  Image[] comPlayerDown = new Image[4];
+	private  Image[] comPlayerUpRight = new Image[4];
+	private  Image[] comPlayerUpLeft = new Image[4];
+	private  Image[] comPlayerDownRight = new Image[4];
+	private  Image[] comPlayerDownLeft = new Image[4];
+	private  Image[] comPlayerShot = new Image[4];
 	private  Image comPlayerRightMotionLess;
 	private  Image comPlayerLeftMotionLess;
 	
 	// world
-    private final ImageIcon one_pointMyPlayer;
-    private final ImageIcon two_pointMyPlayer;
-    private final ImageIcon one_pointComPlayer;
-    private final ImageIcon two_pointComPlayer;
-    private final Image frisbee;
-    private final Image woodField;
-    private final Image woodFieldNorth;
-    private final Image woodFieldSouth;
-    private final Image threeWallPoints;
-    private final Image fiveWallPoints;
-    private final Image woodBoard;
-    private final Image woodBoardCom;
+    private  ImageIcon lowPointMyPlayer;
+    private  ImageIcon highPointMyPlayer;
+    private  ImageIcon lowPointComPlayer;
+    private  ImageIcon highPointComPlayer;
+    private  Image field;
+    private  Image fieldNorth;
+    private  Image fieldSouth;
+    private  Image boardMyPlayer;
+    private  Image boardComPlayer;
+    // gif
+    private  Image threeWallPointsGif;
+    private  Image fiveWallPointsGif;
+    
+    private  Image frisbee;
 
     // menu panel
-    private final Image introBackground;
-    private final Image playGame;
-    private final Image playGameWhite;
-    private final Image settings;
-    private final Image settingsWhite;
-    private final Image exit;
-    private final Image exitWhite;
+    private  Image introBackground;
+    private  Image playGame;
+    private  Image playGameWhite;
+    private  Image settings;
+    private  Image settingsWhite;
+    private  Image exit;
+    private  Image exitWhite;
     
     // selectPlayerPanel
-    private final Image selectPlayerPanelBackground;
+    private  Image selectPlayerPanelBackground;
 
-    private final Image myPlayerSelectedTom;
-    private final Image comPlayerSelectedTom;
-    private final Image myPlayerSelectedMario;
-    private final Image comPlayerSelectedMario;
-    private final Image myPlayerSelectedAlex;
-    private final Image comPlayerSelectedAlex;
-    private final Image myPlayerSelectedErik;
-    private final Image comPlayerSelectedErik;
-    private final Image myPlayerSelectedEmily;
-    private final Image comPlayerSelectedEmily;
+    private  Image myPlayerSelectedTom;
+    private  Image comPlayerSelectedTom;
+    private  Image myPlayerSelectedMario;
+    private  Image comPlayerSelectedMario;
+    private  Image myPlayerSelectedAlex;
+    private  Image comPlayerSelectedAlex;
+    private  Image myPlayerSelectedErik;
+    private  Image comPlayerSelectedErik;
+    private  Image myPlayerSelectedEmily;
+    private  Image comPlayerSelectedEmily;
     
-    private final Image myPlayerSelected;
-    private final Image comPlayerSelected;
-    private final Image done;
-    private final Image donePushed;
-    private final Image back;
-    private final Image backPushed;
-    private final Image playersBarName;
-    private final Image selectedMyPlayer;
-    private final Image selectedComPlayer;
+    private  Image myPlayerSelected;
+    private  Image comPlayerSelected;
+    private  Image done;
+    private  Image donePushed;
+    private  Image back;
+    private  Image backPushed;
+    private  Image playersBarName;
+    private  Image selectedMyPlayer;
+    private  Image selectedComPlayer;
     
     // select Arena
-    private final Image selectArenaPanelBackGround;
-    private final Image backArenaPanel;
-    private final Image backPushedArenaPanel;
-    private final Image playArenaPanel;
-    private final Image playPushedArenaPanel;
-    private final Image arena1;
-    private final Image arena2;
-    private final Image arena3;
-    private final Image selectedArena1;
-    private final Image selectedArena2;
-    private final Image selectedArena3;
+    private  Image selectArenaPanelBackGround;
+    private  Image backArenaPanel;
+    private  Image backPushedArenaPanel;
+    private  Image playArenaPanel;
+    private  Image playPushedArenaPanel;
+    private  Image arena1;
+    private  Image arena2;
+    private  Image arena3;
+    private  Image selectedArena1;
+    private  Image selectedArena2;
+    private  Image selectedArena3;
     
     // time score Image
-    private final Image thirty;
-    private final Image twentyNine;
-    private final Image twentyEight;
-    private final Image twentySeven;
-    private final Image twentySix;
-    private final Image twentyFive;
-    private final Image twentyFour;
-	private final Image twentyThree;
+    private  Image thirty;
+    private  Image twentyNine;
+    private  Image twentyEight;
+    private  Image twentySeven;
+    private  Image twentySix;
+    private  Image twentyFive;
+    private  Image twentyFour;
+	private  Image twentyThree;
     private final Image twentyTwo;
     private final Image twentyOne;
     private final Image twenty;
@@ -225,29 +230,30 @@ public class ImageProvider {
     private final Image zeroPoints;
     
     // round
-    private final Image round1;
-    private final Image round2;
-    private final Image finalRound;
-    private final Image score;
-    private final Image scoreRound0;
-    private final Image scoreRound1;
-    private final Image scoreRound2;
-    private final Image scoreRound3;
-    private final Image scoreRound4;
-    private final Image scoreRound5;
-    private final Image scoreRound6;
-    private final Image scoreRound7;
-    private final Image roundTarget;
-    private final Image frisbeeRound;
-    private final Image frisbeeRound2;
+    private  Image round1;
+    private  Image round2;
+    private  Image finalRound;
+    private  Image score;
+    private  Image scoreRound0;
+    private  Image scoreRound1;
+    private  Image scoreRound2;
+    private  Image scoreRound3;
+    private  Image scoreRound4;
+    private  Image scoreRound5;
+    private  Image scoreRound6;
+    private  Image scoreRound7;
+    private  Image roundTarget;
+    private  Image frisbeeRound;
+    private  Image frisbeeRound2;
     
-    private final Image scoreTime;
+    private  Image scoreTime;
     
     //pause
     private final Image menuPause;
     
     //game over
-    private final Image gameOver;
+    private  Image gameOver;
+    private  Image shadow;
 
     
     
@@ -255,23 +261,24 @@ public class ImageProvider {
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
     	  
+    	  shadow = tk.getImage("img/shadow.png");
     	  // pause
     	  menuPause = tk.getImage("img/imageMenu.png");
     	  
     	  // world
-    	  threeWallPoints= tk.getImage("img/points/3points.gif");
-    	  fiveWallPoints= tk.getImage("img/points/5points.gif");
+    	  threeWallPointsGif= tk.getImage("img/points/3points.gif");
+    	  fiveWallPointsGif= tk.getImage("img/points/5points.gif");
     	  frisbee = tk.getImage("img/frisbee.png");
     	  // playGround
-    	  one_pointMyPlayer = new ImageIcon("img/playGround/woodPlayGround/1point.png");
-    	  two_pointMyPlayer = new ImageIcon("img/playGround/woodPlayGround/2points.png");
-    	  one_pointComPlayer = new ImageIcon("img/playGround/woodPlayGround/1pointCom.png");
-    	  two_pointComPlayer = new ImageIcon("img/playGround/woodPlayGround/2pointsCom.png");
-    	  woodField = tk.getImage("img/playGround/woodPlayGround/legno.png");
-    	  woodFieldNorth = tk.getImage("img/playGround/woodPlayGround/nord.jpg");
-    	  woodFieldSouth = tk.getImage("img/playGround/woodPlayGround/sud.jpg");
-    	  woodBoard = tk.getImage("img/playGround/woodPlayGround/bordoLegno.png");
-    	  woodBoardCom = tk.getImage("img/playGround/woodPlayGround/bordoLegnoCom.png");
+    	  lowPointMyPlayer = new ImageIcon(playGroundPath+"lowPointMyPlayer.png");
+    	  highPointMyPlayer = new ImageIcon(playGroundPath+"highPointMyPlayer.png");
+    	  lowPointComPlayer = new ImageIcon(playGroundPath+"lowPointComPlayer.png");
+    	  highPointComPlayer = new ImageIcon(playGroundPath+"highPointComPlayer.png");
+    	  field = tk.getImage(playGroundPath+"field.png");
+    	  fieldNorth = tk.getImage(playGroundPath+"fieldNorth.jpg");
+    	  fieldSouth = tk.getImage(playGroundPath+"fieldSouth.jpg");
+    	  boardMyPlayer = tk.getImage(playGroundPath+"boardMyPlayer.png");
+    	  boardComPlayer = tk.getImage(playGroundPath+"boardComPlayer.png");
     	  
     	  // round
     	  score = tk.getImage("img/round/score.png");
@@ -536,6 +543,36 @@ public class ImageProvider {
     	  // game over
     	  gameOver = tk.getImage("img/gameOver.png");
     	  
+    }
+    
+    public void setPlayGround(int playGround)
+    {
+    	switch(playGround)
+    	{
+    	case 0:	playGroundPath = "img/playGround/woodPlayGround/";
+		    	break;
+    	case 1: playGroundPath = "img/playGround/grassPlayGround/";
+    			break;
+    	case 2: playGroundPath = "img/playGround/thirdPlayGround/";
+    			break;
+    	default: playGroundPath = "img/playGround/woodPlayGround/";
+    			 break;
+    	}
+    }
+    
+    public void loadPlayGround()
+    {
+    	final Toolkit tk = Toolkit.getDefaultToolkit();
+    	// playGround
+	  	  lowPointMyPlayer = new ImageIcon(playGroundPath+"lowPointMyPlayer.png");
+	  	  highPointMyPlayer = new ImageIcon(playGroundPath+"highPointMyPlayer.png");
+	  	  lowPointComPlayer = new ImageIcon(playGroundPath+"lowPointComPlayer.png");
+	  	  highPointComPlayer = new ImageIcon(playGroundPath+"highPointComPlayer.png");
+	  	  field = tk.getImage(playGroundPath+"field.png");
+	  	  fieldNorth = tk.getImage(playGroundPath+"fieldNorth.jpg");
+	  	  fieldSouth = tk.getImage(playGroundPath+"fieldSouth.jpg");
+	  	  boardMyPlayer = tk.getImage(playGroundPath+"boardMyPlayer.png");
+	  	  boardComPlayer = tk.getImage(playGroundPath+"boardComPlayer.png");
     }
 
 	public Image getRound() {
@@ -894,21 +931,21 @@ public class ImageProvider {
 	{
 		 switch (points)
 		 {
-		   case 3:	return threeWallPoints;
-		   case 5:	return fiveWallPoints;
+		   case 3:	return threeWallPointsGif;
+		   case 5:	return fiveWallPointsGif;
 		 }
 		return null;
 	}
     
 	public ImageIcon getOne_point() {
-		return one_pointMyPlayer;
+		return lowPointMyPlayer;
 	}
 
 	public ImageIcon getTwo_point() {
-		return two_pointMyPlayer;
+		return highPointMyPlayer;
 	}
 	public Image getGif() {
-		return threeWallPoints;
+		return threeWallPointsGif;
 	}
 
 	public Image getFrisbee() {
@@ -920,7 +957,7 @@ public class ImageProvider {
 	}
 	
 	public Image getFivePoints() {
-		return fiveWallPoints;
+		return fiveWallPointsGif;
 	}
 
 	public Image getScore() {
@@ -928,15 +965,15 @@ public class ImageProvider {
 	}
 
 	public Image getWoodField() {
-		return woodField;
+		return field;
 	}
 
 	public Image getWoodFieldNorth() {
-		return woodFieldNorth;
+		return fieldNorth;
 	}
 
 	public Image getWoodFieldSouth() {
-		return woodFieldSouth;
+		return fieldSouth;
 	}
 
 	public Image getIntroBackground() {
@@ -1238,19 +1275,19 @@ public class ImageProvider {
 	}
 
 	public Image getWoodBoard() {
-		return woodBoard;
+		return boardMyPlayer;
 	}
 
 	public Image getWoodBoardCom() {
-		return woodBoardCom;
+		return boardComPlayer;
 	}
 
 	public ImageIcon getOne_pointComPlayer() {
-		return one_pointComPlayer;
+		return lowPointComPlayer;
 	}
 
 	public ImageIcon getTwo_pointComPlayer() {
-		return two_pointComPlayer;
+		return highPointComPlayer;
 	}
 
 	public Image getSelectPlayerPanelBackground() {
@@ -1391,5 +1428,13 @@ public class ImageProvider {
 
 	public Image getSelectedArena3() {
 		return selectedArena3;
+	}
+
+	public Image getShadow() {
+		return shadow;
+	}
+
+	public void setShadow(Image shadow) {
+		this.shadow = shadow;
 	}
 }
