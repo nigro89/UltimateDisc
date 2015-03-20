@@ -85,6 +85,9 @@ DA FARE:
 - migliorare movimento e tiro del giocatore
 - creare menu per la selezione campo/giocatori( implemetare logica per estrarre il campo da file e logica per la selezione dei giocatori )
 
+AGGIORNAMENTO
+Selezione personaggio avversario
+
 
 
 

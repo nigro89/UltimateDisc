@@ -17,6 +17,7 @@ public class GameManager {
 	private WorldManager worldManager = new WorldManager();
 	private IaComPlayer iaComPlayer;
 	private static boolean comPlayerAbility = false;
+	private static int difficultyLevel = 0; //0=easy; 1=medium; 2=hard
 	
 	static long startTime = 0;
 	static long currentTime = 0;
@@ -180,5 +181,13 @@ public class GameManager {
 	public void restartRound() {
 		startTime = (System.currentTimeMillis())/1000;
 		endTime=30;
+	}
+
+	public static int getDifficultyLevel() {
+		return difficultyLevel;
+	}
+
+	public static void setDifficultyLevel(int difficultyLevel) {
+		GameManager.difficultyLevel = difficultyLevel;
 	}
 }

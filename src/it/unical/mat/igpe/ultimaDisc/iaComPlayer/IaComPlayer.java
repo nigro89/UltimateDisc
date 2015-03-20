@@ -4,8 +4,10 @@ package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 
 import java.util.Random;
 
+import it.unical.mat.igpe.graphics.CenterGamePanel;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
+import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 public class IaComPlayer {
 	
@@ -79,24 +81,46 @@ public class IaComPlayer {
 		
 		if(gameManager.getDisc().getY() != gameManager.getComPlayer().getY())
 		{
-			if(gameManager.getDisc().getY()>gameManager.getComPlayer().getY())
-			{
-				gameManager.getComPlayer().setDirection(1);//down
-//				CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWN));
+			if(GameManager.getDifficultyLevel() == 0){
+				levelEasy();
 			}
-			else if(gameManager.getDisc().getY()<gameManager.getComPlayer().getY())
-				{
-					gameManager.getComPlayer().setDirection(0);//up
-//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
-				}
-				else
-				{
-					gameManager.getComPlayer().setDirection(2);//left
-//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.LEFT));
-				}
+			
+			else if(GameManager.getDifficultyLevel() == 1){
+				levelMedium();
+			}
+			
+			else if(GameManager.getDifficultyLevel() == 2){
+				levelHard();
+			}
 		}
 		
 		gameManager.getComPlayer().update();
+	}
+	
+	private void levelEasy(){
+		if(gameManager.getDisc().getY()>gameManager.getComPlayer().getY())
+		{
+			gameManager.getComPlayer().setDirection(1);//down
+			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWN));
+		}
+		
+		else if(gameManager.getDisc().getY()<gameManager.getComPlayer().getY())
+		{
+			gameManager.getComPlayer().setDirection(0);//up
+			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
+		}
+		
+		else
+		{
+			gameManager.getComPlayer().setDirection(2);//left
+			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.LEFT));
+		}
+	}
+	
+	private void levelMedium(){
+	}
+	
+	private void levelHard(){
 	}
 
 	public static  void shoot() {

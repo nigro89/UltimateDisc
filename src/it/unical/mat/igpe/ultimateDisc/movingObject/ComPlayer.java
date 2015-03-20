@@ -3,6 +3,7 @@ package it.unical.mat.igpe.ultimateDisc.movingObject;
 import java.awt.Rectangle;
 
 import it.unical.mat.igpe.graphics.Screen;
+import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 
 public class ComPlayer extends Player {
@@ -11,7 +12,7 @@ public class ComPlayer extends Player {
 	double width = screen.getWidth();
 	double height = screen.getHeight();
 	double sizeOfTheComPlayer = 1;
-	final static int speedPlayer = 5;
+	final static int speedPlayer = 17;
 
 	public ComPlayer(int x,int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth) {
 		super(x,y,widthComponent, heightComponent, wallNorth,wallSouth);
@@ -19,6 +20,18 @@ public class ComPlayer extends Player {
 	
 	@Override
 	public Rectangle getBounds(){
+		
+		if(GameManager.getDifficultyLevel() == 0){
+			sizeOfTheComPlayer=0.50;
+		}
+		else if(GameManager.getDifficultyLevel() == 1){
+			sizeOfTheComPlayer=1;
+		}
+		
+		else if(GameManager.getDifficultyLevel() == 2){
+			sizeOfTheComPlayer=2;
+		} 
+		
 		return new Rectangle(this.x,this.y,(int)(Player.getWithimage()*sizeOfTheComPlayer),(int)(Player.getHeightimage()*sizeOfTheComPlayer));
 	}
 	
