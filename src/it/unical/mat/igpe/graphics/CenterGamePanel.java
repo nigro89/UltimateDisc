@@ -294,10 +294,10 @@ public class CenterGamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 /// IMAGE ///
-	static ImageProvider imageProvider;
+	public static ImageProvider imageProvider;
 // world Image
 	static Image fieldImage;
-	static Image frisbeeImage;
+	public static Image frisbeeImage;
 	static Image pointsImage = null;
 	static Image point3 = null;
 	static Image point5 = null;
@@ -315,7 +315,7 @@ public class CenterGamePanel extends JPanel {
 	static Image comPlayerNumberScore = null;
 // player Image
 	static Image myPlayerImage=null;
-	static Image comPlayerImage=null;
+	public static Image comPlayerImage=null;
 // round Image
 	static Image gameOverImage = null;
 	private Image roundImage = null;
@@ -522,16 +522,16 @@ public class CenterGamePanel extends JPanel {
 		
 		g.drawLine(getWidth()/2, 0, getWidth()/2, getHeight());
 		
-		g.setColor(Color.RED);
-		g.drawLine((int)(width*0.25), 0, (int)width/4, getHeight());
-		
-		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
-		
-		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()), (int)(Player.getHeightimage()));
-		
-		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() ,Player.getWithimage(),Player.getHeightimage());
-
-		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
+//		g.setColor(Color.RED);
+//		g.drawLine((int)(width*0.25), 0, (int)width/4, getHeight());
+//		
+//		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
+//		
+//		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()), (int)(Player.getHeightimage()));
+//		
+//		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() ,Player.getWithimage(),Player.getHeightimage());
+//
+//		g.drawRect(gameManager.getDisc().getX()+((int)(Disc.getWithimage()*0.25)),gameManager.getDisc().getY()+((int)(Disc.getHeightimage()*0.25)) ,(int)(Disc.getWithimage()*0.6), (int)(Disc.getHeightimage()*0.6));
 		
 		//gif goal
 //		if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())

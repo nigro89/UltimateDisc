@@ -1236,6 +1236,12 @@ public class ImageProvider {
 			return myPlayerShot[0];
 		return myPlayerShot[index];
 	}
+	
+	public Image getComPlayerShot(int index) {
+		if (index>3)
+			return comPlayerShot[0];
+		return comPlayerShot[index];
+	}
 
 	public Image getRoundTarget() {
 		return roundTarget;

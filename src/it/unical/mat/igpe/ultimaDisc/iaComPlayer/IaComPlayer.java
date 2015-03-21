@@ -5,6 +5,7 @@ package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 import java.util.Random;
 
 import it.unical.mat.igpe.graphics.CenterGamePanel;
+import it.unical.mat.igpe.graphics.ShotComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
@@ -62,6 +63,8 @@ public class IaComPlayer {
 	            			System.out.println("errore run LoadShotComPlayerThread");
 	            		}
 	    	        	
+	    	        	ShotComPlayer s= new ShotComPlayer();
+	    	        	s.start();
 	    	        	gameManager.getDisc().setDirection(randomX, randomY);
 	        		}
 	        		loadShoot=false;
@@ -125,7 +128,7 @@ public class IaComPlayer {
 	public static  void shoot() {
 		
 		gameManager.getDisc().setPositionCom(gameManager.getComPlayer().getX()-(int)(ComPlayer.getWithimage()*0.5), gameManager.getComPlayer().getY());
-//		loadShotComPlayerThread.shoot();
+//		//		loadShotComPlayerThread.shoot();
 		loadShotComPlayerThread.setLoadShoot(true);
 		gameManager.getDisc().setAvailableForComPlayer(false);
 	}
