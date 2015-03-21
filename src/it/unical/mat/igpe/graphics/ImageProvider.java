@@ -686,7 +686,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P1/downLeft/";
 					comPlayerUpRightPath = "img/players/P1/upRight/";
 					comPlayerUpLeftPath = "img/players/P1/upLeft/";
-					comPlayerShotPath = "img/players/P1/shot/";
+					comPlayerShotPath = "img/players/P1/shotCom/";
 			    	break;
 			case 2:	comPlayerRightMotionLessPath = "img/players/P2/";
 					comPlayerLeftMotionLessPath = "img/players/P2/";
@@ -698,7 +698,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P2/downLeft/";
 					comPlayerUpRightPath = "img/players/P2/upRight/";
 					comPlayerUpLeftPath = "img/players/P2/upLeft/";
-					comPlayerShotPath = "img/players/P2/shot/";
+					comPlayerShotPath = "img/players/P2/shotCom/";
 			    	break;
 			case 3:	comPlayerRightMotionLessPath = "img/players/P3/";
 					comPlayerLeftMotionLessPath = "img/players/P3/";
@@ -710,7 +710,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P3/downLeft/";
 					comPlayerUpRightPath = "img/players/P3/upRight/";
 					comPlayerUpLeftPath = "img/players/P3/upLeft/";
-					comPlayerShotPath = "img/players/P3/shot/";
+					comPlayerShotPath = "img/players/P3/shotCom/";
 			    	break;
 			case 4:	comPlayerRightMotionLessPath = "img/players/P4/";
 					comPlayerLeftMotionLessPath = "img/players/P4/";
@@ -722,7 +722,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P4/downLeft/";
 					comPlayerUpRightPath = "img/players/P4/upRight/";
 					comPlayerUpLeftPath = "img/players/P4/upLeft/";
-					comPlayerShotPath = "img/players/P4/shot/";
+					comPlayerShotPath = "img/players/P4/shotCom/";
 			    	break;
 			case 5:	comPlayerRightMotionLessPath = "img/players/P5/";
 					comPlayerLeftMotionLessPath = "img/players/P5/";
@@ -734,7 +734,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P5/downLeft/";
 					comPlayerUpRightPath = "img/players/P5/upRight/";
 					comPlayerUpLeftPath = "img/players/P5/upLeft/";
-					comPlayerShotPath = "img/players/P5/shot/";
+					comPlayerShotPath = "img/players/P5/shotCom/";
 			    	break;
 		   default:	comPlayerRightMotionLessPath = "img/players/P1/";
 					comPlayerLeftMotionLessPath = "img/players/P1/";
@@ -746,7 +746,7 @@ public class ImageProvider {
 					comPlayerDownLeftPath = "img/players/P1/downLeft/";
 					comPlayerUpRightPath = "img/players/P1/upRight/";
 					comPlayerUpLeftPath = "img/players/P1/upLeft/";
-					comPlayerShotPath = "img/players/P1/shot/";
+					comPlayerShotPath = "img/players/P1/shotCom/";
 			    	break;
 		}
 	}
