@@ -109,12 +109,11 @@ public class IaComPlayer {
 			gameManager.getComPlayer().setDirection(0);//up
 			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
 		}
-		
-		else
-		{
-			gameManager.getComPlayer().setDirection(2);//left
-			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.LEFT));
+		else{
+			gameManager.getComPlayer().setDirection(-1);//stop
+			CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
 		}
+		
 	}
 	
 	private void levelMedium(){
