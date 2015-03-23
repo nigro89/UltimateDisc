@@ -920,6 +920,8 @@ public class ImageProvider {
 	            
 	        case Player.DOWNLEFT:
 	            return comPlayerDownLeft[numberOfSequenceComPlayer];
+	        case Player.STOP:
+	        	return comPlayerLeftMotionLess;
 	            
 	        case 10:
 	            return comPlayerShot[numberOfSequenceComPlayer];

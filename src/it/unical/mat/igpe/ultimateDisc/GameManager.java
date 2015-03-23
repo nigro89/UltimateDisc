@@ -137,6 +137,7 @@ public class GameManager {
 			comPlayerAbility = false;
 			disc.setPositionCom(comPlayer.getX(), comPlayer.getY());
 			IaComPlayer.shoot();
+//			IaComPlayer.resetPositionComPlayer(); DA FARE
 		}
 	}
 	

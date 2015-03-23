@@ -12,7 +12,7 @@ public class ComPlayer extends Player {
 	double width = screen.getWidth();
 	double height = screen.getHeight();
 	double sizeOfTheComPlayer = 1;
-	final static int speedPlayer = 17;
+	final static int speedPlayer = 10;
 
 	public ComPlayer(int x,int y,int widthComponent, int heightComponent, int wallNorth,int wallSouth) {
 		super(x,y,widthComponent, heightComponent, wallNorth,wallSouth);
@@ -22,7 +22,7 @@ public class ComPlayer extends Player {
 	public Rectangle getBounds(){
 		
 		if(GameManager.getDifficultyLevel() == 0){
-			sizeOfTheComPlayer=0.50;
+			sizeOfTheComPlayer=0.10;
 		}
 		else if(GameManager.getDifficultyLevel() == 1){
 			sizeOfTheComPlayer=1;
