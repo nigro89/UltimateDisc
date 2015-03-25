@@ -86,6 +86,8 @@ public class ImageProvider {
 
     // menu panel
     private  Image introBackground;
+    private  Image difficulty;
+    private  Image easyMediumHard;
     private  Image playGame;
     private  Image playGameWhite;
     private  Image settings;
@@ -121,7 +123,15 @@ public class ImageProvider {
     private  Image selectArenaPanelBackGround;
     private  Image backArenaPanel;
     private  Image backPushedArenaPanel;
-    private  Image playArenaPanel;
+    public Image getEasyMediumHard() {
+		return easyMediumHard;
+	}
+
+	public Image getDifficulty() {
+		return difficulty;
+	}
+
+	private  Image playArenaPanel;
     private  Image playPushedArenaPanel;
     private  Image arena1;
     private  Image arena2;
@@ -403,6 +413,10 @@ public class ImageProvider {
     	  settingsWhite = tk.getImage("img/menu/IntroSettings1.png");
     	  exit = tk.getImage("img/menu/IntroExit.png");
     	  exitWhite = tk.getImage("img/menu/IntroExitWhite.png");
+    	  
+    	  //settingPanel
+    	  difficulty = tk.getImage("img/menu/difficulty.png");
+    	  easyMediumHard = tk.getImage("img/menu/easyMediumHard.png");
     	  
     	  // selectPlayerPanel
     	  selectPlayerPanelBackground = tk.getImage("img/selectPlayer/background.png");

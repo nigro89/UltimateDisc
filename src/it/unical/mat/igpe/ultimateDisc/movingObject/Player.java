@@ -184,6 +184,14 @@ public abstract class Player implements MovingObject {
 	}
 
 
+	public int getStartPositionX() {
+		return startPositionX;
+	}
+	public int getStartPositionY() {
+		return startPositionY;
+	}
+
+
 	public boolean availableEnergyShot() {
 		if(this.energyShot == dimensionEnergyShot){
 			return true;

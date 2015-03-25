@@ -1,5 +1,8 @@
 package it.unical.mat.igpe.graphics;
 
+import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
+import it.unical.mat.igpe.ultimateDisc.GameManager;
+
 public class ShotComPlayer extends Thread {
 
 	public void run()
@@ -18,5 +21,6 @@ public class ShotComPlayer extends Thread {
 		}
 		CenterGamePanel.comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
 		CenterGamePanel.frisbeeImage=CenterGamePanel.imageProvider.getFrisbee();
+		IaComPlayer.resetPositionComPlayer();
 	}
 }

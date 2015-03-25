@@ -38,6 +38,8 @@ public class MainFrame extends JFrame {
 	GamePanel gamePanel;
 	SelectPlayerPanel selectPlayerPanel;
 	SelectArenaPanel selectArenaPanel;
+	SettingPanel settingPanel;
+	ChooseDifficultyPanel chooseDifficultyPanel;
 	static MenuPanel menuPanel;
 	static JPanel contentPanel;
 	ImageProvider imageProvider;
@@ -85,6 +87,18 @@ public class MainFrame extends JFrame {
 	public void goToMenuPanel()
 	{
 		this.switchTo(menuPanel);
+	}
+	
+	public void goToSettingPanel()
+	{
+		settingPanel = new SettingPanel(this);
+		this.switchTo(settingPanel);
+	}
+	
+	public void goToChooseDifficultyPanel()
+	{
+		chooseDifficultyPanel = new ChooseDifficultyPanel(this);
+		this.switchTo(chooseDifficultyPanel);
 	}
 	
 	public void goToSelectPlayerPanel()

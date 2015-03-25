@@ -28,24 +28,8 @@ public class IaComPlayer {
 				this.loadShoot = loadShoot;
 			}
 
-//			private void shoot()
-//	        {
-//	        	int randomX = -40+new Random().nextInt(35);
-//	        	int randomY = -30+new Random().nextInt(60);
-//	        	
-//	        	try
-//        		{
-//        			sleep(3000);
-//        		}
-//        		catch (final InterruptedException e)
-//        		{
-//        			System.out.println("errore run RepainterThread");
-//        		}
-//	        	
-//	        	gameManager.getDisc().setDirection(randomX, randomY);
-//	        }
-	        
-	        @Override
+	        @SuppressWarnings("deprecation")
+			@Override
 	        public void run()
 	        {
 	        	while(true)
@@ -101,7 +85,6 @@ public class IaComPlayer {
 	            		{
 	            			System.out.println("errore run LoadShotComPlayerThread");
 	            		}
-	    	        	
 	    	        	ShotComPlayer s= new ShotComPlayer();
 	    	        	s.start();
 	    	        	gameManager.getDisc().setDirection(randomX, randomY);
@@ -181,7 +164,123 @@ public class IaComPlayer {
 	}
 
 	public static void resetPositionComPlayer() {
-		
+			double startX = gameManager.getComPlayer().getStartPositionX()-(gameManager.getComPlayer().getStartPositionX()*0.1);
+			double startY = gameManager.getComPlayer().getStartPositionY()-(gameManager.getComPlayer().getStartPositionY()*0.4);
+			
+			double x = gameManager.getComPlayer().getX();
+			double y = gameManager.getComPlayer().getY();
+			
+			if(((y+20)<gameManager.getComPlayer().getStartPositionY()) && ((x+20)<gameManager.getComPlayer().getStartPositionX())){
+				for (int i = 0; i < 14; i++) {
+					gameManager.getComPlayer().setDirection(6);//DOWNRIGHT
+					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWNRIGHT));
+					gameManager.getComPlayer().update();
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			else if (((x-20)>gameManager.getComPlayer().getStartPositionX())&& ((y+20)<gameManager.getComPlayer().getStartPositionY())){
+				for (int i = 0; i < 14; i++) {
+					gameManager.getComPlayer().setDirection(7);//DOWNLEFT
+					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWNLEFT));
+					gameManager.getComPlayer().update();
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			else if (((x+20)<gameManager.getComPlayer().getStartPositionX()) && ((y-20)>gameManager.getComPlayer().getStartPositionY())){
+				for (int i = 0; i < 14; i++) {
+					gameManager.getComPlayer().setDirection(4);//UPRIGHT
+					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UPRIGHT));
+					gameManager.getComPlayer().update();
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			else if (((x-20)>gameManager.getComPlayer().getStartPositionX()) && ((y-20)>gameManager.getComPlayer().getStartPositionY())){
+				for (int i = 0; i < 14; i++) {
+					gameManager.getComPlayer().setDirection(5);//UPLEFT
+					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UPLEFT));
+					gameManager.getComPlayer().update();
+					try {
+						Thread.sleep(25);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+//			if((x+20)<gameManager.getComPlayer().getStartPositionX()){
+//				for (int i = 0; i < 14; i++) {
+//					gameManager.getComPlayer().setDirection(3);//RIGHT
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.RIGHT));
+//					gameManager.getComPlayer().update();
+//					try {
+//						Thread.sleep(25);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			else if((x-20)>gameManager.getComPlayer().getStartPositionX()){
+//				for (int i = 0; i < 14; i++) {
+//					gameManager.getComPlayer().setDirection(2);//LEFT
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.LEFT));
+//					gameManager.getComPlayer().update();
+//					try {
+//						Thread.sleep(25);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			if((y-20)>gameManager.getComPlayer().getStartPositionY()){
+//				for (int i = 0; i < 14; i++) {
+//					gameManager.getComPlayer().setDirection(0);//UP
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.UP));
+//					gameManager.getComPlayer().update();
+//					try {
+//						Thread.sleep(25);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			else if((y+20)<gameManager.getComPlayer().getStartPositionY()){
+//				for (int i = 0; i < 14; i++) {
+//					gameManager.getComPlayer().setDirection(1);//DOWN
+//					CenterGamePanel.setComPlayerImage(CenterGamePanel.getImageProvider().getComPlayerDirection(Player.DOWN));
+//					gameManager.getComPlayer().update();
+//					try {
+//						Thread.sleep(25);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
+//			System.out.println("X: "+x+" y: "+y+" posX:"+gameManager.getComPlayer().getX()+" posY "+gameManager.getComPlayer().getY());
+			
+			CenterGamePanel.comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
 	}
 
 }

@@ -41,6 +41,7 @@ public class MenuPanel extends JPanel {
 			     //settings
 			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
 			    	 //panel Settings
+			    	 mainFrame.goToSettingPanel();
 			     }
 			     //exit
 			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95)){
