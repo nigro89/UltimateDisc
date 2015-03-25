@@ -522,12 +522,12 @@ public class CenterGamePanel extends JPanel {
 		
 		g.drawLine(getWidth()/2, 0, getWidth()/2, getHeight());
 		
-//		g.setColor(Color.RED);
+		g.setColor(Color.RED);
 //		g.drawLine((int)(width*0.25), 0, (int)width/4, getHeight());
 //		
 //		g.drawLine((int)(width*0.69), 0, (int)(width*0.69), getHeight());
-//		
-//		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY() , (int)(Player.getWithimage()), (int)(Player.getHeightimage()));
+		
+//		g.drawRect(gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(), (int)(Player.getWithimage()*0.7), (int)(Player.getHeightimage()*0.7));
 //		
 //		g.drawRect(gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY() ,Player.getWithimage(),Player.getHeightimage());
 //

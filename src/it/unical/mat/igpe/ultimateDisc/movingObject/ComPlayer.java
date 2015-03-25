@@ -21,18 +21,22 @@ public class ComPlayer extends Player {
 	@Override
 	public Rectangle getBounds(){
 		
+		int posX=this.x;
+		int posY=this.y;
+		
 		if(GameManager.getDifficultyLevel() == 0){
-			sizeOfTheComPlayer=0.10;
+			sizeOfTheComPlayer=0.20;
 		}
 		else if(GameManager.getDifficultyLevel() == 1){
-			sizeOfTheComPlayer=1;
+			sizeOfTheComPlayer=0.7;
 		}
 		
 		else if(GameManager.getDifficultyLevel() == 2){
-			sizeOfTheComPlayer=2;
+			sizeOfTheComPlayer=1.2;
+			posX=this.x-20;
+			posY=this.y-20;
 		} 
-		
-		return new Rectangle(this.x,this.y,(int)(Player.getWithimage()*sizeOfTheComPlayer),(int)(Player.getHeightimage()*sizeOfTheComPlayer));
+		return new Rectangle(posX,posY,(int)(Player.getWithimage()*sizeOfTheComPlayer),(int)(Player.getHeightimage()*sizeOfTheComPlayer));
 	}
 	
 	@Override
