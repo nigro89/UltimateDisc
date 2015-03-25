@@ -27,13 +27,23 @@ public class IaComPlayer {
 	        public void setLoadShoot(boolean loadShoot) {
 				this.loadShoot = loadShoot;
 			}
+	        
+	        public void restart()
+	        {
+	        	loadShoot=false;
+	        }
+	        
+	        public void stopT()
+	        {
+	        	loadShoot=false;
+	        }
 
-	        @SuppressWarnings("deprecation")
 			@Override
 	        public void run()
 	        {
-	        	while(true)
+				while(!CenterGamePanel.repainterThread.end)
 	        	{	
+					System.out.println(); //???????????????????????????????????????????????????????
 	        		if (loadShoot==true)
 	        		{
 	        			int randomY=0;

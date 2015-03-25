@@ -44,14 +44,14 @@ public class MainFrame extends JFrame {
 	static JPanel contentPanel;
 	ImageProvider imageProvider;
 	
-	GameManager gameManager;
+	static GameManager gameManager;
 	static MainFrame mainFrame;
 	
 	public MainFrame(GameManager gameManager,ImageProvider imageProvider)
 	{
 		this.imageProvider=imageProvider;
 		MainFrame.contentPanel = new JPanel(new BorderLayout());
-		this.gameManager = gameManager;
+		MainFrame.gameManager = gameManager;
 		
 		menuPanel = new MenuPanel(this);
 		
@@ -75,7 +75,7 @@ public class MainFrame extends JFrame {
 	
 	public void startGame(int myPlayer,int comPlayer,int playGround)
 	{
-		gamePanel = new GamePanel(this.gameManager,this.imageProvider,myPlayer,comPlayer,playGround);
+		gamePanel = new GamePanel(MainFrame.gameManager,this.imageProvider,myPlayer,comPlayer,playGround);
 		this.switchTo(gamePanel);
 		gameManager.start();
 		CenterGamePanel.repainterThread.start();
@@ -84,9 +84,29 @@ public class MainFrame extends JFrame {
 		IaComPlayer.loadShotComPlayerThread.start();
 	}
 	
-	public void goToMenuPanel()
+	public static  void reStartGame(int myPlayer,int comPlayer,int playGround)
 	{
-		this.switchTo(menuPanel);
+		gameManager.reStart();
+		CenterGamePanel.restart();
+		CenterGamePanel.repainterThread.restart();
+		SouthGamePanel.repainterThread.restart();
+		IaComPlayer.loadShotComPlayerThread.restart();
+	}
+	
+	public static void stop()
+	{
+		CenterGamePanel.stop();
+		gameManager.reStart();
+		CenterGamePanel.repainterThread.stopT();
+		SouthGamePanel.repainterThread.stopT();
+		NorthGamePanel.repainterThread.stopT();
+		IaComPlayer.loadShotComPlayerThread.stopT();
+		System.out.println(CenterGamePanel.repainterThread.end);
+	}
+	
+	public static void goToMenuPanel()
+	{
+		mainFrame.switchTo(menuPanel);
 	}
 	
 	public void goToSettingPanel()

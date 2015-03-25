@@ -47,7 +47,16 @@ public class WorldImpl implements World {
 		this.currentPoints=0;
 	}
 	
-
+	public void restart()
+	{
+		this.x_limit_myPlayer=0;
+		this.x_limit_com=0;
+		this.myPlayerScore=0;
+		this.comScore=0;
+		this.roundMyPlayer=0;
+		this.roundComPlayer=0;
+		this.currentPoints=0;
+	}
 	
 	
 	public int getRoundMyPlayer() {

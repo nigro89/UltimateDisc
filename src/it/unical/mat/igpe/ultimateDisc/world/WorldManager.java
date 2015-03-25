@@ -13,6 +13,7 @@ import it.unical.mat.igpe.ultimateDisc.staticObject.Wall;
 
 public class WorldManager {
 
+	World world;
 	
 	public World loadWorld(Disc disc,Integer type)
 	{
@@ -60,5 +61,13 @@ public class WorldManager {
 		}
 	
 		return currentWorld;
+	}
+	
+	public World getWorld() {
+		return world;
+	}
+
+	public void setWorld(World world) {
+		this.world = world;
 	}
 }

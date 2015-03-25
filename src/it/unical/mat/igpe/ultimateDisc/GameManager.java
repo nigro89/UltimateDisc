@@ -77,6 +77,25 @@ public class GameManager {
 		world = this.worldManager.loadWorld(disc, 0);
 		startTime = (System.currentTimeMillis())/1000;
 	}
+	
+	public void reStart()
+	{
+		this.myPlayer.restart();
+		this.comPlayer.restart();
+		this.disc.restart();
+		world = this.worldManager.getWorld();
+		world.restart();
+		startTime = (System.currentTimeMillis())/1000;
+	}
+
+	public void stop()
+	{
+		myPlayer=null;
+		comPlayer=null;
+		disc=null;
+		world=null;
+		startTime=0;
+	}
 
 	public boolean timeUp()
 	{
@@ -100,25 +119,28 @@ public class GameManager {
 
 	public void update()
 	{
-		if(pause==false){
-			if(timeUp()) 
-			{
-				disc.reset();
-				myPlayer.reset();
-				comPlayer.reset();
-				startTime=0;
-			}
-			else
-			{
-				if(!stop){
-					disc.update();
-					myPlayer.update();
-					if(comPlayerAbility)
-						iaComPlayer.moveComPlayer(); 
-					checkCollision();
+		if (disc!=null && myPlayer!=null && comPlayer!=null && iaComPlayer!=null && world!=null)
+		{
+			if(pause==false){
+				if(timeUp()) 
+				{
+					disc.reset();
+					myPlayer.reset();
+					comPlayer.reset();
+					startTime=0;
 				}
+				else
+				{
+					if(!stop){
+						disc.update();
+						myPlayer.update();
+						if(comPlayerAbility)
+							iaComPlayer.moveComPlayer(); 
+						checkCollision();
+					}
+				}
+				world.update();
 			}
-			world.update();
 		}
 	}
 	

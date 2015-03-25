@@ -19,12 +19,31 @@ public class SouthGamePanel extends JPanel {
 	            super("Repainter");
 	            this.gameManager = gameManager;
 	        }
+	        
+	        public void restart()
+	        {
+	        	frisbeeRound1 = imageProvider.getFrisbeeRound();
+	    	    frisbeeRound2 = imageProvider.getFrisbeeRound();
+	    	    frisbeeRound3 = imageProvider.getFrisbeeRound();
+	    	    frisbeeRound4 = imageProvider.getFrisbeeRound();
+	        }
+	        
+	        public void stopT()
+	        {
+	        	woodFieldSouth = null;
+	    	    roundTarget = null;
+	    	    frisbeeRound1 = null;
+	    	    frisbeeRound2 = null;
+	    	    frisbeeRound3 = null;
+	    	    frisbeeRound4 = null;
+	        }
 
 			@Override
 	        public void run()
 	        {
-				while(true)
+				while(!CenterGamePanel.repainterThread.end)
 				{
+					//System.out.println("SGP");
 					if(GameManager.getWorld().getRoundMyPlayer()==1)
 						frisbeeRound1 = imageProvider.getFrisbeeRound2();
 					if(GameManager.getWorld().getRoundComPlayer()==1)
@@ -47,9 +66,9 @@ public class SouthGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-    ImageProvider imageProvider = new ImageProvider();
-    Image woodFieldSouth;
-    Image roundTarget;
+    static ImageProvider imageProvider = new ImageProvider();
+    static Image woodFieldSouth;
+    static Image roundTarget;
     Image frisbeeRound1;
     Image frisbeeRound2;
     Image frisbeeRound3;
@@ -64,7 +83,7 @@ public class SouthGamePanel extends JPanel {
 	
 	public SouthGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	{
-		this.imageProvider=newImageProvider;
+		SouthGamePanel.imageProvider=newImageProvider;
 		
 		woodFieldSouth = imageProvider.getWoodFieldSouth();
 	    roundTarget = imageProvider.getRoundTarget();
@@ -75,6 +94,12 @@ public class SouthGamePanel extends JPanel {
 		
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		repainterThread = new RepainterThread(gameManager);
+	}
+	
+	public static void load()
+	{
+		woodFieldSouth = imageProvider.getWoodFieldSouth();
+	    roundTarget = imageProvider.getRoundTarget();
 	}
 
 	@Override

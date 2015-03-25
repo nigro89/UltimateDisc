@@ -20,12 +20,19 @@ public class NorthGamePanel extends JPanel {
 	            super("Repainter");
 	            this.gameManager = gameManager;
 	        }
+	        
+	        public void stopT()
+	        {
+	        	woodFieldNorth = null;
+	    		scoreTime = null;
+	        }
 
 			@Override
 	        public void run()
 	        {
-	        	while(true)
+				while(!CenterGamePanel.repainterThread.end)
 	        	{	
+					//System.out.println("NGP");
 	        		if(GameManager.isPause()==false){
 	        			if (gameManager.timeUp())
 	        				time = imageProvider.getTime(0);
@@ -50,11 +57,13 @@ public class NorthGamePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-    ImageProvider imageProvider;
-    Image woodFieldNorth;
+    static ImageProvider imageProvider;
+    static Image woodFieldNorth;
     Image scoreTime;
     Image pointsScoreMyPlayer = null;
     Image pointsScoreComPlayer = null;
+    Image myPlayerName = null;
+    Image comPlayerName = null;
     
     Screen screen = Screen.getInstance();
 	double width = screen.getWidth();
@@ -66,14 +75,20 @@ public class NorthGamePanel extends JPanel {
 	
 	public NorthGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	{
-		this.imageProvider=newImageProvider;
-		
+		NorthGamePanel.imageProvider=newImageProvider;
+		myPlayerName = imageProvider.getNameMyPlayer(CenterGamePanel.myPlayerCGP);
+		comPlayerName = imageProvider.getNameComPlayer(CenterGamePanel.comPlayerCGP);
 		time = imageProvider.getTime(0);
 		woodFieldNorth = imageProvider.getWoodFieldNorth();
 		scoreTime = imageProvider.getScoreTime();
 		this.setPreferredSize(new Dimension((int)width,(int)height));
 		this.gameManager = gameManager;
 		repainterThread = new RepainterThread(gameManager);
+	}
+	
+	public static void load()
+	{
+		woodFieldNorth = imageProvider.getWoodFieldNorth();
 	}
 	
 	@Override
@@ -88,6 +103,9 @@ public class NorthGamePanel extends JPanel {
 		pointsScoreComPlayer = imageProvider.getScore(GameManager.getWorld().getComScore());
 		g.drawImage(pointsScoreMyPlayer,(getWidth()/2)-(getWidth()/5),10,this);
 		g.drawImage(pointsScoreComPlayer,(getWidth()/2)+(getWidth()/11),10,this);
+		
+		g.drawImage(myPlayerName,0,0,this);
+		g.drawImage(comPlayerName,(int)(width-300),0,this);
 		
 	}
 }

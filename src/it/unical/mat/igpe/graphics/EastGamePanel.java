@@ -15,10 +15,10 @@ public class EastGamePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	ImageProvider imageProvider;
-	ImageIcon one_point; 
-	ImageIcon two_point;
-	Image woodBorder;
+	static ImageProvider imageProvider;
+	static ImageIcon one_point; 
+	static ImageIcon two_point;
+	static Image woodBorder;
 	
 	JLabel l = new JLabel();
 	JLabel l1 = new JLabel();
@@ -34,7 +34,7 @@ public class EastGamePanel extends JPanel {
 	    
 	  public EastGamePanel(GameManager gameManager,ImageProvider newImageProvider)
 	 {
-		this.imageProvider=newImageProvider;
+		EastGamePanel.imageProvider=newImageProvider;
 		one_point = imageProvider.getOne_pointComPlayer(); 
 		two_point = imageProvider.getTwo_pointComPlayer();
 		woodBorder = imageProvider.getWoodBoardCom();
@@ -54,6 +54,13 @@ public class EastGamePanel extends JPanel {
 		  l4.setIcon(one_point);
 		  this.add(l4);
 	 }
+	  
+	  public static void load()
+	  {
+		  one_point = imageProvider.getOne_pointComPlayer(); 
+			two_point = imageProvider.getTwo_pointComPlayer();
+			woodBorder = imageProvider.getWoodBoardCom();
+	  }
 
 		@Override
 		protected  void paintComponent(Graphics g) {

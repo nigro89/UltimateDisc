@@ -43,6 +43,13 @@ public class Disc implements MovingObject  {
 		posizioneInizialeX=0;
 		posizioneInizialeY=0;
 	}
+	
+	public void restart()
+	{
+		this.x=this.posizioneInizialeX;
+		this.y=this.posizioneInizialeY;
+		myplayer=complayer=false;
+	}
 
 	@Override
 	public int getX() {

@@ -43,6 +43,15 @@ public abstract class Player implements MovingObject {
 		this.direction= -1;
 	}
 	
+	public void restart()
+	{
+		x=startPositionX;
+		y=startPositionY;
+		this.points=0;
+		this.energyShot = 0;
+		this.direction= -1;
+	}
+	
 	
 	@Override
 	public int getX() {

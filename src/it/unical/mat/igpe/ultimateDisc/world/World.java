@@ -41,4 +41,6 @@ public interface World {
 	public void setCurrentPoints(int currentPoints);
 	
 	 public abstract void update();
+	 
+	 public void restart();
 }

@@ -123,13 +123,6 @@ public class ImageProvider {
     private  Image selectArenaPanelBackGround;
     private  Image backArenaPanel;
     private  Image backPushedArenaPanel;
-    public Image getEasyMediumHard() {
-		return easyMediumHard;
-	}
-
-	public Image getDifficulty() {
-		return difficulty;
-	}
 
 	private  Image playArenaPanel;
     private  Image playPushedArenaPanel;
@@ -265,11 +258,74 @@ public class ImageProvider {
     private  Image gameOver;
     private  Image shadow;
 
+    // window finish
+    private Image backgroundWindowFinish;
+    private Image restartWindowFinish;
+	private Image restartPushedWindowFinish;
+    private Image menuWindowFinish;
+    private Image menuPushedWindowFinish;
+    private Image exitWindowFinish;
+    private Image exitPushedWindowFinish;
+    
+ // window finish
+    private Image backgroundWindowPause;
+    private Image restartWindowPause;
+	private Image restartPushedWindowPause;
+    private Image menuWindowPause;
+    private Image menuPushedWindowPause;
+    private Image exitWindowPause;
+    private Image exitPushedWindowPause;
+    private Image resumeWindowPause;
+    private Image resumePushedWindowPause;
+    
+    // names
+    private Image tomSx;
+    private Image tomDx;
+    private Image marioSx;
+    private Image marioDx;
+    private Image alexSx;
+    private Image alexDx;
+    private Image erikSx;
+    private Image erikDx;
+    private Image emilySx;
+    private Image emilyDx;
     
     
     public ImageProvider()
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
+    	  
+    	  // names
+    	  tomSx = tk.getImage("img/names/tomSx.png");
+    	  tomDx = tk.getImage("img/names/tomDx.png");
+    	  marioSx = tk.getImage("img/names/marioSx.png");
+    	  marioDx = tk.getImage("img/names/marioDx.png");
+    	  alexSx = tk.getImage("img/names/alexSx.png");
+    	  alexDx = tk.getImage("img/names/alexDx.png");
+    	  erikSx = tk.getImage("img/names/erikSx.png");
+    	  erikDx = tk.getImage("img/names/erikDx.png");
+    	  emilySx = tk.getImage("img/names/emilySx.png");
+    	  emilyDx = tk.getImage("img/names/emilyDx.png");
+    	  
+    	  // window finish
+    	  backgroundWindowFinish = tk.getImage("img/windowFinish/backGround.png");
+    	  restartWindowFinish = tk.getImage("img/windowFinish/restart.png");
+    	  restartPushedWindowFinish = tk.getImage("img/windowFinish/restartPushed.png");
+    	  menuWindowFinish = tk.getImage("img/windowFinish/menu.png");
+    	  menuPushedWindowFinish = tk.getImage("img/windowFinish/menuPushed.png");
+    	  exitWindowFinish = tk.getImage("img/windowFinish/exit.png");
+    	  exitPushedWindowFinish = tk.getImage("img/windowFinish/exitPushed.png");
+    	  
+    	  // window pause
+    	  backgroundWindowPause = tk.getImage("img/windowPause/backGround.png");
+    	  restartWindowPause = tk.getImage("img/windowPause/restart.png");
+    	  restartPushedWindowPause = tk.getImage("img/windowPause/restartPushed.png");
+    	  menuWindowPause = tk.getImage("img/windowPause/menu.png");
+    	  menuPushedWindowPause = tk.getImage("img/windowPause/menuPushed.png");
+    	  exitWindowPause = tk.getImage("img/windowPause/exit.png");
+    	  exitPushedWindowPause = tk.getImage("img/windowPause/exitPushed.png");
+    	  resumeWindowPause = tk.getImage("img/windowPause/resume.png");
+    	  resumePushedWindowPause = tk.getImage("img/windowPause/resumePushed.png");
     	  
     	  shadow = tk.getImage("img/shadow.png");
     	  // pause
@@ -1459,4 +1515,99 @@ public class ImageProvider {
 	public void setShadow(Image shadow) {
 		this.shadow = shadow;
 	}
+	public Image getEasyMediumHard() {
+		return easyMediumHard;
+	}
+
+	public Image getDifficulty() {
+		return difficulty;
+	}
+	public Image getBackgroundWindowFinish() {
+		return backgroundWindowFinish;
+	}
+	
+	 public Image getRestartWindowFinish() {
+			return restartWindowFinish;
+		}
+
+		public Image getRestartPushedWindowFinish() {
+			return restartPushedWindowFinish;
+		}
+
+		public Image getMenuWindowFinish() {
+			return menuWindowFinish;
+		}
+
+		public Image getMenuPushedWindowFinish() {
+			return menuPushedWindowFinish;
+		}
+
+		public Image getExitWindowFinish() {
+			return exitWindowFinish;
+		}
+
+		public Image getExitPushedWindowFinish() {
+			return exitPushedWindowFinish;
+		}
+
+		public Image getBackgroundWindowPause() {
+			return backgroundWindowPause;
+		}
+
+		public Image getRestartWindowPause() {
+			return restartWindowPause;
+		}
+
+		public Image getRestartPushedWindowPause() {
+			return restartPushedWindowPause;
+		}
+
+		public Image getMenuWindowPause() {
+			return menuWindowPause;
+		}
+
+		public Image getMenuPushedWindowPause() {
+			return menuPushedWindowPause;
+		}
+
+		public Image getExitWindowPause() {
+			return exitWindowPause;
+		}
+
+		public Image getExitPushedWindowPause() {
+			return exitPushedWindowPause;
+		}
+
+		public Image getResumeWindowPause() {
+			return resumeWindowPause;
+		}
+
+		public Image getResumePushedWindowPause() {
+			return resumePushedWindowPause;
+		}
+
+		public Image getNameMyPlayer(int myPlayer)
+		{
+			switch (myPlayer) 
+			{
+				case 1: return tomSx;
+				case 2: return marioSx;
+				case 3: return alexSx;
+				case 4: return erikSx;
+				case 5: return emilySx;
+				default: return tomSx;
+			}
+		}
+		public Image getNameComPlayer(int comPlayer)
+		{
+			switch (comPlayer) 
+			{
+				case 1: return tomDx;
+				case 2: return marioDx;
+				case 3: return alexDx;
+				case 4: return erikDx;
+				case 5: return emilyDx;
+				default: return tomDx;
+			}
+		}
 }
