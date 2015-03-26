@@ -7,6 +7,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -46,6 +50,9 @@ public class MainFrame extends JFrame {
 	
 	static GameManager gameManager;
 	static MainFrame mainFrame;
+	
+	public static Lock lockIaComPlayer = new ReentrantLock();
+	public static Condition conditionIaComPlayer = lockIaComPlayer.newCondition();
 	
 	public MainFrame(GameManager gameManager,ImageProvider imageProvider)
 	{

@@ -40,12 +40,11 @@ public class IaComPlayer {
 			@Override
 	        public void run()
 	        {
-				System.out.println("----------------"+CenterGamePanel.repainterThread.end);
 				while(CenterGamePanel.repainterThread.end==false)
 	        	{	
-//					System.out.println(); //?
 	        		if (loadShoot==true)
 	        		{
+	        			System.out.println("if");
 	        			int randomY=0;
 	        			int randomX=-15;
 //	        			randomY = -30+new Random().nextInt(60);
@@ -175,7 +174,7 @@ public class IaComPlayer {
 		gameManager.getDisc().setAvailableForComPlayer(false);
 	}
 
-	public static void resetPositionComPlayer() {
+	public static void resetPositionComPlayer() {	
 			setStartX(gameManager.getComPlayer().getStartPositionX()-(gameManager.getComPlayer().getStartPositionX()*0.1));
 			setStartY(gameManager.getComPlayer().getStartPositionY()-(gameManager.getComPlayer().getStartPositionY()*0.4));
 			
