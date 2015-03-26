@@ -94,6 +94,7 @@ public class IaComPlayer {
 	            		{
 	            			System.out.println("errore run LoadShotComPlayerThread");
 	            		}
+	        			System.out.println("prima di shot");
 	    	        	ShotComPlayer s= new ShotComPlayer();
 	    	        	s.start();
 	    	        	gameManager.getDisc().setDirection(randomX, randomY);
@@ -173,7 +174,7 @@ public class IaComPlayer {
 	}
 
 	public static void resetPositionComPlayer() {
-			
+		System.out.println("reset position");
 			double x = gameManager.getComPlayer().getX();
 			double y = gameManager.getComPlayer().getY();
 			
