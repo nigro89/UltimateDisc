@@ -1,6 +1,5 @@
 package it.unical.mat.igpe.graphics;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
-import it.unical.mat.igpe.ultimateDisc.movingObject.Disc;
 import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 import java.awt.Color;
@@ -505,17 +504,17 @@ public class CenterGamePanel extends JPanel {
 				    {
 				    	restartWindowFinish = imageProvider.getRestartWindowFinish();
 				    	repaint();
-//				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
-//				    	CenterGamePanel.repainterThread.gameFinished=false;
+				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
+				    	CenterGamePanel.repainterThread.gameFinished=false;
 				    }
 				    // menu
 				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+160) && y>((int)(height*0.23)) && y<((int)(height*0.23)+40))
 				    {
 				    	menuWindowFinish = imageProvider.getMenuWindowFinish();
 				    	repaint();
-//				    	MainFrame.stop();
-//				    	MainFrame.goToMenuPanel();
-//				    	CenterGamePanel.repainterThread.end=true;
+				    	MainFrame.stop();
+				    	MainFrame.goToMenuPanel();
+				    	CenterGamePanel.repainterThread.end=true;
 				    }
 				    // exit
 				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+120) && y>((int)(height*0.36)) && y<((int)(height*0.36)+40))
@@ -540,19 +539,19 @@ public class CenterGamePanel extends JPanel {
 				    {
 				    	restartWindowPause = imageProvider.getRestartWindowPause();
 				    	repaint();
-//				    	setImageMenu();
-//				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
-//				    	CenterGamePanel.repainterThread.gameFinished=false;
+				    	setImageMenu();
+				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
+				    	CenterGamePanel.repainterThread.gameFinished=false;
 				    }
 				    // menu
 				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+150) && y>((int)(height*0.31)) && y<((int)(height*0.31)+30))
 				    {
 				    	menuWindowPause = imageProvider.getMenuWindowPause();
 				    	repaint();
-//				    	CenterGamePanel.repainterThread.end=true;
-//				    	setImageMenu();
-//				    	MainFrame.stop();
-//				    	MainFrame.goToMenuPanel();
+				    	CenterGamePanel.repainterThread.end=true;
+				    	setImageMenu();
+				    	MainFrame.stop();
+				    	MainFrame.goToMenuPanel();
 				    }
 				    // exit
 				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+110) && y>((int)(height*0.42)) && y<((int)(height*0.42)+30))

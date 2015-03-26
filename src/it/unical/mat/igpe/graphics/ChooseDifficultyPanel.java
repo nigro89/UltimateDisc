@@ -6,12 +6,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JPanel;
 
 public class ChooseDifficultyPanel extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static ImageProvider image = new ImageProvider();
 	private static Image background = image.getIntroBackground();
 	private static Image easyMediumHard = image.getEasyMediumHard();
@@ -47,7 +50,7 @@ public class ChooseDifficultyPanel extends JPanel {
 			     }
 			     //main menu
 			     else if((x>screen.getWidth()*0.10) && (x<screen.getWidth()*0.50) && (y>screen.getHeight()*0.79) && (y<screen.getHeight()*0.87)){
-			    	 mainFrame.goToMenuPanel();
+			    	 MainFrame.goToMenuPanel();
 			     }
 			}
 		});

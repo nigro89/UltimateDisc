@@ -58,6 +58,7 @@ public class SelectArenaPanel extends JPanel {
 			    		mainFrame.startGame(SelectArenaPanel.myPlayer,SelectArenaPanel.comPlayer,SelectArenaPanel.select);
 				    	CenterGamePanel.getRepainterThread().setFinish(false);
 				    	CenterGamePanel.getRepainterThread().setStartGame(true);
+				    	select=0;
 			    	}
 				}
 				

@@ -32,6 +32,7 @@ public class NorthGamePanel extends JPanel {
 	        {
 				while(!CenterGamePanel.repainterThread.end)
 	        	{	
+					
 					//System.out.println("NGP");
 	        		if(GameManager.isPause()==false){
 	        			if (gameManager.timeUp())

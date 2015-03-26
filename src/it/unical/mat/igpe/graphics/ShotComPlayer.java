@@ -1,7 +1,6 @@
 package it.unical.mat.igpe.graphics;
 
 import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
-import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 public class ShotComPlayer extends Thread {
 

@@ -50,7 +50,7 @@ public class WorldManager {
 			}
 			
 			currentWorld = new WorldImpl(disc, wallPlayer, wallCom);
-		
+			world = currentWorld;
 			return currentWorld;
 			
 		}catch (FileNotFoundException e) {

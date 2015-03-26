@@ -44,7 +44,7 @@ public class SelectPlayerPanel extends JPanel {
 		    	{
 		    		back = imageProvider.getBack();
 		    		repaint();
-		    		mainFrame.goToMenuPanel();
+		    		MainFrame.goToMenuPanel();
 		    	}
 			    if ( (x>((int)(width)-(width*0.15))) && (x<((int)(width)-(width*0.15)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
 		    	{

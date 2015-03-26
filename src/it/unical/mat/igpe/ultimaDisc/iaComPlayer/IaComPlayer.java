@@ -5,7 +5,6 @@ package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 import java.util.Random;
 
 import it.unical.mat.igpe.graphics.CenterGamePanel;
-import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.graphics.ShotComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
@@ -41,9 +40,10 @@ public class IaComPlayer {
 			@Override
 	        public void run()
 	        {
-				while(!CenterGamePanel.repainterThread.end)
+				System.out.println("----------------"+CenterGamePanel.repainterThread.end);
+				while(CenterGamePanel.repainterThread.end==false)
 	        	{	
-					System.out.println(); //???????????????????????????????????????????????????????
+//					System.out.println(); //?
 	        		if (loadShoot==true)
 	        		{
 	        			int randomY=0;
@@ -106,6 +106,8 @@ public class IaComPlayer {
 	
 	static GameManager gameManager;
 	public static LoadShotComPlayerThread loadShotComPlayerThread;
+	private static double startX;
+	private static double startY;
 	
 	public IaComPlayer(GameManager gameManagerNew){ //nel costruttore dovremmo passare anche la difficoltà
 		gameManager=gameManagerNew;
@@ -174,8 +176,8 @@ public class IaComPlayer {
 	}
 
 	public static void resetPositionComPlayer() {
-			double startX = gameManager.getComPlayer().getStartPositionX()-(gameManager.getComPlayer().getStartPositionX()*0.1);
-			double startY = gameManager.getComPlayer().getStartPositionY()-(gameManager.getComPlayer().getStartPositionY()*0.4);
+			setStartX(gameManager.getComPlayer().getStartPositionX()-(gameManager.getComPlayer().getStartPositionX()*0.1));
+			setStartY(gameManager.getComPlayer().getStartPositionY()-(gameManager.getComPlayer().getStartPositionY()*0.4));
 			
 			double x = gameManager.getComPlayer().getX();
 			double y = gameManager.getComPlayer().getY();
@@ -291,6 +293,22 @@ public class IaComPlayer {
 //			System.out.println("X: "+x+" y: "+y+" posX:"+gameManager.getComPlayer().getX()+" posY "+gameManager.getComPlayer().getY());
 			
 			CenterGamePanel.comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
+	}
+
+	public static double getStartX() {
+		return startX;
+	}
+
+	public static void setStartX(double startX) {
+		IaComPlayer.startX = startX;
+	}
+
+	public static double getStartY() {
+		return startY;
+	}
+
+	public static void setStartY(double startY) {
+		IaComPlayer.startY = startY;
 	}
 
 }

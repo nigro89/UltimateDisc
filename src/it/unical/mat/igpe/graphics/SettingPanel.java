@@ -4,12 +4,15 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JPanel;
 
 public class SettingPanel extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static ImageProvider image = new ImageProvider();
 	private static Image background = image.getIntroBackground();
 	private static Image difficulty = image.getDifficulty();
@@ -29,7 +32,7 @@ public class SettingPanel extends JPanel {
 			     }
 			   //back
 			     else if((x>screen.getWidth()*0.10) && (x<screen.getWidth()*0.35) && (y>screen.getHeight()*0.68) && (y<screen.getHeight()*0.75)){
-			    	 mainFrame.goToMenuPanel();
+			    	 MainFrame.goToMenuPanel();
 			     }
 			}
 		});
