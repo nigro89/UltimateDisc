@@ -84,7 +84,7 @@ public class MainFrame extends JFrame {
 	{
 		gamePanel = new GamePanel(MainFrame.gameManager,this.imageProvider,myPlayer,comPlayer,playGround);
 		this.switchTo(gamePanel);
-		gameManager.start();
+		gameManager.start(playGround);
 		CenterGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();

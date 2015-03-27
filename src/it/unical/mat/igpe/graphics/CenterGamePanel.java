@@ -75,17 +75,17 @@ public class CenterGamePanel extends JPanel {
 		        					if(roundControllerStart)
 		        					{
 		        						// side MyPlayer
-		        						pointMyPlayerPosition0 = imageProvider.getPoints(3);
-		        						pointMyPlayerPosition1 = imageProvider.getPoints(3);
-		        						pointMyPlayerPosition2 = imageProvider.getPoints(5);
-		        						pointMyPlayerPosition3 = imageProvider.getPoints(3);
-		        						pointMyPlayerPosition4 = imageProvider.getPoints(3);
+		        						pointMyPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
+		        						pointMyPlayerPosition1 = imageProvider.getPoints(playGroundCGP,1);
+		        						pointMyPlayerPosition2 = imageProvider.getPoints(playGroundCGP,2);
+		        						pointMyPlayerPosition3 = imageProvider.getPoints(playGroundCGP,3);
+		        						pointMyPlayerPosition4 = imageProvider.getPoints(playGroundCGP,4);
 		        						// side ComPlayer
-		        						pointComPlayerPosition0 = imageProvider.getPoints(3);
-		        						pointComPlayerPosition1 = imageProvider.getPoints(3);
-		        						pointComPlayerPosition2 = imageProvider.getPoints(5);
-		        						pointComPlayerPosition3 = imageProvider.getPoints(3);
-		        						pointComPlayerPosition4 = imageProvider.getPoints(3);
+		        						pointComPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
+		        						pointComPlayerPosition1 = imageProvider.getPoints(playGroundCGP,1);
+		        						pointComPlayerPosition2 = imageProvider.getPoints(playGroundCGP,2);
+		        						pointComPlayerPosition3 = imageProvider.getPoints(playGroundCGP,3);
+		        						pointComPlayerPosition4 = imageProvider.getPoints(playGroundCGP,4);
 		        						roundImage = imageProvider.getRound(counterOfRounds);
 		        						repaint();
 		        						try
@@ -262,15 +262,15 @@ public class CenterGamePanel extends JPanel {
 					int positionHit = GameManager.getWorld().getWallCom().getStrickenWall(gameManager.getDisc().getY());
 					switch (positionHit) {
 						
-						case 0: pointComPlayerPosition0 = imageProvider.getPoints(3);
+						case 0: pointComPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
 								return 0;
-						case 1: pointComPlayerPosition1 = imageProvider.getPoints(3);
+						case 1: pointComPlayerPosition1 = imageProvider.getPoints(playGroundCGP,1);
 								return 1;
-						case 2: pointComPlayerPosition2 = imageProvider.getPoints(5);
+						case 2: pointComPlayerPosition2 = imageProvider.getPoints(playGroundCGP,2);
 								return 2;
-						case 3: pointComPlayerPosition3 = imageProvider.getPoints(3);
+						case 3: pointComPlayerPosition3 = imageProvider.getPoints(playGroundCGP,3);
 								return 3;		
-						case 4: pointComPlayerPosition4 = imageProvider.getPoints(3);
+						case 4: pointComPlayerPosition4 = imageProvider.getPoints(playGroundCGP,4);
 								return 4;
 						default:
 								return 0;
@@ -281,15 +281,15 @@ public class CenterGamePanel extends JPanel {
 					int positionHit = GameManager.getWorld().getWallMyPlayer().getStrickenWall(gameManager.getDisc().getY());
 					switch (positionHit) {
 						
-						case 0: pointMyPlayerPosition0 = imageProvider.getPoints(3);
+						case 0: pointMyPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
 								return 0;
-						case 1: pointMyPlayerPosition1 = imageProvider.getPoints(3);
+						case 1: pointMyPlayerPosition1 = imageProvider.getPoints(playGroundCGP,1);
 								return 1;
-						case 2: pointMyPlayerPosition2 = imageProvider.getPoints(5);
+						case 2: pointMyPlayerPosition2 = imageProvider.getPoints(playGroundCGP,2);
 								return 2;
-						case 3: pointMyPlayerPosition3 = imageProvider.getPoints(3);
+						case 3: pointMyPlayerPosition3 = imageProvider.getPoints(playGroundCGP,3);
 								return 3;		
-						case 4: pointMyPlayerPosition4 = imageProvider.getPoints(3);
+						case 4: pointMyPlayerPosition4 = imageProvider.getPoints(playGroundCGP,4);
 								return 4;
 						default:
 								return 0;

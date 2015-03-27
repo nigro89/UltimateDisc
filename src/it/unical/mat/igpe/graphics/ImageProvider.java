@@ -79,8 +79,8 @@ public class ImageProvider {
     private  Image boardMyPlayer;
     private  Image boardComPlayer;
     // gif
-    private  Image threeWallPointsGif;
-    private  Image fiveWallPointsGif;
+    private  Image lowGif;
+    private  Image highGif;
     
     private  Image frisbee;
 
@@ -332,8 +332,8 @@ public class ImageProvider {
     	  menuPause = tk.getImage("img/imageMenu.png");
     	  
     	  // world
-    	  threeWallPointsGif= tk.getImage("img/points/3points.gif");
-    	  fiveWallPointsGif= tk.getImage("img/points/5points.gif");
+    	  lowGif= tk.getImage(playGroundPath+"points/low.gif");
+    	  highGif= tk.getImage(playGroundPath+"points/high.gif");
     	  frisbee = tk.getImage("img/frisbee.png");
     	  // playGround
     	  lowPointMyPlayer = new ImageIcon(playGroundPath+"lowPointMyPlayer.png");
@@ -643,6 +643,9 @@ public class ImageProvider {
 	  	  fieldSouth = tk.getImage(playGroundPath+"fieldSouth.jpg");
 	  	  boardMyPlayer = tk.getImage(playGroundPath+"boardMyPlayer.png");
 	  	  boardComPlayer = tk.getImage(playGroundPath+"boardComPlayer.png");
+	  	  
+	  	lowGif= tk.getImage(playGroundPath+"points/low.gif");
+	  	highGif= tk.getImage(playGroundPath+"points/high.gif");
     }
 
 	public Image getRound() {
@@ -999,13 +1002,45 @@ public class ImageProvider {
 	    return comPlayerRight[0];
 }
 	
-	public Image getPoints(int points)
+	public Image getPoints(int playGround,int position)
 	{
-		 switch (points)
-		 {
-		   case 3:	return threeWallPointsGif;
-		   case 5:	return fiveWallPointsGif;
-		 }
+		if(playGround==0)
+		{
+			switch (position)
+			 {
+			   case 0:	return lowGif;
+			   case 1:	return lowGif;
+			   case 2:	return highGif;
+			   case 3:	return lowGif;
+			   case 4:	return lowGif;
+			   default:	return lowGif;
+			 }
+		}
+		if(playGround==1)
+		{
+			switch (position)
+			 {
+			   case 0:	return lowGif;
+			   case 1:	return highGif;
+			   case 2:	return lowGif;
+			   case 3:	return highGif;
+			   case 4:	return lowGif;
+			   default:	return lowGif;
+			 }
+		}
+		if(playGround==2)
+		{
+			switch (position)
+			 {
+			   case 0:	return lowGif;
+			   case 1:	return highGif;
+			   case 2:	return highGif;
+			   case 3:	return highGif;
+			   case 4:	return lowGif;
+			   default:	return lowGif;
+			 }
+		}
+		 
 		return null;
 	}
     
@@ -1017,7 +1052,7 @@ public class ImageProvider {
 		return highPointMyPlayer;
 	}
 	public Image getGif() {
-		return threeWallPointsGif;
+		return lowGif;
 	}
 
 	public Image getFrisbee() {
@@ -1029,7 +1064,7 @@ public class ImageProvider {
 	}
 	
 	public Image getFivePoints() {
-		return fiveWallPointsGif;
+		return highGif;
 	}
 
 	public Image getScore() {
@@ -1609,5 +1644,89 @@ public class ImageProvider {
 				case 5: return emilyDx;
 				default: return tomDx;
 			}
+		}
+		
+		public ImageIcon getWorldPointMyPlayer(int world,int position)
+		{
+			if(world==0)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointMyPlayer;
+					case 1: return lowPointMyPlayer;
+					case 2:	return highPointMyPlayer;
+					case 3:	return lowPointMyPlayer;
+					case 4: return lowPointMyPlayer;
+					default: return lowPointMyPlayer;
+				}
+			}
+			if(world==1)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointMyPlayer;
+					case 1: return highPointMyPlayer;
+					case 2:	return lowPointMyPlayer;
+					case 3:	return highPointMyPlayer;
+					case 4: return lowPointMyPlayer;
+					default: return lowPointMyPlayer;
+				}
+			}
+			if(world==2)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointMyPlayer;
+					case 1: return highPointMyPlayer;
+					case 2:	return highPointMyPlayer;
+					case 3:	return highPointMyPlayer;
+					case 4: return lowPointMyPlayer;
+					default: return lowPointMyPlayer;
+				}
+			}
+			
+			return null;
+		}
+		
+		public ImageIcon getWorldPointComPlayer(int world,int position)
+		{
+			if(world==0)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointComPlayer;
+					case 1: return lowPointComPlayer;
+					case 2:	return highPointComPlayer;
+					case 3:	return lowPointComPlayer;
+					case 4: return lowPointComPlayer;
+					default: return lowPointComPlayer;
+				}
+			}
+			if(world==1)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointComPlayer;
+					case 1: return highPointComPlayer;
+					case 2:	return lowPointComPlayer;
+					case 3:	return highPointComPlayer;
+					case 4: return lowPointComPlayer;
+					default: return lowPointComPlayer;
+				}
+			}
+			if(world==2)
+			{
+				switch (position) 
+				{
+					case 0: return lowPointComPlayer;
+					case 1: return highPointComPlayer;
+					case 2:	return highPointComPlayer;
+					case 3:	return highPointComPlayer;
+					case 4: return lowPointComPlayer;
+					default: return lowPointComPlayer;
+				}
+			}
+			
+			return null;
 		}
 }

@@ -65,7 +65,7 @@ public class GameManager {
 	}
 
 
-	public void start()
+	public void start(int playGround)
 	{
 //		stabilire i parametri da inizializzare a disc, myplayer e complayer. (tramite la grafica ci regoliamo)
 //		condidioni iniziali: disco in mano al myplayer
@@ -74,7 +74,7 @@ public class GameManager {
 		this.disc = new Disc(((int)(width*0.4)+radius),((int)(height*0.7)-radius),(int)width-(int)(width*0.115),(int)(height*0.75),(int)(height*0.1));
 		iaComPlayer = new IaComPlayer(this);
 		// in loadWorld passo type=0 come se fosse il campo di tipo 0
-		world = this.worldManager.loadWorld(disc, 0);
+		world = this.worldManager.loadWorld(disc, playGround);
 		startTime = (System.currentTimeMillis())/1000;
 	}
 	

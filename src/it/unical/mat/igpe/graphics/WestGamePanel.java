@@ -17,8 +17,11 @@ public class WestGamePanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	static ImageProvider imageProvider = new ImageProvider();
-	static ImageIcon one_point; 
-	static ImageIcon two_point;
+	static ImageIcon pointsPosition0; 
+	static ImageIcon pointsPosition1;
+	static ImageIcon pointsPosition2; 
+	static ImageIcon pointsPosition3;
+	static ImageIcon pointsPosition4; 
 	static Image woodBorder;
 	
     JLabel l = new JLabel();
@@ -38,30 +41,36 @@ public class WestGamePanel extends JPanel {
 	{
 		WestGamePanel.imageProvider=newImageProvider;
 		
-		one_point = imageProvider.getOne_point(); 
-		two_point = imageProvider.getTwo_point();
+		pointsPosition0 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 0); 
+		pointsPosition1 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 1);
+		pointsPosition2 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 2); 
+		pointsPosition3 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 3);
+		pointsPosition4 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 4); 
 		woodBorder = imageProvider.getWoodBoard();
 		
 		this.gameManager = gameManager;
 		
-		 this.setPreferredSize(new Dimension((int)width,(int)height));
+		this.setPreferredSize(new Dimension((int)width,(int)height));
 		  this.setLayout(new GridLayout(5,1));
-		  l.setIcon(one_point);
+		  l.setIcon(pointsPosition0);
 		  this.add(l);
-		  l1.setIcon(one_point);
+		  l1.setIcon(pointsPosition1);
 		  this.add(l1);
-		  l2.setIcon(two_point);
+		  l2.setIcon(pointsPosition2);
 		  this.add(l2);
-		  l3.setIcon(one_point);
+		  l3.setIcon(pointsPosition3);
 		  this.add(l3);
-		  l4.setIcon(one_point);
+		  l4.setIcon(pointsPosition4);
 		  this.add(l4);
 	}
 	
 	public static void load()
 	{
-		one_point = imageProvider.getOne_point(); 
-		two_point = imageProvider.getTwo_point();
+		pointsPosition0 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 0); 
+		pointsPosition1 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 1);
+		pointsPosition2 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 2); 
+		pointsPosition3 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 3);
+		pointsPosition4 = imageProvider.getWorldPointMyPlayer(CenterGamePanel.playGroundCGP, 4);
 		woodBorder = imageProvider.getWoodBoard();
 	}
 	
