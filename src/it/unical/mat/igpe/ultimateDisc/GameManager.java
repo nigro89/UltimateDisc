@@ -85,6 +85,7 @@ public class GameManager {
 		this.disc.restart();
 		world = this.worldManager.getWorld();
 		world.restart();
+		endTime=30;
 		startTime = (System.currentTimeMillis())/1000;
 	}
 

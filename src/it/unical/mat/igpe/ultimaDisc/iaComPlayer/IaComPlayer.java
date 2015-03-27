@@ -5,7 +5,6 @@ package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 import java.util.Random;
 
 import it.unical.mat.igpe.graphics.CenterGamePanel;
-import it.unical.mat.igpe.graphics.Screen;
 import it.unical.mat.igpe.graphics.ShotComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 import it.unical.mat.igpe.ultimateDisc.movingObject.ComPlayer;
@@ -34,73 +33,73 @@ public class IaComPlayer {
 	        	loadShoot=false;
 	        }
 
-	        public void setLoadShoot(boolean loadShoot) {
+	        public synchronized void setLoadShoot(boolean loadShoot) {
 				this.loadShoot = loadShoot;
 			}
 
 			@Override
 	        public void run()
 	        {
-				while(CenterGamePanel.repainterThread.end==false)
-	        	{	
-	        		if (loadShoot==true)
-	        		{
-	        			int randomY=0;
-	        			int randomX=-15;
-//	        			randomY = -30+new Random().nextInt(60);
-//        				randomX = -40+new Random().nextInt(35);
-	        			
-//	        			int startPositionPlayerX = 192;
-	        			int startPositionPlayerY = 270;
-	        			
-//	        			int xPlayer = gameManager.getMyPlayer().getX();
-	        			int yPlayer = gameManager.getMyPlayer().getY();
-	        			
-	        			//EASY
-	        			if(GameManager.getDifficultyLevel() == 0){
-	        				if(yPlayer>(startPositionPlayerY+10)){
-	        					randomY=4;
-	        				}
-	        				else if (yPlayer<=(startPositionPlayerY+10)){
-	        					randomY=-4;
-	        				}
-	        			}
-	        			//MEDIUM
-	        			else if(GameManager.getDifficultyLevel() == 1){
-	        				if(yPlayer>(startPositionPlayerY+10)){
-	        					randomY = 4+new Random().nextInt(6);
-	        				}
-	        				else if (yPlayer<=(startPositionPlayerY+10)){
-	        					randomY = -10+new Random().nextInt(9);
-	        				}
-	        				randomX=-35;
-	        			}
-	        			//HARD
-	        			else if(GameManager.getDifficultyLevel() == 2){
-	        				if(yPlayer>(startPositionPlayerY+10)){
-	        					randomY = -10+new Random().nextInt(9);
-	        				}
-	        				else if (yPlayer<=(startPositionPlayerY+10)){
-	        					randomY = 4+new Random().nextInt(6);
-	        				}
-	        				randomX=-45;
-	        			}
-	    	        	
-	    	        	try
-	            		{
-	            			sleep(500);
-	            		}
-	            		catch (final InterruptedException e)
-	            		{
-	            			System.out.println("errore run LoadShotComPlayerThread");
-	            		}
-	        			System.out.println("prima di shot");
-	    	        	ShotComPlayer s= new ShotComPlayer();
-	    	        	s.start();
-	    	        	gameManager.getDisc().setDirection(randomX, randomY);
-	        		}
-	        		loadShoot=false;
-	        	}
+					while(CenterGamePanel.repainterThread.end==false)
+		        	{	
+						if (loadShoot==true)
+		        		{
+		        			int randomY=0;
+		        			int randomX=-15;
+	//	        			randomY = -30+new Random().nextInt(60);
+	//        				randomX = -40+new Random().nextInt(35);
+		        			
+	//	        			int startPositionPlayerX = 192;
+		        			int startPositionPlayerY = 270;
+		        			
+	//	        			int xPlayer = gameManager.getMyPlayer().getX();
+		        			int yPlayer = gameManager.getMyPlayer().getY();
+		        			
+		        			//EASY
+		        			if(GameManager.getDifficultyLevel() == 0){
+		        				if(yPlayer>(startPositionPlayerY+10)){
+		        					randomY=4;
+		        				}
+		        				else if (yPlayer<=(startPositionPlayerY+10)){
+		        					randomY=-4;
+		        				}
+		        			}
+		        			//MEDIUM
+		        			else if(GameManager.getDifficultyLevel() == 1){
+		        				if(yPlayer>(startPositionPlayerY+10)){
+		        					randomY = 4+new Random().nextInt(6);
+		        				}
+		        				else if (yPlayer<=(startPositionPlayerY+10)){
+		        					randomY = -10+new Random().nextInt(9);
+		        				}
+		        				randomX=-35;
+		        			}
+		        			//HARD
+		        			else if(GameManager.getDifficultyLevel() == 2){
+		        				if(yPlayer>(startPositionPlayerY+10)){
+		        					randomY = -10+new Random().nextInt(9);
+		        				}
+		        				else if (yPlayer<=(startPositionPlayerY+10)){
+		        					randomY = 4+new Random().nextInt(6);
+		        				}
+		        				randomX=-45;
+		        			}
+		    	        	
+		    	        	try
+		            		{
+		            			sleep(500);
+		            		}
+		            		catch (final InterruptedException e)
+		            		{
+		            			System.out.println("errore run LoadShotComPlayerThread");
+		            		}
+		        			System.out.println("prima di shot");
+		    	        	ShotComPlayer s= new ShotComPlayer();
+		    	        	s.start();
+		    	        	gameManager.getDisc().setDirection(randomX, randomY);
+		        		}
+		        		setLoadShoot(false);
+		        	}
 	        }
 	    }
 	
