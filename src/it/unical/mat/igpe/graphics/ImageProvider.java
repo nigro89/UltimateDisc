@@ -94,6 +94,9 @@ public class ImageProvider {
     private  Image settingsWhite;
     private  Image exit;
     private  Image exitWhite;
+    private  Image easySelected;
+    private  Image mediumSelected;
+    private  Image hardSelected;
     
     // selectPlayerPanel
     private  Image selectPlayerPanelBackground;
@@ -473,6 +476,9 @@ public class ImageProvider {
     	  //settingPanel
     	  difficulty = tk.getImage("img/menu/difficulty.png");
     	  easyMediumHard = tk.getImage("img/menu/easyMediumHard.png");
+    	  easySelected = tk.getImage("img/menu/easySelected.png");
+    	  mediumSelected = tk.getImage("img/menu/mediumSelected.png");
+    	  hardSelected = tk.getImage("img/menu/hardSelected.png");
     	  
     	  // selectPlayerPanel
     	  selectPlayerPanelBackground = tk.getImage("img/selectPlayer/background.png");
@@ -1728,5 +1734,17 @@ public class ImageProvider {
 			}
 			
 			return null;
+		}
+
+		public Image getEasySelected() {
+			return easySelected;
+		}
+
+		public Image getMediumSelected() {
+			return mediumSelected;
+		}
+
+		public Image getHardSelected() {
+			return hardSelected;
 		}
 }

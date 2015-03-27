@@ -30,28 +30,29 @@ public class MenuPanel extends JPanel {
 			     final int y = e.getY();
 			     
 			     //play now
-			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60)){
+			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60))
+			     {
 			    	 play = image.getPlayGame();
 			    	 repaint();
-//			    	 mainFrame.startGame();
-//			    	 CenterGamePanel.getRepainterThread().setFinish(false);
-//			    	 CenterGamePanel.getRepainterThread().setStartGame(true);
 			    	 mainFrame.goToSelectPlayerPanel();
 			     }
 			     //settings
-			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
+			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76))
+			     {
+			    	 settingsImg = image.getSettings();
+			    	 repaint();
 			    	 //panel Settings
 			    	 mainFrame.goToSettingPanel();
 			     }
 			     //exit
-			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95)){
+			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95))
+			     {
+			    	 exitImg = image.getExit();
+			    	 repaint();
 			    	 mainFrame.dispatchEvent(new WindowEvent(mainFrame, WindowEvent.WINDOW_CLOSING));
 			     }
-//				 play = image.getPlayGame();
-//				 settingsImg = image.getSettings();
-//				 exitImg = image.getExit();
-//				 repaint();
 			}
+			
 			@Override
 		    public void mousePressed (final MouseEvent e){//mouseEntered
 				 final int x = e.getX();
@@ -65,12 +66,16 @@ public class MenuPanel extends JPanel {
 			    	 }
 			     }
 			     //settings
-			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76)){
+			     else if((x>screen.getWidth()*0.42) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.76))
+			     {
 			    	 settingsImg = image.getSettingsWhite();
+			    	 repaint();
 			     }
 			     //exit
-			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95)){
+			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95))
+			     {
 			    	 exitImg = image.getExitWhite();
+			    	 repaint();
 			     }
 			}
 		});
