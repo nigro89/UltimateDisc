@@ -1,7 +1,5 @@
 package it.unical.mat.igpe.ultimaDisc.iaComPlayer;
 
-
-
 import java.util.Random;
 
 import it.unical.mat.igpe.graphics.CenterGamePanel;
@@ -93,7 +91,6 @@ public class IaComPlayer {
 		            		{
 		            			System.out.println("errore run LoadShotComPlayerThread");
 		            		}
-		        			System.out.println("prima di shot");
 		    	        	ShotComPlayer s= new ShotComPlayer();
 		    	        	s.start();
 		    	        	gameManager.getDisc().setDirection(randomX, randomY);
