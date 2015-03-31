@@ -175,6 +175,81 @@ public class CenterGamePanel extends JPanel {
 		        				
 		        			}
 		        			
+		        			// caso pareggio
+		        			if(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false
+		        					&& (GameManager.getWorld().getMyPlayerScore()==GameManager.getWorld().getComScore()) )
+		        			{
+		        				gameManager.getDisc().reset();
+		        				gameManager.getMyPlayer().reset();
+		        				gameManager.getComPlayer().reset();
+	        					repaint();
+		        				lastShot = imageProvider.getLastShot();
+		        				try
+	        					{
+	        						sleep(1500);
+	        					}
+	        					catch (final InterruptedException e)
+	        					{
+	        						System.out.println("errore run RepainterThread");
+	        					}
+		        				lastShot = null;
+		        				
+		        			}
+		        			
+		        			while(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false
+		        					&& (GameManager.getWorld().getMyPlayerScore()==GameManager.getWorld().getComScore()) )
+		        			{
+		        				GameManager.setEqualize(true);
+		        				
+		        				gameManager.update();
+	        					repaint();
+	        					if(GameManager.isStop())
+	        					{
+	        						frisbeeImage=null;
+//	        						System.out.println("punti: "+gameManager.getWorld().getCurrentPoints());
+//	        						pointsImage = imageProvider.getPoints(gameManager.getWorld().getCurrentPoints());
+	        						int numberOfImageToActivate = getNumberOfImageToActivate();
+	        						scoreInfoImage = imageProvider.getScore();
+	        						myPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getMyPlayerScore());
+	        						comPlayerNumberScore = imageProvider.getNumberScore(GameManager.getWorld().getComScore());
+	        						try
+	        						{
+	        							sleep(2000);
+	        						}
+	        						catch (final InterruptedException e)
+	        						{
+	        							System.out.println("errore run RepainterThread GameManager Stopped");
+	        						}
+	        						gameManager.getDisc().reset();
+	        						
+	        						if(myPlayerGoal==true){
+	        							GameManager.setComPlayerAbility(true);
+	        							gameManager.getDisc().setDirection(10, 5);
+	        							myPlayerGoal=false;
+	        						}
+	        						else if(comPlayerGoal==true){
+	        							gameManager.getDisc().setDirection(-18, 14);
+	        							comPlayerGoal=false;
+	        						}
+	        						scoreInfoImage = null;
+	        						myPlayerNumberScore = null;
+	        						comPlayerNumberScore = null;
+	        						deActivateImagePoints(numberOfImageToActivate);
+	        						pointsImage = null;
+	        						frisbeeImage=imageProvider.getFrisbee();
+	        						GameManager.setStop(false);
+	        					}
+		        				try
+	        					{
+	        						sleep(10 + new Random().nextInt(30));
+	        					}
+	        					catch (final InterruptedException e)
+	        					{
+	        						System.out.println("errore run RepainterThread");
+	        					}
+		        			}
+		        			GameManager.setEqualize(false);
+		        			
 		        			if(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false){
 		        				
 		        				gameManager.update();
@@ -184,7 +259,7 @@ public class CenterGamePanel extends JPanel {
 		        				else
 		        					GameManager.getWorld().setRoundComPlayer(1);
 		        				
-		        				roundResumeImage = imageProvider.getScoreRound(GameManager.getWorld().getRoundMyPlayer(), GameManager.getWorld().getRoundMyPlayer());
+		        				roundResumeImage = imageProvider.getScoreRound(GameManager.getWorld().getRoundMyPlayer(), GameManager.getWorld().getRoundComPlayer());
 		        				repaint();
 		        				try
 		        				{
@@ -375,6 +450,7 @@ public class CenterGamePanel extends JPanel {
 	static Image exitWindowPause = null;	
 	
 	static Image shadow=null;
+	static Image lastShot=null;
 
 // shoot 
     private static int xShoot=5;
@@ -798,6 +874,7 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(comPlayerNumberScore, (int)(width*0.49),(int)(height*0.4) ,this);
 		//fine round
 		g.drawImage(roundImage, (int)((width/2)-(width/4)), 0,this);
+		g.drawImage(lastShot, (int)((width/2)-(width/4)), 0,this);
 		//fine pass
 		g.drawImage(roundResumeImage, (int)((width/2)-(width/7)), 0,this);
 		//pause

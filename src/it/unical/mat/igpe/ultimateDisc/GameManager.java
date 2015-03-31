@@ -33,6 +33,8 @@ public class GameManager {
 	static boolean pause=false;
 	
 	static boolean stop=false;
+	
+	static boolean equalize=false;
 		
 	public MyPlayer getMyPlayer() {
 		return myPlayer;
@@ -122,8 +124,20 @@ public class GameManager {
 	{
 		if (disc!=null && myPlayer!=null && comPlayer!=null && iaComPlayer!=null && world!=null)
 		{
-			if(pause==false){
-				if(timeUp()) 
+			if(pause==false)
+			{
+				if(timeUp() && equalize==true)
+				{
+					if(!stop)
+					{
+						disc.update();
+						myPlayer.update();
+						if(comPlayerAbility)
+							iaComPlayer.moveComPlayer(); 
+						checkCollision();
+					}
+				}
+				else if(timeUp()) 
 				{
 					disc.reset();
 					myPlayer.reset();
@@ -132,7 +146,8 @@ public class GameManager {
 				}
 				else
 				{
-					if(!stop){
+					if(!stop)
+					{
 						disc.update();
 						myPlayer.update();
 						if(comPlayerAbility)
@@ -215,5 +230,13 @@ public class GameManager {
 
 	public static void setDifficultyLevel(int difficultyLevel) {
 		GameManager.difficultyLevel = difficultyLevel;
+	}
+
+	public static boolean isEqualize() {
+		return equalize;
+	}
+
+	public static void setEqualize(boolean equalize) {
+		GameManager.equalize = equalize;
 	}
 }

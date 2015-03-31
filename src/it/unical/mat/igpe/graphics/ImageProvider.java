@@ -293,10 +293,13 @@ public class ImageProvider {
     private Image emilySx;
     private Image emilyDx;
     
+    private Image lastShot;
     
     public ImageProvider()
     {
     	  final Toolkit tk = Toolkit.getDefaultToolkit();
+    	  
+    	  lastShot = tk.getImage("img/lastShot.gif");
     	  
     	  // names
     	  tomSx = tk.getImage("img/names/tomSx.png");
@@ -1746,5 +1749,9 @@ public class ImageProvider {
 
 		public Image getHardSelected() {
 			return hardSelected;
+		}
+
+		public Image getLastShot() {
+			return lastShot;
 		}
 }
