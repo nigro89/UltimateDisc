@@ -550,19 +550,19 @@ public class CenterGamePanel extends JPanel {
 			    if (CenterGamePanel.repainterThread.gameFinished==true)
 			    {
 					// restart
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+200) && y>((int)(height/10)) && y<((int)(height/10)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.43)) && y>((int)(height*0.1)) && y<((int)(height*0.17)))
 				    {
 				    	restartWindowFinish = imageProvider.getRestartPushedWindowFinish();
 				    	repaint();
 				    }
 				    // menu
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+160) && y>((int)(height*0.23)) && y<((int)(height*0.23)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.41)) && y>((int)(height*0.23)) && y<((int)(height*0.3)))
 				    {
 				    	menuWindowFinish = imageProvider.getMenuPushedWindowFinish();
 				    	repaint();
 				    }
 				    // exit
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+120) && y>((int)(height*0.36)) && y<((int)(height*0.36)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.38)) && y>((int)(height*0.36)) && y<((int)(height*0.43)))
 				    {
 				    	exitWindowFinish = imageProvider.getExitPushedWindowFinish();
 				    	repaint();
@@ -572,25 +572,25 @@ public class CenterGamePanel extends JPanel {
 			    if(GameManager.isPause()==true)
 			    {
 			    	// resume
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+190) && y>((int)(height*0.08)) && y<((int)(height*0.08)+30))
+				    if(x>((int)(width*0.28)) && x<((int)(width*0.42)) && y>((int)(height*0.08)) && y<((int)(height*0.13)))
 				    {
 				    	resumeWindowPause = imageProvider.getResumePushedWindowPause();
 				    	repaint();
 				    }
 				    // restart
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+180) && y>((int)(height*0.19)) && y<((int)(height*0.19)+30))
+				    if(x>((int)(width*0.28)) && x<((int)(width*0.41)) && y>((int)(height*0.19)) && y<((int)(height*0.24)))
 				    {
 				    	restartWindowPause = imageProvider.getRestartPushedWindowPause();
 				    	repaint();
 				    }
 				    // menu
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+150) && y>((int)(height*0.31)) && y<((int)(height*0.31)+30))
+				    if(x>((int)(width*0.28)) && x<((int)(width*0.39)) && y>((int)(height*0.31)) && y<((int)(height*0.36)))
 				    {
 				    	menuWindowPause = imageProvider.getMenuPushedWindowPause();
 				    	repaint();
 				    }
 				    // exit
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+110) && y>((int)(height*0.42)) && y<((int)(height*0.42)+30))
+				    if(x>((int)(width*0.28)) && x<((int)(width*0.36)) && y>((int)(height*0.42)) && y<((int)(height*0.47)))
 				    {
 				    	exitWindowPause = imageProvider.getExitPushedWindowPause();
 				    	repaint();
@@ -607,7 +607,7 @@ public class CenterGamePanel extends JPanel {
 			    if (CenterGamePanel.repainterThread.gameFinished==true)
 			    {
 					// restart
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+200) && y>((int)(height/10)) && y<((int)(height/10)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.43)) && y>((int)(height*0.1)) && y<((int)(height*0.17)))
 				    {
 				    	restartWindowFinish = imageProvider.getRestartWindowFinish();
 				    	repaint();
@@ -615,7 +615,7 @@ public class CenterGamePanel extends JPanel {
 				    	CenterGamePanel.repainterThread.gameFinished=false;
 				    }
 				    // menu
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+160) && y>((int)(height*0.23)) && y<((int)(height*0.23)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.41)) && y>((int)(height*0.23)) && y<((int)(height*0.3)))
 				    {
 				    	menuWindowFinish = imageProvider.getMenuWindowFinish();
 				    	repaint();
@@ -624,7 +624,7 @@ public class CenterGamePanel extends JPanel {
 				    	CenterGamePanel.repainterThread.end=true;
 				    }
 				    // exit
-				    if(x>((int)(width*0.29)) && x<((int)(width*0.29)+120) && y>((int)(height*0.36)) && y<((int)(height*0.36)+40))
+			    	if(x>((int)(width*0.29)) && x<((int)(width*0.38)) && y>((int)(height*0.36)) && y<((int)(height*0.43)))
 				    {
 				    	exitWindowFinish = imageProvider.getExitWindowFinish();
 				    	repaint();
@@ -635,14 +635,14 @@ public class CenterGamePanel extends JPanel {
 			    // window pause
 				if(GameManager.isPause()==true){
 					// resume
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+190) && y>((int)(height*0.08)) && y<((int)(height*0.08)+30))
+					if(x>((int)(width*0.28)) && x<((int)(width*0.42)) && y>((int)(height*0.08)) && y<((int)(height*0.13)))
 				    {
 				    	resumeWindowPause = imageProvider.getResumeWindowPause();
 				    	repaint();
 				    	setImageMenu();
 				    }
 				    // restart
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+180) && y>((int)(height*0.19)) && y<((int)(height*0.19)+30))
+					if(x>((int)(width*0.28)) && x<((int)(width*0.41)) && y>((int)(height*0.19)) && y<((int)(height*0.24)))
 				    {
 				    	restartWindowPause = imageProvider.getRestartWindowPause();
 				    	repaint();
@@ -651,7 +651,7 @@ public class CenterGamePanel extends JPanel {
 				    	CenterGamePanel.repainterThread.gameFinished=false;
 				    }
 				    // menu
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+150) && y>((int)(height*0.31)) && y<((int)(height*0.31)+30))
+					if(x>((int)(width*0.28)) && x<((int)(width*0.39)) && y>((int)(height*0.31)) && y<((int)(height*0.36)))
 				    {
 				    	menuWindowPause = imageProvider.getMenuWindowPause();
 				    	repaint();
@@ -661,7 +661,7 @@ public class CenterGamePanel extends JPanel {
 				    	MainFrame.goToMenuPanel();
 				    }
 				    // exit
-				    if(x>((int)(width*0.28)) && x<((int)(width*0.28)+110) && y>((int)(height*0.42)) && y<((int)(height*0.42)+30))
+					if(x>((int)(width*0.28)) && x<((int)(width*0.36)) && y>((int)(height*0.42)) && y<((int)(height*0.47)))
 				    {
 				    	exitWindowPause = imageProvider.getExitWindowPause();
 				    	repaint();
@@ -854,7 +854,7 @@ public class CenterGamePanel extends JPanel {
 		// playground
 		g.drawImage(fieldImage,0,0,getWidth(),getHeight(),this);
 		//energyBar
-		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX()-15, gameManager.getMyPlayer().getY());
+		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX(), gameManager.getMyPlayer().getY());
 		// My player
 		g.drawImage(myPlayerImage,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
@@ -862,7 +862,7 @@ public class CenterGamePanel extends JPanel {
 		// disc
 		g.drawImage(frisbeeImage,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event
-		g.drawImage(gameOverImage,(getWidth()/2)-130,(getHeight()/2)-130,260,260,this); 
+		g.drawImage(gameOverImage,(int)(width*0.33),(int)(height*0.20),this); 
 		
 		g.drawLine(getWidth()/2, 0, getWidth()/2, getHeight());
 		
@@ -884,30 +884,28 @@ public class CenterGamePanel extends JPanel {
 //		else
 //			g.drawImage(pointsImage, 1, gameManager.getDisc().getY(),this);
 		
-		// point
-		int range = (int)((height*0.75)*0.2)/2;
 			//myplayer side
-		g.drawImage(pointMyPlayerPosition0, 1, range,this);
-		g.drawImage(pointMyPlayerPosition1, 1, range*3,this);
-		g.drawImage(pointMyPlayerPosition2, 1, range*6,this);
-		g.drawImage(pointMyPlayerPosition3, 1, range*9,this);
-		g.drawImage(pointMyPlayerPosition4, 1, range*11,this);
+		g.drawImage(pointMyPlayerPosition0, 1, (int)(height*0.02),this);
+		g.drawImage(pointMyPlayerPosition1, 1, (int)(height*0.22),this);
+		g.drawImage(pointMyPlayerPosition2, 1, (int)(height*0.42),this);
+		g.drawImage(pointMyPlayerPosition3, 1, (int)(height*0.62),this);
+		g.drawImage(pointMyPlayerPosition4, 1, (int)(height*0.82),this);
 			//complayer side
-		g.drawImage(pointComPlayerPosition0, (int)(width*0.80), range,this);
-		g.drawImage(pointComPlayerPosition1, (int)(width*0.80), range*3,this);
-		g.drawImage(pointComPlayerPosition2, (int)(width*0.80), range*6,this);
-		g.drawImage(pointComPlayerPosition3, (int)(width*0.80), range*9,this);
-		g.drawImage(pointComPlayerPosition4, (int)(width*0.80), range*11,this);	
+		g.drawImage(pointComPlayerPosition0, (int)(width*0.80), (int)(height*0.02),this);
+		g.drawImage(pointComPlayerPosition1, (int)(width*0.80), (int)(height*0.22),this);
+		g.drawImage(pointComPlayerPosition2, (int)(width*0.80), (int)(height*0.42),this);
+		g.drawImage(pointComPlayerPosition3, (int)(width*0.80), (int)(height*0.62),this);
+		g.drawImage(pointComPlayerPosition4, (int)(width*0.80), (int)(height*0.82),this);	
 
 		//score
 		g.drawImage(scoreInfoImage, (int)(width*0.29),(int)(height*0.3) ,this);
 		g.drawImage(myPlayerNumberScore, (int)(width*0.33),(int)(height*0.4) ,this);
 		g.drawImage(comPlayerNumberScore, (int)(width*0.49),(int)(height*0.4) ,this);
 		//fine round
-		g.drawImage(roundImage, (int)((width/2)-(width/4)), 0,this);
-		g.drawImage(lastShot, (int)((width/2)-(width/4)), 0,this);
+		g.drawImage(roundImage, (int)(width*0.26), 0,this);
+		g.drawImage(lastShot, (int)(width*0.26), 0,this);
 		//fine pass
-		g.drawImage(roundResumeImage, (int)((width/2)-(width/7)), 0,this);
+		g.drawImage(roundResumeImage, (int)(width*0.36), 0,this);
 		//pause
 		g.drawImage(pauseMenuImage, (int)(width*0.35), (int)(height*0.10), (int)(width*0.25), (int)(height*0.50),this);
 		
@@ -918,8 +916,8 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(exitWindowPause,(int)(width*0.25),0,this);
 		
 		//shadow
-		g.drawImage(shadow,gameManager.getMyPlayer().getX()+30,gameManager.getMyPlayer().getY()+130,this);
-		g.drawImage(shadow,gameManager.getComPlayer().getX()+30,gameManager.getComPlayer().getY()+130,this);
+		g.drawImage(shadow,gameManager.getMyPlayer().getX()+((int)(width*0.021)),gameManager.getMyPlayer().getY()+((int)(width*0.095)),this);
+		g.drawImage(shadow,gameManager.getComPlayer().getX()+((int)(width*0.021)),gameManager.getComPlayer().getY()+((int)(width*0.095)),this);
 		
 		// window finish
 		if (CenterGamePanel.repainterThread.gameFinished==true)
@@ -931,13 +929,6 @@ public class CenterGamePanel extends JPanel {
 			g.drawImage(exitWindowFinish,(int)(width*0.25),0,this);
 		}
 		
-		int p = (int) (height/5);
-		g.setColor(Color.red);
-		g.drawLine(0, p*0, (int) width, p*0);
-		g.drawLine(0, p, (int) width, p);
-		g.drawLine(0, p*2, (int) width, p*2);
-		g.drawLine(0, p*3, (int) width, p*3);
-		g.drawLine(0, p*4, (int) width, p*4);
 	}
 	
 	public static RepainterThread getRepainterThread() {

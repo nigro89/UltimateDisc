@@ -97,16 +97,16 @@ public class NorthGamePanel extends JPanel {
 
 		super.paintComponent(g);
 		g.drawImage(woodFieldNorth,0,0,getWidth(),getHeight(),this);
-		g.drawImage(scoreTime,(int) ((width/2)-300),0,this);
-		g.drawImage(time,(getWidth()/2)-50,15,this);
+		g.drawImage(scoreTime,(int)(width*0.28),0,this);
+		g.drawImage(time,(int)(width*0.46),(int)(height*0.09),this);
 		
 		pointsScoreMyPlayer = imageProvider.getScore(GameManager.getWorld().getMyPlayerScore());
 		pointsScoreComPlayer = imageProvider.getScore(GameManager.getWorld().getComScore());
-		g.drawImage(pointsScoreMyPlayer,(getWidth()/2)-(getWidth()/5),10,this);
-		g.drawImage(pointsScoreComPlayer,(getWidth()/2)+(getWidth()/11),10,this);
+		g.drawImage(pointsScoreMyPlayer,(int)(width*0.3),(int)(height*0.07),this);
+		g.drawImage(pointsScoreComPlayer,(int)(width*0.59),(int)(height*0.07),this);
 		
 		g.drawImage(myPlayerName,0,0,this);
-		g.drawImage(comPlayerName,(int)(width-300),0,this);
+		g.drawImage(comPlayerName,(int)(width*0.78),0,this);
 		
 	}
 }

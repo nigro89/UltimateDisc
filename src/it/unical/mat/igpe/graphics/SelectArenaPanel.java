@@ -44,13 +44,15 @@ public class SelectArenaPanel extends JPanel {
 					final int x = e.getX();
 				    final int y = e.getY();
 					
-				    if ( (x>((int)(width/20))) && (x<((int)(width/20)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+				    // back
+				    if ( (x>((int)(width*0.05))) && (x<((int)(width*0.15))) && (y>(int)(height*0.1)) && (y<((int)((height*0.19)))) )
 			    	{
 			    		back = imageProvider.getBackArenaPanel();
 			    		repaint();
 			    		mainFrame.goBackSelectPlayerPanel();
 			    	}
-				    if ( (x>((int)(width)-(width*0.15))) && (x<((int)(width)-(width*0.15)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+				    // play
+				    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && ((y>(int)(height*0.11)) && (y<((int)(height*0.20)))))
 			    	{
 			    		play = imageProvider.getPlayArenaPanel();
 			    		repaint();
@@ -69,13 +71,13 @@ public class SelectArenaPanel extends JPanel {
 				    final int y = e.getY();
 				    
 				    // back
-				    if ( (x>((int)(width/20))) && (x<((int)(width/20)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+				    if ( (x>((int)(width*0.05))) && (x<((int)(width*0.15))) && (y>(int)(height*0.1)) && (y<((int)((height*0.19)))) )
 				    {
 				    	back = imageProvider.getBackPushedArenaPanel();
 				    	repaint();
 				    }
-				    // done
-				    if ( (x>((int)(width)-(width*0.15))) && (x<((int)(width)-(width*0.15)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+				    // play
+				    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && ((y>(int)(height*0.11)) && (y<((int)(height*0.20)))))
 			    	{
 			    		play = imageProvider.getPlayPushedArenaPanel();
 			    		repaint();
@@ -83,7 +85,7 @@ public class SelectArenaPanel extends JPanel {
 
 				    
 				    // arena1 selected
-				    if ( (x>((int)(width/45))) && (x<((int)(width/45)+350)) && (y>(int)(height*0.4)) && (y<((int)((height*0.4))+200)) )
+				    if ( (x>((int)(width*0.022))) && (x<((int)(width*0.28))) && (y>(int)(height*0.4)) && (y<((int)((height*0.75)))) )
 			    	{
 				    	if (select != 0)
 				    	{
@@ -93,7 +95,7 @@ public class SelectArenaPanel extends JPanel {
 				    	}
 			    	}
 				    // arena2 selected
-				    if ( (x>((int)(width*0.35))) && (x<((int)(width*0.35)+350)) && (y>(int)(height*0.4)) && (y<((int)((height*0.4))+200)) )
+				    if ( (x>((int)(width*0.35))) && (x<((int)(width*0.608))) && (y>(int)(height*0.4)) && (y<((int)((height*0.75)))) )
 			    	{
 				    	if (select != 1)
 				    	{
@@ -103,7 +105,7 @@ public class SelectArenaPanel extends JPanel {
 				    	}
 			    	}
 				    // arena3 selected
-				    if ( (x>((int)(width*0.69))) && (x<((int)(width*0.69)+350)) && (y>(int)(height*0.4)) && (y<((int)((height*0.4))+200)) )
+				    if ( (x>((int)(width*0.69))) && (x<((int)(width*0.948))) && (y>(int)(height*0.4)) && (y<((int)((height*0.75)))) )
 			    	{
 				    	if (select != 2)
 				    	{

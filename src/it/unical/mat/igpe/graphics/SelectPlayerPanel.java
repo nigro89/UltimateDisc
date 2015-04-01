@@ -40,13 +40,15 @@ public class SelectPlayerPanel extends JPanel {
 				final int x = e.getX();
 			    final int y = e.getY();
 				
-			    if ( (x>((int)(width/20))) && (x<((int)(width/20)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+			    // back
+			    if ( (x>((int)(width*0.05))) && (x<((int)(width*0.15))) && (y>(int)(height*0.1)) && (y<((int)((height*0.18)))) )
 		    	{
 		    		back = imageProvider.getBack();
 		    		repaint();
 		    		MainFrame.goToMenuPanel();
 		    	}
-			    if ( (x>((int)(width)-(width*0.15))) && (x<((int)(width)-(width*0.15)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+			    // done
+			    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && (y>(int)(height*0.1)) && (y<((int)((height*0.19)))) )
 		    	{
 		    		done = imageProvider.getDone();
 		    		repaint();
@@ -61,19 +63,19 @@ public class SelectPlayerPanel extends JPanel {
 			    final int y = e.getY();
 			    
 			    // back
-			    if ( (x>((int)(width/20))) && (x<((int)(width/20)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+			    if ( (x>((int)(width*0.05))) && (x<((int)(width*0.15))) && (y>(int)(height*0.1)) && (y<((int)((height*0.18)))) )
 			    {
 			    	back = imageProvider.getBackPushed();
 			    	repaint();
 			    }
 			    // done
-			    if ( (x>((int)(width)-(width*0.15))) && (x<((int)(width)-(width*0.15)+140)) && (y>(int)(height/10)) && (y<((int)((height/10))+50)) )
+			    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && (y>(int)(height*0.1)) && (y<((int)((height*0.19)))) )
 		    	{
 		    		done = imageProvider.getDonePushed();
 		    		repaint();
 		    	}
 			    // tom
-			    if ( (x>((int)(width/8))) && (x<((int)(width/8)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
+			    if ( (x>((int)(width*0.125))) && (x<((int)(width*0.22))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
 		    	{
 			    	if(select==0)
 			    	{
@@ -88,7 +90,7 @@ public class SelectPlayerPanel extends JPanel {
 		    		repaint();
 		    	}
 			    // mario
-			    if ( (x>((int)(width*0.29))) && (x<((int)(width*0.29)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
+			    if ( (x>((int)(width*0.29))) && (x<((int)(width*0.385))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
 		    	{
 			    	if(select==0)
 			    	{
@@ -103,7 +105,7 @@ public class SelectPlayerPanel extends JPanel {
 		    		repaint();
 		    	}
 			    // alex
-			    if ( (x>((int)(width*0.45))) && (x<((int)(width*0.45)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
+			    if ( (x>((int)(width*0.45))) && (x<((int)(width*0.545))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
 		    	{
 			    	if(select==0)
 			    	{
@@ -118,7 +120,7 @@ public class SelectPlayerPanel extends JPanel {
 		    		repaint();
 		    	}
 			    // erik
-			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.61)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
+			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.705))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
 		    	{
 			    	if(select==0)
 			    	{
@@ -133,7 +135,7 @@ public class SelectPlayerPanel extends JPanel {
 		    		repaint();
 		    	}
 			    // emily
-			    if ( (x>((int)(width*0.76))) && (x<((int)(width*0.76)+130)) && (y>(int)(height)-(height/10)) && (y<((int)((height)-(height/10))+130)) )
+			    if ( (x>((int)(width*0.76))) && (x<((int)(width*0.855))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
 		    	{
 			    	if(select==0)
 			    	{
@@ -148,7 +150,7 @@ public class SelectPlayerPanel extends JPanel {
 		    		repaint();
 		    	}
 			    // myPlayer selected
-			    if ( (x>((int)(width/7))) && (x<((int)(width/7)+320)) && (y>(int)(height/5)) && (y<((int)((height/5))+320)) )
+			    if ( (x>((int)(width*0.142))) && (x<((int)(width*0.375))) && (y>(int)(height*0.2)) && (y<((int)((height*0.75)))) )
 		    	{
 			    	if (select == 1)
 			    	{
@@ -158,7 +160,7 @@ public class SelectPlayerPanel extends JPanel {
 			    	}
 		    	}
 			 // comPlayer selected
-			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.61)+320)) && (y>(int)(height/5)) && (y<((int)((height/5))+320)) )
+			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.843))) && (y>(int)(height*0.2)) && (y<((int)((height*0.75)))) )
 		    	{
 			    	if (select == 0)
 			    	{
@@ -193,12 +195,14 @@ public class SelectPlayerPanel extends JPanel {
 	public void paintComponent(final Graphics g) {
 	    super.paintComponent(g);
 	    g.drawImage(background, 0, 0, getWidth(),getHeight(),this);
+	    g.drawImage(selected, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(myPlayerSelected, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(comPlayerSelected, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(players, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(done, 0, 0, getWidth(),getHeight(),this);
 	    g.drawImage(back, 0, 0, getWidth(),getHeight(),this);
-	    g.drawImage(selected, 0, 0, getWidth(),getHeight(),this);
+	    
+	    
 	}
 
 }
