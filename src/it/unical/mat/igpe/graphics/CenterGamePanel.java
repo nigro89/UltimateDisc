@@ -28,12 +28,14 @@ public class CenterGamePanel extends JPanel {
 			private int counterOfRounds=0;
 			public boolean gameFinished = false;
 			public boolean end;
+			public int yDisc;
 
 			private RepainterThread(final GameManager gameManager)
 	        {
 	            super("Repainter");
 	            this.gameManager = gameManager;
 	            end=false;
+	            yDisc = 0;
 	        }
 			
 			public void restart()
@@ -47,6 +49,7 @@ public class CenterGamePanel extends JPanel {
 				roundControllerStart=true;
 				counterOfRounds=0;
 				gameFinished = false;
+				yDisc = 0;
 			}
 			
 			public void stopT()
@@ -60,6 +63,7 @@ public class CenterGamePanel extends JPanel {
 				roundControllerStart=true;
 				counterOfRounds=0;
 				gameFinished = false;
+				yDisc = 0;
 			}
 
 			@Override
@@ -179,9 +183,16 @@ public class CenterGamePanel extends JPanel {
 		        			if(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false
 		        					&& (GameManager.getWorld().getMyPlayerScore()==GameManager.getWorld().getComScore()) )
 		        			{
+		        				
 		        				gameManager.getDisc().reset();
 		        				gameManager.getMyPlayer().reset();
 		        				gameManager.getComPlayer().reset();
+		        				gameManager.getDisc().setAvailableForMyPlayer(false);
+		        				gameManager.getDisc().setAvailableForComPlayer(false);
+		        				myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
+		        				comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
+		        				frisbeeImage=imageProvider.getFrisbee();
+		        				gameManager.update();
 	        					repaint();
 		        				lastShot = imageProvider.getLastShot();
 		        				try
@@ -193,7 +204,7 @@ public class CenterGamePanel extends JPanel {
 	        						System.out.println("errore run RepainterThread");
 	        					}
 		        				lastShot = null;
-		        				
+		        				gameManager.getDisc().setDirection(-18, 14);
 		        			}
 		        			
 		        			while(gameManager.timeUp()==true && endRound==false && GameManager.isPause()==false
@@ -280,6 +291,17 @@ public class CenterGamePanel extends JPanel {
 		        				System.out.println("Round "+counterOfRounds+" MYplayerR: "+GameManager.getWorld().getRoundMyPlayer()+" ComPlayerR: "+GameManager.getWorld().getRoundComPlayer());
 		        				GameManager.getWorld().setMyPlayerScore(0);
 		        				GameManager.getWorld().setComScore(0);
+		        				
+		        				gameManager.getDisc().reset();
+		        				gameManager.getMyPlayer().reset();
+		        				gameManager.getComPlayer().reset();
+		        				gameManager.getDisc().setAvailableForMyPlayer(false);
+		        				gameManager.getDisc().setAvailableForComPlayer(false);
+		        				myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerRightMotionLess();
+		        				comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
+		        				frisbeeImage=imageProvider.getFrisbee();
+		        				gameManager.update();
+	        					repaint();
 		        			}
 		        			
 		        			if((GameManager.getWorld().getRoundMyPlayer()==2 || GameManager.getWorld().getRoundComPlayer()==2 
@@ -288,10 +310,13 @@ public class CenterGamePanel extends JPanel {
 		        				finishMatch=true;
 		        				counterOfRounds=0;
 		        				// image you win or game over!
-		        				gameOverImage = imageProvider.getGameOver();
+		        				if(GameManager.getWorld().getRoundMyPlayer()==2)
+		        					gameOverImage = imageProvider.getYouWin();
+		        				else
+		        					gameOverImage = imageProvider.getGameOver();
 		        				repaint();
 		        				try{
-		        					sleep(200);
+		        					sleep(1000);
 		        				}catch(InterruptedException e){}
 		        				gameFinished=true;
 		        			}
@@ -332,9 +357,9 @@ public class CenterGamePanel extends JPanel {
 			}
 
 			private int getNumberOfImageToActivate() {
+				int positionHit = GameManager.getWorld().getWallCom().getStrickenWall(getyDisc());
 				if (CenterGamePanel.getRepainterThread().isMyPlayerGoal())
 				{
-					int positionHit = GameManager.getWorld().getWallCom().getStrickenWall(gameManager.getDisc().getY());
 					switch (positionHit) {
 						
 						case 0: pointComPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
@@ -353,7 +378,6 @@ public class CenterGamePanel extends JPanel {
 				}
 				else
 				{
-					int positionHit = GameManager.getWorld().getWallMyPlayer().getStrickenWall(gameManager.getDisc().getY());
 					switch (positionHit) {
 						
 						case 0: pointMyPlayerPosition0 = imageProvider.getPoints(playGroundCGP,0);
@@ -400,6 +424,13 @@ public class CenterGamePanel extends JPanel {
 				this.startGame = startGame;
 			}
 
+			public int getyDisc() {
+				return yDisc;
+			}
+
+			public void setyDiscMyPlayer(int yDisc) {
+				this.yDisc = yDisc;
+			}
 	    }
 
 	/**
@@ -899,6 +930,14 @@ public class CenterGamePanel extends JPanel {
 			g.drawImage(menuWindowFinish,(int)(width*0.25),0,this);
 			g.drawImage(exitWindowFinish,(int)(width*0.25),0,this);
 		}
+		
+		int p = (int) (height/5);
+		g.setColor(Color.red);
+		g.drawLine(0, p*0, (int) width, p*0);
+		g.drawLine(0, p, (int) width, p);
+		g.drawLine(0, p*2, (int) width, p*2);
+		g.drawLine(0, p*3, (int) width, p*3);
+		g.drawLine(0, p*4, (int) width, p*4);
 	}
 	
 	public static RepainterThread getRepainterThread() {

@@ -88,7 +88,7 @@ public class Disc implements MovingObject  {
 	public void update() {
 		if(isAvailableForMyPlayer() == false && isAvailableForComPlayer()==false ){
 			if (getX() <= 0 && deltaX < 0 || getX() >= this.widthComponent && deltaX > 0)
-	        {
+	        { 
 	            deltaX = -deltaX;
 	            if (deltaX > 0)
 	            	this.complayer=true; 

@@ -54,7 +54,7 @@ public class Wall implements StaticObject {
 		{	
 			if (y<0){	y=0;	}
 			for (int i = (size-1); i >= 0; i--) {
-//				System.out.println(arrayBlock.get(i).getY_position()+" >= "+y);
+//				System.out.println(arrayBlock.get(i).getY_position()+" <= "+y);
 				if(arrayBlock.get(i).getY_position() <= y)
 				{	
 					return i;

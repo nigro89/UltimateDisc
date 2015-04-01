@@ -139,6 +139,7 @@ public class WorldImpl implements World {
 	public void update() {
 		
 		int y = disc.getY()+radius;
+		CenterGamePanel.repainterThread.setyDiscMyPlayer(y);
 		int point=0;
 		if (disc.isComplayer()==true)
 		{

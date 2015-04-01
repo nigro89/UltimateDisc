@@ -170,7 +170,6 @@ public class IaComPlayer {
 	}
 
 	public static void resetPositionComPlayer() {
-		System.out.println("reset position");
 			double x = gameManager.getComPlayer().getX();
 			double y = gameManager.getComPlayer().getY();
 			

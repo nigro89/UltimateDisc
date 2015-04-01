@@ -259,6 +259,7 @@ public class ImageProvider {
     
     //game over
     private  Image gameOver;
+    private  Image youWin;
     private  Image shadow;
 
     // window finish
@@ -621,6 +622,7 @@ public class ImageProvider {
     	  
     	  // game over
     	  gameOver = tk.getImage("img/gameOver.png");
+    	  youWin = tk.getImage("img/youWin.png");
     	  
     }
     
@@ -1125,6 +1127,10 @@ public class ImageProvider {
 	}
 
 	
+	public Image getYouWin() {
+		return youWin;
+	}
+
 	public Image getTime(long l) 
 	{
 			switch ((int)l)

@@ -42,6 +42,7 @@ public class WorldManager {
 			double height = (screenSize.getHeight()*0.75)/5;
 			
 			for (int i = 1; i < n.length; i++) {
+				System.out.println("height:"+height+" i:"+i+" ="+height*(i-1));
 				Integer value = Integer.parseInt(n[i]);
 				SmallWall smallWall = new SmallWall(value);
 				smallWall.setY_position(height*(i-1));
