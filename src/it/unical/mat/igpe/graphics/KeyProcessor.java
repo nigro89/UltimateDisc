@@ -114,7 +114,7 @@ class KeyProcessor extends javax.swing.Timer {
             			CenterGamePanel.myPlayerImage = CenterGamePanel.imageProvider.getMyPlayerShot(0);
             			if(CenterGamePanel.getxShoot()>=5 && CenterGamePanel.getxShoot()<=30){
             				CenterGamePanel.setxShoot(5);
-            				CenterGamePanel.energyShoot.increment(5);
+            				CenterGamePanel.energyShoot.increment(7);
             			}
             		}
             	}

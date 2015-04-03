@@ -609,19 +609,23 @@ public class CenterGamePanel extends JPanel {
 					// restart
 			    	if(x>((int)(width*0.29)) && x<((int)(width*0.43)) && y>((int)(height*0.1)) && y<((int)(height*0.17)))
 				    {
+			    		AudioProvider.stopMusicPlay();
 				    	restartWindowFinish = imageProvider.getRestartWindowFinish();
 				    	repaint();
 				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
 				    	CenterGamePanel.repainterThread.gameFinished=false;
+				    	AudioProvider.musicPlay();
 				    }
 				    // menu
 			    	if(x>((int)(width*0.29)) && x<((int)(width*0.41)) && y>((int)(height*0.23)) && y<((int)(height*0.3)))
 				    {
+			    		AudioProvider.stopMusicPlay();
 				    	menuWindowFinish = imageProvider.getMenuWindowFinish();
 				    	repaint();
 				    	MainFrame.stop();
 				    	MainFrame.goToMenuPanel();
 				    	CenterGamePanel.repainterThread.end=true;
+				    	MainFrame.goToMenuPanel();
 				    }
 				    // exit
 			    	if(x>((int)(width*0.29)) && x<((int)(width*0.38)) && y>((int)(height*0.36)) && y<((int)(height*0.43)))
@@ -644,21 +648,26 @@ public class CenterGamePanel extends JPanel {
 				    // restart
 					if(x>((int)(width*0.28)) && x<((int)(width*0.41)) && y>((int)(height*0.19)) && y<((int)(height*0.24)))
 				    {
+						AudioProvider.stopMusicPlay();
 				    	restartWindowPause = imageProvider.getRestartWindowPause();
 				    	repaint();
 				    	setImageMenu();
 				    	MainFrame.reStartGame(myPlayerCGP,comPlayerCGP,playGroundCGP);
 				    	CenterGamePanel.repainterThread.gameFinished=false;
+				    	AudioProvider.musicPlay();
 				    }
 				    // menu
 					if(x>((int)(width*0.28)) && x<((int)(width*0.39)) && y>((int)(height*0.31)) && y<((int)(height*0.36)))
 				    {
+						AudioProvider.stopMusicPlay();
 				    	menuWindowPause = imageProvider.getMenuWindowPause();
 				    	repaint();
 				    	CenterGamePanel.repainterThread.end=true;
 				    	setImageMenu();
 				    	MainFrame.stop();
+				    	AudioProvider.musicMainMenu();
 				    	MainFrame.goToMenuPanel();
+				    	
 				    }
 				    // exit
 					if(x>((int)(width*0.28)) && x<((int)(width*0.36)) && y>((int)(height*0.42)) && y<((int)(height*0.47)))
@@ -916,11 +925,11 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(exitWindowPause,(int)(width*0.25),0,this);
 		
 		//shadow
-		g.drawImage(shadow,gameManager.getMyPlayer().getX()+((int)(width*0.021)),gameManager.getMyPlayer().getY()+((int)(width*0.095)),this);
-		g.drawImage(shadow,gameManager.getComPlayer().getX()+((int)(width*0.021)),gameManager.getComPlayer().getY()+((int)(width*0.095)),this);
+//		g.drawImage(shadow,gameManager.getMyPlayer().getX()+((int)(width*0.021)),gameManager.getMyPlayer().getY()+((int)(width*0.095)),this);
+//		g.drawImage(shadow,gameManager.getComPlayer().getX()+((int)(width*0.021)),gameManager.getComPlayer().getY()+((int)(width*0.095)),this);
 		
-//		g.drawImage(shadow,(int) (gameManager.getMyPlayer().getX()*(1.25)),(int) (gameManager.getMyPlayer().getY()*(1.68)),(int)(width*0.073),(int)(height*0.049),this);
-//		g.drawImage(shadow,(int) (gameManager.getComPlayer().getX()*(0.2)),(int) (gameManager.getComPlayer().getY()*(0.5)),this);		
+		g.drawImage(shadow,(int) (gameManager.getMyPlayer().getX()*(1.25)),(int) (gameManager.getMyPlayer().getY()*(1.68)),(int)(width*0.073),(int)(height*0.049),this);
+		g.drawImage(shadow,(int) (gameManager.getComPlayer().getX()*(0.2)),(int) (gameManager.getComPlayer().getY()*(0.5)),this);		
 	
 		// window finish
 		if (CenterGamePanel.repainterThread.gameFinished==true)

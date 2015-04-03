@@ -97,6 +97,7 @@ public class ImageProvider {
     private  Image easySelected;
     private  Image mediumSelected;
     private  Image hardSelected;
+    private  Image enableDisable; 
     
     // selectPlayerPanel
     private  Image selectPlayerPanelBackground;
@@ -483,10 +484,10 @@ public class ImageProvider {
     	  easySelected = tk.getImage("img/menu/easySelected.png");
     	  mediumSelected = tk.getImage("img/menu/mediumSelected.png");
     	  hardSelected = tk.getImage("img/menu/hardSelected.png");
+    	  enableDisable = tk.getImage("img/menu/enableDisable.png");
     	  
     	  // selectPlayerPanel
     	  selectPlayerPanelBackground = tk.getImage("img/selectPlayer/background.png");
-
     	  myPlayerSelectedTom = tk.getImage("img/selectPlayer/myPlayerSelectedTom.png");
     	  comPlayerSelectedTom = tk.getImage("img/selectPlayer/comPlayerSelectedTom.png");
     	  myPlayerSelectedMario = tk.getImage("img/selectPlayer/myPlayerSelectedMario.png");
@@ -1759,5 +1760,9 @@ public class ImageProvider {
 
 		public Image getLastShot() {
 			return lastShot;
+		}
+
+		public Image getEnableDisable() {
+			return enableDisable;
 		}
 }
