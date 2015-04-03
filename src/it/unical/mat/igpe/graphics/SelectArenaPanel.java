@@ -61,6 +61,8 @@ public class SelectArenaPanel extends JPanel {
 				    	CenterGamePanel.getRepainterThread().setFinish(false);
 				    	CenterGamePanel.getRepainterThread().setStartGame(true);
 				    	select=0;
+				    	AudioProvider.stopMusicChooser();
+				    	AudioProvider.musicPlay();
 			    	}
 				}
 				

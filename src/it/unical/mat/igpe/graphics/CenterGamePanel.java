@@ -916,9 +916,11 @@ public class CenterGamePanel extends JPanel {
 		g.drawImage(exitWindowPause,(int)(width*0.25),0,this);
 		
 		//shadow
-		g.drawImage(shadow,gameManager.getMyPlayer().getX()+((int)(width*0.021)),gameManager.getMyPlayer().getY()+((int)(width*0.095)),this);
-		g.drawImage(shadow,gameManager.getComPlayer().getX()+((int)(width*0.021)),gameManager.getComPlayer().getY()+((int)(width*0.095)),this);
+//		g.drawImage(shadow,gameManager.getMyPlayer().getX()+((int)(width*0.021)),gameManager.getMyPlayer().getY()+((int)(width*0.095)),this);
+//		g.drawImage(shadow,gameManager.getComPlayer().getX()+((int)(width*0.021)),gameManager.getComPlayer().getY()+((int)(width*0.095)),this);
 		
+		g.drawImage(shadow,(int) (gameManager.getMyPlayer().getX()*(1.25)),(int) (gameManager.getMyPlayer().getY()*(1.68)),(int)(width*0.073),(int)(height*0.049),this);
+		g.drawImage(shadow,(int) (gameManager.getComPlayer().getX()*(0.2)),(int) (gameManager.getComPlayer().getY()*(0.5)),this);		
 		// window finish
 		if (CenterGamePanel.repainterThread.gameFinished==true)
 		{

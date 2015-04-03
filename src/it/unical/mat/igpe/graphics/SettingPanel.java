@@ -30,6 +30,10 @@ public class SettingPanel extends JPanel {
 			     if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.42) && (y<screen.getHeight()*0.60)){
 			    	 mainFrame.goToChooseDifficultyPanel();
 			     }
+			     //Audio
+			     else if((x>screen.getWidth()*0.32) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.65) && (y<screen.getHeight()*0.85)){
+			    	 mainFrame.goToAudioPanel();
+			     }
 			   //back
 			     else if((x>screen.getWidth()*0.10) && (x<screen.getWidth()*0.35) && (y>screen.getHeight()*0.68) && (y<screen.getHeight()*0.75)){
 			    	 MainFrame.goToMenuPanel();

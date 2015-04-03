@@ -44,6 +44,7 @@ public class MainFrame extends JFrame {
 	SelectArenaPanel selectArenaPanel;
 	SettingPanel settingPanel;
 	ChooseDifficultyPanel chooseDifficultyPanel;
+	AudioPanel audioPanel;
 	static MenuPanel menuPanel;
 	static JPanel contentPanel;
 	ImageProvider imageProvider;
@@ -56,6 +57,8 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame(GameManager gameManager,ImageProvider imageProvider)
 	{
+		AudioProvider.musicMainMenu();
+		
 		this.imageProvider=imageProvider;
 		MainFrame.contentPanel = new JPanel(new BorderLayout());
 		MainFrame.gameManager = gameManager;
@@ -128,11 +131,19 @@ public class MainFrame extends JFrame {
 		this.switchTo(chooseDifficultyPanel);
 	}
 	
+	public void goToAudioPanel() {
+		audioPanel = new AudioPanel(this);
+		this.switchTo(audioPanel);
+	}
+
 	public void goToSelectPlayerPanel()
 	{
 		selectPlayerPanel = new SelectPlayerPanel(this);
 		this.switchTo(selectPlayerPanel);
+		AudioProvider.stopMusicMainMenu();
+		AudioProvider.musicChooser();
 	}
+	
 	
 	public void goBackSelectPlayerPanel()
 	{
