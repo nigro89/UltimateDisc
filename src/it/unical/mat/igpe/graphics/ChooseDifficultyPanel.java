@@ -35,18 +35,21 @@ public class ChooseDifficultyPanel extends JPanel {
 			     {
 			    	 selected = image.getEasySelected();
 			    	 repaint();
+			    	 AudioProvider.clickAudio();
 			     }
 			     //medium
 			     else if((x>screen.getWidth()*0.40) && (x<screen.getWidth()*0.85) && (y>screen.getHeight()*0.62) && (y<screen.getHeight()*0.72))
 			     {
 			    	 selected = image.getMediumSelected();
 			    	 repaint();
+			    	 AudioProvider.clickAudio();
 			     }
 			     //hard
 			     else if((x>screen.getWidth()*0.60) && (x<screen.getWidth()*0.80) && (y>screen.getHeight()*0.75) && (y<screen.getHeight()*0.90))
 			     {
 			    	 selected = image.getHardSelected();
 			    	 repaint();
+			    	 AudioProvider.clickAudio();
 			     }
 			     
 			}
@@ -76,10 +79,12 @@ public class ChooseDifficultyPanel extends JPanel {
 			     //back
 			     else if((x>screen.getWidth()*0.10) && (x<screen.getWidth()*0.35) && (y>screen.getHeight()*0.68) && (y<screen.getHeight()*0.75)){
 			    	 mainFrame.goToSettingPanel();
+			    	 AudioProvider.clickAudio();
 			     }
 			     //main menu
 			     else if((x>screen.getWidth()*0.10) && (x<screen.getWidth()*0.50) && (y>screen.getHeight()*0.79) && (y<screen.getHeight()*0.87)){
 			    	 MainFrame.goToMenuPanel();
+			    	 AudioProvider.clickAudio();
 			     }
 			}
 		});

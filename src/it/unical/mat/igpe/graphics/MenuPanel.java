@@ -63,6 +63,7 @@ public class MenuPanel extends JPanel {
 			    	 {
 			    		 play = image.getPlayGameWhite();
 			    		 repaint();
+			    		 AudioProvider.clickAudio();
 			    	 }
 			     }
 			     //settings
@@ -70,12 +71,14 @@ public class MenuPanel extends JPanel {
 			     {
 			    	 settingsImg = image.getSettingsWhite();
 			    	 repaint();
+			    	 AudioProvider.clickAudio();
 			     }
 			     //exit
 			     else if((x>screen.getWidth()*0.58) && (x<screen.getWidth()*0.75) && (y>screen.getHeight()*0.82) && (y<screen.getHeight()*0.95))
 			     {
 			    	 exitImg = image.getExitWhite();
 			    	 repaint();
+			    	 AudioProvider.clickAudio();
 			     }
 			}
 		});

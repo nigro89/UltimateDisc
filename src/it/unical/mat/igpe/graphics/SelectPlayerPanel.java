@@ -67,12 +67,14 @@ public class SelectPlayerPanel extends JPanel {
 			    {
 			    	back = imageProvider.getBackPushed();
 			    	repaint();
+			    	AudioProvider.clickAudio2();
 			    }
 			    // done
 			    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && (y>(int)(height*0.1)) && (y<((int)((height*0.19)))) )
 		    	{
 		    		done = imageProvider.getDonePushed();
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // tom
 			    if ( (x>((int)(width*0.125))) && (x<((int)(width*0.22))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
@@ -88,6 +90,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		comPlayer=1;
 			    	}
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // mario
 			    if ( (x>((int)(width*0.29))) && (x<((int)(width*0.385))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
@@ -103,6 +106,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		comPlayer=2;
 			    	}
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // alex
 			    if ( (x>((int)(width*0.45))) && (x<((int)(width*0.545))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
@@ -118,6 +122,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		comPlayer=3;
 			    	}
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // erik
 			    if ( (x>((int)(width*0.61))) && (x<((int)(width*0.705))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
@@ -133,6 +138,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		comPlayer=4;
 			    	}
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // emily
 			    if ( (x>((int)(width*0.76))) && (x<((int)(width*0.855))) && (y>(int)(height*0.9)) && (y<((int)((height*1.13)))) )
@@ -148,6 +154,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		comPlayer=5;
 			    	}
 		    		repaint();
+		    		AudioProvider.clickAudio2();
 		    	}
 			    // myPlayer selected
 			    if ( (x>((int)(width*0.142))) && (x<((int)(width*0.375))) && (y>(int)(height*0.2)) && (y<((int)((height*0.75)))) )
@@ -157,6 +164,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		selected = imageProvider.getSelectedMyPlayer();
 			    		repaint();
 			    		select=0;
+			    		AudioProvider.clickAudio2();
 			    	}
 		    	}
 			 // comPlayer selected
@@ -167,6 +175,7 @@ public class SelectPlayerPanel extends JPanel {
 			    		selected = imageProvider.getSelectedComPlayer();
 			    		repaint();
 			    		select=1;
+			    		AudioProvider.clickAudio2();
 			    	}
 		    	}
 			}

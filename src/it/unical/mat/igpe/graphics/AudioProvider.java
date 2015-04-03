@@ -14,6 +14,9 @@ public class AudioProvider {
 	static Clip musicMainMenu;
 	static Clip musicChooser;
 	static Clip musicPlay;
+	static Clip click;
+	static Clip click2;
+	static Clip playButton;
 	
 	public static void musicPlay(){
 		try {
@@ -92,4 +95,63 @@ public class AudioProvider {
 			// TODO: handle exception
 		}
 	}
+	
+	public static void clickAudio(){
+		try {
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File("audio/click.wav"));
+			AudioFormat af = ais.getFormat();
+			DataLine.Info info = new DataLine.Info(Clip.class, af);
+			
+			if (!AudioSystem.isLineSupported(info)) {
+				System.out.println("unsupported line");
+				System.exit(0);
+			}
+			click = (Clip) AudioSystem.getLine(info);
+			click.open(ais);
+			click.start();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	
+	public static void clickAudio2(){
+		try {
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File("audio/click2.wav"));
+			AudioFormat af = ais.getFormat();
+			DataLine.Info info = new DataLine.Info(Clip.class, af);
+			
+			if (!AudioSystem.isLineSupported(info)) {
+				System.out.println("unsupported line");
+				System.exit(0);
+			}
+			click2 = (Clip) AudioSystem.getLine(info);
+			click2.open(ais);
+			click2.start();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
+	public static void playButton(){
+		try {
+			AudioInputStream ais = AudioSystem.getAudioInputStream(new File("audio/playButton.wav"));
+			AudioFormat af = ais.getFormat();
+			DataLine.Info info = new DataLine.Info(Clip.class, af);
+			
+			if (!AudioSystem.isLineSupported(info)) {
+				System.out.println("unsupported line");
+				System.exit(0);
+			}
+			playButton = (Clip) AudioSystem.getLine(info);
+			playButton.open(ais);
+			playButton.start();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+	
 }

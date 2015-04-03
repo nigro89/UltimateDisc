@@ -117,6 +117,8 @@ public class MainFrame extends JFrame {
 	public static void goToMenuPanel()
 	{
 		mainFrame.switchTo(menuPanel);
+		AudioProvider.stopMusicChooser();
+		AudioProvider.musicMainMenu();
 	}
 	
 	public void goToSettingPanel()

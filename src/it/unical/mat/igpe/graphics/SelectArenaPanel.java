@@ -77,12 +77,14 @@ public class SelectArenaPanel extends JPanel {
 				    {
 				    	back = imageProvider.getBackPushedArenaPanel();
 				    	repaint();
+				    	AudioProvider.clickAudio2();
 				    }
 				    // play
 				    if ( (x>((int)(width*0.85))) && (x<((int)(width*0.95))) && ((y>(int)(height*0.11)) && (y<((int)(height*0.20)))))
 			    	{
 			    		play = imageProvider.getPlayPushedArenaPanel();
 			    		repaint();
+			    		AudioProvider.playButton();
 			    	}
 
 				    
@@ -94,6 +96,7 @@ public class SelectArenaPanel extends JPanel {
 				    		selected = imageProvider.getSelectedArena1();
 				    		repaint();
 				    		select=0;
+				    		AudioProvider.clickAudio2();
 				    	}
 			    	}
 				    // arena2 selected
@@ -104,6 +107,7 @@ public class SelectArenaPanel extends JPanel {
 				    		selected = imageProvider.getSelectedArena2();
 				    		repaint();
 				    		select=1;
+				    		AudioProvider.clickAudio2();
 				    	}
 			    	}
 				    // arena3 selected
@@ -114,6 +118,7 @@ public class SelectArenaPanel extends JPanel {
 				    		selected = imageProvider.getSelectedArena3();
 				    		repaint();
 				    		select=2;
+				    		AudioProvider.clickAudio2();
 				    	}
 			    	}
 				}
