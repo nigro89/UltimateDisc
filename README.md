@@ -89,7 +89,6 @@ AGGIORNAMENTO
 Selezione personaggio avversario
 
 
-prova
 
 
 
