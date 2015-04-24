@@ -88,6 +88,9 @@ DA FARE:
 AGGIORNAMENTO
 Selezione personaggio avversario
 
+prova
+
+
 
 
 
