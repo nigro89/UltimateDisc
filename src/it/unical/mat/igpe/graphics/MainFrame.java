@@ -1,6 +1,5 @@
 package it.unical.mat.igpe.graphics;
 
-import it.unical.mat.igpe.ultimaDisc.iaComPlayer.IaComPlayer;
 import it.unical.mat.igpe.ultimateDisc.GameManager;
 
 import java.awt.BorderLayout;
@@ -91,7 +90,6 @@ public class MainFrame extends JFrame {
 		CenterGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();
-		IaComPlayer.loadShotComPlayerThread.start();
 	}
 	
 	public static  void reStartGame(int myPlayer,int comPlayer,int playGround)
@@ -100,7 +98,6 @@ public class MainFrame extends JFrame {
 		CenterGamePanel.restart();
 		CenterGamePanel.repainterThread.restart();
 		SouthGamePanel.repainterThread.restart();
-		IaComPlayer.loadShotComPlayerThread.restart();
 	}
 	
 	public static void stop()
@@ -110,7 +107,6 @@ public class MainFrame extends JFrame {
 		CenterGamePanel.repainterThread.stopT();
 		SouthGamePanel.repainterThread.stopT();
 		NorthGamePanel.repainterThread.stopT();
-		IaComPlayer.loadShotComPlayerThread.stopT();
 		System.out.println(CenterGamePanel.repainterThread.end);
 	}
 	

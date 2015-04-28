@@ -10,102 +10,11 @@ import it.unical.mat.igpe.ultimateDisc.movingObject.Player;
 
 public class IaComPlayer {
 	
-	 public final static class LoadShotComPlayerThread extends Thread
-	    {
-	        private static GameManager gameManager;
-	        boolean loadShoot;
-
-	        private LoadShotComPlayerThread(GameManager gameManagerNew)
-	        {
-	            gameManager = gameManagerNew;
-	            loadShoot=false;
-	        }
-	        
-	        public void restart()
-	        {
-	        	loadShoot=false;
-	        }
-	        
-	        public void stopT()
-	        {
-	        	loadShoot=false;
-	        }
-
-	        public synchronized void setLoadShoot(boolean loadShoot) {
-				this.loadShoot = loadShoot;
-			}
-
-			@Override
-	        public void run()
-	        {
-					while(CenterGamePanel.repainterThread.end==false)
-		        	{	
-						if (loadShoot==true)
-		        		{
-		        			int randomY=0;
-		        			int randomX=-15;
-	//	        			randomY = -30+new Random().nextInt(60);
-	//        				randomX = -40+new Random().nextInt(35);
-		        			
-	//	        			int startPositionPlayerX = 192;
-		        			int startPositionPlayerY = 270;
-		        			
-	//	        			int xPlayer = gameManager.getMyPlayer().getX();
-		        			int yPlayer = gameManager.getMyPlayer().getY();
-		        			
-		        			//EASY
-		        			if(GameManager.getDifficultyLevel() == 0){
-		        				if(yPlayer>(startPositionPlayerY+10)){
-		        					randomY=4;
-		        				}
-		        				else if (yPlayer<=(startPositionPlayerY+10)){
-		        					randomY=-4;
-		        				}
-		        			}
-		        			//MEDIUM
-		        			else if(GameManager.getDifficultyLevel() == 1){
-		        				if(yPlayer>(startPositionPlayerY+10)){
-		        					randomY = 4+new Random().nextInt(6);
-		        				}
-		        				else if (yPlayer<=(startPositionPlayerY+10)){
-		        					randomY = -10+new Random().nextInt(9);
-		        				}
-		        				randomX=-35;
-		        			}
-		        			//HARD
-		        			else if(GameManager.getDifficultyLevel() == 2){
-		        				if(yPlayer>(startPositionPlayerY+10)){
-		        					randomY = -10+new Random().nextInt(9);
-		        				}
-		        				else if (yPlayer<=(startPositionPlayerY+10)){
-		        					randomY = 4+new Random().nextInt(6);
-		        				}
-		        				randomX=-45;
-		        			}
-		    	        	
-		    	        	try
-		            		{
-		            			sleep(500);
-		            		}
-		            		catch (final InterruptedException e)
-		            		{
-		            			System.out.println("errore run LoadShotComPlayerThread");
-		            		}
-		    	        	ShotComPlayer s= new ShotComPlayer();
-		    	        	s.start();
-		    	        	gameManager.getDisc().setDirection(randomX, randomY);
-		        		}
-		        		setLoadShoot(false);
-		        	}
-	        }
-	    }
 	
 	static GameManager gameManager;
-	public static LoadShotComPlayerThread loadShotComPlayerThread;
 	
 	public IaComPlayer(GameManager gameManagerNew){ //nel costruttore dovremmo passare anche la difficoltà
 		gameManager=gameManagerNew;
-		loadShotComPlayerThread = new LoadShotComPlayerThread(gameManagerNew);
 	}
 	
 	public void moveComPlayer() {
@@ -162,10 +71,10 @@ public class IaComPlayer {
 	}
 
 	public static  void shoot() {
-		
 		gameManager.getDisc().setPositionCom(gameManager.getComPlayer().getX()-(int)(ComPlayer.getWithimage()*0.5), gameManager.getComPlayer().getY());
-//		//		loadShotComPlayerThread.shoot();
-		loadShotComPlayerThread.setLoadShoot(true);
+//		loadShotComPlayerThread.shoot();
+//		loadShotComPlayerThread.setLoadShoot(true);
+		shootCom();
 		gameManager.getDisc().setAvailableForComPlayer(false);
 	}
 
@@ -284,6 +193,64 @@ public class IaComPlayer {
 //			System.out.println("X: "+x+" y: "+y+" posX:"+gameManager.getComPlayer().getX()+" posY "+gameManager.getComPlayer().getY());
 			
 			CenterGamePanel.comPlayerImage = CenterGamePanel.imageProvider.getComPlayerLeftMotionLess();
+	}
+	
+    public static void shootCom() 
+    {
+//		this.loadShoot = loadShoot;
+
+		int randomY=0;
+		int randomX=-15;
+//    			randomY = -30+new Random().nextInt(60);
+//				randomX = -40+new Random().nextInt(35);
+		
+//    			int startPositionPlayerX = 192;
+		int startPositionPlayerY = 270;
+		
+//    			int xPlayer = gameManager.getMyPlayer().getX();
+		int yPlayer = gameManager.getMyPlayer().getY();
+		
+		//EASY
+		if(GameManager.getDifficultyLevel() == 0){
+			if(yPlayer>(startPositionPlayerY+10)){
+				randomY=4;
+			}
+			else if (yPlayer<=(startPositionPlayerY+10)){
+				randomY=-4;
+			}
+		}
+		//MEDIUM
+		else if(GameManager.getDifficultyLevel() == 1){
+			if(yPlayer>(startPositionPlayerY+10)){
+				randomY = 4+new Random().nextInt(6);
+			}
+			else if (yPlayer<=(startPositionPlayerY+10)){
+				randomY = -10+new Random().nextInt(9);
+			}
+			randomX=-35;
+		}
+		//HARD
+		else if(GameManager.getDifficultyLevel() == 2){
+			if(yPlayer>(startPositionPlayerY+10)){
+				randomY = -10+new Random().nextInt(9);
+			}
+			else if (yPlayer<=(startPositionPlayerY+10)){
+				randomY = 4+new Random().nextInt(6);
+			}
+			randomX=-45;
+		}
+		
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	ShotComPlayer s= new ShotComPlayer();
+    	s.start();
+    	gameManager.getDisc().setDirection(randomX, randomY);
+	
 	}
 
 }
