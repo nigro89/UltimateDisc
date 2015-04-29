@@ -169,7 +169,7 @@ public class CenterGamePanel extends JPanel {
 		        					}
 		        					try
 		        					{
-		        						sleep(40 + new Random().nextInt(10));
+		        						sleep(10 + new Random().nextInt(30));
 		        					}
 		        					catch (final InterruptedException e)
 		        					{
