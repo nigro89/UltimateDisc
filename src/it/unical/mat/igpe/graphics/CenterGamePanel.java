@@ -169,7 +169,7 @@ public class CenterGamePanel extends JPanel {
 		        					}
 		        					try
 		        					{
-		        						sleep(10 + new Random().nextInt(30));
+		        						sleep(40 + new Random().nextInt(10));
 		        					}
 		        					catch (final InterruptedException e)
 		        					{
@@ -490,7 +490,7 @@ public class CenterGamePanel extends JPanel {
 	Screen screen = Screen.getInstance();
     double width = screen.getWidth();
     double height = screen.getHeight()*0.75;
-	int dimensionOfDisc = (int)width/17;
+	int dimensionOfDisc = (int)width/14;
 	int radius = dimensionOfDisc/2;
 // utility object
     private final GameManager gameManager;

@@ -6,9 +6,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -48,15 +45,17 @@ public class MainFrame extends JFrame {
 	static JPanel contentPanel;
 	ImageProvider imageProvider;
 	
+	Frisbee frisbee;
+	
 	static GameManager gameManager;
 	static MainFrame mainFrame;
 	
-	public static Lock lockIaComPlayer = new ReentrantLock();
-	public static Condition conditionIaComPlayer = lockIaComPlayer.newCondition();
 	
 	public MainFrame(GameManager gameManager,ImageProvider imageProvider)
 	{
 		AudioProvider.musicMainMenu();
+		
+		frisbee = new Frisbee(gameManager);
 		
 		this.imageProvider=imageProvider;
 		MainFrame.contentPanel = new JPanel(new BorderLayout());
@@ -90,6 +89,7 @@ public class MainFrame extends JFrame {
 		CenterGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();
+//		frisbee.start();
 	}
 	
 	public static  void reStartGame(int myPlayer,int comPlayer,int playGround)
