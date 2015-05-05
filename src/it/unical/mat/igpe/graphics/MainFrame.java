@@ -55,8 +55,6 @@ public class MainFrame extends JFrame {
 	{
 		AudioProvider.musicMainMenu();
 		
-		frisbee = new Frisbee(gameManager);
-		
 		this.imageProvider=imageProvider;
 		MainFrame.contentPanel = new JPanel(new BorderLayout());
 		MainFrame.gameManager = gameManager;
@@ -89,6 +87,8 @@ public class MainFrame extends JFrame {
 		CenterGamePanel.repainterThread.start();
 		NorthGamePanel.repainterThread.start();
 		SouthGamePanel.repainterThread.start();
+		
+//		frisbee = new Frisbee(gameManager);
 //		frisbee.start();
 	}
 	

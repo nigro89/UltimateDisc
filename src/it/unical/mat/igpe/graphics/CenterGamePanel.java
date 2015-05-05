@@ -29,6 +29,10 @@ public class CenterGamePanel extends JPanel {
 			public boolean gameFinished = false;
 			public boolean end;
 			public int yDisc;
+			
+			int potenzaTiro;
+			int absYdisc;
+			int sleep;
 
 			private RepainterThread(final GameManager gameManager)
 	        {
@@ -169,7 +173,7 @@ public class CenterGamePanel extends JPanel {
 		        					}
 		        					try
 		        					{
-		        						sleep(10 + new Random().nextInt(30));
+		        							sleep(10 + new Random().nextInt(30));
 		        					}
 		        					catch (final InterruptedException e)
 		        					{
@@ -862,14 +866,14 @@ public class CenterGamePanel extends JPanel {
 		super.paintComponent(g);
 		// playground
 		g.drawImage(fieldImage,0,0,getWidth(),getHeight(),this);
+		// disc
+		g.drawImage(frisbeeImage,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//energyBar
 		CenterGamePanel.energyShoot.setLocation(gameManager.getMyPlayer().getX(), gameManager.getMyPlayer().getY());
 		// My player
 		g.drawImage(myPlayerImage,gameManager.getMyPlayer().getX(),gameManager.getMyPlayer().getY(),this);
 		// COM player
 		g.drawImage(comPlayerImage,gameManager.getComPlayer().getX(),gameManager.getComPlayer().getY(),this);
-		// disc
-		g.drawImage(frisbeeImage,gameManager.getDisc().getX(),gameManager.getDisc().getY(),dimensionOfDisc,dimensionOfDisc,this); 
 		//event
 		g.drawImage(gameOverImage,(int)(width*0.33),(int)(height*0.20),this); 
 		
